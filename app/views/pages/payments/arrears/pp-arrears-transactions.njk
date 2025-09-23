@@ -1,0 +1,157 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/payments/arrears/pp-arrears-details" class="govuk-back-link">Back to arrears details</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Child maintenance arrears statement</h1>
+
+			<table class="govuk-table">
+			<caption class="govuk-table__caption govuk-table__caption--m">Arrears statement for 12 September 2021 to 11 September 2022</caption>
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+				<th scope="col" class="govuk-table__header">Description</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric" style="white-space:nowrap;">Amount</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric">Arrears balance</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">12/09/2021</th>
+				<td class="govuk-table__cell">Opening arrears balance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"></td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,400.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/09/2021</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£10.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,410.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/09/2021</th>
+				<td class="govuk-table__cell">Collection fee not received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£15.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,425.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/10/2021</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£40.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,385.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">28/10/2021</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£100.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,285.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/11/2021</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£5.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,290.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/12/2021</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£40.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,250.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/01/2022</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£40.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,210.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">28/01/2022</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£200.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,010.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/02/2022</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£40.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£970.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/01/2022</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£100.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£870.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/03/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£30.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£900.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">06/04/2022</th>
+				<td class="govuk-table__cell">Arrears payment received</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£140.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£760.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/04/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£80.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£840.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/05/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£990.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/06/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,140.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/07/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,290.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/07/2022</th>
+				<td class="govuk-table__cell">Enforcement action charge</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£300.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,590.00</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">26/08/2022</th>
+				<td class="govuk-table__cell">Underpayment of regular maintenance</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,740.00</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

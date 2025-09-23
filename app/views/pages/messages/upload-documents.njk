@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Which report are you uploading evidence for?</h1>
+      <p class="govuk-body">If your evidence supports multiple reports, you need to add your evidence to each report seperately.</p>
+
+       <ul class="track-changes-result-list govuk-list">
+        <li class="track-changes-result-list__change-item">
+            {{govukTag({
+                text: "In Progress",
+                classes: "govuk-tag--yellow right"
+              })
+            }}
+          <a href="/pages/messages/upload-evidence/start-alt" class="govuk-body govuk-link bold">Change to shared care</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+             <p class="govuk-body">Submitted: 6 July 2025</p>
+          </p>
+        </li>
+
+        <li class="track-changes-result-list__change-item">
+            {{govukTag({
+                text: "In Progress",
+                classes: "govuk-tag--yellow right"
+              })
+            }}
+          <a href="" class="govuk-body govuk-link bold">Change of income</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Submitted: 3 July 2025</span>
+          </p>
+        </li>
+
+        <li class="track-changes-result-list__change-item">
+           {{govukTag({
+                text: "In Progress",
+                classes: "govuk-tag--yellow right"
+              })
+            }}
+          <a href="" class="govuk-body govuk-link bold">Change of service type</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Submitted: 20 June 2025</span>
+          </p>
+        </li>
+         </ul>
+
+      <p class="govuk-body">
+        <a href="/pages/messages/file-history" class="govuk-link">View previously uploaded evidence</a>
+      </p>
+  </div>
+
+{% endblock %}

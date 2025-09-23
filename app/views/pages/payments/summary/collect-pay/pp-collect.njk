@@ -1,0 +1,161 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<div class="govuk-grid-row">
+		{#{{ createToast() }}#}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you make for Jack and 1 more</h1>
+			<h2 class="govuk-heading-m">Collect and Pay</h2>
+			<p class="govuk-body">We’ve worked out your payments until your next annual review on 12 December 2023.</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="/pages/payments/payment-calculations/pp-calculations">how we calculated your child maintenance</a>.
+			</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next payment</h2>
+				<p class="govuk-body">If you cannot make a payment you need to
+					<a class="govuk-link" href="#">contact us</a>.
+				</p>
+				<div class="next-payment-table">
+					{% set html %}
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+							Amount
+						</p>
+						<span class="govuk-hint">Including 20% collection fee and any arrears</span>
+					{% endset %}
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									html: html
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£578.64"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "21 June 2023"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Payment method"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "Deduction from earnings order (DEO)"
+								}
+							}
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/payment-plan/pp-collect">View your payment plan</a>
+				</p>
+			</div>
+			<div class="previous-payments">
+				<div class="previous-payments-table">	
+					{{ govukTable({
+						firstCellIsHeader: true,
+						caption: "Previous payments",
+						captionClasses: "govuk-heading-m",
+						head: [
+							{
+								text: "Date",
+								classes: "previous-payments-header previous-payments-cell"
+							},
+							{
+								text: "Amount including 20% collection fee and any arrears",
+								format: "numeric",
+								classes: "previous-payments-amount previous-payments-cell"
+							},
+							{
+								text: "Payment method",
+								classes: "previous-payments-header previous-payments-cell"
+							}
+						],
+						rows: 
+						[
+							[
+								{
+									text: "21 May 2023",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£500.00",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Deduction from earnings order (DEO)",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "21 April 2023",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£580.00",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Deduction from earnings order (DEO)",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "21 March 2022",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£580.00",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Deduction from earnings order (DEO)",
+									classes: "previous-payments-cell"
+								}
+							]
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/statements/pp-22-23-1">View your statement</a>
+				</p>
+			</div>
+			<h3 class="govuk-heading-s total-amount-heading">Total amount you have paid since 12 December 2022</h3>
+			<span class="govuk-hint">Including 20% collection fee and any arrears</span>	
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£2,390.00</p>
+			<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+			<span class="govuk-hint">Including any collection fees or charges</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£1,919.05</p>
+			
+			<p class="govuk-body">
+				<!--a class="govuk-link" href="/pages/payments/arrears/pp-arrears-details">View arrears details</a-->
+			</p>
+
+			<p class="govuk-body">Find out <a class="govuk-link" href="#">what the CMS can do to enforce unpaid child maintenance</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="pc-pp-date-change-happen-child-1" method="post">
+
+        {{ govukCheckboxes({
+          idPrefix: "which-child",
+          name: "which-child",
+          fieldset: {
+            legend: {
+              text: "Which child or children are you reporting a change to the financial responsibility for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "1",
+              text: "Child 1"
+            },
+            {
+              value: "2",
+              text: "Child 2",
+              disabled: true
+            },
+            {
+              value: "3",
+              text: "Child 3 (duplicate)",
+              disabled: true
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

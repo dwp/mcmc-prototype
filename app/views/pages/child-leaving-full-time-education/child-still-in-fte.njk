@@ -1,0 +1,71 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Child leaving full-time education
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Child leaving full-time education",
+        href: "/pages/child-leaving-full-time-education/child-leaving-fte-start"
+      },
+      {
+        text: "Child still in full-time education",
+        href: "/pages/child-leaving-full-time-education/child-still-in-fte"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Is {childs name} still in full-time education?
+      </h1>
+      <p class="govuk-body">
+        You normally receive child maintenance until your child is 16, or until they're 20 if they are in full-time education (up to and including A levels or the equivalent) and Child Benefit is being paid.
+      </p>
+
+      <form class="form" action="/pages/child-leaving-full-time-education/check-your-answers" method="post">
+
+        {% set textIfNoHtmlTest %}
+        <label for="f-no">
+          <p class="govuk-body">I understand I am no longer entitled to receive child maintenance for {childs name}</p>
+        </label>
+        {% endset %}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "f-still-in-fulltime-education",
+          name: "still-in-fulltime-education",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No",
+              conditional: {
+                html : textIfNoHtmlTest
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-8"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

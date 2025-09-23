@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Before you start</h1>
+      <h2 class="govuk-heading-m">Check your bank statement</h2>
+      <p class="govuk-body">Check your bank account to confirm:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what payments you have received</li>
+        <li>dates of the payments</li>
+      </ul>
+      <p class="govuk-body">You'll find details of your expected payments on your <a href="/pages/payments/payment-plan/rp-direct-single" target="_blank" class="govuk-link">payment plan</a> (opens in a new tab).</p>
+      
+      <h2 class="govuk-heading-m">Note down payment details</h2>
+      <p class="govuk-body">Make a note of the details of the first missed or part payment. You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the date it was due</li>
+        <li>the amount you received (this could be £0)</li>
+      </ul>
+      <p class="govuk-body">You'll also need details of any payments you've had from the paying parent since then.</p>
+      
+      <h2 class="govuk-heading-m">Have your bank details ready</h2>
+      <p class="govuk-body">You need the details of the bank or building society account you want your Collect and Pay payments sent to.</p>
+
+      <form method="post">
+      <button class="govuk-button">
+          Continue
+      </button>
+      </form>
+      
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          If you need help with this change
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

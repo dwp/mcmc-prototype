@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/track-changes/timeline-v2" class="govuk-back-link">Back to Track Changes</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Noah and 1 more</span>
+        Change to shared care arrangement
+      </h1>
+      <p class="govuk-body">
+        If you want to support your case, you can <a href="/pages/messages/upload-evidence/start" class="govuk-link govuk-!-margin-top-3">upload evidence</a>.
+      </p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Most recent update
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">18 June 2024</p>
+            {{govukTag({
+                text: "Received",
+                classes: "govuk-tag--blue govuk-!-margin-bottom-3"
+            })}}
+            <p class="govuk-body">We are assigning your report to a case worker who will start working on it within 7 days. Once your report has been assigned, the status will change to in progress.</p>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expected completion date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">30 June 2024</p>
+            <p class="govuk-body">We will tell your if the change has been accepted or rejected.</p>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reported on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">8 June 2024</p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

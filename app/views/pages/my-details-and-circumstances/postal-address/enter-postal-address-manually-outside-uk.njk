@@ -1,0 +1,83 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Where should we send you letters?</h1>
+      <p class="govuk-body govuk-!-margin-bottom-7">These details are private and are not shared with the other parent.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/postal-address/enter-postal-address-manually-outside-uk" method="post">
+        {{ govukInput({
+              label: {
+                text: "Address line 1",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-address-line-1",
+              name: "postal-address-line-1"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Address line 2",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-address-line-2",
+              name: "postal-address-line-2"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Town or city",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-town-city",
+              name: "postal-town-city",
+              classes: "govuk-input--width-20"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Postal code",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-postcode",
+              name: "postal-postcode",
+              classes: "govuk-input--width-10"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Country",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-country",
+              name: "postal-country",
+              classes: "govuk-input--width-20"
+            }) }}
+
+        {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

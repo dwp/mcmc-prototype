@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When did you receive the late payment?</h1>
+      <p class="govuk-body">This must be at least 3 working days after the scheduled payment date.</p>
+
+      <form class="form" action="p10-otherpayments" method="POST">
+        {{ govukDateInput({
+          id: "whenLatePayment",
+          namePrefix: "whenLatePayment",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 03/04/2024"
+          }
+        }) }}
+      <br>
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

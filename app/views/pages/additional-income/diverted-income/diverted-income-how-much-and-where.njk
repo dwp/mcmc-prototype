@@ -1,0 +1,38 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Diverted Income how much and where page.</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

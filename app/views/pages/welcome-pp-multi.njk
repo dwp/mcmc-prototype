@@ -1,0 +1,425 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% if data['view'] === "notification" %}
+        {% set html %}
+        <p class="govuk-notification-banner__heading">
+          Child leaving full time education
+          <a href="/pages/child-leaving-full-time-education">Check your details</a>.
+        </p>
+        {% endset %}
+        {{ 
+        govukNotificationBanner({
+          html: html
+        })
+      }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+        Welcome, Robin
+      </h1>
+    </div>
+    {#<div class="govuk-grid-column-one-third">
+      {% set html %}
+      <ul class="govuk-body">
+        <li>
+          <a href="/pages/welcome?view=default&userType=NRP" tabindex="-1">PP</a>
+        </li>
+        <li>
+          <a href="/pages/welcome-rp?view=default&userType=PWC" tabindex="-1">RP</a>
+        </li>
+        <li>
+          <a href="/pages/welcome-dual?view=all&userType=Both" tabindex="-1">Dual</a>
+        </li>
+      </ul>
+      {% endset %}
+
+      {{ cmgToast({
+          title: "Different User Scenarios",
+          text: "simple text content here",
+          buttonText: "Scenarios",
+          html: html
+      }) }}
+    </div>#}
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Useful links</h2>
+      <ul class="govuk-list useful-links">
+        <li class="inline">
+          <a class="govuk-link" href="#">Report a Change</a>
+        </li>
+        <li class="inline">
+          <a class="govuk-link" href="#">Update Income</a>
+        </li>
+        <li class="inline">
+          <a class="govuk-link" href="#">Change payment service</a>
+        </li>
+        <li class="inline">
+          <a class="govuk-link" href="/pages/messages/upload-documents">Upload documents</a>
+        </li>
+        <li class="inline">
+          <a class="govuk-link" href="#">Update shared care</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="homepageCardsDesktop">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half mb-full">
+        {% if data['view'] === "empty" %}
+          {% include "includes/homepage-segments/empty-inbox.njk" %}
+        {% else %}
+          {% set html %}
+          {{ govukTable({
+          head: [
+            {
+              text: "Subject"
+            },
+            {
+              text: "Date"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#' class='black'>We need to check some information with you</a>"
+              },
+              {
+                text: "1 February 2022"
+              }
+            ],
+            [
+              {
+                html: "<a href='#' class='black'>You have to do something important</a>"
+              },
+              {
+                text: "12 December 2021"
+              }
+            ]
+          ]
+          }) }}
+          {% endset %}
+
+          {{
+          cmgSummaryTable({
+            title: 'Notifications',
+            html: html,
+            actions: [
+              {
+                html: '<a href="#" class="govuk-link">View all</a>'
+              }
+            ]
+          })
+        }}
+        {% endif %}
+        
+      </div>
+      <div class="govuk-grid-column-one-half mb-full trackChangesCard">
+        {% if data['view'] === "empty" %}
+          {% include "includes/homepage-segments/empty-changes.njk" %}
+        {% else %}
+          {% set html %}
+          {{ govukTable({
+          rows: [
+            [
+              {
+                text: "Change phone number"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+              }
+            ],
+            [
+              {
+                text: "Change address"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+              }
+            ]
+          ]
+        }) }}
+          {% endset %}
+
+          {{
+            cmgSummaryTable({
+              title: 'Track changes',
+              html: html,
+              actions: [
+                {
+                  html: '<a href="#" class="govuk-link">View all</a>'
+                }
+              ]
+            })
+          }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          {% set html %}
+          <p class="small govuk-!-margin-bottom-2">Expected Payments - Direct Pay</p>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
+          <div class="flex space-between">
+            <p class="small">21 June 2022</p>
+            <p class="small">£233.00</p>
+          </div>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
+          <div class="flex space-between">
+            <p class="small">21 July 2022</p>
+            <p class="small">£233.00</p>
+          </div>
+
+          <a href="/pages/payments/payment-calculations/pp-calculations-multi" class="govuk-link">View your payment calculation</a>
+          {% endset %}
+          {{
+            cmgSummaryTable({
+              title: 'Payments for Chloe',
+              link: '/pages/payments/summary/direct-pay/pp-direct-b',
+              html: html
+            })
+          }}
+
+        </div>
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          {% set html %}
+          <p class="small govuk-!-margin-bottom-2">Payments - Collect and Pay</p>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
+          <div class="flex space-between">
+            <p class="small">21 June 2022</p>
+            <p class="small">£342.80</p>
+          </div>
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
+          <div class="flex space-between">
+            <p class="small">21 July 2022</p>
+            <p class="small">£342.80</p>
+          </div>
+          <a href="/pages/payments/payment-calculations/pp-calculations-multi" class="govuk-link">View your payment calculation</a>
+          {% endset %}
+          {{
+            cmgSummaryTable({
+              title: 'Payments for Jack and 1 more',
+              link: '/pages/payments/summary/collect-pay/pp-collect-b',
+              html: html
+            })
+          }}
+
+        </div>
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          {% set html %}
+          <p class="small govuk-!-margin-bottom-2">Make a secure online payment using your debit or credit card for a Collect and Pay case.</p>
+          <p class="small govuk-!-margin-bottom-2">Do not make a payment for a Direct Pay case. You need to contact the other parent to arrange a payment yourself as the Child Maintenance Service cannot pass on the payment.</p>
+          {% endset %}
+          {{
+            cmgSummaryTable({
+              title: 'Make a payment',
+              html: html
+            })
+          }}
+        </div>
+      {# {% endif %} Commenting out IF statements #}
+    </div>
+  </div>
+
+
+  <div class="homepageCardsMobile">
+    <div class="paymentsCard mb-full">
+    <p class="small govuk-!-margin-bottom-2">Payments - Collect and Pay</p>
+    </div>
+  </div>
+
+  <div class="homepageCardsMobile">
+    <div class="paymentsCard mb-full">
+      {% if data['view'] === "empty" %}
+        {% include "includes/homepage-segments/empty-payments.njk" %}
+      {% elif data['view'] === "all" %}
+        {% include "includes/homepage-segments/all-payments.njk" %}
+      {% elif data['view'] === "janet" %}
+        {% include "includes/homepage-segments/janet-payments.njk" %}
+      {% elif data['view'] === "clive" %}
+        {% include "includes/homepage-segments/clive-payments.njk" %}
+      {% else %}
+        {% set html %} 
+        <p class="small govuk-!-margin-bottom-2">Payments - Collect and Pay</p>
+        <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
+        <div class="flex space-between">
+          <p class="small">21 June 2022</p>
+          <p class="small">£578.64</p>
+        </div>
+        <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
+        <div class="flex space-between">
+          <p class="small">21 July 2022</p>
+          <p class="small">£578.64</p>
+        </div>
+        <a href="/pages/payments/payment-calculations/pp-calculations-multi" class="govuk-link">View your payment calculation</a>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Payments for Jack and 1 more',
+            html: html
+          })
+        }}
+      {% endif %}
+    </div>
+    <div class="messagesCard mb-full">
+      {% if data['view'] === "empty" %}
+        {% include "includes/homepage-segments/empty-inbox.njk" %}
+      {% else %}
+        {% set html %}
+        {{ govukTable({
+        head: [
+          {
+            text: "Subject"
+          },
+          {
+            text: "Date"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#' class='black'>We need to check some information with you</a>"
+            },
+            {
+              text: "1 February 2022"
+            }
+          ],
+          [
+            {
+              html: "<a href='#' class='black'>You have to do something important</a>"
+            },
+            {
+              text: "12 December 2021"
+            }
+          ]
+        ]
+        }) }}
+        {% endset %}
+
+        {{
+        cmgSummaryTable({
+          title: 'Notifications',
+          html: html,
+          actions: [
+            {
+              html: '<a href="#" class="govuk-link">View all</a>'
+            }
+          ]
+        })
+      }}
+      {% endif %}
+    </div>
+    <div class="trackChangesCard mb-full">
+      {% if data['view'] === "empty" %}
+        {% include "includes/homepage-segments/empty-changes.njk" %}
+      {% else %}
+        <div class="trackChangesCardTabletTable">
+          {% set html %}
+            {{ govukTable({
+            rows: [
+              [
+                { 
+                  text: "Change phone number"
+                },
+                {
+                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+                }
+              ],
+              [
+                {
+                  text: "Change address"
+                },
+                {
+                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+                }
+              ]
+            ]
+            }) }}
+          {% endset %}
+          {{
+          cmgSummaryTable({
+            title: 'Track changes',
+            html: html,
+            actions: [
+              {
+                html: '<a href="#" class="govuk-link">View all</a>'
+              }
+            ]
+          })
+        }}
+        </div>
+        <div class="trackChangesCardMobileTable">
+          {% set firstRowHtml %}
+            <div class='trackChangesType'>Change phone number</div>
+            <strong class='govuk-tag govuk-tag--blue'>Received</strong>
+          {% endset %}
+          {% set secondRowHtml %}
+            <div class='trackChangesType'>Change address</div>
+            <strong class='govuk-tag govuk-tag--blue'>Received</strong>
+          {% endset %}
+          {% set thirdRowHtml %}
+            <div class='trackChangesType'>Change to Direct Pay or Collect and Pay</div>
+            <strong class='govuk-tag govuk-tag--yellow'>In Progress</strong>
+          {% endset %}
+          {% set html %}
+            {{ govukTable({
+            rows: [
+              [
+                {
+                  html: firstRowHtml 
+                }
+              ],
+              [
+                {
+                  html: secondRowHtml
+                }
+              ],
+              [
+                {
+                  html: thirdRowHtml
+                }
+              ]
+            ]
+            }) }}
+          {% endset %}
+          {{
+          cmgSummaryTable({
+            title: 'Track changes',
+            html: html,
+            actions: [
+              {
+                html: '<a href="#" class="govuk-link">View all</a>'
+              }
+            ]
+          })
+        }}
+        </div>
+      {% endif %}
+    </div>
+    {% if data['view'] !== "empty" %}
+      <div class="paymentsCard mb-full">
+        {% set html %}
+        <p class="small govuk-!-margin-bottom-2">Make a secure online payment using your debit or credit card for a Collect and Pay case.</p>
+        <p class="small govuk-!-margin-bottom-2">Do not make a payment for a Direct Pay case. You need to contact the other parent to arrange a payment yourself as the Child Maintenance Service cannot pass on the payment.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Make a payment',
+            html: html
+          })
+        }}
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

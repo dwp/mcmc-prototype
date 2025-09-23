@@ -1,0 +1,58 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Where do you live?</h1>
+      <p class="govuk-body">If you have not added a postal address, we will send all your letters here.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7" >These details are private and are not shared with the other parent.</p>  
+
+
+
+
+      <form class="form" action="/pages/my-details-and-circumstances/home-address/where-you-live" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "House name or number",
+            classes: "govuk-label",
+            isPageHeading: false
+
+          },
+          id: "houseNumber",
+          name: "house-name-number",
+          classes: "govuk-!-width-one-third"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode",
+            classes: "govuk-label",
+            isPageHeading: false
+          },
+          id: "postcode",
+          name: "md-postcode",
+          classes: "govuk-!-width-one-third"
+        }) }}
+
+        {{ govukButton({
+                text: "Find address",
+                type: "submit"
+            }) }}
+        <p class="govuk-body">
+          <a href="/pages/my-details-and-circumstances/home-address/enter-home-address-manually-outside-uk" class="govuk-link">I live outside the UK</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

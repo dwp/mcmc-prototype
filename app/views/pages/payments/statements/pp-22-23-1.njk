@@ -1,0 +1,192 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Your child maintenance statement</h1>
+
+			<h2 class="govuk-heading-m">
+			<span class="govuk-caption-l" style="color:#0b0c0c;">Annual review period</span>
+			12 December 2022 to 11 December 2023
+			</h2>
+
+			<details class="govuk-details customDetails" data-module="govuk-details">
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">
+					<div class="customFavicon"></div>
+					Change annual review period
+					</span>
+				</summary>
+				<form method="post">
+					<fieldset class="govuk-fieldset">
+   						 <legend aria-label="Which period do you wish to view?"></legend>
+						{{ govukRadios({
+								idPrefix: "arPeriod",
+								name: "arPeriod",
+								classes: "govuk-radios--small govuk-!-padding-top-3",
+								items: [
+								{
+									value: "December 2022 - December 2023",
+									text: "December 2022 to December 2023",
+									checked: 'true'
+								},
+								{
+									value: "December 2021 - December 2022",
+									text: "December 2021 to December 2022"
+								},
+								{
+									value: "December 2020 - December 2021",
+									text: "December 2020 to December 2021"
+								},
+								{
+									value: "December 2019 - December 2020",
+									text: "December 2019 to December 2020"
+								},
+								{
+									value: "December 2018 - December 2019",
+									text: "December 2018 to December 2019"
+								},
+								{
+									value: "December 2017 - December 2018",
+									text: "December 2017 to December 2018"
+								},
+								{
+									value: "December 2016 - December 2017",
+									text: "December 2016 to December 2017"
+								},
+								{
+									value: "December 2015 - December 2016",
+									text: "December 2015 to December 2016"
+								}
+								]
+							}) }}
+						<button type="submit" class="govuk-button">
+						Change period
+						</button>
+						</fieldset>
+						</form>
+			</details>
+		
+
+			<table class="govuk-table">
+			<caption aria-label="Which period do you wish to view?"></caption>
+
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header">Description</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric" style="white-space:nowrap;">Amount</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric" style="white-space:nowrap;">Balance</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>21 May 2023</b><br> Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>£500.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,919.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 May 2023</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£578.64</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£2,419.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>21 April 2023</b><br> Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>£580.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,840.41</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 April 2023</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£578.64</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£2,420.41</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>21 March 2023</b><br> Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>£580.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,841.77</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>17 March 2023</b><br>Backdated change</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£622.88</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£2,421.77</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 March 2023</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£267.20</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,798.89</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 February 2023</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£267.20</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,531.69</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>21 January 2023</b><br> Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,264.49</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 January 2023</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£267.20</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,414.49</td>
+				</tr>	
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>21 December 2022</b><br> Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>£580.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,147.29</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<td class="govuk-table__cell"><b>15 December 2022</b><br>Maintenance and collection fee due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£267.20</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;"><br>&#x2212;£1,727.29</td>
+				</tr>					
+
+			</tbody>
+			</table>
+
+			{% set detailsHTML %}
+			<p class="govuk-body">Parents can tell us about any change that affects the child maintenance calculation. This might be:</p>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li>changes to a shared care arrangement</li>
+				<li>changes to the paying parent’s income of at least 25%</li>
+				<li>information about additional children</li>
+				<li>several missed payments</li>
+				<li>paying parent has a new income or expenses</li>
+				<li>a child has moved out</li>
+			</ul>
+
+			<p class="govuk-body">When we make the update, your payment calculation for the current review period might change.</p>
+
+			<p class="govuk-body">It might take us several months to gather evidence and process the change. This means that we might need to backdate the increase or decrease to the payment calculation.</p>
+			
+			<p class="govuk-body">You will get a letter explaining any backdated changes we make. Depending on your <a href="../../my-details-and-circumstances">contact preferences</a>, this might be a digital copy.</p>
+			{% endset %}
+
+			{{ govukDetails({
+				summaryText: "What is a backdated change?",
+				html: detailsHTML
+				})
+			}}
+
+		</div>
+	</div>
+{% endblock %}

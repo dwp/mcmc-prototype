@@ -1,0 +1,156 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Upload evidence</h1>
+      {{ govukWarningText({
+        text: "Uploading inappropriate or offensive files including photographs of any children will result in us taking action against you. ",
+        iconFallbackText: "Warning"
+      }) }}
+      <p class="govuk-body">You can upload supporting files as evidence for your case, for example a payslip, bank statement or a court order.</p>
+      <p class="govuk-body">You’ll need an electronic version of any original document you want to upload. You can use:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a clear photograph</li>
+        <li>an existing word document or spreadsheet saved as a PDF file</li>
+        <li>a scanned document</li>
+      </ul>
+      <p class="govuk-body">The maximum file size is 5MB and you can upload up to 5 files at a time.</p>
+      <p class="govuk-body">File names must only include letters a to z, numbers 0 to 9 and apostrophes. File type must be a PDF, JPEG, JPG, GIF, PNG, TIFF or TIF.</p>
+
+      <h2>You have added
+        <span class="file-amount-count">0</span>
+        files
+      </h2>
+
+      <form action="" method="POST">
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                html: '<p class="govuk-body">File 1</p>' + govukFileUpload({
+                  id: "file-upload-1",
+                  name: "file-upload-1"
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-1'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">File 2</p>' + govukFileUpload({
+                  id: "file-upload-2",
+                  name: "file-upload-2"
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-2 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">File 3</p>' + govukFileUpload({
+                  id: "file-upload-3",
+                  name: "file-upload-3"
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-3 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">File 4</p>' + govukFileUpload({
+                  id: "file-upload-4",
+                  name: "file-upload-4"
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-4 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">File 5</p>' + govukFileUpload({
+                  id: "file-upload-5",
+                  name: "file-upload-5"
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-5 hidden'
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Upload another file",
+          type: 'button',
+          classes: "govuk-button--secondary add-file"
+        }) }}
+
+        {{ govukInsetText({
+          text: "You can only add 5 files at a time.",
+          classes: 'hidden max-files-warning'
+        }) }}
+
+        {{ govukButton({
+          text: "Confirm and send files",
+          classes: "govuk-button"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

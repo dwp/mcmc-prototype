@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income rejected
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Change of income rejected</h1>
+
+      <p class="govuk-body">Your child maintenance payment calculation will not change.</p>
+
+      <p class="govuk-body">We ran an instant check with HM Revenue and Customs. There is no evidence the paying parent’s income has changed by 25% or more. </p>
+
+      <p class="govuk-body">If the income change was recent, wait 2 months and try again. There might not be enough evidence yet.</p>
+
+      <p class="govuk-body">If the income change was less than 25% we will review your calculation at annual review on 12 September 2023.</p>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">For a letter to confirm your calculation will not change, choose ‘continue’.</p>
+      
+      <form action="/pages/report-change/income-and-expenses/income/rp/letter" method="post">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If you need help with this change
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h4 class="govuk-heading-s">Webchat</h4>
+          <p class="govuk-body">We can only support you to report a change online. If you need to discuss specific details about your case you will need to <a href="https://www.gov.uk/child-maintenance-service/contact">call us (opens in a new tab)</a>.</p>
+      
+          <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p> 
+      
+          <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 6pm (except public holidays).</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  
+
+{% endblock %}

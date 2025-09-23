@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			{{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check your email address</h1>
+			<p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+			{{ govukSummaryList({
+				rows: [
+					{
+						key: {
+							text: "Email adddress"
+						},
+						value: {
+							text: data["md-email"] if data["md-email"] else data["default-email"]
+						},
+						actions: {
+							items: [
+								{
+									href: "/pages/my-details-and-circumstances/email/change-email",
+									text: "Change",
+									visuallyHiddenText: "change email"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Email notifications"
+						},
+						value: {
+							text: data['email-notifications'] if data['email-notifications'] else data['default-email-notifications']
+						},
+						actions: {
+							items: [
+								{
+									href: "/pages/my-details-and-circumstances/email/email-notifications",
+									text: "Change",
+									visuallyHiddenText: "change email notifications"
+								}
+							]
+						}
+					}
+				]
+			}) }}
+
+			<form class="form" action="/pages/my-details-and-circumstances/declaration" method="post">
+
+				{{ govukButton({
+            text: "Continue",
+            type: "submit"
+        }) }}
+
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

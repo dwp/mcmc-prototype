@@ -1,0 +1,87 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-breadcrumbs ">
+    <ol class="govuk-breadcrumbs__list">
+
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/pages/welcome">Home</a>
+      </li>
+
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">Messages</li>
+    </ol>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {# filters #}
+      <h1 class="govuk-heading-m inline">Filters</h1>
+      <a href="/pages/messages" class="govuk-link right">Return to messages</a>
+      <h3 class="govuk-heading-s">Date Received</h3>
+      <form method="POST" action="">
+        {{ govukInput({
+          label: {
+            text: "Messages received after",
+            classes: "govuk-label"
+          },
+          id: "messages-after",
+          name: "messages-after",
+          hint: {
+            text: "For example 2020 or 21/11/2020"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Messages received before",
+            classes: "govuk-label"
+          },
+          id: "messages-before",
+          name: "messages-before",
+          hint: {
+            text: "For example 2020 or 21/11/2020"
+          }
+        }) }}
+
+        {{ govukCheckboxes({
+          idPrefix: "cases",
+          name: "cases",
+          fieldset: {
+            legend: {
+              text: "Cases",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "1-CaseId",
+              text: "Jimmy and 1 other"
+            },
+            {
+              value: "2-CaseId",
+              text: "Joe and 2 others"
+            },
+            {
+              value: "",
+              text: "No specific case"
+            }
+          ]
+        }) }}
+
+        <a class="govuk-link block govuk-!-margin-bottom-6" href="#">Clear all filters</a>
+
+        {{ govukButton({
+          text: "Apply filter",
+          element: "input"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

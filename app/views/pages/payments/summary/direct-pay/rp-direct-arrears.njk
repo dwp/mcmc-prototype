@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/welcome" class="govuk-back-link">Back to Home</a><br></br>
+	<div class="govuk-grid-row">
+		{{ createToast() }}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you receive for Jim and 2 more</h1>
+			<h2 class="govuk-heading-m">Direct Pay</h2>
+			<p class="govuk-body">You are no longer receiving regular maintenance for this case, but there are outstanding arrears.</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next expected payment</h2>
+				<p class="govuk-body">Check your bank or building society account to confirm you have received a payment. It may take up to 5 days for a payment to reach your account.</p>
+				<div class="next-payment-table">		
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Amount"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£150"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Scheduled date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "26 September 2021"
+								}
+							}
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/payment-plan/rp-direct-single">View your expected payment plan</a>
+				</p>
+				<h3 class="govuk-heading-s total-amount-heading">Total amount you should have received since 12 September 2020</h3>
+				<span class="govuk-hint">Including any arrears</span>
+				<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+				<p class="govuk-body">We assume that the expected payments are being made by the other parent as you have arranged the payments yourselves using Direct Pay. If you have not received your expected payments and you want us to take action,
+					<a class="govuk-link" href="#">report a missed payment</a>.
+				</p>
+				<p class="govuk-body">You previously used Collect and Pay for this case.
+					<a class="govuk-link" href="#">View Collect and Pay payments</a>.
+				</p>
+				<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+				<span class="govuk-hint">Amount owed to you</span>
+				<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+				<p class="govuk-body">Find out
+					<a class="govuk-link" href="#">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

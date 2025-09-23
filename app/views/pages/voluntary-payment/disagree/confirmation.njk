@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      
+      {{ govukPanel({
+        titleText: "We have received your report"
+      }) }}
+      <h2 class="govuk-heading-l">What happens next?</h2>
+      <p class="govuk-body">We will contact the other parent and review your case within 14 days.</p>
+      <p class="govuk-body">If there is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> a change to your child maintenance payment, we will send you a new expected payment plan - it will explain the payment amounts and date</li>
+        <li>no change, we will let you know</li>
+      </ul>
+      <h3 class="govuk-heading-m">Upload evidence</h3>
+      <p class="govuk-body">Upload any evidence you have to support the voluntary payment or payments you have received.</p>
+      <p class="govuk-body">Evidence can include, for example, a copy of your bank statement.</p>
+      <p class="govuk-body"><a href="/pages/messages/upload-evidence/start" class="govuk-button">Upload evidence</a></p>
+      <p class="govuk-body"><a href="/pages/track-changes"  class="govuk-link">Check the progress of any changes you have reported</a>  (it may take up to 30 seconds for your change to appear).</p>
+
+      <p class="govuk-body">Make sure your <a href="/pages/my-details-and-circumstances"  class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+    </div>
+  </div>
+
+{% endblock %}

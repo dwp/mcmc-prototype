@@ -1,0 +1,49 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  No change to voluntary payments
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/voluntary-payment/disagree/no-change-to-payments" method="post" novalidate>
+        <h1 class="govuk-heading-xl">No change to voluntary payments</h1>
+        <p class="govuk-body">You have not changed any of the voluntary payment details.</p>
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "f-noChangeAgreeYesNo",
+            name: "noChangeAgreeYesNo",
+            fieldset: {
+              legend: {
+                text: "Do you agree that all the payments were made in place of scheduled child maintenance?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: t.common.yes | safe,
+                checked: checked("noChangeAgreeYesNo", "Yes")
+              },
+              {
+                value: "No",
+                text: t.common.no | safe,
+                checked: checked("noChangeAgreeYesNo", "No")
+              }
+            ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

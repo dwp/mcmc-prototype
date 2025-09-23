@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We cannot find your address</h1>
+
+      <div class="desktop-change-address-search">
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">House name or number</h2>
+          <div class="govuk-grid-column-one-third govuk-!-padding-left-0">
+            <p class="govuk-body">10</p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/postal-address/where-to-send-letters">Change</a>
+          </div>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0 govuk-!-margin-bottom-3">
+          <h2 class="govuk-heading-m">Postcode</h2>
+          <div class="govuk-grid-column-one-third govuk-!-padding-left-0">
+            <p class="govuk-body">AB1 1AB</p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/postal-address/where-to-send-letters">Change</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-change-address-search">
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">House name or number</h2>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <p class="govuk-body">
+            <span class="govuk-body mobile-address-search">10</span>
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/postal-address/where-to-send-letters">Change</a>
+          </p>
+        </div>  
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">Postcode</h2>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <p class="govuk-body">
+            <span class="govuk-body mobile-address-search">AB1 1AB</span>
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/postal-address/where-to-send-letters">Change</a>
+          </p>
+        </div>
+      </div>
+
+      <p class="govuk-body">
+        <a href="/pages/my-details-and-circumstances/postal-address/enter-postal-address-manually" class="govuk-link">Enter address manually</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

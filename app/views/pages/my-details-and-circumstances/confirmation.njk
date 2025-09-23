@@ -1,0 +1,26 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Your details are being updated"
+      }) }}
+
+      <h2 class="govuk-heading-l">What happens next?</h2>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Check the progress of any changes you have reported </a> (it may take up to 30 seconds for your changes to appear)</p>
+
+      <p class="govuk-body">
+        <a href="/pages/my-details-and-circumstances" class="govuk-link">Change more contact details</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

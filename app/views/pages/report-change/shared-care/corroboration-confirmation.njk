@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        If you have a written agreement you can upload your evidence on the next page.
+      </p>
+
+      <p class="govuk-body">
+       Before we can process your request, we need to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>make sure we have all the correct information</li>
+        <li>complete any previously reported changes that may impact this change</li>
+      </ul>
+
+      <p class="govuk-body">
+       If your child maintenance payment:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>changes, we will send you a new payment plan. It will explain the payment amount and payment date</li>
+        <li>remains the same, we will let you know</li>
+      </ul>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+      <h2 class="govuk-heading-m">Upload evidence</h2>
+
+      <p class="govuk-body">
+       If you have a written agreement in place you need to upload this evidence within 14 days. We will make a decision based on the evidence we have
+       <br></br>
+       If there is no written agreement in place we may make our decision based on what you and the other parent have told us.
+      </p>
+
+      <a type="submit" class="govuk-button" href="/pages/messages/upload-evidence/start-alt">
+        Upload evidence
+       </a>
+
+       <p class="govuk-body"><a href="start" class="govuk-link">
+        Return to homepage
+       </p>
+
+	  </div>
+	  </div>
+
+{% endblock %}

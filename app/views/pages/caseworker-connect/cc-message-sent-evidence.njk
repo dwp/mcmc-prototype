@@ -1,0 +1,75 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Evidence request</h1>
+
+      <p class="govuk-body"><b>Subject:</b> Evidence needed - proof of missed payment</p>
+      <br>
+     
+     <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Message sent
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          We have received your message
+        </h3>
+        <p class="govuk-body">'{{data['connectMessage']}}'</p>
+        <p class="govuk-body">You cannot send a new message until we respond.</p>
+      </div>
+    </div>
+
+    <form class="form" method="POST" action="threadpageawaiting-evidence">
+        <button type="submit" class="govuk-button">
+        Return to messages
+      </button>
+	 </form>
+
+     <br>
+
+{# 
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Message history</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date sent</th>
+            <th scope="col" class="govuk-table__header">Message</th>
+            <th scope="col" class="govuk-table__header">Sent by</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">3:00pm <br> 1st Oct <br> 2024</td>
+            <td class="govuk-table__cell">{{data['connectMessage']}}</td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">9:03am <br> 3rd May <br> 2024</td>
+            <td class="govuk-table__cell">Please can you provide proof of missed payment through the 'Upload evidence' page.</td>
+            <td class="govuk-table__cell">CMS</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">5:34pm <br> 2nd May <br> 2024</td>
+            <td class="govuk-table__cell">what evidence do i need to send</td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">10:13am <br> 1st May <br> 2024</td>
+            <td class="govuk-table__cell">Please can you submit evidence for your recent change request.</td>
+            <td class="govuk-table__cell">CMS</td>
+          </tr>
+
+      </table> #}
+
+      
+	  </div>
+	  </div>
+
+{% endblock %}

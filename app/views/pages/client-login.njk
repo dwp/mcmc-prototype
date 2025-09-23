@@ -1,0 +1,134 @@
+{% extends "layouts/layout.njk" %}
+
+{% set noAccountMenuOrFooter = true %}
+
+{% block content %}
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-2">
+        <div class="govuk-grid-column-full">
+            <a href="/" class="govuk-back-link">Back</a>
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="heading-large govuk-!-margin-top-0">Sign in to your parent or guardian case</h1>
+
+            <form action="/sign-in" method="POST" novalidate="novalidate" autocomplete="off">
+
+                <div class="govuk-form-group">
+
+                    <label class="govuk-label" for="crn">
+                        <strong>12-digit customer reference number</strong>
+                    </label>
+
+                    <div id="crn-hint" class="govuk-hint">
+                        This begins with '121'. Find this on letters we sent you about your case.
+                    </div>
+
+                    <input class="govuk-input govuk-input--width-10" id="crn" name="crn" type="text" aria-describedby="crn-hint" inputmode="numeric">
+
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="nino">
+                        <strong>National Insurance number</strong>
+                    </label>
+
+                    <div id="nino-hint" class="govuk-hint">
+                        It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.
+                    </div>
+
+                    <input class="govuk-input govuk-input--width-10" id="nino" name="nino" type="text" aria-describedby="nino-hint">
+                </div>
+
+
+                <fieldset class="govuk-fieldset" aria-describedby="pin-hint">
+                    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">7-digit PIN</legend>
+                    
+                    <div id="pin-hint" class="govuk-hint">You chose this number when you set up your case.</div>
+
+                    <div class="govuk-grid-column-one-third govuk-!-padding-0" style="width: 30%;">
+
+                        <div class="govuk-form-group pin-entry-form-group">
+                            <input class="govuk-input" id="pin-position-1" name="pin-position-1" type="hidden" value="1">
+                        </div>
+
+                        <div class="govuk-form-group pin-entry">
+                            <label class="govuk-label" for="pin_digit_1">1st digit</label>
+                            <input class="govuk-input govuk-input--width-2" id="pin_digit_1" name="pin_digit_1" type="password" inputmode="numeric" maxlength="1">
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-grid-column-one-third govuk-!-padding-0" style="width: 30%;">
+
+                        <div class="govuk-form-group pin-entry-form-group">
+                            <input class="govuk-input" id="pin-position-2" name="pin-position-2" type="hidden" value="4">
+                        </div>
+
+                        <div class="govuk-form-group pin-entry">
+                            <label class="govuk-label" for="pin_digit_2">4th digit</label>
+                            <input class="govuk-input govuk-input--width-2" id="pin_digit_2" name="pin_digit_2" type="password" inputmode="numeric" maxlength="1">
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-grid-column-full govuk-!-padding-0">
+                        <p class="govuk-body forgotten-pin">
+                            <a href="/iam-las/public/forgotten-pin" class="govuk-link" name="accountBlocked">Forgotten PIN</a>
+                        </p>
+                    </div>
+                </fieldset>
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <div class="govuk-grid-column-full govuk-!-padding-0">
+
+                        <input type="hidden" name="_csrf" value="3VLSfwZz-uPoJu_rU4ve69YzhLYD1w2Xg7CQ">
+                        <input type="hidden" name="failureCounter" value="">
+                        <button type="submit" class="govuk-button sign-in">Sign in</button>
+
+                    </div>
+                </div>
+            </form>
+
+            <p class="govuk-body">
+                <a href="/onlinerevive/public/login-client-help" class="govuk-link">Problems signing in</a>
+            </p>
+
+            
+                {% set html %}
+                    <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                        <li>Open your mobile or tablet's default browser (Safari on iOS, Chrome on Android).</li>
+                        <li>Go to '<a href="https://childmaintenanceservice.direct.gov.uk/onlinerevive/public/landing-screen">Manage your child maintenance case online</a>'.</li>
+                        <li>On Safari, select the share icon. It looks like a square with an arrow pointing upwards. On Chrome, select the menu icon. It looks like 3 dots.</li>
+                        <li>Select 'Add to home screen' and then 'Add'.</li>
+                        <li>You can now use the shortcut on your homepage.</li>
+                    </ol>
+                {% endset %}
+            
+                {{ govukAccordion({
+                    classes: "accordion-shortcut",
+                    items: [
+                    {
+                        heading: {
+                        text: "Install a shortcut on your device home screen"
+                        },
+                        content: {
+                        html: html
+                        }
+                    }
+                    ]
+                }) }}
+            
+        </div>
+        
+        <div class="govuk-grid-column-one-third">
+            {{
+			cmgHelpApplyForCm({})
+            }}
+        </div>
+
+    </div>
+
+
+{% endblock %}

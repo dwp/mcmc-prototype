@@ -1,0 +1,80 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Action Required",
+        href: "/pages/child-leaving-full-time-education/action-required"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Action Required
+      </h1>
+      <p>
+        We have a request from the other parent that requires your attention. Select the request to complete the required actions.
+      </p>
+      <p>
+        Previous requests that needed your attention will not be displayed because you have either completed the actions or the date your action was required by has passed.
+      </p>
+    </div>
+  </div>
+    {% set rowsToDisplay = [
+      [
+        {
+          text: "Sarah"
+        },
+        {
+          text: "20 September 2021"
+        },
+        {
+          html: "<a href='/pages/voluntary-payment/start'>Voluntary payment</a>"
+        }
+      ],
+      [
+        {
+          text: "Jimmy"
+        },
+        {
+          text: "30 June 2020"
+        },
+        {
+          html: "<a href='/pages/child-leaving-full-time-education/child-leaving-fte-start'>Change to Direct Pay or Collect and Pay</a>"
+        }
+      ]
+      ]
+    %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Other parent name"
+        },
+        {
+          text: "Action required by"
+        },
+        {
+          text: "Type of request"
+        }
+      ],
+      rows: rowsToDisplay
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

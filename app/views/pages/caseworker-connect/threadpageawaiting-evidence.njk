@@ -1,0 +1,109 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+       <div class="" href="/pages/welcome">Messages</div>
+    </li>
+  </ol>
+</nav>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          We have received your message
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-body">"{{data['connectMessage']}}"</p>
+        <p class="govuk-body">You cannot send a new message until we respond.</p>
+      </div>
+    </div>
+
+      <h1 class="govuk-heading-xl">Messages</h1>
+      <p class="govuk-body">View your open and closed conversations.</p>
+      <p class="govuk-body">You are not able to send a new message in a closed conversation.</p>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">3 open conversations</h2>
+      <ul class="track-changes-result-list govuk-list">
+        <li class="track-changes-result-list__change-item">
+          {{ govukTag({
+            text: "Sent",
+            classes: "govuk-tag--blue right"
+          }) }}
+          <a href="/pages/caseworker-connect/cc-message-awaiting" class="govuk-body govuk-link bold">Change to your income</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Started: 1 December 2024</span>
+          </p>
+          <p class="govuk-body track-changes-result-list__change-details">
+          <span class="updated">Updated: Today 3:34pm</span>
+          </p>
+        </li>
+        <li class="track-changes-result-list__change-item">
+          {{ govukTag({
+            text: "Sent",
+            classes: "govuk-tag--blue right"
+          }) }}
+          <a href="/pages/caseworker-connect/cc-message-awaiting-evidence" class="govuk-body govuk-link bold">Change to other parent income for Jack</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Started: 24 November 2024</span>
+          </p>
+          <p class="govuk-body track-changes-result-list__change-details">
+          <span class="updated">Updated: 24 November 2024</span>
+          </p>
+        </li>
+        <li class="track-changes-result-list__change-item">
+          {{ govukTag({
+            text: "New message",
+            classes: "govuk-tag--green right"
+          }) }}
+          <a href="/pages/caseworker-connect/cc-information-review" class="govuk-body govuk-link bold">Case update for Jack</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Started: 3 November 2024</span>
+          </p>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="updated">Updated: 3 November 2024</span>
+          </p>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">1 closed conversation</h2>
+      <ul class="track-changes-result-list govuk-list">
+        <li class="track-changes-result-list__change-item">
+          {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag--grey right"
+        })}}
+          <a href="/pages/caseworker-connect/cc-message-closed" class="govuk-body govuk-link bold">Case update</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Started: 03 February 2024</span>
+          </p>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="updated">Closed: 12 February 2024</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

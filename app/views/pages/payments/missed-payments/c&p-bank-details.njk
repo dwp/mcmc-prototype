@@ -1,0 +1,53 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We need your bank details</h1>
+
+{#
+			<h2 class="govuk-heading-m">Your latest scheduled payment</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header govuk-!-width-one-third">Collection date</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric">Payment amount</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-text-align-left govuk-!-padding-left-5">Payment status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header">January 2023</th>
+					<td class="govuk-table__cell govuk-table__cell--numeric">£382.91</td>
+					<td class="govuk-table__cell govuk-table__cell govuk-!-text-align-left govuk-!-padding-left-5"><strong class="govuk-tag govuk-tag--red ">MISSED</strong></td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<h2 class="govuk-heading-m">What we're doing</h2>
+			<p class="govuk-body">We need your bank or building society details so we can pay your child maintenance to you. </p>
+			
+			
+			<h2 class="govuk-heading-m">What happens next</h2>
+			<p class="govuk-body">We'll use your bank or building society details for future payments.</p>
+#}
+
+<p class="govuk-body">We need your bank or building society details so we can pay your child maintenance to you. </p>
+<p class="govuk-body">Once you’ve updated your details, you can check back here for an update on your payments.</p>
+
+<button class="govuk-button" data-module="govuk-button">
+  Update details
+</button>
+
+
+		</div>
+	</div>
+{% endblock %}

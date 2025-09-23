@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form class="form" method="POST" action="confirmation">
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+
+{% set phoneHtml %}
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "What other help do you need when we contact you?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "Do you need any other help when we contact you?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "This might include another way to write or speak to you, or help with understanding information we send you."
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: phoneHtml
+      }
+    },
+     {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+    
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+    </div>
+    </div>
+
+  {% endblock %}

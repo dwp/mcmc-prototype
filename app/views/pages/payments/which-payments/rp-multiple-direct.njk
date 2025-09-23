@@ -1,0 +1,66 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+		{% set html %}
+		<ul class="govuk-body">
+				<li>
+						<a href="/pages/payments/which-payments/rp-multiple-direct">RP Direct Pay</a>
+				</li>
+				<li>
+						<a href="/pages/payments/which-payments/rp-multiple-collect">RP Collect Pay</a>
+				</li>
+				<li>
+						<a href="/pages/payments/which-payments/pp-multiple-collect">PP Collect Pay</a>
+				</li>
+				<li>
+						<a href="/pages/payments/which-payments/pp-multiple-direct">PP Direct Pay</a>
+				</li>
+		</ul>
+		{% endset %}
+
+		{{ cmgToast({
+				title: "Different User Scenarios",
+				text: "simple text content here",
+				buttonText: "Scenarios",
+				html: html
+		}) }}
+
+		<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds">
+						<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Which payments do you want to view?</h1>
+
+						{{ govukTable({
+							firstCellIsHeader: true,
+							head: [
+								{
+									text: "Case"
+								},
+								{
+									text: "Payment Service"
+								}
+							],
+							rows: 
+							[
+								[
+									{
+										html: "<a href='/pages/payments/payments-you-receive/direct'>Payments you receive for Jim and 1 more</a>"
+									},
+									{
+										text: "Direct Pay"
+									}
+								],
+								[
+									{
+										html: "<a href='/pages/payments/payments-you-receive/direct'>Payments you receive for Jane and 2 more</a>"
+									},
+									{
+										text: "Direct Pay"
+									}
+								]
+							]
+      		}) }}
+				</div>
+		</div>
+
+{% endblock %}

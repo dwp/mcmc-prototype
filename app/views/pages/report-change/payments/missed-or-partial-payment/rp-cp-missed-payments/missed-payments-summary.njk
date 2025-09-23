@@ -1,0 +1,119 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/payments" class="govuk-back-link">Back to Payments</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Unpaid regular child maintenance summary</h1>
+			{{ govukTable({
+				caption: "Outstanding amount of regular child maintenance, still owed to you, for the current annual review period 12 March 2022 to date",
+				captionClasses: "govuk-table__caption--m",
+				firstCellIsHeader: true,
+				head: [
+					{
+						text: "Expected date"
+					},
+					{
+						text: "Expected amount",
+						format: "numeric"
+					},
+					{
+						text: "Outstanding amount",
+						format: "numeric"
+					}
+				],
+				rows: [
+					[
+						{
+						text: "19 September 2022"
+						},
+						{
+						text: "£382.91",
+						format: "numeric"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						}
+					],
+
+					[
+						{
+							text: "19 August 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "£282.91",
+							format: "numeric"
+						}
+					],
+
+					[
+						{
+							text: "19 July 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "£102.00",
+							format: "numeric"
+						}
+					],
+
+					[
+						{
+							text: "19 May 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						}
+					],
+
+					[
+						{
+							text: "19 April 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						}
+					]
+				]
+				
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-7">What we are doing to recover unpaid child maintenance</h2>
+			<p class="govuk-body">We have a deduction of earnings order in place to enforce the payment of regular child maintenance and any arrears owed to you.</p>
+			<p class="govuk-body">We are working with the other parent’s employer to understand why a full payment has not been made.</p>
+			<p class="govuk-body">Any extra information you can provide, relating to the other parent, may help enforce payment. For example:</p>
+			<ul class="govuk-list govuk-list--bullet">
+			<li>details of new employment</li>
+			<li>new contact details or addresses</li>
+			<li>information relating to their financial situation</li>
+			</ul>
+
+			<p class="govuk-body">We will continue our <a href="#" class="govuk-link">enforcement action</a> even if you do not provide any extra information.</p>
+
+			{{ govukInsetText({
+			text: "We will not tell the other parent you have given us extra information."
+			}) }}
+
+			<p class="govuk-body"><a href="extra-information" class="govuk-link">Submit extra information relating to the other parent</a></p>
+		</div>
+	</div>
+{% endblock %}

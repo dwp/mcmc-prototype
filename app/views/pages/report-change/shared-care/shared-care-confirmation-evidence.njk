@@ -1,0 +1,47 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        You can upload your written agreement on the next page. You have up to 14 days to do this.
+       </br><br>
+        Before we can process your request, we need to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>complete any previously reported changes that may impact this request</li>
+        <li>contact the other parent to make sure we have all the correct information</li>
+      </ul>
+
+      <p class="govuk-body">
+       We will make our decision based on the information we have from you and the other parent.
+       <br></br>
+       We will let you know when we have made our decision and any changes to your payment plan.
+      </p>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+      <a type="submit" class="govuk-button" href="/pages/messages/upload-evidence/start-alt">
+        Upload evidence
+       </a>
+
+       <p class="govuk-body"><a href="start" class="govuk-link">
+        Return to homepage
+       </p>
+
+	  </div>
+	  </div>
+
+{% endblock %}

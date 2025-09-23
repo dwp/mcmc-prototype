@@ -1,0 +1,80 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Recovering unpaid child maintenance</h1>
+
+      <p class="govuk-body">You will need to change to use the Collect and Pay service if you want us to recover any unpaid child maintenance.</p>
+      
+      <h2 class="govuk-heading-l">Collect and Pay</h2>
+      <p class="govuk-body">You should only consider using Collect and Pay if (one or more of the following):</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>you are unable to sort out the problem yourself with the other parent</li>
+            <li>previous Direct Pay payments have been missed</li>
+            <li>you are aware of something that would mean the other parent is unlikely to pay in the future</li>
+      </ul>
+
+
+      <h2 class="govuk-heading-l">Fees</h2>
+      <p class="govuk-body">If you change to Collect and Pay, there is a fee each time you make or receive a payment. The fees are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>20% (which is added to the payment) for paying parents</li>
+            <li>4% (which is taken off the payment) for receiving parents</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Do you still want to change to use the Collect and Pay service?</h2>
+
+      <form method="post">
+        <div>
+
+      {{ govukRadios({
+            idPrefix: "stillCTST",
+            name: "stillCTST",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+    
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

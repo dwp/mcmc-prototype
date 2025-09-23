@@ -1,0 +1,76 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			{{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      {% if data["md-email"] %}
+        {% set clientEmail %}
+        {{ data['md-email'] }}
+        {% endset %}
+      {% elif data["md-email"] === null and data["default-email"] === null %}
+        {% set clientEmail %} - {% endset %}
+			{% else %}
+			  {% set clientEmail %} {{ data["default-email"] }} {% endset %}
+      {% endif %}
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check how you want to receive letters</h1>
+
+			{{ govukSummaryList({
+				rows: [
+					{
+						key: {
+							text: "Receive letters"
+						},
+						value: {
+							text: data["letter-correspondance"] if data["letter-correspondance"] else data["communication"]
+						},
+						actions: {
+							items: [
+								{
+									href: "./how",
+									text: "Change",
+									visuallyHiddenText: "change email"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Email address"
+						},
+						value: {
+							text: clientEmail
+						},
+						actions: {
+							items: [
+								{
+									href: "./new-email",
+									text: "Change",
+									visuallyHiddenText: "change email"
+								}
+							]
+						}
+					}
+				]
+			}) }}
+
+			<form class="form" action="/pages/my-details-and-circumstances/declaration" method="post">
+
+				{{ govukButton({
+            text: "Continue",
+            type: "submit"
+        }) }}
+
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

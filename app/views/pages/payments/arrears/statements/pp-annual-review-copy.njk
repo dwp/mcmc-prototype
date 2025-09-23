@@ -1,0 +1,227 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="pp-annual-review" class="govuk-back-link">Back to arrears</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Arrears statement</h1>
+
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible " >
+
+				<h2 class="govuk-heading-m">Annual review period 
+					<br>
+					<span class="govuk-body">12 June 2022 to 11 June 2023<a class="govuk-link" href="pp-annual-review-change"> Change </a> </span>
+				</h2>
+
+
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible " >
+										<hr class="govuk-section-break govuk-section-break--l govuk-section-break--hidden " >
+
+
+				<h2 class="govuk-heading-l">Details </h2>
+
+				
+						<dl class="govuk-summary-list" ">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+							Opening balance
+							</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£1,400.50
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+						Current balance
+							</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£2,165.91
+							</dd>
+						</div>
+						<!--div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+							Start date
+							</dt>
+							<dd class="govuk-summary-list__key govuk-table__cell--numeric" >
+								12 June 2022
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row" >
+							<dt class="govuk-summary-list__key">
+							End date
+							</dt>
+							<dd class="govuk-summary-list__key govuk-table__cell--numeric ">
+							11 June 2023
+							</dd>
+						</div-->
+						</dl>
+
+<h2 class="govuk-heading-l govuk-!-padding-top-4">Your statement</h2>
+
+
+			<p class="dwp-pagination__results">Showing <b>1</b> to <b>2</b> of <b>2</b> pages</p>
+
+					<hr class="govuk-section-break govuk-section-break--m govuk-section-break--hidden " >
+
+
+
+			<table class="govuk-table  ">
+			<!--caption class="govuk-table__caption govuk-table__caption--m">Your statement</caption-->
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+				<th scope="col" class="govuk-table__header">Description</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric" style="white-space:nowrap;">Amount</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric">Arrears balance</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Apr 2023</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£54.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,919.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Apr 2023</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£270.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,865.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">10 Apr 2023</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£470.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,595.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Mar 2023</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£54.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,065.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Mar 2023</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£270.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,011.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">15 Mar 2023</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£500.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,741.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Feb 2023</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£54.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,241.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Feb 2023</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£270.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,187.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">19 Feb 2023</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£450.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,917.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Jan 2023</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£54.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,367.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Jan 2023</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£270.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,313.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">16 Jan 2023</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£300.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,043.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">28 Dec 2022</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£400.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2343.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Dec 2022</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£54.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,743.05</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Dec 2022</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£270.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£2,689.05</td>
+				</tr>
+			</tbody>
+			</table>
+
+
+			<nav class="govuk-pagination" role="navigation" aria-label="results">
+						<div class="govuk-pagination__prev">
+							<a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+							<svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+								<path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+							</svg>
+							<span class="govuk-pagination__link-title">Previous</span></a>
+						</div>
+						<ul class="govuk-pagination__list">
+							<li class="govuk-pagination__item govuk-pagination__item--current">
+							<a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page 1">
+								1
+							</a>
+							</li>
+							<li class="govuk-pagination__item ">
+							<a class="govuk-link govuk-pagination__link" href="pp-annual-review-nextpage" aria-label="Page 2" >
+								2
+							</a>
+							</li>
+							<!--li class="govuk-pagination__item">
+							<a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+								3
+							</a>
+							</li-->
+						</ul>
+						<div class="govuk-pagination__next">
+							<a class="govuk-link govuk-pagination__link" href="pp-annual-review-nextpage" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+								<path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+							</svg></a>
+						</div>
+				</nav>
+
+
+
+
+
+
+		</div>
+	</div>
+{% endblock %}

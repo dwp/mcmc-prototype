@@ -1,0 +1,71 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We know about recent unpaid child maintenance </h1>
+			
+			<h2 class="govuk-heading-m">Your latest scheduled payment</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header govuk-!-width-one-third">Collection date</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric">Payment amount</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-text-align-left govuk-!-padding-left-5">Payment status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header">January 2023</th>
+					<td class="govuk-table__cell govuk-table__cell--numeric">£382.91</td>
+					<td class="govuk-table__cell govuk-table__cell govuk-!-text-align-left govuk-!-padding-left-5"><strong class="govuk-tag govuk-tag--red ">MISSED</strong></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="govuk-body">To check if previous payments were made, view your <a href="/pages/payments/payment-history/rp-collect-all-payments" class="govuk-link">payment history</a>.</p>
+
+			<h2 class="govuk-heading-m">What we're doing</h2>
+			<p class="govuk-body">We set up a deduction of earnings order on 27 September 2022. This means we take child maintenance straight from the other parent's income.</p>
+			<p class="govuk-body">We’re investigating why you've not been paid your child maintenance payments. This could be because:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>we're still processing a payment from the employer</li>
+				<li>we have not received the payment and we're trying to find out why</li>
+				<li>the other parent has left their employer and we need to find another way to take payment</li>
+			</ul>
+			<p class="govuk-body">We track Collect and Pay payments and add any unpaid child maintenance to your arrears. Your arrears balance is currently £5,438.04.</p>
+			
+			<h2 class="govuk-heading-m">What happens next</h2>
+			<p class="govuk-body">You do not need to tell us about missed payments.</p>
+			<p class="govuk-body">If we receive your payment, we’ll send it to your bank account as soon as possible.</p>
+			<p class="govuk-body">If the other parent's situation has changed, for example they’ve left their job, we'll set up a new way for them to make payments.</p>
+			<p class="govuk-body">If payments continue to be missed or not paid in full, we’ll work with the employer to try and recover the payments.</p>
+			<p class="govuk-body">We’ll update this page with the status of your latest payment. Any amount we have been unable to recover will be added to your arrears balance.</p>
+
+			<details class="govuk-details" data-module="govuk-details">
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">
+					How child maintenance arrears work
+					</span>
+				</summary>
+				<div class="govuk-details__text">
+					<p class="govuk-body">If we cannot collect payments, we’ll add unpaid child maintenance to your arrears balance.</p>
+					<p class="govuk-body">We usually try to recover this money gradually when the other parent makes child maintenance payments. Arrears can also be paid off in a lump sum, for example, through legal enforcement.</p>
+					<p class="govuk-body">There’s lots of reasons why your arrears might not be paid. When you get payments will depend on things like:</p>
+					<ul class="govuk-list govuk-list--bullet">
+						<li>if we can take payments and leave the other parent with a minimum amount to live on </li>
+						<li>other children they pay maintenance for</li>
+						<li>any priority debts that must be paid first by law – this does not include credit card debt </li>
+					</ul>
+					<p class="govuk-body">We cannot give you information about the other parent’s situation or tell you when you’ll receive arrears.</p>
+				</div>
+			</details>
+		</div>
+	</div>
+{% endblock %}

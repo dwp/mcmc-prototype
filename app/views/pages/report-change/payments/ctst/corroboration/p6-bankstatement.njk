@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Do you have a bank statement to support the payment information you have given us?</h1>
+      <p class="govuk-body">We can only accept a bank or building society statement as evidence you have made your payments.</p>
+
+      <form class="form" action="p7-CA" method="POST">
+      {{ govukRadios({
+          idPrefix: "bankStatement",
+          name: "bankStatement",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+               hint: {
+                text: "You can upload your evidence once you have completed your response"
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

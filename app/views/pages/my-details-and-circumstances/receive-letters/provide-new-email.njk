@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Do you want to provide a new email address?</h1>
+      <p class="govuk-body">We will use this to send email notifications about your case.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/receive-letters/provide-new-email" method="post">
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "provide-new-email",
+            name: "provide-new-email",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+              text: "Continue",
+              type: "submit"
+          }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

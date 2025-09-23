@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Tell us why you cannot provide the requested evidence by 29 January 2025</h1>
+
+      <form class="form" action="threadpageawaiting-evidence" method="POST">
+            {{ govukCharacterCount({
+              name: "connectMessage",
+              id: "connectMessage",
+              maxlength: 400,
+              hint: {
+                text: "Do not include any personal or financial information, like your National Insurance number or credit card details."
+              }
+            }) }}
+
+        <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Is your message ready to send?
+                  </h1>
+                </legend>
+                <div id="waste-hint" class="govuk-hint">
+                  Once you have sent your message, you cannot send a new message until we have responded.
+                </div>
+
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Yes
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <p class="govuk-body">We will review your case and contact you if we need any further information</p>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Send message
+          </button>
+
+        </form>
+
+
+	  </div>
+	  </div>
+
+{% endblock %}

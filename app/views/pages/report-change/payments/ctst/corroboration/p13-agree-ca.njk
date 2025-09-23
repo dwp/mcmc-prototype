@@ -1,0 +1,141 @@
+{% extends "layouts/layout.njk" %}
+
+{% if data['howManyAWeek'] != '' %}
+{% set nights = data['howManyAWeek'] * 52 %}
+{% endif %}
+
+{% if data['howManyAFortnight'] != '' %}
+{% set nights = data['howManyAFortnight'] * 26 %}
+{% endif %}
+
+{% if data['howManyAMonth'] != '' %}
+{% set nights = data['howManyAMonth'] * 12 %}
+{% endif %}
+
+{% if data['howManyAYear'] != '' %}
+{% set nights = data['howManyAYear'] * 1 %}
+{% endif %}
+
+{% if data['additionalNights'] == 'No' %}
+{% set totalNights = nights %}
+{% set extranights = 0 %}
+{% else %}
+{% set extranights = data['howManyExtra'] %}
+{% set totalNights = nights | float + data['howManyExtra'] | float %}
+{% endif %}
+
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <form class="form" method="POST">
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Robin
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of first missed payment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['otherPaymentDate-day'] + ' ' +  data['otherPaymentDate-month'] + ' ' + data['otherPaymentDate-year']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Total amount due
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £300
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Total amount received
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £90.15
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outstanding amount
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £209.85
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Agree with missed payment information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Receiving parent shared bank details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['parentSharedAgree']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Change of circumstance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['changeOfCircAgree']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+        </dl>
+
+      <a type="submit" class="govuk-button" href="p14-agree-dec">
+          Continue
+       </a>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

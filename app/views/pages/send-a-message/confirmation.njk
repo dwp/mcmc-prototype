@@ -1,0 +1,27 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {{ govukPanel({
+        titleText: "We have received your message"
+      }) }}
+      <h3 class="govuk-heading-l">What happens next?</h2>
+      <p class="govuk-body">It can take up to 7 days to review your message.</p>
+      <br/>
+      <a class="govuk-link" href="#print-a-copy">Print a copy of your message</p>
+    </div>
+  </div>
+
+{% endblock %}

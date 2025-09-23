@@ -1,0 +1,99 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form class="form" method="POST" action="">
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+    {{ govukCheckboxes({
+      name: "preference",
+      fieldset: {
+        legend: {
+          text: "When can we call you, if we need to?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "We will try to contact you at your preferred time if we have any questions about your application."
+      },
+      items: [
+        {
+          value: "Any time",
+          text: "Any time",
+          behaviour: "exclusive"
+        },
+        {
+          value: "8-10",
+          text: "Between 8am and 10am"
+        },
+        {
+          value: "10-12",
+          text: "Between 10am and midday"
+        },
+        {
+          value: "12-2",
+          text: "Between midday and 2pm"
+        },
+        {
+          value: "2-4",
+          text: "Between 2pm and 4pm"
+        },
+        {
+          value: "4-6",
+          text: "Between 4pm and 6pm"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "none",
+          text: "None of these times work for me",
+          behaviour: "exclusive"
+        }
+      ]
+    }) }}
+    
+
+    <br>
+
+    {{ govukRadios({
+    classes: "govuk-radios--inline",
+    name: "changedName",
+    fieldset: {
+      legend: {
+        text: "Can we leave voicemails if we can not contact you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  }) }}
+
+    
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+    </div>
+    </div>
+
+  {% endblock %}

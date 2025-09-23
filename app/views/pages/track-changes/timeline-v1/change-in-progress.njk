@@ -1,0 +1,29 @@
+o{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/track-changes/timeline-v1" class="govuk-back-link">Back to Track Changes</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Change to service type</h1>
+      <p class="govuk-body">
+        {{ govukTag({
+          text: "in progress",
+          classes: "govuk-tag--yellow govuk-!-margin-right-3"
+        }) }}
+        <a href="/pages/messages/upload-evidence/start" class="govuk-link">Upload evidence</a>
+      </p>
+      <p class="govuk-body">We are currently working on your report.</p>
+      <p class="govuk-body">We provide the most up to date status information that we have and are doing all we can to progress your report. There may be multiple steps we take while your report is in progress, such as speaking to the other parent or working with another government organisation.</p>
+      <p class="govuk-body">We will contact you when the change is complete or if we need more information. You do not need to contact us.</p>
+      <h2 class="govuk-heading-m">Completion date</h2>
+      <p class="govuk-body">We aim to complete any actions required by 10 March 2021.</p>
+    </div>
+  </div>
+
+{% endblock %}

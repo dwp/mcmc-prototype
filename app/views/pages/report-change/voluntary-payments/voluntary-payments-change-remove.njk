@@ -1,0 +1,89 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change or remove voluntary payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/report-change/voluntary-payments/voluntary-payments-change-remove" method="post" novalidate>
+        <h1 class="govuk-heading-xl">Change or remove voluntary payment</h1>  
+        {{ govukDateInput({
+          id: "payment-date",
+          namePrefix: "payment-date",
+          fieldset: {
+            legend: {
+              text: "Payment date",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-date-input__input",
+              name: "payment-date-day",
+              value:data['vpDay'],
+              id: "toDay",
+              name: "toDay",
+              label: "Day"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-date-input__input",
+              name: "payment-date-month",
+              value:data['vpMonth'],
+              id: "toMonth",
+              name: "toMonth",
+              label: "Month"
+            },
+            {
+              classes: "govuk-input--width-4 govuk-date-input__input",
+              name: "payment-date-year",
+              value:data['vpYear'],
+              id: "toYear",
+              name: "toYear",
+              label: "Year"
+            }
+          ]
+        }) }}
+
+        {{ govukInput({
+          id: "payment-amount",
+          name: "payment-amount",
+          label: {
+            text: "Payment amount",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          prefix: {
+            text: "£"
+          },
+          value: data['vpamount'],
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Update payment"
+          }) }}
+          {{ govukButton({
+            href: "./voluntary-payments-remove",
+            text: "Remove payment",
+            classes: "govuk-button--secondary", 
+            type: "submit"
+          }) }}
+          <p class="govuk-body"><a href="/pages/report-change/voluntary-payments/disagree/voluntary-payments-review">Cancel</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

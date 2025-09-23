@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: t['leaving-education']['received-request']
+      }) }}
+
+      <h2 class="govuk-heading-m">{{ t['leaving-education']['what-happens-next'] }}</h2>
+      {% if data['childLiveWithYou'] === 'anotherChild' %}
+        <p class="govuk-body">{{ t['leaving-education']['we-will-contact-the-paying-parent'] }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ t['leaving-education']['change-in-your-maintenance'] }}</li>
+          <li>{{ t['leaving-education']['success-no-change-maintenance']['PWC'] }}</li>
+        </ul>
+        <p class="govuk-body">
+          <a href="#"" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear).
+        </p>
+        <p class="govuk-body">{{ t['leaving-education']['remember-to-check-we-have-your'] }}</p>
+      {% else %}
+        {% if data['userType'] === 'PWC' or data['userType'] === 'PeWC' or data['dualReportingType'] === 'receive' %}
+          <p class="govuk-body">{{ t['leaving-education']['success-once-we-reviewed'] }}</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t['leaving-education']['success-change-maintenance']['PWC'] }}</li>
+            <li>{{ t['leaving-education']['success-no-change-maintenance']['PWC'] }}</li>
+          </ul>
+          <p class="govuk-body">{{ t['leaving-education']['following-acceptance-your-request'] }}</p>
+        {% elseif data['userType'] === 'NRP' or data['dualReportingType'] === 'pay' %}
+          <p class="govuk-body">{{ t['leaving-education']['success-we-will-review'] }}</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t['leaving-education']['success-change-maintenance']['NRP'] }}</li>
+            <li>{{ t['leaving-education']['success-no-change-maintenance']['NRP'] }}</li>
+          </ul>
+        {% endif %}
+        {% if journeyContext['fte-pp-date-child-leave'].childSelected.relation === 'QC'
+              or journeyContext['fte-date-child-leave'].childSelected.relation === 'QC' %}
+          <p class="govuk-body">{{ t['leaving-education']['following-acceptance-your-request'] }}</p>
+        {% endif %}
+
+        <form action="" method="POST">
+          {% if data['userType'] !== 'PWC' and data['userType'] !== 'PeWC' and data['userType'] !== 'NRP' and data['userType'] !== 'Dual' %}
+            <h2 class="govuk-heading-m">{{ t['leaving-education']['you-need-to-upload-your'] }}</h2>
+            <a href="#" type="submit" class="govuk-button">
+              {{ t['leaving-education']['upload-evidence'] }}
+            </a>
+            <p class="govuk-body">{{ t['leaving-education']['if-you-dont-have-your'] }}</p>
+          {% endif %}
+        </form>
+        <p>
+          <a href="#"" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear).
+        </p>
+        <p class="govuk-body">{{ t['leaving-education']['remember-to-check-we-have-your'] }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

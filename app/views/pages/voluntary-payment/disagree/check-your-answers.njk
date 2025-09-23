@@ -1,0 +1,146 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Case"
+            },
+            value: {
+              text: data['case']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "Case"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Agree with voluntary payment"
+            },
+            value: {
+              text: data.agreeYesNo
+            },
+            actions: { classes: ['case-details-actions'],
+              items: [
+                {
+                  href: "/pages/voluntary-payment/agree/reported-by-other-parent",
+                  text: "Change",
+                  visuallyHiddenText: "Agree with voluntary payment"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      {% set rowsToDisplay = [
+        [
+          {
+            text: "-"
+          },
+          {
+            text: "-"
+          }
+        ]
+      ]
+      %}
+      {% if data['voluntary-payment'] | length > 0%}
+
+          {{ govukTable({
+          head: [
+            {
+              text: "Date of payment"
+            },
+            {
+              text: "Payment amount"
+            },
+            {
+              text: "Change"
+            },
+            {
+              text: "Remove"
+            }
+          ],
+          rows: data['voluntary-payment-reported']
+          }) }}
+      {% else %}
+          {{ govukTable({
+            head: [
+              {
+                text: "Date of payment"
+              },
+              {
+                text: "Payment amount"
+              }
+            ],
+          rows: rowsToDisplay
+          }) }}
+      {% endif %}
+
+      {{ govukButton({
+        text: "Add another voluntary payment",
+        href: "/pages/voluntary-payment/disagree/add-payment",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% if data['show-disagree-reason'] %}
+        {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Why you disagree"
+            },
+            value: {
+              text: data['truncated-reason']
+            },
+            actions: { classes: ['case-details-actions'],
+              items: [
+                {
+                  href: "/pages/voluntary-payment/disagree/why-do-you-disagree",
+                  text: "Change",
+                  visuallyHiddenText: "Why you disagree"
+                }
+              ]
+            }
+          }
+        ]
+        }) }}
+      {% endif %}
+
+      <form action="/pages/voluntary-payment/disagree/check-your-answers" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

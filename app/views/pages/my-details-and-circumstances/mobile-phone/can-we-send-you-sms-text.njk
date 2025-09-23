@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Can we send you text messages (SMS) about your case?</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+      <form class="form" action="/pages/my-details-and-circumstances/mobile-phone/check-mobile-phone-number" method="post">
+
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "can-we-send-you-sms",
+        name: "can-we-send-you-sms",
+      items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: data["can-we-send-you-sms"] === 'yes'
+
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: data["can-we-send-you-sms"] === 'no'
+      }
+      ]
+      }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+          type: "submit",
+          text: "Continue"
+        }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

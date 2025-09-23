@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What are the payment details?</h1>
+      <p class="govuk-body">You will be asked to provide evidence of this payment later in the form of a bank statement.</p>
+
+      <form class="form" action="p3c-updatedpayments" method="POST">
+      <br>
+        {{ govukDateInput({
+          id: "otherPaymentDate",
+          namePrefix: "otherPaymentDate",
+          fieldset: {
+            legend: {
+              text: "Payment date",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+
+        {{ govukInput({
+          id: "otherPaymentAmount",
+          name: "otherPaymentAmount",
+          label: {
+            text: "Payment amount",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          prefix: {
+            text: "£"
+          },
+          hint: {
+            text: "For example, £123.45 or £156"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
+      <br>
+
+      
+      <button type="submit" class="govuk-button">
+        Add Payment
+      </button>
+
+      <p class="govuk-body"><a href="#" class="govuk-link">Cancel</a>.</p>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

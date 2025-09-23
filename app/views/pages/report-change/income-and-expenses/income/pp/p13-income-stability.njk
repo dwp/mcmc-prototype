@@ -1,0 +1,83 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Why does the amount you get paid change?</h1>
+      
+      {% set otherReason %}
+      {{ govukCharacterCount({
+          name: "other-reason-fluctuation",
+          id: "other-reason-fluctuation",
+          maxlength: "300",
+          rows: "5",
+          label: {
+            text: "Why does the amount you get paid change?",
+            classes: "govuk-label"
+          }
+        }) }}
+      {% endset -%}
+
+      <form method="post">
+
+      {{ govukCheckboxes({
+        name: "why-amount-changes",
+        items: [
+          {
+            value: "I have a zero hours or casual contract",
+            text: "I have a zero hours or casual contract"
+          },
+          {
+            value: "My income depends on how many hours or days I work",
+            text: "My income depends on how many hours or days I work"
+          },
+          { 
+            value: "I receive a performance related commission or bonus",
+            text: "I receive a performance related commission or bonus"
+          },
+          {
+            value: "Overtime",
+            text: "Overtime"
+          },
+          {
+            value: "Other reason",
+            text: "Other reason",
+                conditional: {
+                  html: otherReason
+                }
+          }
+        ]
+      }) }}
+        
+      
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+        </form>
+
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

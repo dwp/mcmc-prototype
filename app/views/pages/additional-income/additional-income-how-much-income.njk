@@ -1,0 +1,83 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{t.additional.what_sort_of_additional_income_}}</h1>
+      {% if data['validation-errors'] > [] %}
+        {{ govukErrorSummary({
+          name: 'error',
+          titleText:  t.common['there-is-a-problem'],
+          errorList: data['validation-errors']
+        }) }}
+      {% endif %}
+
+      <form action="/pages/additional-income/additional-income-how-much-income" method="post" novalidate>
+
+        {{ govukRadios({
+          id: "type-of-income",
+          idPrefix: "type-of-income",
+          name: "type-of-income",
+          fieldset: {
+            legend: {
+              html: t.additional.you_can_only_select_and_,
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "unearned",
+              text: t.additional.unearned_income_annually | safe,
+              checked: checked("type-of-income", "unearned")    
+            },
+            {
+              value: "earned",
+              text: t.additional.earned_income_weekly | safe,
+              checked: checked("type-of-income", "earned")
+            },
+            {
+              value: "diverted",
+              text: t.additional.diverted_income_annually | safe,
+              checked: checked("type-of-income", "diverted")
+            },
+            {
+              value: "asset",
+              text: t.additional.asset_value | safe,
+              checked: checked("type-of-income", "asset")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

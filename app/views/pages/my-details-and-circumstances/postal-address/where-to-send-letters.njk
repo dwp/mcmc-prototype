@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Where should we send your letters?</h1>
+      <p class="govuk-body govuk-!-margin-bottom-7">These details are private and are not shared with the other parent.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/postal-address/where-to-send-letters" method="post">
+        {{ govukInput({
+              label: {
+                text: "House name or number",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-house-number",
+              name: "postal-house-number",
+              classes: "govuk-input--width-10"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Postcode",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "postal-postcode",
+              name: "postal-postcode",
+              classes: "govuk-input--width-10"
+            }) }}
+
+        {{ govukButton({
+                text: "Find Address",
+                type: "submit"
+            }) }}
+
+                <p class="govuk-body">
+          <a href="/pages/my-details-and-circumstances/postal-address/enter-postal-address-manually-outside-uk" class="govuk-link">I live outside the UK</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Child leaving full time education
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+          Child leaving full-time education RP corroboration.
+        </h1>
+
+      <form class="form" action="/pages/welcome" method="post">
+
+        <div class="govuk-radios">
+          <p class="govuk-heading-s">SMS Text scenarios:</p>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-1" name="child-leaving-fte-scenario" type="radio" value="1">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-1">
+              SMS Text Link used (single outstanding SR - PP informed CMG that child has left full-time education)
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-2" name="child-leaving-fte-scenario" type="radio" value="2">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-2">
+              SMS Text Link used (single outstanding SR - HMRC interface child is off Child Benefit)
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-5" name="child-leaving-fte-scenario" type="radio" value="5">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-5">
+              SMS Text Link used (no outstanding SRs)
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-6" name="child-leaving-fte-scenario" type="radio" value="6">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-6">
+              SMS Text Link used (expired link for child leaving FTE corroboration)
+            </label>
+          </div>
+          <p class="govuk-heading-s">Normal Login scenarios:</p>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-3" name="child-leaving-fte-scenario" type="radio" value="3">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-3">
+              Normal Login - SMS Text Link not used (single outstanding SR)
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="child-leaving-fte-scenario-4" name="child-leaving-fte-scenario" type="radio" value="4">
+            <label class="govuk-label govuk-radios__label" for="child-leaving-fte-scenario-4">
+              Normal Login - SMS Text Link not used (multiple outstanding SRs)
+            </label>
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Start",
+          classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-8"
+        }) }}
+
+      </form>
+
+      <p class="govuk-notification-banner__heading">
+        Report any additional income.
+        <a href="/pages/additional-income/additional-income-which-case">Additional Income</a>.
+      </p>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-heading-s">Voluntary payment</p>
+        <ul class="govuk-body">
+          <li>
+            <a href="/pages/voluntary-payment/action-required" tabindex="-1">Action required</a>
+          </li>
+          <li>
+            <a href="/pages/voluntary-payment/no-action-required" tabindex="-1">No action required</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

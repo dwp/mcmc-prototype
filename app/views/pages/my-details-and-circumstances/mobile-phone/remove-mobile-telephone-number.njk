@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Do you want to remove this mobile number?</h1>
+
+      {{ govukInsetText({
+        text: data["md-mobilePhone"] if data["md-mobilePhone"] else data["default-phone"]
+      }) }}
+
+      <form class="form" action="/pages/my-details-and-circumstances/mobile-phone/remove-mobile-telephone-number" method="post">
+
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "remove-mobile-telephone-number",
+        name: "remove-mobile-telephone-number",
+      items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+      ]
+      }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+          type: "submit",
+          text: "Continue"
+        }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

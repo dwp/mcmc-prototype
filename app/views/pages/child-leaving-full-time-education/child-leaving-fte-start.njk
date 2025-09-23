@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['corroboration']['is-child-still-in-fte'] }}
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: t['common']['home'],
+        href: "/pages/welcome"
+      },
+      {
+        text: t['leaving-education']['corroboration']['child-leaving-fte'],
+        href: "/pages/child-leaving-full-time-education/child-leaving-fte-start"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t['leaving-education']['corroboration']['child-leaving-fte'] }}
+      </h1>
+      <p class="govuk-body">
+        {{ t['leaving-education']['corroboration']['you-normally-receive-child-maintenance_'] }}
+      </p>
+
+      {% if data['child-leaving-fte-scenario'] === "2" %}
+        <p class="govuk-body">
+          {{ t['leaving-education']['corroboration']['you-may-no-longer-be-entitled-child-benefit-office_'] }}
+        </p>
+      {% else %}
+        <p class="govuk-body">
+          {{ t['leaving-education']['corroboration']['you-may-no-longer-be-entitled-other_parent_'] }}
+        </p>
+      {% endif %}
+
+      <h2 class="govuk-heading-m">
+        {{ t['leaving-education']['corroboration']['action-required-by'] }}
+      </h2>
+      <p class="govuk-body">
+        {{ t['leaving-education']['corroboration']['you-need-to-confirm-if-information-is-correct_'] }}
+      </p>
+      <p class="govuk-body">
+        {{ t['leaving-education']['corroboration']['if-your-confirmation-is-not-received_'] }}
+      </p>
+
+      {{ govukButton({
+        text: t['common']['continue'],
+        href: "/pages/child-leaving-full-time-education/child-still-in-fte",
+        classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-8",
+        isStartButton: false
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

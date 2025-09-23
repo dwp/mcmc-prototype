@@ -1,0 +1,84 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+    {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+    {% set dateLeaveFte = data['dateLeaveFte-day'] + '/' + data['dateLeaveFte-month'] + '/' + data['dateLeaveFte-year'] %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t['common']['check-your-answers'] }}</h1>
+            {% if data['childLiveWithYou'] === 'anotherChild' %}
+                {% if journeyContext['fte-which-child-reporting'].parentCases.length > 1 %}
+                    {% set parentFirstNameItem = [
+                        {
+                            href: '/pages/report-change/leaving-education/which-case-roc-relevant',
+                            text: t['common']['change'],
+                            visuallyHiddenText: t['leaving-education']['paying-parent-name'],
+                            classes: 'govuk-link--no-visited-state'
+                        }]
+                    %}
+                {% endif %}
+                {{ govukSummaryList({
+                    rows:
+                    [{
+                        key: { text: t['leaving-education']['paying-parent-name'] },
+                        value: { text: "{paying parent name}" },
+                        actions: {
+                            items: parentFirstNameItem
+                        }
+                    }]
+                    })
+                }}
+            {% else %}
+                {% if data['whichChild'].length > 1 %}
+                    {% set firstNameItem = [
+                        {
+                            href: '/pages/report-change/leaving-education/child-left-fte',
+                            text: t['common']['change'],
+                            visuallyHiddenText: t['leaving-education']['child-first-name'],
+                            classes: 'govuk-link--no-visited-state'
+                        }]
+                    %}
+                {% endif %}
+                {{ govukSummaryList({
+                    rows:
+                    [{
+                        key: { text: t['leaving-education']['child-first-name'] },
+                        value: { text: data['whichChild'] },
+                        actions: {
+                            items: firstNameItem
+                        }
+                    },
+                    {
+                        key: { text: t['leaving-education']['child-leave-effective-date'] },
+                        value: { text: dateLeaveFte },
+                        actions: {
+                        items: [
+                            {
+                                href: '/pages/report-change/leaving-education/date-child-leave-fte',
+                                text: t['common']['change'],
+                                visuallyHiddenText: t['leaving-education']['child-leave-effective-date'],
+                                classes: 'govuk-link--no-visited-state'
+                            }
+                        ]
+                    }
+                    }]
+                }) }}
+            {% endif %}
+            <form action="" method="POST">
+                <button type="submit" class="govuk-button">
+                    {{ t['common']['continue'] }}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createPaymentPlanToast %}
+
+{% block content %}
+	<a href="/pages/payments/summary/direct-pay/pp-direct" class="govuk-back-link">Back to Payments</a><br></br>
+  <div class="govuk-grid-row">
+    {{ createPaymentPlanToast() }}
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Direct Pay payment plan for Jack and 2 more</h1>
+      {{ govukInsetText({
+        text: "Arrears amount you owe including any collection fees or charges: £1400"
+      }) }}
+      <h2 class="govuk-heading-m" id="scheduled-payments">Scheduled payments during current annual review period 10 March 2021 to 9 March 2022</h2>
+      <p class="govuk-body">To view your previous payment plans,
+				<a class="govuk-link" href="/pages/messages">go to messages</a>.
+			</p>
+      {{ govukTable({
+				id: "payments-plan",
+				classes: "payments-history",
+				firstCellIsHeader: true,
+				attributes: { "aria-describedby" : "scheduled-payments" },
+				head: [
+					{
+						text: "Date",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Amount including any arrears",
+						format: "numeric",
+						classes: "previous-payments-header previous-payments-cell"
+					}
+				],
+				rows: 
+				[
+					[
+						{
+							text: "12 September 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£80",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 August 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£80",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 July 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£105",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 June 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£100",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 May 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£105",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 April 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£100",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "12 March 2021",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£95",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					]
+				]
+			}) }}
+    </div>
+  </div>
+{% endblock %}

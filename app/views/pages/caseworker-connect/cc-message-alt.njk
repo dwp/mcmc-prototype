@@ -1,0 +1,92 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Direct Pay request</h1>
+
+      <p class="govuk-body"><b>Subject:</b> Evidence needed - proof of missed payment</p>
+      
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Latest Caseworker (CMS) message</th>
+            <th scope="col" class="govuk-table__header">Date sent</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Please can you provide proof of missed payment through the 'Upload evidence' page.</td>
+            <td scope="row" class="govuk-table__cell">9:03am, 3 May</td>
+          </tr>
+      </table>
+     
+     <form class="form" method="POST" action="cc-check-message">
+        {{ govukCharacterCount({
+            name: "connectMessage",
+            id: "connectMessage",
+            maxlength: 200,
+            label: {
+                text: "Write a message",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+            hint: {
+                text: "Check your message is correct before sending. Once you have sent your message, you cannot send a new message until your caseworker has responded."
+            }
+            }) }}
+
+        <button type="submit" class="govuk-button">
+        Send Message
+      </button>
+
+	 </form>
+
+       <p class="govuk-body">
+         <a href="/pages/messages/upload-evidence/start-alt" class="govuk-link">Go to Upload Evidence</a>.
+       </p>
+
+     <br>
+
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Message history</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date sent</th>
+            <th scope="col" class="govuk-table__header">Message</th>
+            <th scope="col" class="govuk-table__header">Sent by</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">9:03am <br> 3 May <br> 2024</td>
+            <td class="govuk-table__cell">Please can you provide proof of missed payment through the 'Upload evidence' page.</td>
+            <td class="govuk-table__cell">CMS</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">5:34pm <br> 2 May <br> 2024</td>
+            <td class="govuk-table__cell">what evidence do i need to send</td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">10:13am <br> 1 May <br> 2024</td>
+            <td class="govuk-table__cell">Please can you submit evidence for your recent change request.</td>
+            <td class="govuk-table__cell">CMS</td>
+          </tr>
+
+      </table>
+
+      
+	  </div>
+	  </div>
+
+{% endblock %}

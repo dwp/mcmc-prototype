@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  What is your message?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">What is your message?</h1>
+      <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      The Child Maintenance Service takes a zero tolerance approach to unacceptable customer behaviour. We will not respond to any messages that contain inappropriate or offensive comments.
+      </strong>
+      </div>
+
+      <form class="form" action="/pages/send-a-message/write-message" method="post">
+          {{ govukCharacterCount({
+            id: "writeMessageContent",
+            name: "writeMessageContent",
+            maxlength: 600,
+            hint: {
+              text: "You will be able to save a copy of your message once you have sent it."
+            }
+          }) }}
+          <button type="submit" class="govuk-button" name="continue">
+          {{ t['common']['continue'] }}
+        </button>
+      </form>
+      </div>  
+  </div>
+
+{% endblock %}

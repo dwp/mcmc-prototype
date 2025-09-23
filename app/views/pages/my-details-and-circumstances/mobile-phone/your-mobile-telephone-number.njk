@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">What is your mobile number?</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+      <form class="form" action="/pages/my-details-and-circumstances/mobile-phone/can-we-send-you-sms-text" method="post">
+
+        {{ govukInput({
+          id: "mobilePhone",
+          name: "md-mobilePhone",
+          classes: "govuk-!-width-one-third",
+					value: data["md-mobilePhone"] if data["md-mobilePhone"] else data["default-phone"]
+        }) }}
+
+        {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

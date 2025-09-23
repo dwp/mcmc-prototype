@@ -1,0 +1,149 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{% if (data['nino'] === "PP123456B") %}
+	<a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-back-link">Back to Payments</a><br></br>
+	{% else %}
+	<a href="/pages/payments/summary/collect-pay/pp-collect" class="govuk-back-link">Back to Payments</a><br></br>
+	{% endif %}
+	<div class="govuk-grid-row">
+		{#{{ createToast() }}#}
+		<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you make for Noah and Mia</h1>
+		{#<p class="govuk-body">All payments for these cases:</p>
+		<ul class="govuk-body">
+			<li>Jim and 1 other</li>
+			<li>Jane and 2 others</li>
+		</ul>#}
+		<div class="gov-uk-body">
+			{% set keyHtml %}
+				<p class="govuk-body govuk-!-font-weight-bold" id="payments-during">Payments during the annual review period 12 December 2022 to 12 December 2023</a>
+			{% endset %}
+			{% set valueHtml %}
+				<a class="govuk-link govuk-body" href="#">Change date period</a>
+			{% endset %}
+			{{ govukSummaryList({
+				rows: 
+				[
+					{
+						key: {
+							classes: "payment-history-key",
+							html: keyHtml
+						},
+						value: {
+							classes: "payment-history-value change-date-period",
+							html: valueHtml,
+							format: numeric
+						}
+					}
+				]
+			}) }}
+		</div>
+		<div class="gov-uk-body">
+			{{ govukTable({
+				id: "payments-history",
+				classes: "payments-history",
+				firstCellIsHeader: true,
+				attributes: { "aria-describedby" : "payments-during" },
+				head: [
+					{
+						text: "Date of payment",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Amount including 20% collection fee and any arrears",
+						format: "numeric",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Description",
+						classes: "previous-payments-header previous-payments-cell"
+					}
+				],
+				rows: 
+				[
+					[
+						{
+							text: "21 February 2023"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					],
+					[
+						{
+							text: "21 January 2023"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					],
+					[
+						{
+							text: "21 December 2022"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					],
+					[
+						{
+							text: "21 November 2022"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					],
+					[
+						{
+							text: "21 October 2022"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					],
+					[
+						{
+							text: "21 September 2022"
+						},
+						{
+							text: "£578.64",
+							format: "numeric"
+						},
+						{
+							text: "Deduction from earnings order (DEO)"
+						}
+					]
+				]
+			}) }}
+		</div>
+		<div class="gov-uk-body">
+			{{cmgPagination({
+			})}}
+		</div>
+		<h3 class="govuk-heading-s total-amount-heading">Total amount you have paid since 12 December 2021</h3>
+		<span class="govuk-hint">Including 20% collection fee and any arrears</span>
+		<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£3,471.84</p>
+	</div>
+{% endblock %}

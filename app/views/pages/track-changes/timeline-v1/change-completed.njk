@@ -1,0 +1,27 @@
+o{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/track-changes/timeline-v1" class="govuk-back-link">Back to Track Changes</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">Additional Income</h1>
+      <p class="govuk-body track-changes-case-reference">Jimmy and 1 other</p>
+      <p class="govuk-body">
+        {{ govukTag({
+          text: "completed",
+          classes: "govuk-tag--green"
+        }) }}
+      </p>
+      <p class="govuk-body">We have completed and closed your change report. Your change has been accepted and we have sent you a <a class="govuk-link" href="#">confirmation letter.</a></p>
+      <h2 class="govuk-heading-m">Completion date</h2>
+      <p class="govuk-body">We aim to complete any actions required by 10 March 2021.</p>
+    </div>
+  </div>
+
+{% endblock %}

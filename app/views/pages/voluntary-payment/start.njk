@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Voluntary payment report
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Voluntary payment report</h1>
+
+      <p class="govuk-body">The other parent has reported they have made a voluntary payment in addition to your regular child maintenance payments.</p>
+
+      <p class="govuk-body">This payment may be on top of or instead of your scheduled child maintenance.</p>
+
+      <p class="govuk-body">If you use Collect and Pay, you cannot avoid collection fees if the other parent pays you directly.</p>
+
+      <h2 class="govuk-heading-m">Action required by 12 November 2021</h1>
+
+      <p class="govuk-body">You need to confirm the information the other parent has given us so we can decide if your child maintenance is impacted.</p>
+
+      <p class="govuk-body">If your confirmation is not received by 12 November 2021 your calculation may still change.</p>
+      <form action="/pages/voluntary-payment/start" method="post" novalidate>
+      {{ govukButton({
+        text: 'Continue'
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

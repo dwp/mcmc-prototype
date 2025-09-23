@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/track-changes/timeline-v2" class="govuk-back-link">Back to Track Changes</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Jimmy and 1 more</span>
+        Change bank details
+      </h1>
+      <p class="govuk-body">
+        If you want to support your case, you can <a href="/pages/messages/upload-evidence/start" class="govuk-link govuk-!-margin-top-3">upload evidence</a>.
+      </p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Most recent update
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">23 September 2021</p>
+            {{govukTag({
+                text: "Evidence requested",
+                classes: "govuk-tag--purple govuk-!-margin-bottom-3"
+            })}}
+            <p class="govuk-body">If we need evidence from:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>you, we have sent you a message. <a href="/pages/messages" class="govuk-link govuk-!-margin-top-3">View messages and contact history</a> to see if you need to upload evidence</li>
+              <li>the other parent, you will not have received a message from us. You do not need to do anything</li>
+            </ul>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expected completion date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">27 September 2021</p>
+            <p class="govuk-body">We will tell your if the change has been accepted or rejected.</p>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reported on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">17 September 2021</p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

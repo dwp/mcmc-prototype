@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "f-dualReportingType",
+          name: "dualReportingType",
+          casaErrors: formErrors,
+          fieldset: {
+            legend: {
+              text: "Are you reporting a change for a case you:",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "pay",
+              text: "Pay maintenance for"
+            },
+            {
+              value: "receive",
+              text: "Receive maintenance for"
+            }
+          ]
+        }) }}
+
+        <a href="pc-pp-which-child" class="govuk-button" data-module="govuk-button">Continue</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

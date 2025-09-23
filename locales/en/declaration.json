@@ -1,0 +1,8 @@
+{
+  "declaration": "Declaration",
+  "before-sending-this-req": "Before sending this request you confirm that:",
+  "info-is-complete-correct": "the information is correct and complete as far as you know",
+  "will-report-any-changes": "you'll report any changes that might affect how much child maintenance you pay or receive",
+  "you-could-be-prosecuted": "You could be prosecuted and have to pay a financial penalty if you knowingly give the wrong information or do not report changes.",
+  "confirm-and-send": "Confirm and send"
+}

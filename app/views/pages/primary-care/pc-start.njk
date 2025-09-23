@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Start page example
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Change who has financial or main day-to-day care responsibility for a child
+      </h1>
+
+      <p>You need to let us know if the person who has financial or main day-to-day care responsibility for a child changes. This is known as Primary Care and it may affect your child maintenance payments.</p>
+
+      <p class="govuk-body">Choose scenario:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="pc-pp-date-change-happen" class="govuk-link">Scenario 1: 1 QC.</a>
+        </li>
+        <li>
+          <a href="pc-pp-which-child" class="govuk-link">Scenarios 2, 3, 5, 6 and 7: Multiple QCs and no/one ROC. Child 2 is duplicate.</a>
+        </li>
+        <li>
+          <a href="pc-dual-reporting" class="govuk-link">Scenario 4: Dual user, multiple QCs and no/one ROC. Child 2 is duplicate.</a>
+        </li>
+        <li>
+          <a href="pc-pp-who-are-you-reporting" class="govuk-link">Scenario 8: 1 QC, 2 ROCs and 1 CIFBA. CIFBA is duplicate.</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

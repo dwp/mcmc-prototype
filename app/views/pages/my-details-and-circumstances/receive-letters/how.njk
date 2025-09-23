@@ -1,0 +1,54 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">How do you want to receive letters?</h1>
+
+      <p class="govuk-body">Choose how you receive any letters from us.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/receive-letters/how" method="post">
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "letter-correspondance",
+            name: "letter-correspondance",
+            items: [
+              {
+                value: "Online only",
+                text: "Online only",
+                checked: data["letter-correspondance"] === "Online only" or data['communication'] === "Online only",
+                hint: {
+                  text: "We will upload all your letters to your online case. We may need to send some letters by post, but we will always send them online if we can."
+                }
+              },
+              {
+                value: "Online and by post",
+                text: "Online and by post",
+                checked: data["letter-correspondance"] === "Online and by post" or data['communication'] === "Online and by post",
+                hint: {
+                  text: "We will send all your letters by post and upload a copy to your online case."
+                }
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+              text: "Continue",
+              type: "submit"
+          }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

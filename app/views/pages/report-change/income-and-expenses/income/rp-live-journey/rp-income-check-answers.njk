@@ -1,0 +1,176 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+      {% if (data['parent-income'] === "No") %}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you know the new taxable income amount
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-income'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-other-parent-income">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Written evidence available
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['written-evidence']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-written-evidence">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Change of income details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['income-details']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-details">
+              Change</a>
+          </dd>
+        </div>
+      </dl>
+
+      {% else %}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you know the new taxable income amount
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-income'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-other-parent-income">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            New annual gross taxable employment income
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-income'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-new-total">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            New annual self-employed profits 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-self-employed-income'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-new-total">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            New annual private pension contributions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pension-contribution'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-new-total">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Total new annual income
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-total-income'] }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What date did the other parent start receiving their new income?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['date-of-change-day'] }}/{{ data['date-of-change-month'] }}/{{ data['date-of-change-year'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-date-of-change">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Written evidence available
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['written-evidence']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-written-evidence">
+              Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Change of income details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['income-details']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="rp-income-details">
+              Change</a>
+          </dd>
+        </div>
+      </dl>
+      {% endif %}
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+        text: "Continue",
+        href: "/pages/report-change/income-and-expenses/income/rp-live-journey/rp-income-declaration"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

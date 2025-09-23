@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action</h1>
+      <p class="govuk-body">Wherever the other parent lives in the UK we can apply to the court for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li><b>an order of disqualification</b> - taking away the other parent’s driving licence or stopping them from getting or keeping a driving licence for up to 2 years</li>
+            <li><b>a warrant of commitment</b> - sending the other parent to prison for up to 6 weeks</li>
+      </ul>
+
+      <p class="govuk-body">We hope that the threat of this kind of serious action will cause the other parent to pay. If it doesn’t, and we go ahead with the disqualification or commitment, they will still have to pay all the child maintenance that you are owed.</p>
+
+      
+  </div>
+
+  
+
+{% endblock %}

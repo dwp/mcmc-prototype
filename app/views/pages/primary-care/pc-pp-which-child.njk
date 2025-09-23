@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        {{ govukRadios({
+          idPrefix: "which-child",
+          name: "which-child",
+          fieldset: {
+            legend: {
+              text: "Which child are you reporting a change to the responsibility for the main day-to-day care for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If you are reporting for more than one child, you need to report each child separately."
+          },
+          items: [
+            {
+              value: "1",
+              text: "Child 1"
+            },
+            {
+              value: "2",
+              text: "Child 2 (duplicate)"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

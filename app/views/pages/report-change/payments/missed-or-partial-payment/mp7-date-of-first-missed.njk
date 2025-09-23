@@ -1,0 +1,83 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">What was the date of the first missed or partial payment?</h1>
+      
+      <p class="govuk-body">The date must be on or after 21 December 2021.</p>
+  
+
+
+  <div class="govuk-form-group">
+    <form class="govuk-form" method="post">
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, 21 1 2022
+        </div>
+
+        <div class="govuk-date-input" id="first-missed-payment">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="firstMissedPaymentDay">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="firstMissedPaymentDay" name="firstMissedPaymentDay" method="post" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="first-missed-payment-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-missed-payment-month" name="first-missed-payment-month" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="first-missed-payment-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-missed-payment-year" name="first-missed-payment-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      
+  </div>
+
+      <button type="submit" class="govuk-button">
+          Continue
+      </button>
+      </form>
+      
+    
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

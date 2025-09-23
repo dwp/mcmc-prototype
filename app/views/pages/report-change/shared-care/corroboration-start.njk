@@ -1,0 +1,72 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Shared care request for Robin</h1>
+      <p class="govuk-body">Your shared care is currently under review. The other parent has reported a change to your overnight arrangement. You have until 28 June 2025 to confirm the details are correct</p>
+      <p class="govuk-body">We work out how many overnight stays you have over a 12 month period then report the number as a weekly average</p>
+      <p class="govuk-body">Average number of nights Robin will stay overnight with you:</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Average number of nights weekly</th>
+            <th scope="col" class="govuk-table__header">3</th>
+          </tr>
+        </thead>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Number of extra nights</th>
+            <th scope="col" class="govuk-table__header">0</th>
+          </tr>
+        </thead>
+      </table>
+
+      <p class="govuk-body">
+        <a class="govuk-link--no-visited-state" target="_blank" rel="noopener noreferrer" href="/onlinerevive/secure/shared-care-info/what-is-shared-care">Find out how shared care works and how it can impact your payments (opens in new tab).</a>
+      </p>
+
+      <h1 class="govuk-heading-l">
+        Do you agree with the number of nights Robin will stay overnight with you?
+      </h1>
+
+      <form class="form" method="POST" action="">
+
+      {{ govukRadios({
+        name: "corroborationAgree",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No",
+            hint: {
+              text: "We will ask you to provide evidence of your overnight arrangement. If you do not have any evidence we may make a decision based on what you and the other parent have told us."
+            }
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Your payment calculation for Jack and 1 more</h1>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">how the Child Maintenance Service works out child maintenance (opens in a new tab)</a>.
+			</p>
+
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Calculation effective	
+				</dt>
+					<dd class="govuk-summary-list__value">
+						12 December 2021
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Reason for calculation
+				</dt>
+					<dd class="govuk-summary-list__value">
+						Change to shared care
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Total weekly child maintenance
+						<div id="event-name-hint" class="govuk-hint">
+  							Including 20% collection fee, but not including any arrears.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£497.40
+				</dd>
+				</div>
+			</dl>
+
+			<h2 class="govuk-heading-l govuk-!-padding-top-7">What we used to work out your child maintenance</h2>
+			<p class="govuk-body">In most cases, we follow 6 steps to work out your weekly child maintenance.</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 1 - income</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters">
+						Yearly gross income
+						<div id="event-name-hint" class="govuk-hint">
+  							This is your income before income tax and National Insurance. Pension contributions have already been taken off.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value  govuk-!-font-weight-bold govuk-!-text-align-right">
+						£24,200
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-regular">
+						Pension contributions
+						<div id="event-name-hint" class="govuk-hint">
+  							This is the amount we have taken off the yearly gross income.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value govuk-!-text-align-right">
+						£800
+					</dd>
+				</div>
+			</dl>
+			<p class='govuk-body'>
+				<a class='govuk-link' href="/pages/report-change/income-and-expenses/income/pp/p1-start">Report a change of income</a>
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 2 - things that affect income</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters">
+						Total other income and assets
+						<div id="event-name-hint" class="govuk-hint">
+  							These are added to the gross income.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value  govuk-!-font-weight-bold govuk-!-text-align-right">
+						£1,000
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-regular">
+						Unearned income
+					</dt>
+					<dd class="govuk-summary-list__value govuk-!-text-align-right">
+						£200
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-regular">
+						Diversion income
+					</dt>
+					<dd class="govuk-summary-list__value govuk-!-text-align-right">
+						£800
+					</dd>
+				</div>
+			</dl>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report other income and assets</a>
+			</p>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters">
+						Total expenses
+						<div id="event-name-hint" class="govuk-hint">
+  							These are taken away from the gross income.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value  govuk-!-font-weight-bold govuk-!-text-align-right">
+						£500
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-regular">
+						Contact costs
+					</dt>
+					<dd class="govuk-summary-list__value govuk-!-text-align-right">
+						£500
+					</dd>
+				</div>
+			</dl>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report expenses</a>
+			</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out/ask-other-income-expenses-included" rel="noopener noreferrer" target="_blank">more about other income and expenses (opens in a new tab)</a>.
+			</p>
+			
+			
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 3 - child maintenance rate</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Gross weekly income	
+				</dt>
+					<dd class="govuk-summary-list__value">
+						£479
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Child maintenance rate
+				</dt>
+					<dd class="govuk-summary-list__value">
+						Basic
+				</dd>
+				</div>
+			</dl>
+			<p class="govuk-body">We worked out the gross weekly income after step 2 and applied one of 5 rates. Because the gross weekly income is between £200 and £800, we used the basic rate.</p>
+			<p class="govuk-body">Find out more about
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">child maintenance rates (opens in a new tab)</a>.
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 4 - children we take into account</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters">
+						Children on this case
+					</dt>
+					<dd class="govuk-summary-list__value">
+						Jack<br>Joe
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-bold">
+						Other children who affect this case
+						<div id="event-name-hint" class="govuk-hint">
+  							These are the children you have to pay child maintenance for. This includes any other children living with you and any arrangements that have been made directly for other children.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						Aisha
+					</dd>
+				</div>
+			</dl>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Add a child with a parent from an existing case</a>
+			</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Add a child from a different relationship</a>
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 5 - weekly amount of child maintenance</h3>
+			<p class='govuk-body'>We used the first 4 steps to work out the weekly amount of child maintenance.</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Step 6 - shared care</h3>
+			<p class='govuk-body'>We may make a deduction to the amount of child maintenance based on the number of overnight stays with you and in local authority care.</p>
+			<h4 class="govuk-heading-s">Overnight stays with you</h4>
+			<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header">Child name</th>
+				<th scope="col" class="govuk-table__header">Average overnight stays</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Jack</th>
+					<td class="govuk-table__cell">No shared care (0 nights)</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Joe</th>
+					<td class="govuk-table__cell">No shared care (0 nights)</td>
+				</tr>
+			</tbody>
+			</table>
+			<h4 class="govuk-heading-s">Local authority care</h4>
+			<p class='govuk-body'>There is no reported local authority care arrangement for this case.</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report a change to shared care</a>
+			</p>
+		
+			<h3 class="govuk-heading-m govuk-!-padding-top-5">Collection fee</h3>
+			<p class='govuk-body'>We add 20% to your child maintenance amount. This is the collection fee for using Collect and Pay. </p>
+
+		</div>
+	</div>
+{% endblock %}

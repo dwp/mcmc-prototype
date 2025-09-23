@@ -1,0 +1,82 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We've applied for a liability order</h1>
+
+				<h2 class="govuk-heading-m">Child maintenance owed to you</h2>
+				<hr class="govuk-section-break govuk-!-margin-bottom-2" >
+
+
+				
+						<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+							Liability order amount
+							</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£2,570.59
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+						Remaining amount owed to you
+							</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£256.85
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+							Total arrears balance
+							</dt>
+							<dd class="govuk-summary-list__key govuk-table__cell--numeric govuk-!-font-weight-bold">
+							£2,827.44
+							</dd>
+						</div>
+						</dl>
+
+{#
+
+			<p class="govuk-body">To see what payments you have received, view your <a href="/pages/payments/payment-history/rp-collect-all-payments" class="govuk-link">payment history</a>.</p>
+#}
+
+			<h2 class="govuk-heading-m">What we're doing</h2>
+			<p class="govuk-body">We applied to the magistrates court for a liability order on 27 February 2023. The order is for 	£2,570.59. 
+			This amount might be less than your total arrears. This is because it’s based on your arrears when we started the liability order. 
+			We’ll try to recover the remaining amount separately. The order legally confirms that the other parents owes you child maintenance. 
+			It gives us the power to do more to recover your money.</p>
+				
+
+			<p class="govuk-body">The order will include:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the period when the debt has accrued</li>
+					<li>how much you’re owed</li>
+					<li>any expenses the paying parents owes to the Child Maintenance Service </li>
+				</ul>
+			
+
+			<h2 class="govuk-heading-m">What happens next</h2>
+				<p class="govuk-body">It takes around 22 weeks for the court to decide on a liability order. If it’s successful, we’ll try to put a payment plan in place and arrange a payment method with the other parent. We’ll continue to monitor your child maintenance account.</p>
+
+				<p class="govuk-body">If the liability order is successful, we have more power to recover money owed to you.</p>
+
+					<p class="govuk-body">Actions can include:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li>sending a demand for payment</li>
+							<li>freezing the paying parent’s assets</li>
+							<li>referring your case to enforcement agents</li>
+						</ul>
+					<p class="govuk-body">We must take some actions in a certain order. When we decide what to do next, we’ll call or send a letter to update you.</p>
+				<p class="govuk-body">If the liability order is unsuccessful, we’ll call or send a letter to update you.</p>
+		</div>
+	</div>
+{% endblock %}

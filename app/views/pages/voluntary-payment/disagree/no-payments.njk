@@ -1,0 +1,27 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  No voluntary payments
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/voluntary-payment/disagree/no-payments" method="post" novalidate>
+        <h1 class="govuk-heading-xl">No voluntary payments</h1>
+        <p class="govuk-body">You are reporting that you have received no voluntary payments.</p>
+        <p class="govuk-body">If you have received any voluntary payments, <a href="/pages/voluntary-payment/disagree/add-payment"  class="govuk-link">add a voluntary payment</a>.</p>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

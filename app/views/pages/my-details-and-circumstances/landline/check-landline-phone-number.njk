@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check your landline telephone number</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds custom-details">
+      {{ 
+        govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Landline telephone number"
+              },
+              value: {
+                text: data["md-landlinePhone"] if data["md-landlinePhone"] else data["default-landline"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./your-landline-telephone-number",
+                    text: "Change",
+                    visuallyHiddenText: "change landline phone number"
+                  }
+                ]
+              }
+            }
+            ]
+        }) 
+      }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          href: "../declaration",
+          text: "Continue"
+        }) }}
+      </div>
+    </div>
+
+  {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "javascript: window.history.go(-1)"
+}) 
+}}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">Income details</h1>
+
+          <p class="govuk-body">When calculating your income we use figures provided by either:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>HMRC or</li>
+            <li>Yourself</li>
+          </ul>
+          <p class="govuk-body">We have no income details on record for you. If your income has changed go to ‘Report a Change’, ‘Income details’.</p>
+
+          
+        
+      </div>
+    </div>
+
+  {% endblock %}

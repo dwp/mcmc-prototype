@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action</h1>
+
+      <p class="govuk-body">We only use enforcement and legal powers when we have to. We will always give the other parent the chance to pay voluntarily.</p>
+      <p class="govuk-body">Wherever it’s appropriate, we will tell you which action we are taking and keep you up to date with our progress.</p>
+      <p class="govuk-body">We will also:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>usually warn the other parent that we are about to take action against them, although we might not say which action it will be</li>
+            <li>give the other parent a chance to stop our action by paying what they owe</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "c&p-enforcement-action-2"
+        }) }}
+    
+  </div>
+
+  
+
+{% endblock %}

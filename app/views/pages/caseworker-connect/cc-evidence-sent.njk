@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            We are scanning your files
+          </h1>
+        </div>
+      
+         <p class="govuk-body">We will let you know:</p>
+         <ul class="govuk-list govuk-list--bullet">
+          <li>whether your files have uploaded successfully or not</li>
+          <li>if we need any further information</li>
+        </ul>
+        <p class="govuk-body">We will contact you by your preferred contact method so make sure <a href="/pages/caseworker-connect/cc-no-evidence" class="govuk-link">your contact details</a> are up to date.</p>
+        <p class="govuk-body">You do not need to contact us.</p>
+
+        </br>
+
+    <form class="form" method="POST" action="threadpageawaiting-evidence">
+        <button type="submit" class="govuk-button">
+        Return to messages
+      </button>
+	 </form>
+
+     <br>
+
+      
+	  </div>
+	  </div>
+
+{% endblock %}

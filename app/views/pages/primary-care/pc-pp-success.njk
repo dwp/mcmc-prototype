@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your request
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">Once we have reviewed your request, if there is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a change to your child maintenance payments, we will send you a new payment plan advising how much child maintenance you will pay and when you need to make the payment</li>
+        <li>no change to your child maintenance we will let you know</li>
+        <li>more information required we will contact you</li>
+      </ul>
+      <p class="govuk-body">Remember to check we have your correct contact details in case we need to contact you, go to ‘Details’ and select ‘Contact details’.</p>
+      <p class="govuk-body">
+        <a href="" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear).</p>
+    </div>
+  </div>
+
+{% endblock %}

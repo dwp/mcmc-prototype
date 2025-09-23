@@ -1,0 +1,158 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/welcome" class="govuk-back-link">Back to Home</a><br></br>
+	<div class="govuk-grid-row">
+		{{ createToast() }}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you make for 2 cases</h1>
+			<h2 class="govuk-heading-m">Collect and Pay</h2>
+			<p class="govuk-body">We’ve worked out your payments until your next annual review on 12 September 2021 for these cases:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Jim and 1 more</li>
+				<li>Jane and 2 more</li>
+			</ul>
+			<p class="govuk-body">You are no longer paying regular maintenance for Jim and 1 more, but there are outstanding arrears. We are taking action to recover your unpaid child maintenance.</p>
+			<p class="govuk-body">
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">Find out how the Child Maintenance Service works out child maintenance (opens in a new tab)</a>.
+			</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next payment</h2>
+				<p class="govuk-body">If you cannot make a payment you need to
+					<a class="govuk-link" href="#">contact us</a>.
+				</p>
+				<div class="next-payment-table">
+					{% set html %}
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+							Amount
+						</p>
+						<span class="govuk-hint">Including 20% collection fee and any arrears</span>
+					{% endset %}
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									html: html
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£150"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "26 September 2021"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Payment method"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "Direct debit"
+								}
+							}
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/payment-plan/pp-collect">View your payment plan</a>
+				</p>
+			</div>
+			<div class="previous-payments">
+				<div class="previous-payments-table">
+					{{ govukTable({
+						firstCellIsHeader: true,
+						caption: "Previous payments",
+						captionClasses: "govuk-heading-m",
+						head: [
+							{
+								text: "Date",
+								classes: "previous-payments-header previous-payments-cell"
+							},
+							{
+								text: "Amount including 20% collection fee and any arrears",
+								format: "numeric",
+								classes: "previous-payments-amount previous-payments-cell"
+							},
+							{
+								text: "Payment method",
+								classes: "previous-payments-header previous-payments-cell"
+							}
+						],
+						rows: 
+						[
+							[
+								{
+									text: "12 August 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£80",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Direct Debit",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "12 July 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£105",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Direct Debit",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "12 June 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£100",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "Direct Debit",
+									classes: "previous-payments-cell"
+								}
+							]
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="#">View more payments</a>
+				</p>
+			</div>
+			<h3 class="govuk-heading-s total-amount-heading">Total amount you have paid since 12 September 2020</h3>
+			<span class="govuk-hint">Including 20% collection fee and any arrears</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+			<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+			<span class="govuk-hint">Including any collection fees or charges</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>	
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="#">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

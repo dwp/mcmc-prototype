@@ -1,0 +1,64 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="pc-pp-declaration" method="post">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Child's name"
+              },
+              value: {
+                text: "(Child's name)"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Effective date"
+              },
+              value: {
+                text: "	21/1/2020"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "date"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <p class="govuk-body">
+          <a href="pc-start" class="govuk-link">Back to start</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

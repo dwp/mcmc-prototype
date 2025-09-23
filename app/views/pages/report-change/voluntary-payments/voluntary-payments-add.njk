@@ -1,0 +1,82 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Add a voluntary payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Add a voluntary payment</h1>
+      <form action="/pages/report-change/voluntary-payments/voluntary-payments-add" method="post" novalidate>
+      
+        {{ govukDateInput({
+          id: "payment-date",
+          namePrefix: "payment-date",
+          fieldset: {
+            legend: {
+              text: "Payment date",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-date-input__input",
+              name: "payment-date-day",
+              id: "toDay",
+              name: "toDay",
+              label: "Day"
+            },
+            {
+              classes: "govuk-input--width-2 govuk-date-input__input",
+              name: "payment-date-month",
+              id: "toMonth",
+              name: "toMonth",
+              label: "Month"
+            },
+            {
+              classes: "govuk-input--width-4 govuk-date-input__input",
+              name: "payment-date-year",
+              id: "toYear",
+              name: "toYear",
+              label: "Year"
+            }
+          ]
+        }) }}
+
+        {{ govukInput({
+          id: "payment-amount",
+          name: "payment-amount",
+          label: {
+            text: "Payment amount",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          prefix: {
+            text: "£"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Add payment"
+          }) }}
+          <p class="govuk-body"><a href="/pages/report-change/voluntary-payments/voluntary-payments-report-another" class="govuk-link">Cancel</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

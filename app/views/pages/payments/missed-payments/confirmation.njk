@@ -1,0 +1,27 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Success
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your information
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We will review the information you have provided and continue our investigation.</p>
+      <p class="govuk-body">Find out more information about your expected <a href="/pages/payments" class="govuk-link">child maintenance payments</a>.</p>
+      <p class="govuk-body">Make sure
+        <a href="/pages/my-details-and-circumstances" class="govuk-link">your contact details</a>
+        are up to date in case we need to contact you.</p>
+    </div>
+  </div>
+
+{% endblock %}

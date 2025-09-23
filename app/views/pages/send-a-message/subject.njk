@@ -1,0 +1,85 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  What do you want to send a message about?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">What do you want send a message about?</h1>
+
+      <form class="form" action="/pages/send-a-message/subject" method="post">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {{ govukRadios({
+            idPrefix: "subject",
+            name: "subject",
+            fieldset: {
+              legend: {
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Responding to a request",
+                text: "Responding to a request from the Child Maintenance Service"
+              },
+              {
+                value: "Missing payment",
+                text: "Missed Payment"
+              },
+              {
+                value: "Payments calculation query",
+                text: "Payments calculation query"
+              },
+              {
+                value: "Payments schedule query",
+                text: "Payments schedule query"
+              },
+              {
+                value: "General query",
+                text: "General query"
+              },
+              {
+                value: "Method of payment",
+                text: "About my method of payment"
+              },
+              {
+                value: "Change of income",
+                text: "Change of income"
+              },
+              {
+                value: "Change to number of children in your household",
+                text: "Change to number of children in your household"
+              },
+              {
+                value: "Change to number of nights you have your child",
+                text: "Change to number of nights you have your child"
+              },
+              {
+                value: "Other",
+                text: "Other change"
+              },
+              {
+                value: "Complaint",
+                text: "Make a complaint"
+              }
+            ]
+          }) }}
+
+
+          <button type="submit" class="govuk-button" name="continue">
+          {{ t['common']['continue'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

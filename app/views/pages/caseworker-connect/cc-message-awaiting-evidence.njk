@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Evidence request</h1>
+
+      <p class="govuk-body"><b>Subject:</b> Evidence needed - proof of missed payment</p>
+      <br>
+     
+      <h2 class="govuk-heading-l">Evidence uploaded</h2>
+      <p class="govuk-body">You cannot upload any new evidence until we respond.</p>
+      <br>
+
+          <button type="submit" class="govuk-button" onclick="window.history.go(-1); return false;">
+        Return to messages
+      </button>
+	 </form>
+     <br>
+
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Message history</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date sent</th>
+            <th scope="col" class="govuk-table__header">Message</th>
+            <th scope="col" class="govuk-table__header">Sent by</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">3:00pm <br> 4 Dec <br> 2024</td>
+            <td class="govuk-table__cell"><b>Evidence uploaded</b></td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">9:03am <br> 24 Nov <br> 2024</td>
+            <td class="govuk-table__cell">Please can you provide evidence of the partial payment for the 15 September 2024 through Upload Evidence before 8 December 2024?</td>
+            <td class="govuk-table__cell">CMS</td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">10:13am <br> 20 Nov <br> 2024</td>
+            <td class="govuk-table__cell">Hello, yes i can confirm that is correct </td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">5:34pm <br> 16 Nov <br> 2024</td>
+            <td class="govuk-table__cell">Hello, please could you confirm that the date of the first missed payment was 15 September 2024?</td>
+            <td class="govuk-table__cell">You</td>
+          </tr>
+
+      </table>
+
+      
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Report a change
+{% endblock %}
+
+{% block content %}
+
+  {% if (data['nino'] === "PP123456A") %} 
+  <p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456A") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "PP123456B") %}
+    <p class="govuk-body"><a href="/pages/welcome-pp-multi-collect" class="govuk-back-link govuk-!-margin-bottom-4">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456B") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
+  {% else %}
+  <p class="govuk-body"><a href="/pages/report-change/index" class="govuk-back-link">Back</a></p>
+  {% endif %}
+
+     <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Children</h1>
+      <br>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+        <p class="small govuk-!-margin-bottom-2">Let us know how many nights a child stays overnight with the paying parent.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Shared Care',
+            link: 'shared-care/shared-care-start',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Change who has financial or main day-to-day care of the child.</p>
+
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Caring for a child',
+            link: '*',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+      </div>
+
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">We need to know if you are financially supporting a child, from a different relationship, who is not part of your existing child maintenance arrangement.
+        <br></br>
+        The child must be from a different relationship to your existing child maintenance case.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'A child from a different relationship',
+            link: '/pages/report-change/additional-children',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Tell us you have a new child, who qualifies for child maintenance, with a parent you already have a child maintenance case with.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'A child with a parent from an existing case',
+            link: '/pages/report-change/additional-children',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+      </div>
+      
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Let us know if someone has adopted a child on your case or a child the paying parent financially supports.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Adoption',
+            link: '*',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Find out what you need to do when a child leaves approved education or training.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Leaving approved education or training',
+            link: '*',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+      </div>
+
+      </div>
+
+      </div>
+    </div>
+
+  {% endblock %}

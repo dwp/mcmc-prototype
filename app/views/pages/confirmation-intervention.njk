@@ -1,0 +1,29 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Confirmation - Intervention required
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Details received"
+      }) }}
+
+      <p class="govuk-body">We have your details.</p>
+
+      <h2 class="govuk-heading-l">What happens next?</h2>
+
+      <p class="govuk-body">
+        Your details will be reviewed and updated if you have provided us with new information.
+      </p>
+
+      <p class="govuk-body">
+        We will contact you if we need to ask for more information before updating.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

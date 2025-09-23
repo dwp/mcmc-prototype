@@ -1,0 +1,30 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/report-change" class="govuk-back-link">Back to Report a Change</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="" method="POST">
+        <h1 class="govuk-heading-l">{{ t['leaving-education']['report-child-no-longer-fte'] }}</h1>
+        {% if data['userType'] === 'NRP' %}
+          <p class="govuk-body">{{ t['leaving-education']['fte-start-page-msg-NRP'] }}</p>
+          <p class="govuk-body">{{ t['leaving-education']['more-than-one-child-NRP'] }}</p>
+        {% elif data['userType'] === 'Both' %}
+          <p class="govuk-body">{{ t['leaving-education']['fte-start-page-msg-both'] }}</p>
+        {% else %}
+          <p class="govuk-body">{{ t['leaving-education']['fte-start-page-msg'] }}</p>
+          <p class="govuk-body">{{ t['leaving-education']['more-than-one-child'] }}</p>
+        {% endif %}
+        <button type="submit" class="govuk-button" name="startNow">
+          {{ t['leaving-education']['start-now'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

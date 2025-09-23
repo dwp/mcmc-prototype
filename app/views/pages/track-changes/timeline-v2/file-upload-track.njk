@@ -1,0 +1,122 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Track Changes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/onlinerevive-di/secure/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/onlinerevive-di/secure/track-your-change-requests">Track changes</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">Change details</li>
+  </ol>
+
+  </br>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Change to shared care
+        </h1>
+        {# <p class="govuk-body">
+          <a href="/onlinerevive-di/secure/upload-evidence/select-files/1-QBY9ZHY" class="govuk-link govuk-!-margin-top-3">Upload evidence</a>
+        </p> #}
+        <h2 class="govuk-heading-l">Progress</h2>
+      </div>
+    </div>
+
+  <div class="cmg-timeline">
+    
+      <div class="cmg-timeline__item">
+        <div class="cmg-timeline__header">
+          <h3 class="govuk-heading-m cmg-timeline__title">
+            Reported on
+          </h3>
+        </div>
+
+        <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">6 July 2025</p></div>
+    
+      <div class="cmg-timeline__item">
+        <div class="cmg-timeline__header">
+          <h3 class="govuk-heading-m cmg-timeline__title">
+            Most recent update
+          </h3>
+        </div>
+
+        <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">
+    
+        Today
+      
+    
+    </p><p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-3 "> Evidence received
+  
+
+
+            </strong>
+          </p><p></p><p class="govuk-body cmg-timeline__description govuk-!-margin-top-3">
+            
+    
+      This report is currently being worked on.<br><br>
+      We will provide up to date status information and we are doing all we can to progress the report. While the report is in progress, we may work with another government service or contact the other parent.<br><br>
+      You do not need to contact us. We will contact you when the change is complete or if we need more information.
+    
+    
+          </p></div>
+    
+  </div>
+
+
+
+    
+   <div class="cmg-timeline-grey">
+    
+      <div class="cmg-timeline-grey__item">
+        <div class="cmg-timeline__header">
+          <h3 class="govuk-heading-m cmg-timeline-grey__title">
+            Expected completion date
+          </h3>
+        </div>
+
+        <p class="govuk-body cmg-timeline-grey__date govuk-!-margin-top-3">25 July 2025</p><p class="govuk-body cmg-timeline-grey__description govuk-!-margin-top-3">
+            We will tell you if the change has been accepted or rejected.
+          </p></div>
+    
+  </div>
+
+  <br>
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Uploaded evidence
+        </h1>
+        {# <p class="govuk-body">
+          <a href="/onlinerevive-di/secure/upload-evidence/select-files/1-QBY9ZHY" class="govuk-link govuk-!-margin-top-3">Upload evidence</a>
+        </p> #}
+
+        <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">File name</th>
+            <th scope="col" class="govuk-table__header">File uploaded date</th>
+            <th scope="col" class="govuk-table__header">File description</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="#" class="govuk-link">FormalAgreement.pdf</a></th>
+            <td class="govuk-table__cell">Today</td>
+            <td class="govuk-table__cell">None provided</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+        {% endblock %}

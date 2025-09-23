@@ -1,0 +1,10 @@
+{
+  "report-immediately": {
+    "missing-payment": "Do you want to report a missed payment immediately?",
+    "method-of-payment": "Do you want to report a change immediately?",
+    "change-income": "Do you want to report a change of income immediately?",
+    "change-number-of-children": "Do you want to report a change immedidately?",
+    "shared-care": "Do you want to report a change to number of nights you have your child immediately?",
+    "other": "Do you want to report a change immediately?"
+  }
+}

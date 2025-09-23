@@ -5,17 +5,7 @@
       <ul id="accountMenuHome" class="account-menu__home">
         <li>
           <!--Desktop - Home-->
-          {% if (data['nino'] === "PP123456A") %} 
-              <a href="/pages/welcome-pp" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-            {% elseif (data['nino'] === "RP123456A") %}
-              <a href="/pages/welcome-rp" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-            {% elseif (data['nino'] === "PP123456B") %}
-              <a href="/pages/welcome-pp-multi-collect" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-            {% elseif (data['nino'] === "RP123456B") %}
-              <a href="/pages/welcome-rp-B" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-            {% else %}
-              <a href="/pages/welcome" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-            {% endif %}
+              <a href="/pages/welcome" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "home" }}">Home</a>
         </li>
         <li>
           <!--Desktop - Notifications-->
@@ -23,52 +13,27 @@
         </li>
         <li>
           <!--Desktop - Report a change-->
-          {% if (data['nino'] === "RP123456B") or (data['nino'] === "RP123456A") %}
-          <a href="/pages/report-change/rp" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
-          {% else %}
-          <a href="/pages/report-change" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
-          {% endif %}
+          <a href="/pages/report-change" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "report-change" }}">Report a change</a>
         </li>
         <li>
           <!--Desktop - Payments-->
-          {% if (data['nino'] === "PP123456A") %} 
-          <a href="/pages/payments/" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-          {% elseif (data['nino'] === "RP123456A") %}
-          <a href="/pages/payments" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-          {% elseif (data['nino'] === "PP123456B") %}
-          <a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-          {% elseif (data['nino'] === "RP123456B") %}
-          <a href="/pages/payments/" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-          {% else %}
-          <a href="/pages/payments" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-          {% endif %}
+          <a href="/pages/payments" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "payments" }}">Payments</a>
         </li>
         <li>
           <!--Desktop - Track changes-->
-          <a href="/pages/track-changes/timeline-v2" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "track-changes" }}">{{t.common['track-changes']}}</a>
+          <a href="/pages/track-changes/timeline-v2" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "track-changes" }}">Track changes</a>
         </li>
         <li>
           <!--Desktop - Case details-->
-          <a href="/pages/my-case-details" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "my-case-details" }}">{{t.common['case-details']}}</a>
+          <a href="/pages/my-case-details" class="govuk-link account-menu__link {{ "account-menu__link--active" if activeLink === "my-case-details" }}">Case details</a>
         </li>
       </ul>
 
       <!--MOBILE MENU-->
       <div class="account-menu__mobile">
         <div class="account-menu__header">
-           <!--Mobile - Home-->
-          {% if (data['nino'] === "PP123456A") %} 
-            <a id="accountMenuMobileHome" href="/pages/welcome-pp" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-          {% elseif (data['nino'] === "RP123456A") %}
-            <a id="accountMenuMobileHome" href="/pages/welcome-rp" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-          {% elseif (data['nino'] === "PP123456B") %}
-            <a id="accountMenuMobileHome" href="/pages/welcome-pp-multi-collect" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-          {% elseif (data['nino'] === "RP123456B") %}
-            <a id="accountMenuMobileHome" href="/pages/welcome-rp-B" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-          {% else %}
-            <a id="accountMenuMobileHome" href="/pages/welcome" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
-          {% endif %}
-
+           <!--Mobile - Home--> 
+            <a id="accountMenuMobileHome" href="/pages/welcome" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "home" }}">Home</a>
           <button id="accountMenuMobileToggle" class="govuk-link menu-toggle-button" onClick="toggleMenu()">{{t.common.menu}}</button>
         </div>
         
@@ -79,32 +44,22 @@
           </li>
           <li>
             <!--Mobile - Report a change-->
-            <a href="/pages/report-change" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
+            <a href="/pages/report-change" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "report-change" }}">Report a change</a>
           </li>
           <li>
             <!--Mobile - Payments-->
-            {% if (data['nino'] === "PP123456A") %} 
-              <a href="/pages/payments/summary/collect-pay/pp-collect" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-            {% elseif (data['nino'] === "RP123456A") %}
-              <a href="/pages/payments/" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-            {% elseif (data['nino'] === "PP123456B") %}
-              <a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-            {% elseif (data['nino'] === "RP123456B") %}
-              <a href="/pages/payments/" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-            {% else %}
-              <a href="/pages/payments/" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
-            {% endif %}
+              <a href="/pages/payments/" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "payments" }}">Payments</a>
           </li>
           <li>
             <!--Mobile - Track changes-->
-            <a href="/pages/track-changes/timeline-v2" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "track-changes" }}">{{t.common['track-changes']}}</a>
+            <a href="/pages/track-changes/timeline-v2" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "track-changes" }}">Track changes</a>
           </li>
           <li>
             <!--Mobile - Case details-->
-            <a href="/pages/my-case-details" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "my-case-details" }}">{{t.common['case-details']}}</a>
+            <a href="/pages/my-case-details" class="govuk-link account-menu__mob__link {{ "account-menu__mob__link--active" if activeLink === "my-case-details" }}">Case details</a>
           </li>
           <li>
-            <a href="/" class="govuk-link account-menu__mob__link">{{t.common['sign-out']}}</a>
+            <a href="/" class="govuk-link account-menu__mob__link">Sign out</a>
           </li>
         </ul>
       </div>
@@ -112,7 +67,7 @@
       <ul id="accountMenuMain" class="account-menu__main">
 
         <li>
-          <a href="/" class="govuk-link account-menu__link">{{t.common['sign-out']}}</a>
+          <a href="/" class="govuk-link account-menu__link">Sign out</a>
         </li>
 
       </ul>

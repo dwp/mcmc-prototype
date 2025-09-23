@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change your email address
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          text: "Back",
+          href: "/pages/check-your-details"
+        }) }}
+
+      <h1 class="govuk-heading-xl">
+            Change your email address
+        </h1>
+      <p class="govuk-body">
+            These details are private and will not be shared with the other parent.
+        </p>
+      <form class="form" action="/pages/check-your-details" method="post">
+
+        {{ govukInput({
+              label: {
+                text: "Email address",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              hint: {
+                  text: "We'll only use this to..."
+              },
+              id: "email",
+              name: "email"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Confirm email address",
+                classes: "govuk-label",
+                isPageHeading: false
+              },
+              id: "confirm-email",
+              name: "confirm-email"
+            }) }}
+
+        {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

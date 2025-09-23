@@ -1,0 +1,77 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['validation-errors'] > [] %}
+        {{ govukErrorSummary({
+              name: 'error',
+              titleText:  t.common['there-is-a-problem'],
+              errorList: data['validation-errors']
+            }) }}
+      {% endif %}
+
+      <form action="/pages/additional-income/additional-income-which-case" method="post" novalidate>
+
+        {{ govukRadios({
+                id: "f-which-case",
+                idPrefix: "which-case",
+                name: "which-case",
+                fieldset: {
+                    legend: {
+                    text: "Which case are you reporting additional income for?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "alreadyReported",
+                    text: "Already reported",
+                    checked: checked("which-case", "alreadyReported")    
+                    },
+                    {
+                    value: "payingParent",
+                    text: "Paying Parent Scenario",
+                    checked: checked("which-case", "payingParent")
+                    },
+                    {
+                    value: "receivingParent",
+                    text: "Receiving Parent Scenario",
+                    checked: checked("which-case", "receivingParent")
+                    }
+                ]
+                }) }}
+
+        {{ govukButton({
+                text: "Continue"
+                }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

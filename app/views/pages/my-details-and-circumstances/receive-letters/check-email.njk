@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Is this still your email address?</h1>
+
+      {{ govukInsetText({
+        text: data["md-email"] if data["md-email"] else data["default-email"]
+      }) }}
+
+      <p class="govuk-body">These details are private and will not be shared with the other parent.</p>
+
+      <form class="form" action="/pages/my-details-and-circumstances/receive-letters/check-correspondance" method="post">
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "email-correct",
+          name: "email-correct",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "submit"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

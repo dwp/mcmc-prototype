@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Evidence needed
+      </h1>
+      <p class="govuk-body">
+        We received your update that Robin has not made a payment since July 2023.
+     </p>
+     <p class="govuk-body govuk-!-margin-bottom-7">
+        Do you have evidence that they have not made a payment? This could be copies of your bank statements from July and August.
+      </p>
+    
+     
+   <form action="/pages/caseworker-messaging-mvp/request-start" method="post">
+        {{ govukRadios({
+          idPrefix: "evidence-confirm",
+          name: "evidence-confirm",
+          fieldset: {
+            legend: {
+              text: "Do you have this evidence?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              checked: checked("evidence-confirm", "Yes"),
+              text: "Yes, I'll provide this evidence now"
+            },
+             {
+              value: "Later",
+              checked: checked("evidence-confirm", "Later"),
+              text: "Yes, I'll provide this evidence later"
+            },
+            {
+              value: "No",
+              checked: checked("evidence-confirm", "No"),
+              text: "No, I do not have this"
+            }
+          ]
+        }) }}
+      
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,381 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	{% if (data['nino'] === "PP123456A") %} 
+	<p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Home</a></p>
+	{% elseif (data['nino'] === "RP123456A") %}
+	<p class="govuk-body"><a href="/pages/welcome-rp" class="govuk-back-link">Back to Home</a></p>
+	{% elseif (data['nino'] === "PP123456B") %}
+	<p class="govuk-body"><a href="/pages/welcome-pp-multi-collect" class="govuk-back-link govuk-!-margin-bottom-4">Back to Home</a></p>
+	{% elseif (data['nino'] === "RP123456B") %}
+	<p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
+	{% else %}
+	<p class="govuk-body"><a href="/pages/welcome" class="govuk-back-link">Back to Home</a></p>
+	{% endif %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Payments</h1>
+
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+					<dt class="govuk-summary-list__key govuk-heading-m">Your payments</dt>
+				</div>
+			</dl>
+			
+
+			<div class="govuk-grid-row">
+							<!--Payment summary-->
+									{# <div class="govuk-grid-column-one-half">
+											{% if (data['nino'] === "PP123456A") %} 
+											<h3 class="govuk-heading-m"><a href="/pages/payments/summary/collect-pay/pp-collect" class="govuk-link">Payment summary</a></h3>
+											<p class="govuk-body">A summary of payments you make.</p>
+											{% elseif (data['nino'] === "RP123456A") %}
+											<h3 class="govuk-heading-m"><a href="/pages/payments/summary/collect-pay/rp-collect" class="govuk-link">Payment summary</a></h3>
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% elseif (data['nino'] === "PP123456B") %}
+											<h3 class="govuk-heading-m"><a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-link">Payment summary</a></h3>
+											<p class="govuk-body">View a summary of all your payments.</p>
+											{% elseif (data['nino'] === "RP123456B") %}
+											<h3 class="govuk-heading-m"><a href="/pages/payments/summary/direct-pay/rp-direct-b" class="govuk-link">Payment summary</a></h3>
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% else %}
+											<h3 class="govuk-heading-m"><a href="/pages/payments/which-payments" class="govuk-link">Payment summary</a></h3>
+											<p class="govuk-body">View a summary of all your payments.</p>
+											{% endif %}	
+									</div> #}
+
+									<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										{% if (data['nino'] === "PP123456A") %} 
+											<p class="govuk-body">A summary of payments you make.</p>
+											{% elseif (data['nino'] === "RP123456A") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% elseif (data['nino'] === "PP123456B") %}
+											<p class="govuk-body">View a summary of all your payments.</p>
+											{% elseif (data['nino'] === "RP123456B") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% else %}
+											<p class="govuk-body">View a summary of all your payments.</p>
+										{% endif %}	
+										{% endset %}
+										{{
+										cmgSummaryTable({
+											title: 'Payment Summary',
+											link: '/pages/payments/which-payments',
+											html: html
+										})
+										}}
+										</div>
+									</div>
+
+									
+							<!--End Payment summary-->
+							<!--Statement-->
+							{# <div class="govuk-grid-column-one-half">			
+								{% if (data['nino'] === "PP123456A") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/payments/statements/pp-22-23-1">Your statement</a></h3>
+								<p class="govuk-body">A record of the amount you owe and payments you have made during each annual review period.</p>
+								{% elseif (data['nino'] === "RP123456A") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Arrears</a></h3>
+								<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+								{% elseif (data['nino'] === "PP123456B") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Arrears</a></h3>
+								<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+								{% elseif (data['nino'] === "RP123456B") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Arrears</a></h3>
+								<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+								{% else %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Arrears</a></h3>
+								<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+								{% endif %}					
+							</div> #}
+
+							<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										{% if (data['nino'] === "PP123456A") %}
+										<p class="govuk-body">A record of the amount you owe and payments you have made during each annual review period.</p>
+										{% elseif (data['nino'] === "RP123456A") %}
+										<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+										{% elseif (data['nino'] === "PP123456B") %}
+										<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+										{% elseif (data['nino'] === "RP123456B") %}
+										<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+										{% else %}
+										<p class="govuk-body">How much you owe in arrears and your arrears statements.</p>
+										{% endif %}		
+										{% endset %}
+										{% if (data['nino'] === "PP123456A") %}
+										{{
+										cmgSummaryTable({
+											title: 'Your statement',
+											link: '/pages/payments/statements/pp-22-23-1',
+											html: html
+										})
+										}}
+										{% else %}
+										{{
+										cmgSummaryTable({
+											title: 'Arrears',
+											link: '#',
+											html: html
+										})
+										}}
+										{% endif %}
+										</div>
+									</div>
+
+							
+						<!--Statement-->
+
+						
+
+					
+
+						
+		  	</div>
+					{#
+		  				<div class="govuk-grid-row">
+							<!--Payment plan-->
+							<div class="govuk-grid-column-one-half">
+									{% if (data['nino'] === "PP123456A") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/payments/payment-plan/pp-collect">Payment plan</a></h3>
+									<p class="govuk-body">View your payment plan.</p>
+									{% elseif (data['nino'] === "RP123456A") %}
+									{% elseif (data['nino'] === "PP123456B") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/payments/payment-plan/pp-collect-multi">Payment plan</a></h3>
+									<p class="govuk-body">View your payment plan.</p>
+									{% elseif (data['nino'] === "RP123456B") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/payments/payment-plan/rp-direct-single">Payment plan</a></h3>
+									<p class="govuk-body">View your expected payment plan to see how much child maintenance you should receive and when you can expect to get it.</p>
+									{% else %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Payment plan</a></h3>
+									<p class="govuk-body">View your payment plan.</p>
+									{% endif %}
+							</div>
+						</div>
+					#}
+			
+					<!--Payment service-->
+					<!--div class="govuk-grid-row">
+						<div class="govuk-grid-column-one-half">			
+							{% if (data['nino'] === "PP123456A") %}
+							<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Payment service</a></h3>
+							<p class="govuk-body">Ask to change to use the Collect and Pay service.</p>
+							{% elseif (data['nino'] === "RP123456A") %}
+							<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Payment service</a></h3>
+							<p class="govuk-body">Ask to change to use the Direct Pay service.</p>
+							{% elseif (data['nino'] === "PP123456B") %}
+							<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Payment service</a></h3>
+							<p class="govuk-body">Ask to change to use the Direct Pay service.</p>
+							{% elseif (data['nino'] === "RP123456B") %}
+							<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/report-change/payments/ctst/p5-change-payment-service">Payment service</a></h3>
+							<p class="govuk-body">Ask to change to use the Collect and Pay service.</p>
+							{% else %}
+							<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Payment service</a></h3>
+							<p class="govuk-body">Ask to change to use the Collect and Pay service.</p>
+							{% endif %}					
+						</div>
+					</div-->
+					<!-- End Payment service-->
+					
+					<div class="govuk-grid-row">
+						<!--Missed payments-->
+							{# <div class="govuk-grid-column-one-half">			
+								{% if (data['nino'] === "PP123456A") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Missed or part payment</a></h3>
+								<p class="govuk-body">Find out your options if you have not received or paid the expected amount of child maintenance.</p>
+								{% elseif (data['nino'] === "RP123456A") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Missed or part payment</a></h3>
+								<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+								{% elseif (data['nino'] === "PP123456B") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Missed or part payment</a></h3>
+								<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+								{% elseif (data['nino'] === "RP123456B") %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="/pages/payments/options">Missed or part payment</a></h3>
+								<p class="govuk-body">Find out your options if you have not received the expected amount of child maintenance.</p>
+								{% else %}
+								<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Missed or part payment</a></h3>
+								<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+								{% endif %}					
+							</div> #}
+
+							<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										{% if (data['nino'] === "PP123456A") %}
+										<p class="govuk-body">Find out your options if you have not received or paid the expected amount of child maintenance.</p>
+										{% elseif (data['nino'] === "RP123456A") %}
+										<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+										{% elseif (data['nino'] === "PP123456B") %}
+										<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+										{% elseif (data['nino'] === "RP123456B") %}
+										<p class="govuk-body">Find out your options if you have not received the expected amount of child maintenance.</p>
+										{% else %}
+										<p class="govuk-body">Find out what we are doing to recover your unpaid child maintenance.</p>
+										{% endif %}		
+										{% endset %}
+										{{
+										cmgSummaryTable({
+											title: 'Missed or part payment',
+											link: '/pages/report-change/payments/ctst/p1-start',
+											html: html
+										})
+										}}
+										</div>
+									</div>
+						<!--Missed payments-->
+
+						
+						<!--Payment calculation-->
+									{# <div class="govuk-grid-column-one-half">
+										<h3 class="govuk-heading-m">
+											{% if (data['nino'] === "PP123456A") %}
+											<a class="govuk-link"  href="/pages/payments/payment-calculations/pp-calculations">Payment calculation</a>
+											{% elseif (data['nino'] === "RP123456A") %}
+											<a class="govuk-link"  href="/pages/payments/payment-calculations/rp-calculations">Payment calculation</a>
+											{% elseif (data['nino'] === "PP123456B") %}
+											<a class="govuk-link"  href="/pages/payments/payment-calculation/pp-calculation-multi">Payment calculation</a>
+											{% elseif (data['nino'] === "RP123456B") %}
+											<a class="govuk-link"  href="/pages/payments/payment-calculations/rp-calculations-b">Payment calculation</a>
+											{% else %}
+											<a class="govuk-link"  href="/pages/payments/">Payment calculation</a>
+											{% endif %}
+										</h3>
+										<p class="govuk-body">A breakdown of your calculations and the figures we used to calculate your payments.</p>
+									</div> #}
+
+									<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										<p class="govuk-body">A breakdown of your calculations and the figures we used to calculate your payments.</p>
+										{% endset %}
+										{{
+										cmgSummaryTable({
+											title: 'Payment calculation',
+											link: '/pages/payments/payment-calculations/pp-calculations',
+											html: html
+										})
+										}}
+										</div>
+									</div>
+						<!-- End Payment calculation-->
+					</div>
+
+					<br/>
+
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+							<dt class="govuk-summary-list__key govuk-heading-m">Change of payment circumstances</dt>
+						</div>
+					</dl>
+
+					<div class="govuk-grid-row">
+
+								<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										{% if (data['nino'] === "PP123456A") %} 
+											<p class="govuk-body">A summary of payments you make.</p>
+											{% elseif (data['nino'] === "RP123456A") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% elseif (data['nino'] === "PP123456B") %}
+											<p class="govuk-body">View a summary of all your payments.</p>
+											{% elseif (data['nino'] === "RP123456B") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% else %}
+											<p class="govuk-body">Ask to change to use the Collect and Pay service.</p>
+										{% endif %}	
+										{% endset %}
+										{{
+										cmgSummaryTable({
+											title: 'Payment service',
+											link: '/pages/report-change/payments/ctst/p1-start',
+											html: html
+										})
+										}}
+										</div>
+									</div>
+
+							<div class="govuk-grid-column-one-half">
+										<div class="accountCard mb-full">
+										{% set html %}
+										{% if (data['nino'] === "PP123456A") %} 
+											<p class="govuk-body">A summary of payments you make.</p>
+											{% elseif (data['nino'] === "RP123456A") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% elseif (data['nino'] === "PP123456B") %}
+											<p class="govuk-body">View a summary of all your payments.</p>
+											{% elseif (data['nino'] === "RP123456B") %}
+											<p class="govuk-body">A summary of the payments you receive.</p>
+											{% else %}
+											<p class="govuk-body">Tell us about a payment you have received on top of or instead of your regular scheduled child maintenance.</p>
+										{% endif %}	
+										{% endset %}
+										{{
+										cmgSummaryTable({
+											title: 'Voluntary Payments',
+											link: '#',
+											html: html
+										})
+										}}
+										</div>
+									</div>
+
+
+					</div>
+
+			
+			{% if (data['nino'] === "PP123456A") or (data['nino'] === "PP123456B") or (data['nino'] === "RP123456A") %}
+								<dl class="govuk-summary-list govuk-!-margin-top-4">
+									<div class="govuk-summary-list__row govuk-summary-list__row--no-actions ">
+										<dt class="govuk-summary-list__key govuk-heading-m">Manage payments</dt>
+									</div>
+								</dl>
+								<div class="govuk-grid-row">
+									<div class="govuk-grid-column-one-half">
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Change service</a></h3>
+									<p class="govuk-body">Ask to change from using Direct Pay to Collect and Pay, or the other way round.</p>
+									</div>
+				
+								<!--Make a payments-->
+						
+								<div class="govuk-grid-column-one-half">
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Make a payment</a></h3>
+									<p class="govuk-body">Make a secure online payment using your debit or credit card.</p>
+								</div>
+							</div>
+						<!-- ENd Make a payments-->
+
+						<!--Voluntary payments-->
+						<div class="govuk-grid-row">
+								<div class="govuk-grid-column-one-half">			
+									{% if (data['nino'] === "PP123456A") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Report a voluntary payment</a></h3>
+									<p class="govuk-body">Tell us about a payment you have made on top of or instead of your regular scheduled child maintenance.</p>
+									{% elseif (data['nino'] === "RP123456A") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Report a voluntary payment</a></h3>
+									<p class="govuk-body">Tell us about a payment you have received on top of or instead of your regular scheduled child maintenance.</p>
+									{% elseif (data['nino'] === "PP123456B") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Report a voluntary payment</a></h3>
+									<p class="govuk-body">Tell us about a payment you have made on top of or instead of your regular scheduled child maintenance.</p>
+									{% elseif (data['nino'] === "RP123456B") %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Report a voluntary payment</a></h3>
+									<p class="govuk-body">Tell us about a payment you have received on top of or instead of your regular scheduled child maintenance.</p>
+									{% else %}
+									<h3 class="govuk-heading-m"><a class="govuk-link"  href="#">Report a voluntary payment</a></h3>
+									<p class="govuk-body">Tell us about a payment you have made on top of or instead of your regular scheduled child maintenance.</p>
+									{% endif %}					
+								</div>
+								</div>
+						<!--End Voluntary payments-->
+			{% else %}
+			{% endif %}	
+
+		</div>
+	</div>	
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Do you want to report a change of income immediately?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">Do you want to report a change of income immediately?</h1>
+
+      <form class="form" action="/pages/send-a-message/change-income" method="post">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {{ govukRadios({
+            idPrefix: "reportOrSendMessage",
+            name: "reportOrSendMessage",
+            fieldset: {
+              legend: {
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "If you send a message, it can take up to 7 days to review your message."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, report immediately"
+              },
+              {
+                value: "no",
+                text: "No, send a message"
+              }
+            ]
+          }) }}
+
+
+          <button type="submit" class="govuk-button" name="continue">
+          {{ t['common']['continue'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

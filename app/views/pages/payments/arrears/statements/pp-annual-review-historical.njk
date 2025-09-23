@@ -1,0 +1,249 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="pp-annual-review" class="govuk-back-link">Back to current arrears statement</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Arrears statement</h1>
+
+				<h2 class="govuk-heading-l">Previous annual review period </h2>
+					<hr class="govuk-section-break govuk-!-margin-bottom-2" >
+						<dl class="govuk-summary-list">
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+									Opening arrears balance
+									</dt>
+									<dd class="govuk-summary-list__value mobile-left-align">
+									£925.15
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+									Current arrears balance
+									</dt>
+									<dd class="govuk-summary-list__value mobile-left-align">
+									£823.58
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+									Start date
+									</dt>
+									<dd class="govuk-summary-list__value mobile-left-align" >
+										12 June 2018
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key ">
+									End date
+									</dt>
+									<dd class="govuk-summary-list__value mobile-left-align">
+									11 June 2019
+									</dd>
+								</div>
+						</dl>
+
+		<h2 class="govuk-heading-l govuk-!-padding-top-4">Your statement</h2>
+			<div class="govuk-grid-row">
+					<div class="govuk-grid-column-one-half">
+						<p class="govuk-body" > <a class="govuk-link" href="pp-annual-review-change"> Change annual review period </a>  </p>
+					</div>
+					<div class="govuk-grid-column-one-half">
+							<p class="mobile-left-align">Showing <b>1</b> to <b>2</b> of <b>2</b> pages</p>
+							<hr class="govuk-section-break govuk-section-break--m govuk-section-break--hidden " >
+					</div>
+			</div>
+
+			<table class="govuk-table  ">
+			<!--caption class="govuk-table__caption govuk-table__caption--m">Your statement</caption-->
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+				<th scope="col" class="govuk-table__header">Description</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric" style="white-space:nowrap;">Amount</th>
+				<th scope="col" class="govuk-table__header govuk-table__header--numeric">Arrears balance</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+
+				
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">10 June 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£100.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£823.58</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 May 2019</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£923.58</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 May 2019</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£901.17</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">13 May 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£100.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£789.12</td>
+				</tr>
+
+
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Apr 2019</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£889.12</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Apr 2019</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£866.71</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">10 Apr 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£200.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£754.66</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Mar 2019</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£954.66</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Mar 2019</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£932.25</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">15 Mar 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£50.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£820.20</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Feb 2019</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£870.20</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Feb 2019</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£847.79</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">19 Feb 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£200.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£735.74</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Jan 2019</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£935.74</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Jan 2019</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£913.33</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">16 Jan 2019</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£150.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£801.28</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">28 Dec 2018</th>
+				<td class="govuk-table__cell">Payment made</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">-£200.00</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£951.28</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Dec 2018</th>
+				<td class="govuk-table__cell">Fees due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£22.41</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,151.28</td>
+				</tr>
+
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header govuk-!-width-one-quarter">21 Dec 2018</th>
+				<td class="govuk-table__cell">Maintenance due</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric" style="white-space:nowrap;">£112.05</td>
+				<td class="govuk-table__cell govuk-table__cell--numeric">£1,128.87</td>
+				</tr>
+			</tbody>
+			</table>
+
+
+			<nav class="govuk-pagination" role="navigation" aria-label="results">
+						<div class="govuk-pagination__prev">
+							<a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+							<svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+								<path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+							</svg>
+							<span class="govuk-pagination__link-title">Previous</span></a>
+						</div>
+						<ul class="govuk-pagination__list">
+							<li class="govuk-pagination__item govuk-pagination__item--current">
+							<a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page 1">
+								1
+							</a>
+							</li>
+							<li class="govuk-pagination__item ">
+							<a class="govuk-link govuk-pagination__link" href="pp-annual-review-historical-pageTwo" aria-label="Page 2" >
+								2
+							</a>
+							</li>
+							<!--li class="govuk-pagination__item">
+							<a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+								3
+							</a>
+							</li-->
+						</ul>
+						<div class="govuk-pagination__next">
+							<a class="govuk-link govuk-pagination__link" href="pp-annual-review-historical-pageTwo" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+								<path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+							</svg></a>
+						</div>
+				</nav>
+
+
+
+
+
+
+		</div>
+	</div>
+{% endblock %}

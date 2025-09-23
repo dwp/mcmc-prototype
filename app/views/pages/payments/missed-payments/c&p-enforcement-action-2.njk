@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action</h1>
+
+      <p class="govuk-body">We use our enforcement powers through the courts to try to get the child maintenance you are owed.</p>
+      <p class="govuk-body">We can apply to the magistrates’ or sheriff courts for a ‘liability order’. If the court grants the order, we can work with the courts to take further legal action.</p>
+      <p class="govuk-body">We may also ask the courts to award us costs, which the other parent may also have to pay. Under child support law, we may charge the other parent for taking some enforcement action against them.</p>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Enforcement charges</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Action taken by the Child Maintenance Service</th>
+            <th scope="col" class="govuk-table__header">Charge</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Liability order</th>
+            <td class="govuk-table__cell">£300</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Lump sum deduction order</th>
+            <td class="govuk-table__cell">£200</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Regular deduction order</th>
+            <td class="govuk-table__cell">£50</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Deduction from earnings request or order</th>
+            <td class="govuk-table__cell">£50</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "c&p-enforcement-action-3"
+        }) }}
+    
+
+  </div>
+
+  
+
+{% endblock %}

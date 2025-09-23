@@ -1,0 +1,176 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+    {% if (data['nino'] === "PP123456A") %} 
+    <p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Home</a></p>
+    {% elseif (data['nino'] === "RP123456A") %}
+    <p class="govuk-body"><a href="/pages/welcome-rp" class="govuk-back-link">Back to Home</a></p>
+    {% elseif (data['nino'] === "PP123456B") %}
+    <p class="govuk-body"><a href="/pages/welcome-pp-multi-collect" class="govuk-back-link govuk-!-margin-bottom-4">Back to Home</a></p>
+    {% elseif (data['nino'] === "RP123456B") %}
+    <p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
+    {% else %}
+    <p class="govuk-body"><a href="/pages/welcome" class="govuk-back-link">Back to Home</a></p>
+    {% endif %}
+
+	  	  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Account details</h1>
+      <p class="govuk-body">You can view or make changes to your details here. Any changes you make are private and are not shared with the other parent.</p>
+			<p class="govuk-body">It’s important to keep your details up to date. Any incorrect or missing details could delay important messages from us.</p>
+      
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View your:
+					  <ul class='govuk-list govuk-list--bullet'>
+              <li>name</li>
+              <li>date of birth</li>
+              <li>gender</li>
+              <li>National Insurance number</li>
+							<li>children’s names</li>
+            </ul>
+					</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Personal details',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+        <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Keep your contact details up to date so we can keep in touch with you. Update your:
+					  <ul class='govuk-list govuk-list--bullet'>
+              <li>telephone number</li>
+              <li>home and postal address</li>
+              <li>email address</li>
+              <li>contact preferences</li>
+            </ul>
+					</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Contact details and preferences',
+            link: '/pages/my-details-and-circumstances',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Change your 7 digit PIN. This is the number you use when signing in or talking to us over the phone.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Change PIN (personal identification number)',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+       <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Check or change the bank or building society details you use to pay or receive child maintenance.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Bank or building society details',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View details of your cases.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Case summary',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View details of your annual reviews.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Annual reviews',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+
+      </div>
+
+      <div class="govuk-grid-row">
+          
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View the income figure we have used to calculate your child maintenance payments.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Income details',
+            link: '/pages/my-case-details/income-details',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+      
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View your chosen representative. This is the person you have asked to deal with the Child Maintenance Service for you.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Your representative',
+            link: '#',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+    </div>
+
+{% endblock %}

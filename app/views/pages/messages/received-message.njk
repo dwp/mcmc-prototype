@@ -1,0 +1,34 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/messages" class="govuk-back-link">Back to Messages</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-heading-m light">Received on 18 April 2023</p>
+      <h1 class="govuk-heading-xl">Update about your case</h1>
+      <p class="govuk-body">For more help on downloading a PDF see our <a href="#">How to use this site</a> on our help section or contact us.</p>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Letter name</h2>
+      {{ govukSummaryList({
+        classes: "message-summary",
+        rows: [
+          {
+            key: {
+              text: "Update about your case"
+            },
+            value: {
+              html: '<a href="#">Download PDF</a>'
+            }
+          }
+        ]
+      }) }}
+      <p class="govuk-body">You need Adobe Acrobat Reader to view the PDF files. If you do not already have it on your computer, you can <a href="#">install the latest version Adobe Acrobat Reader (opens in a new tab)</a>.</p>
+    </div>
+  </div>
+
+{% endblock %}

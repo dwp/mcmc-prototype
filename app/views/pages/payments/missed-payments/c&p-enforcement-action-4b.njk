@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action Scotland</h1>
+      <p class="govuk-body">If the other parent lives in Scotland we can ask sheriff officers to demand that the other parent pays through a ‘charge for payment’. This gives them 14 days to pay, or 28 days if they are living temporarily outside the UK.</p>
+      <p class="govuk-body">If the other parent doesn’t pay, we can use any of the following actions to help us to get the child maintenance that you are owed:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+            <li><b>Arrestment</b> – We can ask the courts to freeze the other parent’s money or goods through an ‘arrestment’. This means they will not be able to use money in a bank, building society or Post Office account, or receive money into that account. If they are owed goods, we can tell the company that is holding the goods to cancel the transaction and transfer the money used to pay for them to us instead</li>
+            <li><b>Attachment and auction and exceptional attachment</b> – We can instruct sheriff officers to make a list of items, and their values, that belong to the other parent and are kept at their home or business address. This will stop the other parent from selling or transferring the items on the list. If the other parent still does not pay the court can demand that the items are taken and sold at a public auction. We will then take the child maintenance you are owed from the money made from the sale</li>
+            <li><b>Inhibition</b> – we can ask the courts to register the liability (the debt) against any ‘heritable property’ (like a house, garage, business premises or land) that the other parent owns. This will stop them from selling or transferring it until they pay</li>
+            <li><b>Order for interdicting and action for reduction</b> – we can ask the court to freeze the other parent’s money and other assets so that they can’t sell or transfer them. If they break the order, we can ask the court to get back anything that’s already been sold or transferred</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "c&p-enforcement-action-5"
+      }) }}
+    
+    
+  </div>
+
+  
+
+{% endblock %}

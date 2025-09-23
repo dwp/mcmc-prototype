@@ -1,0 +1,111 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Which bank account do you want the Collect and Pay payments sent to?</h1>
+      
+
+<form method="post">
+      <div class="govuk-form-group">
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% call govukFieldset({
+  legend: {
+    text: "Bank or building society account details",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: true
+  }
+}) %}
+
+
+  {{ govukInput({
+    label: {
+      text: 'Name on the account'
+    },
+    id: "name-on-account",
+    name: "name-on-account",
+    hint: {
+    text: "The name on the account must be 18 characters or fewer. If your name is more than 18 characters you can enter your initials. For example, enter S J Thompson instead of Samantha Jane Thompson"
+  }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: 'Sort code'
+    },
+    id: "sort-code",
+    name: "sort-code",
+    hint: {
+    text: "Must be 6 digits long"
+  }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Account number"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "account-number",
+    name: "account-number",
+    hint: {
+    text: "Must be 8 digits long"
+  }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Building society roll number (if you have one)"
+    },
+    classes: "govuk-input--width-10",
+    id: "roll-number",
+    name: "roll-number",
+    hint: {
+    text: "You can find it on your card, statement or passbook"
+  }
+  }) }}
+
+{% endcall %}
+</div>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form>
+
+    
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

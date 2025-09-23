@@ -1,0 +1,148 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+		{#{{ createToast() }}#}
+		<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">All Collect and Pay payments received for Noah and 1 more</h1>
+		<div class="gov-uk-body">
+			<p>We cannot show payments received using Direct Pay as you and the other parent arranged the payments yourselves.</p>
+		</div>
+		<div class="gov-uk-body">
+			{% set keyHtml %}
+				<p class="govuk-body govuk-!-font-weight-bold" id="payments-for">Payments for the annual review period 12 March 2022 to 12 March 2023</a>
+			{% endset %}
+			{% set valueHtml %}
+				<a class="govuk-link govuk-body" href="#">Change date period</a>
+			{% endset %}
+			{{ govukSummaryList({
+				rows: 
+				[
+					{
+						key: {
+							classes: "payment-history-key",
+							html: keyHtml
+						},
+						value: {
+							classes: "payment-history-value change-date-period",
+							html: valueHtml,
+							format: numeric
+						}
+					}
+				]
+			}) }}
+		</div>
+		<div class="gov-uk-body">
+			{{ govukTable({
+				id: "payments-history",
+				classes: "payments-history",
+				firstCellIsHeader: true,
+				attributes: { "aria-describedby" : "payments-for" },
+				head: [
+					{
+						text: "Date of payment",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Amount after 4% collection fee deduction including any arrears",
+						format: "numeric",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Description",
+						classes: "previous-payments-header previous-payments-cell"
+					}
+				],
+				rows: 
+				[
+					[
+						{
+							text: "21 August 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					],
+					[
+						{
+							text: "21 July 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					],
+					[
+						{
+							text: "21 June 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					],
+					[
+						{
+							text: "21 May 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					],
+					[
+						{
+							text: "21 April 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					],
+					[
+						{
+							text: "21 March 2022"
+						},
+						{
+							text: "£382.91",
+							format: "numeric"
+						},
+						{
+							text: "Collect and Pay"
+						}
+					]
+				]
+			}) }}
+		</div>
+		<div class="gov-uk-body">
+			{{cmgPagination({
+			})}}
+		</div>
+		<h3 class="govuk-heading-s total-amount-heading">Total amount you have received since 12 March 2022</h3>
+		<span class="govuk-hint">After 4% collection fee including any arrears</span>
+		<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£2,297.46</p>
+	</div>
+{% endblock %}

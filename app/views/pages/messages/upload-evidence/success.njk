@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Success
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your evidence
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We will review your evidence and contact you if we need further details.</p>
+      <p class="govuk-body">Make sure
+        <a href="#" class="govuk-link">your contact details</a>
+        are up to date in case we need to contact you.</p>
+
+      <br>
+
+      <h2 class="govuk-heading-m">Upload additional evidence</h2>
+      <p class="govuk-body">You can upload more evidence related to your shared care request</p>
+      {{ govukButton({
+        text: "Upload new evidence",
+        href: "/pages/messages/upload-evidence/start-alt"
+      }) }}
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Upload evidence for a different request</a>
+      </p>
+
+      <br>
+
+      <h2 class="govuk-heading-m">View previously uploaded evidence</h2>
+      <p class="govuk-body">You can view previously uploaded evidence in the evidence history page</p>
+      {{ govukButton({
+        text: "View evidence history",
+        classes: "govuk-button--secondary",
+        href: "/pages/messages/file-history-added"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

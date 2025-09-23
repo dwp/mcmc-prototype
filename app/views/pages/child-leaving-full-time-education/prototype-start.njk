@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{t.leaving_education.education | safe }}
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/report-change" class="govuk-back-link">Back to Report a Change</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="" method="POST">
+        <p class="govuk-heading-l">Education scenario selection:</p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="userType">
+            User Type
+          </label>
+          <select class="govuk-select" id="userType" name="userType">
+            <option value="NRP">Paying Parent</option>
+            <option value="PWC" selected>Receiving Parent</option>
+            <option value="Dual">Dual</option>
+          </select>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="children">
+            Children
+          </label>
+          <select class="govuk-select" id="children" name="children">
+            <option value="Single QC (no ROC)">Single QC (no ROC)</option>
+            <option value="Single QC and a ROC (ROC found)" selected>Single QC and a ROC (ROC found)</option>
+            <option value="Single QC and a ROC (ROC not found)" selected>Single QC and a ROC (ROC not found)</option>
+            <option value="Multiple children (QC selected)">Multiple children (QC selected)</option>
+            <option value="Multiple children (ROC selected)">Multiple children (ROC selected)</option>
+          </select>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="duplicateSR">
+            Duplicate SR
+          </label>
+          <select class="govuk-select" id="duplicateSR" name="duplicateSR">
+            <option value="No">No</option>
+            <option value="Yes" selected>Yes</option>
+          </select>
+        </div>
+
+        {{ govukButton({
+          text: "Start prototype",
+          classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-8"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

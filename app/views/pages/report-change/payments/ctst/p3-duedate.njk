@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What was the due date of the first payment that was not paid in full or on time?</h1>
+      <p class="govuk-body">You cannot select your most recent scheduled payment date of 7 August. This is because we allow 3 working days for the latest payment to be made before we consider it late.</p>
+
+      <form class="form" action="" method="POST">
+      <br>
+        {{ govukRadios({
+          idPrefix: "dueDate",
+          name: "dueDate",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "1 August 2024",
+              text: "1 August 2024"
+            },
+            {
+              value: "24 July 2024",
+              text: "24 July 2024"
+            },
+            {
+              value: "17 July 2024",
+              text: "17 July 2024"
+            },
+            {
+              value: "10 July 2024",
+              text: "10 July 2024"
+            },
+            {
+              value: "Earlier",
+              text: "An earlier date"
+            }
+          ]
+        }) }}
+
+        <p class="govuk-body">These dates are the most recent scheduled payment dates in your current  <a href="#" class="govuk-link">payment plan (opens in a new tab)</a>.</p>
+
+      <br>
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

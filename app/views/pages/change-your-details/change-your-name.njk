@@ -1,0 +1,77 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change your name
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "/pages/check-your-details"
+      }) }}
+
+      <h1 class="govuk-heading-xl">
+        Change your name
+      </h1>
+      <form class="form" action="/pages/check-your-details" method="post">
+        {{ govukSelect({
+              id: "title",
+              name: "title",
+              label: {
+                text: "Title",
+                classes: "govuk-label"
+              },
+              items: [
+                {
+                  value: "Miss",
+                  text: "Miss"
+                },
+                {
+                  value: "Mrs",
+                  text: "Mrs"
+                },
+                {
+                  value: "Mr",
+                  text: "Mr"
+                }
+              ]
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "First name",
+                classes: "govuk-label"
+              },
+              hint: {
+                text: "Don't include any punctuation. For example ' - '."
+              },
+              id: "first-name",
+              name: "first-name",
+              classes: "govuk-input--width-20"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Last name",
+                classes: "govuk-label"
+              },
+              hint: {
+                text: "Don't include any punctuation. For example ' - '."
+              },
+              id: "last-name",
+              name: "last-name",
+              classes: "govuk-input--width-20"
+            }) }}
+
+        {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

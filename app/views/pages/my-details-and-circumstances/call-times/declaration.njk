@@ -1,0 +1,34 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Declaration</h1>
+      <p class="govuk-body">Before sending this request you confirm that:</p>
+      <ul class="govuk-body">
+        <li>the information is correct and complete as far as you know</li>
+        <li>you'll report any changes that might affect how much child maintenance you pay or receive</li>
+      </ul>
+
+      <form class="form" action="confirmation" method="post">
+
+        {{ govukButton({
+            text: "Confirm and send",
+            type: "submit"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

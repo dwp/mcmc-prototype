@@ -1,0 +1,33 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Send evidence later
+      </h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        To send evidence later, select 'View requests' in the banner at the top of the homepage. You have until 28 September 2023 to provide the evidence.
+      </p>
+     
+         <a type="submit" class="govuk-button" href="/pages/welcome">
+          Back to homepage
+        </a>
+
+    </div>
+
+  </div>
+
+{% endblock %}

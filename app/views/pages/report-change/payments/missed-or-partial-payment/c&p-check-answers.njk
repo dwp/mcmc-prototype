@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Case
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Noah and 1 more 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Additional details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['furtherInformation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/c&p-further-information-1">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supporting details for missed payment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['furtherInformation2'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/c&p-further-information-2">
+              Change</a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+        text: "Continue",
+        href: "/pages/report-change/payments/missed-or-partial-payment/c&p-declaration"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

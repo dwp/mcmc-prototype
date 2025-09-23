@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When did the new shared care arrangement start?</h1>
+      <p class="govuk-body">If you cannot remember the exact date, enter an approximate date. We will check the date with the other parent.</p>
+      <div class="govuk-inset-text">
+        If you have a written agreement in place it should tell you the date the arrangement changed or started.
+      </div>
+      <p class="govuk-body">The date must be today or in the past. If you’re changing your arrangement in the future, report it on or after the date the change happens.</p>
+
+      <form class="form" method="POST" action="corroboration-P2">
+
+        {{ govukDateInput({
+          id: "whatDate",
+          namePrefix: "whatDate",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

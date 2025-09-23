@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Missed payments further information</h1>
+
+      
+
+      <h2 class="govuk-heading-m">What further information do you have to support our investigation?</h2>
+      <p class="govuk-body">We need any information you have that will help us with our investigations, for example:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>any contact you have had with the other parent to try and recover the funds</li>
+            <li>the telephone number or address you have for the other parent</li>
+            <li>details of any employment you believe the other parent has</li>
+            <li>if you know of any bank or building society accounts the other parent has</li>
+            <li>does the other parent drive or have a UK passport?</li>
+            <li>any assets, such as a property or land</li>
+      </ul>
+      
+      <form method="post">
+        <div>
+
+        {{ govukCharacterCount({
+        name: "furtherInformation2",
+        id: "furtherInformation2",
+        maxlength: 200
+        }) }}
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+      </form>
+    
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

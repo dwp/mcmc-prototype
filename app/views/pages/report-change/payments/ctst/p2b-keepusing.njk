@@ -1,0 +1,33 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Keep using Direct Pay</h1>
+      <p class="govuk-body">On Direct Pay:</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>you and the other parent arrange your own child maintenance payments</li>
+        <li>you must check that you receive correct payments on the agreed dates</li>
+      </ul>
+
+      <p class="govuk-body">We can only try to recover unpaid child maintenance if you change to Collect and Pay.</p>
+
+      <form class="form" action="/pages/welcome" method="POST">
+      <br>
+      <button type="submit" class="govuk-button">
+        Return to homepage
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+       
+
+      <form class="form" action="/pages/my-details-and-circumstances/home-address/find-address-scenario" method="post">
+        {{ govukRadios({
+            classes: "govuk-radios",
+            id: "findAddressScenario",
+            idPrefix: "findAddressScenario",
+            name: "findAddressScenario",
+            fieldset: {
+              legend: {
+                text: "Find address scenario selection",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "addressFound",
+                text: "Address Found",
+                checked: "addressFound"
+              },
+              {
+                value: "addressNotFound",
+                text: "Address Not Found"
+              }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "submit"
+        }) }} 
+      {# {% set addressURL %}
+        {% if data['findAddressScenario'] === "addressFound" %}
+          select-the-address-where-you-live
+        {% else %}
+          we-cannot-find-your-address
+        {% endif %}
+      {% endset %} #}
+
+
+        {# {{ govukButton({
+          text: "Continue",
+          href: addressURL,
+          classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+          isStartButton: false
+        }) }} #}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

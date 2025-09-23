@@ -1,0 +1,234 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">How you can help us recover unpaid child maintenance</h1>
+      <div class="govuk-inset-text">
+        As you use the Collect and Pay service, you do not need to tell us if you have not received a payment in full
+      </div>
+      <p class="govuk-body">Providing additional information might help us recover money owed to you.</p>
+      <p class="govuk-body">You can tell us anything relevant about the paying parent, for example:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+        <li>new contact details or addresses</li>
+        <li>details of new employment</li>
+        <li>information about their financial situation</li>
+      </ul>
+      <p class="govuk-body">We will not tell the paying parent that you've shared information with us.</p>
+      <p class="govuk-body">We’ll try to recover unpaid child maintenance whether you give us extra information or not.</p>
+      
+      
+
+      <form action="" method="POST">
+        {{ govukCharacterCount({
+          name: "more-detail-on-file",
+          id: "more-detail-on-file",
+          maxlength: "600",
+          rows: "8",
+          label: {
+            text: "Provide details of the information you are submitting",
+            classes: "govuk-label--m"
+          }
+        }) }}
+
+        <h2>Attachments</h2>
+        <p class="govuk-body">You can attach a file or photograph to support the information you provide.</p>
+        <p class="govuk-body">The maximum file size is 20MB and you can upload up to 7 files at a time.</p>
+        <p class="govuk-body">File names must only include letters a to z, numbers 0 to 9 and apostrophes. File type must be a PDF, JPEG, JPG, GIF, PNG, TIFF or TIF.</p>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                classes: "govuk-!-width-one-half",
+                html: '<p class="govuk-body">Document 1</p>' + govukFileUpload({
+                  id: "file-upload-1",
+                  name: "file-upload-1",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-1'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 2</p>' + govukFileUpload({
+                  id: "file-upload-2",
+                  name: "file-upload-2",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-2 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 3</p>' + govukFileUpload({
+                  id: "file-upload-3",
+                  name: "file-upload-3",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-3 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 4</p>' + govukFileUpload({
+                  id: "file-upload-4",
+                  name: "file-upload-4",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-4 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 5</p>' + govukFileUpload({
+                  id: "file-upload-5",
+                  name: "file-upload-5",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-5 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 6</p>' + govukFileUpload({
+                  id: "file-upload-6",
+                  name: "file-upload-6",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-6 hidden'
+            },
+            {
+              key: {
+                html: '<p class="govuk-body">Document 7</p>' + govukFileUpload({
+                  id: "file-upload-7",
+                  name: "file-upload-7",
+                  attributes: {
+                    "disabled": "disabled",
+                    "aria-disabled": "true"
+                  }
+                })
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Remove",
+                    classes: 'hidden remove-file'
+                  }
+                ]
+              },
+              classes: 'row-7 hidden'
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Add another file",
+          type: 'button',
+          classes: "govuk-button--secondary add-file"
+        }) }}
+
+        {{ govukInsetText({
+          text: "You can only add 7 files at a time.",
+          classes: 'hidden max-files-warning'
+        }) }}
+
+        {{ govukButton({
+          text: "Confirm and send information",
+          classes: "govuk-button",
+          href:"confirmation"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

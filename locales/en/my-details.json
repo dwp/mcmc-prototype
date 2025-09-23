@@ -1,0 +1,524 @@
+{
+  "common": {
+    "page-title": "My details & circumstances",
+    "breadcrumbs-title": "My details",
+    "breadcrumbs-home": "Home",
+    "page-generic-title": "My details & circumstances",
+    "h1": "My details",
+    "login-settings": "My login and security settings",
+    "btn": "Get Started",
+    "p1": "<p class='govuk-body'>It's important that we've got all your details. Any incorrect or missing details could delay your payments and you could lose important messages from us.</p>",
+    "p2": "<p class='govuk-body'>The details we have for you are shown below. If any of them are wrong or missing, you can update them here.</p>",
+    "double-hyphon": "--",
+    "cancel": "Cancel",
+    "what-do-you-want-to-do-now": "What do you want to do now?",
+    "change-more-details": "Change more details",
+    "return-to-my-homepage": "Return to my homepage",
+    "my-personal-details": {
+      "page-title": "My personal details",
+      "h1": "My personal details",
+      "link-desc": "<p class='govuk-body'>Make sure we've got the correct details for you and your children:</p><ul class='govuk-list govuk-list--bullet'><li>Check or change your name.</li><li>Make sure we have information such as your date of birth.</li><li>Check your children's names in each case.</li></ul>",
+      "intro": "<p class='govuk-body'>The details we have for you are shown below. If your name is wrong or if you want to change the name we use for you, you can ask us to update it here.</p><p class='govuk-body'>If you need to change any other details or any of your children's details, please <a class='govuk-link'href='${mountUrl}secure/contact-us-client'>contact us.</a></p>",
+      "change-label": "Change",
+      "sub-headings": {
+        "my-details": "My details",
+        "my-other-details": "Other details",
+        "my-children-details": "My children's details",
+        "child-name": "Children name(s)",
+        "other-parent": "Other parent"
+      },
+      "change-name": {
+        "page-title": "Change my name",
+        "review-title": "Review",
+        "h2": "Make changes",
+        "confirm": "Confirm changes",
+        "new-name-desc": "Please enter your new name here.",
+        "h1": "Change name",
+        "desc": "Please enter the updated firstname and surnames here.",
+        "review-h2": "Please Review",
+        "current-label": "Current details",
+        "new-label": "My new name",
+        "confirm-desc": "Please enter the updated firstname and surnames here.",
+        "submit": "Submit",
+        "cancel-link": "No, I want to change",
+        "confirm-link": "Back to personal details",
+        "current-name": "My current name",
+        "full-name": "Full name",
+        "title-label": "Title",
+        "next": "Next",
+        "send-button": "Send",
+        "confirm-msg": "Please confirm your new name.",
+        "green-desc": "Is this correct?",
+        "confirm-desc2": "Please double check these details are correct and then click 'Send'. If they are wrong, just click 'Edit details' to change them.",
+        "confirm-desc3": "Remember, you'll need to send us proof of your name change before we can update our records.",
+        "page-desc": "Please tell us about any changes to your name.",
+        "page-desc-bold1": "For security reasons we'll need you to send us evidence of your name change. Once you've filled in the form below and submitted the change to us, we'll get in contact to tell you what proof we need and where to send it.",
+        "page-desc-bold2": "Details marked* must be completed.",
+        "edit-details": "Edit details",
+        "make": "Make changes",
+        "cancel-link1": "Cancel",
+        "help": {
+          "help": "Help",
+          "title": "Please choose your title from the list.",
+          "firstname": "Enter your first name in full.</br>Please don't use any punctuation unless it's part of the name.",
+          "surname": "Enter your surname in full.</br>Please don't use any punctuation unless it's part of the name."
+        },
+        "title-options": {
+          "mr": "Mr",
+          "mrs": "Mrs",
+          "miss": "Miss",
+          "dr": "Dr",
+          "ms": "Ms",
+          "professor": "Professor",
+          "rev": "Rev",
+          "lady": "Lady",
+          "sir": "Sir",
+          "captain": "Captain",
+          "colonel": "Colonel",
+          "dame": "Dame",
+          "lord": "Lord",
+          "major": "Major"
+        },
+        "first-name-label": "First name",
+        "last-name-label": "Surname",
+        "change-name-label": "Change name",
+        "error": {
+          "firstName": {
+            "incorrect-format": "Please enter a valid first name"
+          },
+          "surName": {
+            "incorrect-format": "Please enter a valid surname"
+          },
+          "nochanges": {
+            "matches-current": "Your new personal details are the same as your current ones. Please enter new personal details or click 'Cancel' if there's no change"
+          }
+        }
+      },
+
+      "my-details-fields": {
+        "full-name-label": "Full name",
+        "my-date-of-birth-label": "Date of birth",
+        "my-gender-label": "Gender",
+        "my-ni-number-label": "National Insurance number"
+      }
+    },
+    "my-contact-details": {
+      "page-title": "Contact details",
+      "link-desc": "<p class='govuk-body'>We need up-to-date contact details so we can get in touch with you:</p><ul class='govuk-list govuk-list--bullet'><li>Update your phone numbers.</li><li>Tell us about a change of address or email address.</li><li>Change your contact preferences.</li></ul>",
+      "h1": "Contact details",
+      "page-desc": "With your most up to date contact details, we can get in touch if we need to talk to you about your Child Maintenance Case.",
+      "intro": "It's important that we've got all your details and that they are correct. Any incorrect or missing details could delay important messages from us.",
+      "change-label": "Change",
+      "add-label": "Add",
+      "hyphen": "-",
+      "want-desc": "I want you to:",
+      "letter-desc": "send all my letters by post",
+      "self-desc": "only send letters to my self service account",
+      "sub-headings": {
+        "my-phone-numbers": "My phone numbers",
+        "my-home-address": "My home address",
+        "my-postal-address": "My postal  address",
+        "my-email-address": "My email address",
+        "my-contact-preferences": "My contact preferences",
+        "my-bank-or-bs-details": "My bank or building society details"
+      },
+      "phone-number-fields": {
+        "home-phone-number-label": "Home phone number",
+        "mobile-phone-number-label": "Mobile phone number",
+        "work-phone-number-label": "Work phone number"
+      },
+      "home-address-fields": {
+        "address-label": "Address",
+        "town-label": "Town / city",
+        "county-label": "County",
+        "postcode-label": "Postcode",
+        "country-label": "Country"
+      },
+      "postal-address-fields": {
+        "no-postal-address-given": "You have not provided a separate postal address."
+      },
+      "email-address-fields": {
+        "email-address-label": "Email address"
+      },
+      "contact-preferences-fields": {
+        "opt-in-label": "Opt in to receive automatic SMS text updates on your case (for Collect & Pay cases only)"
+      }
+    },
+    "my-bank-details": {
+      "h1": "My bank or building society details",
+      "direct-pay": "<p class='govuk-body govuk-!-font-weight-bold'>My payment methods</p><p class='govuk-body'>Because you use direct pay, please agree a method of payment directly with the other parent.</p> ",
+      "as-you-arent-paying-or-receiveing-child-maintenance_": "As you aren't paying or receiving child maintenance, we don't need your bank details.",
+
+      "receiving-parent": {
+        "desc": "<p class='govuk-body'>Check or change which account we send your child maintenance to if you are using the Collect and Pay service.</p><p class='govuk-body'>If you are using Direct Pay, we do not have a record of your bank details as you have arranged the payments directly with the other parent.</p><p class='govuk-body'>The quickest way to change your account details is to contact the other parent. Alternatively, if you need us to pass on your account details to the other parent, go to 'Messages' and select 'Send a message'.</p>"
+      },
+      "paying-parent": {
+        "desc": "<p class='govuk-body'>Check or change the bank account we collect your Direct Debit from if you are using Collect and Pay.</p><p class='govuk-body'>If you are using Direct Pay, we do not have a record of your bank details as you have arranged the payments directly with the other parent. Make sure your child maintenance payments have been set up from your new account if you have changed your account details.</p>"
+      },
+      "both": {
+        "desc": "<p class='govuk-body govuk-!-font-weight-bold'>Collect and Pay service</p><p class='govuk-body'>As a receiving parent you can check or change the account we pay your child maintenance into.</p><p class='govuk-body'>If you're a paying parent, you can change the account we collect your Direct Debit from.</p><p class='govuk-body govuk-!-font-weight-bold'>Direct Pay service</p><p class='govuk-body'>If you are using Direct Pay, we do not have a record of your bank details as you have arranged the payments directly with the other parent.</p><p class='govuk-body'>If you're a receiving parent and want to change your bank or building society account, the quickest way is to contact the other parent direct. Alternatively, if you need us to pass on your account details to the other parent, go to 'Messages' and select 'Send a message'.</p>"
+      },
+      "change-direct-debit": {
+        "NRP": {
+          "page-title": "Set up or change a Direct Debit",
+          "desc1": "Use this form to set up payments direct from your account. We'll deal with your bank or building society on your behalf to set up your Direct Debit.",
+          "desc2": "If you prefer not to use this online service, you can <a download='direct-debit-form.pdf' href='${pdfLink}' class='govuk-link'>download the Direct Debit form</a>, fill it in and post it to us at the address on our <a href='${mountUrl}secure/contact-us-client' class='govuk-link'>contact us</a> page",
+          "desc3": "Setting up a new Direct Debit will cancel any existing Direct Debits you use to pay us.",
+          "form": {
+            "caption": "My bank or building society account details",
+            "heading1": "Service user number",
+            "heading2": "Pay on which day of the month?",
+            "heading3": "Use these details",
+            "heading3-caption": "We already have some of your bank or building society details. If you would like to reuse any of these details, please choose them from the dropdown menu and click the 'Update' button.",
+            "default-select-option": "Select",
+            "button-update": "Update",
+            "heading4": "Account holder's name",
+            "heading5": "Account type",
+            "account-options": {
+              "option1": "Not known",
+              "option2": "Current account",
+              "option3": "Savings account"
+            },
+            "heading6": "Account number",
+            "heading7": "Sort code",
+            "heading8": "Instruction to bank or building society",
+            "confirmation": "I confirm that I am either an account holder or an authorised signatory to the account, and hereby authorise my bank or building society to pay the Child Maintenance Service Direct Debits from the account detailed on this instruction subject to the safeguards assured by the Direct Debit guarantee. I understand that this information may remain with the Child Maintenance Service and, if so, details will be passed electronically to my bank or building society.",
+            "button-next": "Next",
+            "go-back": "Go back",
+            "heading9": "The Direct Debit Guarantee",
+            "direct-debit-p1": "This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits",
+            "direct-debit-p2": "If there are any changes to the amount, date or frequency of your Direct Debit, the Child Maintenance Service will notify you 10 working days in advance of your account being debited or as otherwise agreed. If you request the Child Maintenance Service to collect a payment, confirmation of the amount and date will be given to you at the time of the request.",
+            "direct-debit-p3": "If an error is made in the payment of your Direct Debit, by the Child Maintenance Service or your bank or building society, you are guaranteed a full and immediate refund of the amount paid from your bank or building society.",
+            "direct-debit-p4": "If you receive a refund you are not entitled to, you must pay it back when the Child Maintenance Service asks you to.",
+            "direct-debit-p5": "You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify us."
+          }
+        },
+        "PWC": {
+          "page-title": "Pay direct into my account",
+          "desc1": "Use this form to ask us to pay your maintenance directly into your bank or building society account.",
+          "form": {
+            "caption": "My bank or building society account details",
+            "heading1": "Which child or children is this payment for?",
+            "heading2": "Pay on which day of the month?",
+            "heading3": "Building society roll number (if applicable)",
+            "heading4": "Account holder's name",
+            "heading5": "Account type",
+            "account-options": {
+              "option1": "Not known",
+              "option2": "Current account",
+              "option3": "Savings account"
+            },
+            "heading6": "Account number",
+            "heading7": "Sort code",
+            "heading8": "Instruction to bank or building society",
+            "default-select-option": "Select",
+            "confirmation": "I confirm that I am either an account holder, an authorised signatory to the account or I am authorised to use the account.",
+            "confirm-caption": "If you cannot confirm the statement above, you can't use this online service.",
+            "button-next": "Next",
+            "go-back": "Go back"
+          }
+        }
+      }
+    },
+    "my-employment-details": {
+      "page-title": "My employment details",
+      "page-heading": "My employment details",
+      "link-desc": "<p class='govuk-body'>As you pay child maintenance, we need to know about changes to where you work and what you earn. Please tell us:</p><ul class='govuk-list govuk-list--bullet'><li>If you've changed jobs.</li><li>If you've had a pay rise or a pay cut.</li><li>If any of your current job details have changed.</li></ul>",
+      "receiving-parent": "As you don't pay child maintenance, we don't record your employment details.",
+      "employed": {
+        "p1": "Here are your employment details. If any of them are wrong or they have changed, you can update them here. This section does not contain details for self-employed jobs. If you are self-employed, you will need to <a class='govuk-link' href='${mountUrl}secure/contact-us-client'>contact&nbsp;us</a> separately to update your details.",
+        "p2": "<h2 class='govuk-heading-s'>Income details</h2> <p class='govuk-body'>We've also shown any income details you've given us for each job. We may have used these figures to work out your child maintenance payments but we often use other information too. To see the figures we used to calculate your child maintenance, view your <a href='${mountUrl}secure/my-case-details/view-cases/view-calculation-history' class='govuk-link'>calculation history.</a></p>",
+        "p3": "You can provide evidence of any jobs at the end by uploading a copy or a photo. This could be your latest wage slip or a contract of employment. Providing this now can be quicker and we may not need to contact you.",
+        "table": {
+          "heading": "Employer - ",
+          "employment-details": {
+            "sub-heading": "Employment details",
+            "type": "Type of employment",
+            "start-date": "Start date",
+            "address": "Address",
+            "work-no": "My phone number at work",
+            "fax-no": "My fax number at work"
+          },
+          "income-details": {
+            "sub-heading": "Income details",
+            "annual": "Annual pay before tax",
+            "annual-irregular": "Annual irregular income",
+            "annual-pension": "Annual private pension contributions",
+            "annual-exchange": "Foreign exchange costs"
+          },
+          "add-employer": "Add new employer"
+        }
+      },
+      "no-details": {
+        "heading": "No employment details",
+        "subheading": "We don't have any employment details for you.",
+        "p1": "It's important that we know about any jobs you have and your income. At the moment, we don't have this information so please tell us below.",
+        "p2": "You can provide evidence of any jobs at the end by uploading a copy or a photo. This could be your latest wage slip or a contract of employment. Providing this now can be quicker and we may not need to contact you.",
+        "if-you-have-already-contacted-CMG_": "If you have already contacted CMG to change your employment or income details and the changes you have asked for are not shown here then we will be in the process of updating your records. There is no need to request the same change again."
+      },
+      "add-details-heading": "Add employment details",
+      "add-details": "You can tell us about your jobs and income here.",
+      "update-details": "Please let us know if your employment or income details have changed."
+    },
+    "change-address": {
+      "page-title": "Manage My addresses",
+      "page-desc": "Here are the addresses we have for you. We've included your home address and your separate postal address if you've given us one. If any of them are wrong or you want to add or remove an address, you can make changes here.",
+      "h1": "My addresses",
+      "home-address-label": "Home address",
+      "home-desc": "This is the address where you live. If you haven't added a postal address, we'll send all your mail here.",
+      "postal-address-label": "Postal address",
+      "postal-desc": "This is the address where we'll send all your mail.",
+      "remove-link-desc": "Remove postal address",
+      "change": "Change",
+      "add": "Add",
+      "add-desc1": "<p class='govuk-body govuk-!-font-weight-bold'>You have not provided a separate postal address.</p>",
+      "add-desc2": "This means we'll send all your mail to your home address. If you want us to send your mail to another address, you can add a postal address by clicking 'Add'.</p>"
+    },
+    "change-pin": {
+      "page-title": "Change client PIN",
+      "page-link": "Change security settings",
+      "page-desc": "Stay on top of security - You can change your client PIN here. This is the number you use when you log into this site or talk to us over the phone.",
+      "btn": "Change client PIN",
+      "intro": "<p class='govuk-body'>You can change your PIN here - this is the number you use to log in to the self-service website. You will need this number every time you log in to your account so make sure it's memorable.</p>",
+      "form-help": "<p class='govuk-body'>We need you to enter your existing PIN before you can change it.</p>",
+      "form-required": "Details marked * must be completed",
+      "help-confirmpin": "Please retype your new PIN, making sure it matches the one you entered above.",
+      "help-newpin": "Enter your new PIN here. It must be exactly seven digits long and only use numbers. Please don't use any letters, spaces or punctuation.",
+      "help-existingpin": "Enter your existing PIN here. This is the number you used when you logged into the self-service website. Please don't use any letters, spaces or punctuation.",
+      "form": {
+        "existing-pin": {
+          "label": "Existing PIN"
+        },
+        "new-pin": {
+          "label": "New PIN"
+        },
+        "confirm-new-pin": {
+          "label": "Confirm new PIN"
+        },
+        "button": "Submit"
+      },
+      "success": {
+        "page-title": "Change PIN Success",
+        "confirmation": "You've changed your PIN successfully.",
+        "tip": "Remember to keep this number secure, and don't write it down or share it with anyone.",
+        "button": "Back to GOV.UK"
+      }
+    }
+  },
+  "paying-parent": {
+    "no-employment": {
+      "title": "No employment details",
+      "intro": "<p>We don't have any employment details for you.</p>\r\n        <p>It's important that we know about any jobs you have and your income. At the moment, we don't have this information so please tell us below.</p>\r\n        <p>You can provide evidence of any jobs at the end by uploading a copy or a photo. This could be your latest wage slip or a contract of employment. Providing this now can be quicker and we may not need to contact you.</p>",
+      "add-employment-details": "Add employment details",
+      "add-employment-details-intro": "<p>You can tell us about your jobs and income here. The number of jobs is automatically set to 1, so you only need to change it if you have several jobs.</p>",
+      "form": {
+        "label": "I would like to add details for:",
+        "hint": "Enter the number of jobs you are planning to add.",
+        "jobs": "jobs"
+      }
+    },
+    "employed": {
+      "update-heading": "Update employment details",
+      "update-info": "<p class='govuk-body'>Please <a class='govuk-link' href=\"\">let us know</a> if your employment or income details have changed.</p>",
+      "table": {
+        "employment-details": "Employment details",
+        "employment-type": "Type of employment",
+        "start-date": "Start date",
+        "address": "Address",
+        "town": "Town",
+        "county": "County",
+        "postcode": "Post code",
+        "country": "Country",
+        "work-phone": "My phone number at work",
+        "work-fax": "My face number at work",
+        "income-details": "Income details",
+        "income": "Annual pay before tax",
+        "exchange-costs": "Foreign exchange costs",
+        "irregular-income": "Annual irregular income",
+        "pension-contributions": "Annual private pension contributions"
+      },
+      "income-summary": "These are the income details you have given us for this job."
+    }
+  },
+  "change-my-home-address": {
+    "h1": "Change my home address",
+    "page-title": "Change my home address",
+    "p1": "Use the address finder below to change your home address. If you don't tell us a postal address we'll send any mail here too.",
+    "p2": "If the address doesn't have a valid postcode or it's outside the UK, click 'Enter my address manually'.",
+    "my-new-home-address": "My new home address",
+    "please-enter-details": "Please enter your details here and we'll find your full address.",
+    "house-flat-number-label": "House / flat number",
+    "postcode-label": "Postcode",
+    "find-address-button": "Find address",
+    "enter-address-manually": "Enter my address manually",
+    "choose-your-address": "Choose your address *",
+    "address-label": "Address",
+    "my-current-home-address": "My current home address",
+    "enter-your-postcode-here": "Enter your postcode here",
+    "enter-the-number-of-your-house-or-flat": "Enter the number of your house or flat. If the number contains a letter, such as 22A, you can include this. But if your address has a combination of numbers such as 22-24, just use the first number",
+    "error": {
+      "address-postcode": {
+        "required": "Please enter a valid postcode",
+        "incorrect-format": "Please enter a valid postcode"
+      },
+      "address-number": {
+        "incorrect-format": "The house or flat number you entered is in the wrong format. Please try again."
+      },
+      "select-address": "<strong>You haven't chosen an address from the list.</strong><br>Please find your address on the list and click on it - if it isn't on the list you'll need to enter it manually.",
+      "same-as-current-address": "The new address you've added is the same as your current address. Please enter a new address, or click 'Cancel' if there's no change."
+    }
+  },
+  "change-home-address": {
+    "h1": "Change my home address",
+    "breadcrumb": "Change my home address",
+    "my-current-address-label": "My current home address",
+    "my-new-address-heading": "My new home address",
+    "change-home-address": "Change home address",
+    "change-my-home-address": "Change my home address",
+    "add-postal-address": "Add my postal address",
+    "use-the-form-below-to-change-home-address": "Use the form below to change home address. If you don't tell us a postal address we'll send any mail here too.",
+    "building-and-street": "Building and street",
+    "line-1-of-2": "line 1 of 2",
+    "line-2-of-2": "line 2 of 2",
+    "town-or-city": "Town or city",
+    "county": "County",
+    "postcode": "Postcode",
+    "country": "Country",
+    "use-address-finder": "Use address finder",
+    "please-dont-use-any-special-characters_": "Please don't use any special characters or multiple punctuation marks together.",
+    "please-enter-the-town-or-city_": "Please enter the town or city where you live here.",
+    "please-enter-the-county_": "Please enter the county where you live here.",
+    "weve-automatically-added-the-country_": "We've automatically added the country. If we've got your country wrong, please change it by choosing the correct country from the list.",
+    "error": {
+      "address-line-1": {
+        "required": "Please enter a building and street",
+        "incorrect-format": "Please enter a valid address"
+      },
+      "address-line-2": {
+        "incorrect-format": "Please enter a valid address"
+      },
+      "address-town": {
+        "required": "Please enter a town or city",
+        "incorrect-format": "Please enter a valid town or city"
+      },
+      "address-postcode": {
+        "required": "Please enter a valid postcode",
+        "incorrect-format": "Please enter a valid postcode"
+      },
+      "address-not-exist": "We can't find that address, so please enter your address manually instead.",
+      "no-match": "We can't find that address, so please enter your address manually instead."
+    }
+  },
+  "change-home-address-confirm": {
+    "confirm-my-new-home-address": "Confirm my new home address",
+    "please-double-check-these-details_": "Please double check these details are correct and then click 'Send'. If they are wrong, just click 'Edit' to change them.",
+    "my-new-home-address": "My new home address"
+  },
+  "change-home-address-success": {
+    "weve-received-your-request": "We've received your request",
+    "thanks-for-telling-us-your-new-home-address": "Thanks for telling us your new home address",
+    "it-may-take-up-to-one-working day_": "It may take up to one working day for your change to show on the system.",
+    "use-address-finder": "Use address finder"
+  },
+  "change-email": {
+    "change-my-email-address": "Change my email address",
+    "if-your-email-address-has-changed": "If your email address has changed or you want to use a different one, please use the form below to tell us your new email address.",
+    "email-address": "Email address",
+    "confirm-email-address": "Confirm email address",
+    "submit": "Submit",
+    "help": "Help",
+    "help-email": "Add your full email address in the format name@provider.com. Please don't use any spaces or extra characters. If your address contains any special characters it might not work.",
+    "help-confirm-email": "Please retype your email address and make sure it matches the email address you entered above.",
+    "error": {
+      "required": "Please enter an email address",
+      "incorrect-format": "Please enter a valid email address",
+      "confirm-email": "We need you to confirm your email address",
+      "does-not-match": "Your email address and your confirmed email address don't match. Please enter them again.",
+      "matches-current": "You haven't changed any of your current email address. Please enter new details or click 'Cancel' if there's no change."
+    }
+  },
+  "change-email-confirmation": {
+    "change-my-email-address-confirmation": "Change my email address confirmation",
+    "please-double-check": "Please double check this email address is correct and then click 'Send'. If it's wrong, just click 'Edit' to change it.",
+    "email": "Email",
+    "change": "Change",
+    "please-confirm-your-new-email-address": "Please confirm your new email address.",
+    "accept-and-send": "Accept and send"
+  },
+  "change-email-success": {
+    "thanks-for-telling-us-your-new-email": "Thanks for telling us your new email address",
+    "our-records-have-been-updated": "Our records have now been updated and from now on, we will contact you using the method you have chosen."
+  },
+  "change-contact-preferences": {
+    "change-my-contact-preferences": "Change my contact preferences",
+    "my-contact-preferences": "My contact preferences",
+    "choose-whether-to-receive-by-post": "Choose whether to receive letters by post",
+    "you-can-tell-us-here": "You can tell us here if you want to receive copies of your letters through the post. We'll always send your letters to your self-service account, so why not save paper by asking us to stop sending letters through the post?",
+    "you-wont-be-completely-paper-free": "You won't be completely 'paper-free' because sometimes we might have to contact you by post, but for everything else we'll just send you online messages through this site.",
+    "if-you-want-us-to-stop": "If you want us to stop sending letters through the post, we must have your email address first. You can add or change your email address in the  <a class='govuk-link' href='${mountUrl}secure/my-details-and-circumstances'>'My details and circumstances'</a> section.",
+    "current-contact-preferences": "Current contact preferences",
+    "new-contact-preferences": "New contact preferences",
+    "please-enter-you-new-contact-preferences": "Please enter your new contact preferences here.",
+    "i-want-you-to": "I want you to:",
+    "send-all-my-letters-by-post": "Send all my letters by post",
+    "only-send-letters-to-my-self-service": "Only send letters to my self-service account",
+    "opt-in-to-receive-automatic-sms": "Opt in to receive automatic SMS text updates on your case (for Collect & Pay cases only)",
+    "please-make-sure-you-give-us-mobile-num": "Please make sure you've given us a mobile number if you want us to send you text alerts.",
+    "confirm-my-new-contact-preferences": "Confirm my new contact preferences",
+    "please-confirm-new-contact-preferences": "Please confirm your new contact preferences.",
+    "please-double-check-these-details": "Please double check these details are correct and then click 'Send'. If they are wrong, just click 'Edit details' to change them.",
+    "is-this-correct": "Is this correct?",
+    "choose-this-option-if-you-want-us-to-send-letters-by-post_": "Choose this option if you want us to send your letters by post, to the postal address you've given us. Sometimes we'll have to contact you in other ways, but we'll always use post when we can. We'll still send copies to your self-service account too.",
+    "choose-this-option-if-you-want-us-to-send-you-text-messages_": "Choose this option if you want us to send you text messages with updates about your case. You can only do this after you have told us your mobile phone number.",
+    "choose-this-option-if-you-dont-want-us-to-send-all-your-letters-through-the-post_": "Choose this option if you don't want us to send all your letters through the post. Sometimes we'll have to contact you in other ways, but we'll always use the self-service website when we can. If you choose this option, you'll need to have provided an email address for us to send your notifications to. You can tell us your email address in the 'My details and circumstances' section.",
+    "error": {
+      "required": "Please select a contact preference",
+      "smsflag": {
+        "mobile-required": "You haven't told us your mobile number so we can't send you text alerts. If you want these alerts, please add a mobile number to your contact details."
+      },
+      "email": {
+        "required": "You haven't told us your email address but we need one if you want us to stop sending you letters through the post. You can add your email address in the 'My details and circumstances' section. Once you've added an email address, you can change your contact preferences as soon as we've updated our records."
+      },
+      "matches-existing": "Your new contact preferences are the same as your current ones. Please choose new contact preferences or click 'Cancel' if there's no change.",
+      "no-cases": "You don't have an active case with us at the moment so we're unable to update your details."
+    }
+  },
+  "add-my-postal-address": {
+    "link-add": "Add postal address",
+    "link-change": "Change postal address",
+    "h1-add": "Add my postal address",
+    "h1-change": "Change my postal address",
+    "page-title-add": "Add my postal address",
+    "add-postal-address": "Add my postal address",
+    "page-title-change": "Change my postal address",
+    "p1": "Use the address finder below to tell us where you'd like us to send your letters by post. If you don't tell us a postal address we'll send any letters to your home address.",
+    "p2": "If the address doesn't have a valid postcode or it's outside the UK, click 'Enter my address manually'.",
+    "my-new-postal-address": "My postal address",
+    "please-enter-details": "Please enter your details here and we'll find your full address.",
+    "confirm-my-postal-address": "Confirm my postal address",
+    "is-this-correct": "Is this correct?",
+    "use-the-form-below-to-change-postal-address": "Use the address finder below to tell us where you'd like us to send your letters by post. If you don't tell us a postal address we'll send any letters to your home address."
+  },
+  "change-my-postal-address": {
+    "my-current-postal-address": "My current postal address",
+    "my-new-postal-address": "My new postal address",
+    "please-select": "Please select your address"
+  },
+  "delete-my-postal-address": {
+    "link": "Remove postal address",
+    "h1": "Remove my postal address",
+    "page-title": "Remove my postal address",
+    "p1": "Are you sure you want to remove your postal address? Please double check, then click 'Remove' to delete it.",
+    "p2": "As soon as we update our records with this change, we'll send all your mail to your home address until you set up a new postal address.",
+    "my-current-postal-address": "Postal address details"
+  },
+  "update-job-status": "Update job status",
+  "i-have-left-this-job": "I have left this job",
+  "if-you-have-left-this-job-please-tell-us": "If you have left this job, please tell us.",
+  "add-postal-address": {
+    "h1": "Add postal address",
+    "breadcrumb": "Add postal address",
+    "my-current-address-label": "My current postal address",
+    "my-new-address-heading": "My new postal address"
+  }
+}

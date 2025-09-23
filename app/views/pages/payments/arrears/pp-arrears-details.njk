@@ -1,0 +1,125 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-back-link">Back to Payments summary</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Arrears details</h1>
+
+			<h2 class="govuk-heading-m">Owed to the other parents</h1>
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Ongoing child maintenance for Jim and 1 more	
+						<div class="govuk-hint">
+							Regular child maintenance not including collection fee.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£600.00
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Child Support Agency (CSA) maintenance for Jim and 1 more	
+						<div class="govuk-hint">
+							Balance carried forward from your case with CSA.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£80.00
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Ongoing child maintenance for Jane and 2 more	
+						<div class="govuk-hint">
+							Regular child maintenance not including collection fee.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£450.00
+					</dd>
+				</div>
+			</dl>
+
+			<h2 class="govuk-heading-m">Owed to the Child Maintenance Service</h1>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Collection fees	
+						<div class="govuk-hint">
+							20% collection fee added to Collect and Pay payments. No collection fees were applied to payments that were due before 2014.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£260.00
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Costs
+						<div class="govuk-hint">
+							Costs awarded by the court of paternity test costs.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£0.00
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Enforcement charges
+						<div class="govuk-hint">
+							Liability, lump sum, regular deduction or deductions of earnings order charges.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£300.00
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Child Support Agency (CSA) costs or charges
+						<div class="govuk-hint">
+							Costs or charges carried forward relating to CSA balance.
+						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£50.00
+					</dd>
+				</div>
+			</dl>
+
+			<h2 class="govuk-heading-s total-amount-heading">Total arrears you owe</h2>
+			<span class="govuk-hint">Including any collection fees or charges</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£1,740</p>
+			
+			<p class="govuk-body"><a href="pp-arrears-transactions" class="govuk-link">View your child maintenance arrears statement</a></p>
+
+			<p class="govuk-body">
+				<a class="govuk-link" href="/pages/payments/payment-plan/pp-collect">Make a payment</a>
+			</p>
+		</div>
+
+		<div class="help-apply-for-cm govuk-grid-column-one-third">
+				<h2 class="govuk-body govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-3" id="subsection-title">Related content</h2>
+				<nav role="navigation" aria-labelledby="subsection-title">
+					<ul class="govuk-list">
+					<li>
+						<p class="govuk-body govuk-!-font-size-19">
+							<a class="govuk-link" href="#">Child Maintenance Service enforcement powers</a>
+						</p>
+					</li>
+					<li>
+						<p class="govuk-body govuk-!-font-size-19">
+						<a class='govuk-link' href='#'>Check benefits and financial support you can get (opens in new tab)</a>
+						</p>
+					</li>
+					</ul>
+				</nav>
+			</div>
+	</div>
+{% endblock %}

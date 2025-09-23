@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Do you want to change to Collect and Pay?</h1>
+      <p class="govuk-body">We will ask you to give us details of child maintenance payments that have not been made in full or on time. You will also need your bank details.</p>
+
+      <form class="form" action="" method="POST">
+      <br>
+        {{ govukRadios({
+          idPrefix: "changeService",
+          name: "changeService",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes, I agree to pay Collect and Pay fees"
+            },
+            {
+              value: "No",
+              text: "No, I will keep using Direct Pay"
+            }
+          ]
+        }) }}
+      <br>
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

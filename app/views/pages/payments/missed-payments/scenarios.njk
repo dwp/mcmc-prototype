@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% block pageTitle %}
+  My messages and contact history
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <div>
+
+      {{ govukRadios({
+            idPrefix: "scenario",
+            name: "scenario",
+            items: [
+              {
+                value: "1",
+                text: "Scenario 1"
+              },
+              {
+                value: "2",
+                text: "Scenario 2"
+              },
+              {
+                value: "3",
+                text: "Scenario 3"
+              }
+              
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

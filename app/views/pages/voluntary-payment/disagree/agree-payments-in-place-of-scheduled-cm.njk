@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Do you agree that all the payments were made in place of scheduled child maintenance?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/voluntary-payment/disagree/agree-payments-in-place-of-scheduled-cm" method="post" novalidate>
+        <h1 class="govuk-heading-xl">Do you agree that all the payments were made in place of scheduled child maintenance?</h1>
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "f-paymentInPlaceYesNo",
+            name: "paymentInPlaceYesNo",
+            items: [
+              {
+                value: "Yes",
+                text: t.common.yes | safe,
+                checked: checked("paymentInPlaceYesNo", "Yes")
+              },
+              {
+                value: "No",
+                text: t.common.no | safe,
+                checked: checked("paymentInPlaceYesNo", "No")
+              }
+            ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

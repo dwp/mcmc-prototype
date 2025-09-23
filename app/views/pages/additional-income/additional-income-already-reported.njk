@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t.additional.additional_income | safe }}</h1>
+      <p class="govuk-body">
+        {{ t.additional.already_reported.already_reported_additional | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t.additional.already_reported.check_the_progress | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t.additional.already_reported.further_information | safe }}
+      </p>
+      <a type="submit" class="govuk-button" href="/pages/welcome">
+        {{ t.additional.return_to_homepage }}
+      </a>
+    </div>
+  </div>
+{% endblock %}

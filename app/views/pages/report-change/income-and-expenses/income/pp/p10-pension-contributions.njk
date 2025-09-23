@@ -1,0 +1,112 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Pensions</span> 
+      <h1 class="govuk-heading-l">Do you pay into any employer pension schemes?</h1>
+      <p class="govuk-body">You will find any contributions to employer pension schemes on your payslips or employment contract.</p>
+      
+      {% set yesPrivate %}
+      {{ govukInput({
+        id: "private-pension-amount",
+        name: "private-pension-amount",
+        label: {
+          text: "How much do you pay into private pension schemes each year?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+      {% set yesEmployer %}
+      {{ govukInput({
+        id: "employer-pension-amount",
+        name: "employer-pension-amount",
+        label: {
+          text: "How much do you pay a year into employer pension schemes?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+     
+      <form method="post">
+        <div>
+
+        
+        {{ govukRadios({
+            idPrefix: "employerPensions",
+            name: "employerPensions",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: yesEmployer
+                }
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+        }) }}
+
+        <h2 class="govuk-heading-l">Do you pay into any private pension schemes?</h2>
+        <p class="govuk-body">This is in addition to or instead of any pension payments an employer makes for you.</p>
+      
+
+        {{ govukRadios({
+            idPrefix: "privatePension",
+            name: "privatePension",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: yesPrivate
+                }
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+        }) }}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

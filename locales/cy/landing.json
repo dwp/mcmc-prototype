@@ -1,0 +1,19 @@
+{
+  "page-title": "Mewngofnodi i'ch achos cynhaliaeth plant",
+  "select-a-sign-in-option": "Dewiswch opsiwn mewngofnodi:",
+  "clients": {
+    "h2": "Rhieni a Gwarcheidwaid",
+    "intro": "Mewngofnodi os ydych yn rhiant, nain neu daid neu warcheidwad arall sy'n talu neu'n cael cynhaliaeth plant.",
+    "northern-ireland": "Ngogledd Iwerddon",
+    "if-your-case-is-based-in-northern-ireland_": "Os yw eich achos yn Ngogledd Iwerddon, <a href='${mountUrl}public/client-login?branding=ni' class='govuk-link'>mewngofnodwch yma</a>.",
+    "register-to-manage-your-case-online": "Cofrestru i reoli'ch achos ar-lein",
+    "if-you-already-have-a-case-online-account": "Os oes gennych achos cynhaliaeth plant yn barod, gallwch reoli'ch achos ar-lein.",
+    "find-out-how-to-sign-in-to-your-online-account": "<a class='govuk-link' href='${mountUrl}public/login-client-help'>Dod o hyd i sut i fewngofnodi</a>.",
+    "if-you-do-not-have-a-case-online-account": "Os nad oes gennych achos cynhaliaeth plant, am fwy o wybodaeth am y Gwasanaeth Cynhaliaeth Plant a ",
+    "gov-uk-for-cm-cases": "<a class='govuk-link' href='https://www.gov.uk/making-child-maintenance-arrangement' rel='noopener noreferrer' target='_blank'>gwneud trefniant cynhaliaeth plant</a>."
+  },
+  "employers": {
+    "h2": "Cyflogwyr",
+    "intro": "Mewngofnodi os ydych yn gyflogwr sy'n talu cynhaliaeth plant eich gweithwyr drwy eu cyflog."
+  }
+}

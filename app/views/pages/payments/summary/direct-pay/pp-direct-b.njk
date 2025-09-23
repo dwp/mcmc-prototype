@@ -1,0 +1,69 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/welcome-pp-multi" class="govuk-back-link">Back to Home</a><br></br>
+	<div class="govuk-grid-row">
+		{#{{ createToast() }}#}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you make for Chloe</h1>
+			<h2 class="govuk-heading-m">Direct Pay</h2>
+			<p class="govuk-body">We’ve worked out your payments until your next annual review on 12 September 2022.</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="/pages/payments/payment-calculations/pp-calculations-multi">how we calculated your child maintenance</a>.
+			</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next expected payment</h2>
+				<p class="govuk-body">Check your bank or building society account to confirm you have made a payment. If you cannot make a payment you need to
+					<a class="govuk-link" href="#">contact us</a>.
+				</p>
+				<div class="next-payment-table">	
+					{% set html %}
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+							Amount
+						</p>
+						<span class="govuk-hint">Including any arrears due</span>
+					{% endset %}
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									html: html
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£233"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Scheduled date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "21 July 2022"
+								}
+							}
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/payment-plan/pp-direct">View your expected payment plan</a>
+				</p>
+			</div>
+			<h3 class="govuk-heading-s total-amount-heading">Total amount you should have paid since 12 September 2021</h3>
+			<span class="govuk-hint">Including any arrears</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£2,097</p>
+			<p class="govuk-body">We assume that your payments are being made to the other parent as you have arranged the payments yourselves using Direct Pay.</p>
+			<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+			<span class="govuk-hint">Including any collection fees or charges</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="#">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

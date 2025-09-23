@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+   {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{ t['declaration']['declaration'] }}</h1>
+      <p class="govuk-body">{{ t['declaration']['before-sending-this-req'] }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t['declaration']['info-is-complete-correct'] }}</li>
+        <li>{{ t['declaration']['will-report-any-changes'] }}</li>
+      </ul>
+
+      {{ govukWarningText({
+        text: t['declaration']['you-could-be-prosecuted'],
+        iconFallbackText: "Warning"
+      }) }}
+
+      <form action="p16-confirmation" method="POST">
+        <button type="submit" class="govuk-button">
+          {{ t['declaration']['confirm-and-send'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

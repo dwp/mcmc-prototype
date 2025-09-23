@@ -1,0 +1,75 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Voluntary payments
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Voluntary payments</h1>
+      <p class="govuk-body  govuk-!-padding-bottom-3">Tell us about the voluntary payments you have received.</p>
+
+      {% set rowsToDisplay = [
+        [
+          {
+            text: "20 October 2021"
+          },
+          {
+            text: "£20"
+          },
+          {
+            html: "<a href='/pages/voluntary-payment/disagree/change-remove'>Change</a>"
+          },
+          {
+            html: "<a href='/pages/voluntary-payment/disagree/change-remove'>Remove</a>"
+          }
+        ]
+      ]
+      %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+          {{ govukTable({
+          caption: 'The other parent has reported the following voluntary payment information:',
+          head: [
+            {
+              text: "Payment date"
+            },
+            {
+              text: "Payment amount"
+            },
+            {
+              text: "Change"
+            },
+            {
+              text: "Remove"
+            }
+          ],
+          rows: data['voluntary-payment-reported']
+          }) }}
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        <form action="/pages/voluntary-payment/disagree/payments-reported-by-other-parent" method="post" novalidate>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          {{ govukButton({
+            href: "./add-payment",
+            text: "Add another voluntary payment",
+            classes: "govuk-button--secondary"
+          }) }}
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layouts/layout.njk" %}
+
+{# {% block page_title %}
+  {{ t('additional-income:letter-required') | safe }} - {{ t('additional-income:additional-income') | safe }}
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['validation-errors'] > [] %}
+        {{ govukErrorSummary({
+          name: 'error',
+          titleText: t.common['there-is-a-problem'],
+          errorList: data['validation-errors']
+        }) }}
+      {% endif %}
+
+      <form action="/pages/additional-income/additional-income-failed-tolerance" method="post" novalidate>
+        <h1 class="govuk-heading-xl">{{ t.additional.letter_required | safe }}</h1>
+        <p class="govuk-body">
+          {% if data['additionalIncomeUserType'] === 'NRP' %}
+            {{ t.additional.we_can_not_consider_your_ | safe }}
+            {% if data['type-of-income'] === 'asset' %}{{ t.additional.as_your_assets_valued | safe }}
+            {% else %}{{ t.additional.as_your_  + data['type-of-income'] | safe }}
+            {% endif %}
+          {% else %}
+            {{ t.additional.we_can_not_consider_the_other_parents_additional_ | safe }}
+            {% if data['type-of-income'] === 'asset' %}{{ t.additional.as_their_assets_valued | safe }}
+            {% else %}{{ t.additional.as_their_  + data['type-of-income']  | safe }}
+            {% endif %}
+          {% endif %}
+        </p>
+        <p class="govuk-body">{{ t.additional.the_additional_income_will_be_ | safe }}</p>
+
+        {% set homeRedirectSelected %}
+        <p class="govuk-body">{{ t.additional.you_will_be_redirected_to_the_homepage | safe }}</p>
+        {% endset -%}
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "f-wantLetter",
+            name: "wantLetter",
+            fieldset: {
+              legend: {
+                text: (t.additional.do_you_require_a_letter_) if data['additionalIncomeUserType'] === 'NRP' else (t.additional.do_you_require_a_letter_to_confirm_),
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: t.common.yes | safe,
+                checked: checked("wantLetter", "Yes")
+              },
+              {
+                value: "No",
+                text: t.common.no | safe,
+                conditional: {
+                html: homeRedirectSelected
+                }
+              }
+            ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+
+  </div>
+
+{% endblock %}

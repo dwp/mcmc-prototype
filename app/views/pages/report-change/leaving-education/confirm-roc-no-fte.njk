@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="" method="POST">
+        {{ govukCheckboxes ({
+                idPrefix: "",
+                name: 'confirmRocNoLongerFte',
+                fieldset: {
+                    legend: {
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend govuk-fieldset__legend--l",
+                        text: t['leaving-education']['relevant-other-child']
+                    }
+                },
+                items: [
+                    {
+                        value: "Yes",
+                        name: 'confirmRocNoLongerFte',
+                        text: t['leaving-education']['confirm-roc-no-longer-fte']
+                    }
+                ]
+            }) }}
+        <button type="submit" class="govuk-button">
+          {{ t['common']['continue'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

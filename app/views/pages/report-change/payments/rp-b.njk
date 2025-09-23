@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Payments
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/report-change" class="govuk-back-link">Back to Report a Change</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Payments</h1>
+      
+      <br>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          {% if (data['nino'] === "RP123456B") %} 
+          <h3 class="govuk-heading-m"><a href="/pages/report-change/payments/ctst/p5-change-payment-service" class="govuk-link">Payment Service</a></h3>
+          {% else %}
+          <h3 class="govuk-heading-m"><a href="#" class="govuk-link">Payment Service</a></h3>
+          {% endif %}
+          <p class="govuk-body">Ask to change from using Direct Pay to Collect and Pay, or the other way round.<br><br>Find out what we can do to enforce the collection of unpaid child maintenance.</p>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m">
+            <a class="govuk-link"  href="#">Voluntary Payments</a>
+          </h3>
+          <p class="govuk-body">Tell us about a payment you have received from the other parent that we do not know about. <br><br> The payment may be on top of or instead of your scheduled child maintenance. <br><br>We call this a voluntary payment.</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m">
+            <a class="govuk-link"  href="#">Bank or building society details</a>
+          </h3>
+          <p class="govuk-body">Change the bank or building society details you use to pay or receive child maintenance.</p>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+
+  {% endblock %}
+
+  

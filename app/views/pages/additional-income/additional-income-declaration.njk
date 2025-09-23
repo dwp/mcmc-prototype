@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Declaration</h1>
+      <p>Before sending this request you confirm that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the information is correct and complete as far as you know</li>
+        <li>you'll report any changes that might affect how much child maintenance you pay or receive</li>
+      </ul>
+
+      {{ govukWarningText({
+        text: "You could be prosecuted and have to pay a financial penalty if you knowingly give the wrong information or do not report changes.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm and send",
+        href: "/pages/additional-income/additional-income-success",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: false
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third"></div>
+  </div>
+{% endblock %}

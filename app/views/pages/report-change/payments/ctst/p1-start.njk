@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Change to Collect and Pay</h1>
+      <h1 class="govuk-heading-l">Dealing with unpaid child maintenance</h1>
+      <p class="govuk-body">If your child maintenance has not been paid in full or on time you can ask to change service from Direct Pay to Collect and Pay.</p>
+      <p class="govuk-body">If you change to Collect and Pay, we will manage payments from the paying parent for you. We will also try to recover unpaid child maintenance that is owed to you.</p>
+      <p class="govuk-body">We can only try to recover unpaid child maintenance:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>if you change to Collect and Pay</li>
+        <li>from 1 May 2023, the start of your current annual review period</li>
+        <li>that is late by 3 days or more</li>
+      </ul>
+      <p class="govuk-body">We will contact the other parent to tell them you have asked to change. We do not need their agreement to change to Collect and Pay.</p>
+      <p class="govuk-body">Find out <a href="#" class="govuk-link">who to contact if you are experiencing domestic abuse and need support (opens in a new tab)</a> </p>
+
+      <br>
+      <h1 class="govuk-heading-l">Collect and pay fees</h1>
+      <p class="govuk-body">Both parents pay a fee to use Collect and Pay.</p>
+      
+      <p class="govuk-body">The fee is: </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>20% for paying parents, added to every payment</li>
+        <li>4% for receiving parents, taken off every payment</li>
+      </ul>
+
+      <br>
+   <form class="form" action="p2-change" method="POST">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

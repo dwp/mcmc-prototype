@@ -1,0 +1,25 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      
+      {{ govukPanel({
+        titleText: "We have received your report"
+      }) }}
+      <h3 class="govuk-heading-l">What happens next?</h2>
+      <p class="govuk-body">We will review your report within 14 days.</p>
+      <p class="govuk-body">If there is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a change to your scheduled child maintenance payment, we will send you a new expected payment plan with how much you will receive and by when</li>
+        <li>no change, we will let you know</li>
+      </ul>
+      <p class="govuk-body">Make sure your <a href="/pages/my-details-and-circumstances"  class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+    </div>
+  </div>
+
+{% endblock %}

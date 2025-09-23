@@ -1,0 +1,133 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+
+{# {% from "govuk/components/warning-text/macro.njk" import govukWarningText %} #}
+
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: t.common['we-have-received-your-request']
+      }) }}
+
+      <h2 class="govuk-heading-m">{{ t.common['what-happens-next'] | safe }}</h2>
+
+      {% if not data['tolerancePassed'] %}
+        {% if data['type-of-income'] !== 'earned' %}
+          <p class="govuk-body">
+            {% if data['additionalIncomeUserType'] === 'NRP' %}
+              {{ t.additional.we_will_send_you_a_letter_your_ | safe }}
+              {{ t.common['check-the-progress-of-the-change-you-have-reported'] | safe }}
+            {% else %}
+              {{ t.additional.we_will_send_you_a_letter_other_parent_| safe }}
+              {{ t.common['check-the-progress-of-the-change-you-have-reported'] | safe }}
+            {% endif %}
+            {% if data['type-of-income'] !== 'asset' %}
+              {{ t.additional['as_' + data['type-of-income'] + '_is'] | safe }}
+            {% else %}
+              {% if data['additionalIncomeUserType'] === 'NRP' %}
+                {{ t.additional.as_your_assets_valued | safe }}
+              {% else %}
+                {{ t.additional.as_their_assets_valued | safe }}
+              {% endif %}
+            {% endif %}
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            {% if data['additionalIncomeUserType'] === 'NRP' %}
+              {{ t.additional.we_will_send_you_a_letter_your_ | safe }}
+            {% else %}
+              {{ t.additional.we_will_send_you_a_letter_other_parent_ | safe }}
+            {% endif %}
+          </p>
+        {% endif %}
+      {% else %}
+        {% if data['type-of-income'] !== 'asset' %}
+          <p class="govuk-body">
+            {% if data['additionalIncomeUserType'] === 'NRP' %}
+              {{ t.additional['once_we_have_reviewed_your_evidence_' + data['type-of-income'] + '_'] | safe }}
+              {{ t.common['check-the-progress-of-the-change-you-have-reported']| safe }}
+            {% else %}
+              {{ t.additional.we_will_contact_you_within_ | safe }}
+              {{ t.common['check-the-progress-of-the-change-you-have-reported'] | safe }}
+            {% endif %}
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            {{ t.additional.once_we_have_reviewed_your_evidence_and_request_ | safe }}
+          </p>
+          {% if data['additionalIncomeUserType'] === 'NRP' %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{{ t.additional.contact_you_to_discuss_your_request_NRP | safe }}</li>
+              <li>{{ t.additional.send_you_a_letter_if_requested_ | safe }}</li>
+            </ul>
+          {% else %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{{ t.additional.contact_you_to_discuss_your_request | safe }}</li>
+              <li>{{ t.additional.send_you_a_letter_to_confirm_ | safe }}</li>
+            </ul>
+          {% endif %}
+          <p class="govuk-body">{{ t.common['check-the-progress-of-the-change-you-have-reported'] | safe }}</p>
+        {% endif %}
+
+        <p class="govuk-body govuk-!-font-weight-bold">
+          {% if data['additionalIncomeUserType'] === 'NRP' %}
+            {{ t.additional.you_need_to_upload_your_evidence | safe }}
+          {% else %}
+            {{ t.additional.you_can_upload_your_evidence | safe }}
+          {% endif %}
+        </p>
+
+        <p class="govuk-body">{{ t.additional.evidence_can_include_ | safe }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ t.additional.bank_statement_ | safe }}</li>
+          <li>{{ t.additional.share_certificate | safe }}</li>
+          {% if data['type-of-income'] !== 'earned' %}
+            <li>{{ t.additional.legal_document_confirming_ | safe }}</li>
+          {% else %}
+            <li>{{ t.additional.wage_slip | safe }}</li>
+            <li>{{ t.additional.pension_statement | safe }}</li>
+            <li>{{ t.additional.legal_document | safe }}</li>
+          {% endif %}
+        </ul>
+
+        <a href="#" class="govuk-button">
+          {{ t.common['upload-evidence'] }}
+        </a>
+
+        <p class="govuk-body">{{ t.additional.if_you_do_not_have_ | safe }}</p>
+        {% if data['additionalIncomeUserType'] === 'NRP'%}
+          <p class="govuk-body">{{ t.additional.we_will_cancel_ | safe }}</p>
+        {% endif %}
+        <p class="govuk-body">{{ t.additional.remember_to_check_we_have_your_ | safe }}</p>
+        <p class="govuk-body">{{ t.additional.if_you_want_to_report_a_different_ | safe }}</p>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

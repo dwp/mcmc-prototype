@@ -1,0 +1,58 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/welcome" class="govuk-back-link">Back to Home</a><br></br>
+	<div class="govuk-grid-row">
+		{{ createToast() }}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you make for Jim and 2 more</h1>
+			<h2 class="govuk-heading-m">Direct Pay</h2>
+			<p class="govuk-body">You are no longer paying regular maintenance for this case, but there are outstanding arrears.</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next expected payment</h2>
+				<p class="govuk-body">Check your bank or building society account to confirm you have made a payment. It may take up to 5 days for a payment to reach your account.</p>
+				<div class="next-payment-table">				
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Amount"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£150"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Scheduled date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "26 September 2021"
+								}
+							}
+						]
+					}) }}
+				</div>
+				<p class="govuk-body">
+					<a class="govuk-link" href="/pages/payments/payment-plan/pp-direct">View your expected payment plan</a>
+				</p>
+			</div>
+			<h3 class="govuk-heading-s total-amount-heading">Total amount you should have received since 12 September 2020</h3>
+			<span class="govuk-hint">Including any arrears</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+			<p class="govuk-body">We assume that your payments are being made to the other parent as you have arranged the payments yourselves using Direct Pay.</p>
+			<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+			<span class="govuk-hint">Including any collection fees or charges</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="#">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

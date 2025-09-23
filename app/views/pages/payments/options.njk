@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Recovering maintenance
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Missed or partial payment</h1>
+      <p class="govuk-body">Find out <a href="#" class="govuk-link">what we can do to enforce the collection of unpaid child maintenance (opens in a new tab)</a>.</p>
+
+      <h2 class="govuk-heading-l">Collect and Pay</h2>
+      <p class="govuk-body">We know when a payment is missed and will take action to recover the payment.</p>
+
+      <h2 class="govuk-heading-l">Direct Pay</h2>
+      <p class="govuk-body">If there’s a problem with your child maintenance payment, contact the other parent if you can. It’s the quickest way to sort it out.</p>
+      <p class="govuk-body">If you do not make child maintenance payments on time and in full, you might have touse our Collect and Pay service. On Collect and Pay, you will pay a fee on each child maintenance payment.</p>
+      
+
+      <form class="form" action="/pages/report-change/payments/ctst/p1-start" method="POST">
+      <button type="submit" class="govuk-button">
+        Start now
+      </button>
+	 </form>
+
+
+{% endblock %}

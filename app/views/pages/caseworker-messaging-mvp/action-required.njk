@@ -1,0 +1,106 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "javascript: window.history.go(-1)"
+      },
+      {
+        text: "Action Required",
+        href: "/pages/messagingmvp/action-required"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Action Required
+      </h1>
+      <p>
+        You have a request that you must complete.
+      </p>
+      <p>
+        Previous requests will not be shown if they have been completed, the date you should have taken action by has passed, or the other parent has cancelled it.
+      </p>
+    </div>
+  </div>
+
+
+    {% set rowsToDisplay = [
+                [
+        {
+          text: "Sam"
+        },
+        {
+          text: "18 July 2025"
+        },
+        {
+          html: "<a href='/pages/my-details-and-circumstances/call-times/call-times'>Update call preferences</a>"
+        }
+        ],
+        [
+        {
+          text: "Robin"
+        },
+        {
+          text: "18 June 2025"
+        },
+        {
+          html: "<a href='/pages/report-change/shared-care/corroboration-start'>Change to Shared Care</a>"
+        }
+        ],
+        [
+        {
+          text: "-"
+        },
+        {
+          text: "31 October 2024"
+        },
+        {
+          html: "<a href='/pages/caseworker-connect'>New conversation message</a>"
+        }
+        ],
+    [
+        {
+          text: "Robin"
+        },
+        {
+          text: "1 October 2024"
+        },
+        {
+          html: "<a href='/pages/report-change/payments/ctst/corroboration/p1-start'>Change to service type</a>"
+        }
+        ]
+        ]
+    %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Other parent name"
+        },
+        {
+          text: "Action required by"
+        },
+        {
+          text: "Type of request"
+        }
+      ],
+      rows: rowsToDisplay
+      }) }}
+    </div>
+  </div>
+
+
+{% endblock %}

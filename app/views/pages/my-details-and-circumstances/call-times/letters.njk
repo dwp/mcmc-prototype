@@ -1,0 +1,53 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form class="form" method="POST" action="call-times">
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+
+        <h2 class="govuk-heading-xl">Receive your updates by post</h2>
+        <p class="govuk-body">As there is no preferred time for us to contact you, it may be easier if you receive updates about your case via post. This means we will send you a letter about your case updates to your preferred address.</p>
+        
+        </br>
+
+        {{ govukRadios({
+          name: "contact",
+          fieldset: {
+            legend: {
+              text: "Do you want to receive your updates by post?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No, I want to be contacted by phone"
+            }
+          ]
+        }) }}
+
+        </br>
+    
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+    </div>
+    </div>
+
+  {% endblock %}

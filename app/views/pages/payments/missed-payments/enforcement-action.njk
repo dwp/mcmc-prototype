@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We're taking enforcement action</h1>
+
+			<h2 class="govuk-heading-m">Your latest scheduled payment</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header govuk-!-width-one-third">Collection date</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric">Payment amount</th>
+					<th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-text-align-left govuk-!-padding-left-5">Payment status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header">January 2023</th>
+					<td class="govuk-table__cell govuk-table__cell--numeric">£382.91</td>
+					<td class="govuk-table__cell govuk-table__cell govuk-!-text-align-left govuk-!-padding-left-5"><strong class="govuk-tag govuk-tag--red ">MISSED</strong></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="govuk-body">To check if previous payments were made, view your <a href="/pages/payments/payment-history/rp-collect-all-payments" class="govuk-link">payment history</a>.</p>
+
+
+			<h2 class="govuk-heading-m">What we're doing</h2>
+			<p class="govuk-body">Our enforcement team is looking at your child maintenance case. </p>
+			<p class="govuk-body">If you have not heard from us, it might be because we’re considering the best way to recover the money owed to you. This could take several months.</p>
+			<p class="govuk-body">For some types of enforcement, we might not contact you until afterwards. This gives us a better chance of recovering the money you’re owed.</p>
+			<p class="govuk-body">Find out <a href="https://www.gov.uk/guidance/child-maintenance-liability-orders" class="govuk-link" rel="noopener noreferrer" target="_blank">what the Child Maintenance Service can do to enforce unpaid child maintenance (opens in a new tab)</a>.</p>
+			
+			<p class="govuk-body">We track Collect and Pay payments and add any unpaid child maintenance to your arrears. Your arrears balance is currently £6,021.25.</p>
+			
+			<h2 class="govuk-heading-m">What happens next</h2>
+			<p class="govuk-body">We’ll call you and send a letter to let you know what’s happening. If we’ve only been able to recover some of your arrears, we might need to take further action.</p>
+			
+		</div>
+	</div>
+{% endblock %}

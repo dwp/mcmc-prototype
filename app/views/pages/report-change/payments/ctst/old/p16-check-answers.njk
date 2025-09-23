@@ -1,0 +1,153 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row ">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Case
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Noah and 1 more 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you want to change to Collect and Pay?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['changeService'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p5-change-payment-service">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Why do you want to change to Collect and Pay?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['whyChangeService'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p6-why">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            When was a payment first missed or not paid in full?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['firstMissedDay'] }}/{{ data['firstMissedMonth'] }}/{{ data['firstMissedYear'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p10-date-of-first-missed">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Have you received any payments since you first had a missed or part payment on {{ data['firstMissedDay'] }}/{{ data['firstMissedMonth'] }}/{{ data['firstMissedYear'] }}?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['receivedAny'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p12-received-any">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name on the account
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['name-on-account'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p15-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['sort-code'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p15-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['account-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p15-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Building society roll number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['roll-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/ctst/p15-bank-account">
+              Change</a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post">
+      <button class="govuk-button">
+          Continue
+      </button>
+      </form>
+
+
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          If you need help with this change
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

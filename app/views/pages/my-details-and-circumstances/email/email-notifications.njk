@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+            <form class="form" action="/pages/my-details-and-circumstances/email/check-email" method="post">
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "email-notifications",
+                    name: "email-notifications",
+                    fieldset: {
+                        legend: {
+                            text: "Do you want to receive emails with news and information about the Child Maintenance Service?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend govuk-fieldset__legend--l"
+                        }
+                    },
+                    hint: {
+                        html: "These emails will be in addition to the emails we send you about your case."
+                        },
+                    items: [
+                        {
+                            value: "All notifications",
+                            text: t.common.yes,
+                            checked: data["email-notifications"] === "All notifications" or data["default-email-notifications"] === "All notifications" 
+                        },
+                        {
+                            value: "Case only",
+                            text: t.common.no,
+                            checked: data["email-notifications"] === "Case only" or data["default-email-notifications"] === "Case only"
+                        }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue",
+                    type: "submit"
+                }) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

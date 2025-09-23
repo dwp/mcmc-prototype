@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "/pages/report-change/shared-care/shared-care-P1"
+}) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Which child are you reporting a change to an overnight arrangement for</h1>
+      <p class="govuk-body">If your children have different overnight arrangements, you'll need to report each one seperately</p>
+
+      <form class="form" action="shared-care-P3" method="POST">
+
+        {{ govukRadios({
+          idPrefix: "whichChild",
+          name: "whichChild",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Clare",
+              text: "Clare"
+            },
+            {
+              value: "Jordan",
+              text: "Jordan"
+            },
+            {
+            divider: "or"
+            },
+            {
+              value: "All",
+              text: "Report the same overnight arrangement for all children"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

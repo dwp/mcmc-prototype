@@ -1,0 +1,528 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds width-85">
+
+    <a href="/pages/my-case-details" class="govuk-back-link">Back to Case Details</a><br></br>
+
+      <h1 class="govuk-heading-xl">Contact details and preferences</h1>
+      <p class="govuk-body">You can make changes to your contact details here. Any changes you make are private and are not shared with the other parent.</p>
+      <p class="govuk-body">It’s important to keep your details up to date. Any incorrect or missing details could delay important messages from us.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds width-85">
+      {# <h2 class="govuk-heading-l contact-preferences-heading">Contact details</h2>
+      {% set textmobilePhone %}
+      {% if data["default-phone"] === null and data["md-mobilePhone"] === null %}
+              -
+        {% else %}
+        {{ data["md-mobilePhone"] if data["md-mobilePhone"] else data["default-phone"] }}
+      {% endif %}
+      {% endset %}
+      {% set smsTextDecision %}
+      {% if data["can-we-send-you-sms"] === 'yes' %}
+              Receiving text messages (SMS)
+        {% else %}
+            Not receiving text messages (SMS)
+        {% endif %}
+      {% endset %}
+
+      {% if (data["default-phone"] === null and data["md-mobilePhone"] === null) or 
+          (data["default-landline"] === null and data["default-workphone"] === null and
+          data["md-landlinePhone"] === null and data["md-workPhone"] === null) %}
+        {% set removeLinkFromMobile = [{
+          href: "/pages/my-details-and-circumstances/mobile-phone/your-mobile-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change mobile telephone number"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "remove mobile telephone number",
+          classes: ['visually-hidden']
+        }]%}
+      {% else%}
+        {% set removeLinkFromMobile = [
+        {
+          href: "/pages/my-details-and-circumstances/mobile-phone/your-mobile-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change mobile telephone number"
+        },
+        {
+          href: "/pages/my-details-and-circumstances/mobile-phone/remove-mobile-telephone-number",
+          text: "Remove",
+          visuallyHiddenText: "remove mobile telephone number"
+        }] %}
+      {% endif %}
+
+      {% set textLandline %}
+      {% if data["default-landline"] === null and data["md-landlinePhone"] === null %}
+              -
+        {% else %}
+        {{ data["md-landlinePhone"] if data["md-landlinePhone"] else data["default-landline"] }}
+      {% endif %}
+      {% endset %}
+
+      {% if (data["default-landline"] === null and data["md-landlinePhone"] === null) or 
+          (data["default-phone"] === null and data["default-workphone"] === null and
+          data["md-mobilePhone"] === null and data["md-workPhone"] === null) %}
+        {% set removeLinkFromLandline = [{
+          href: "/pages/my-details-and-circumstances/landline/your-landline-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change landline phone number"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "remove landline phone number",
+          classes: ['visually-hidden']
+        }]%}
+        {% else%}
+        {% set removeLinkFromLandline = [
+        {
+          href: "/pages/my-details-and-circumstances/landline/your-landline-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change landline phone number"
+        },
+        {
+          href: "/pages/my-details-and-circumstances/landline/remove-landline-telephone-number",
+          text: "Remove",
+          visuallyHiddenText: "remove landline phone number"
+        }] %}
+      {% endif %}
+
+      {% set textWorkPhone %}
+      {% if data["default-workphone"] === null and data["md-workPhone"] === null %}
+              -
+        {% else %}
+        {{ data["md-workPhone"] if data["md-workPhone"] else data["default-workphone"] }}
+      {% endif %}
+      {% endset %}
+
+      {% if (data["default-workphone"] === null and data["md-workPhone"] === null) or 
+          (data["default-phone"] === null and data["default-landline"] === null and
+          data["md-mobilePhone"] === null and data["md-landlinePhone"] === null ) %}
+        {% set removeLinkFromWork = [{
+          href: "/pages/my-details-and-circumstances/work-phone/your-work-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change work phone number"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "remove work phone number",
+          classes: ['visually-hidden']
+        }]%}
+        {% else%}
+        {% set removeLinkFromWork = [
+        {
+          href: "/pages/my-details-and-circumstances/work-phone/your-work-telephone-number",
+          text: "Change",
+          visuallyHiddenText: "change work phone number"
+        },
+        {
+          href: "/pages/my-details-and-circumstances/work-phone/remove-work-telephone-number",
+          text: "Remove",
+          visuallyHiddenText: "remove work phone number"
+        }] %}
+      {% endif %}
+
+      {% if data["postal-address"] === null %}
+        {% set postalAddressActions = [
+            {
+              href: "my-details-and-circumstances/postal-address/where-to-send-letters",
+              text: "Change",
+              visuallyHiddenText: "postal address"
+            },
+            {
+              href: "#",
+              text: "Remove",
+              visuallyHiddenText: "postal address",
+              classes: ['visually-hidden']
+            }
+          ] %}
+      {% else %}
+        {% set postalAddressActions = [
+          {
+            href: "my-details-and-circumstances/postal-address/where-to-send-letters",
+            text: "Change",
+            visuallyHiddenText: "postal address"
+          },
+          {
+            href: "my-details-and-circumstances/postal-address/remove-address",
+            text: "Remove",
+            visuallyHiddenText: "postal address"
+          }
+        ] %}
+      {% endif %}
+
+      {% if data["home-address-line-1"] %}
+        {% set homeAddress %}
+        {{ data["home-address-line-1"] }}
+        <br />
+        {{ data["home-town-city"] }}
+        <br />
+        {{ data["home-postcode"] }}
+        {% endset %}
+      {% elif data["where-do-you-live"] %}
+        {% set homeAddress %}
+        {{ data["where-do-you-live"] }}
+        <br />
+        {{ data["md-postcode"] }}
+        {% endset %}
+      {% endif %}
+
+      {% if data["postal-address-line-1"] %}
+        {% set postalAddress %}
+        {{ data["postal-address-line-1"] }}
+        <br />
+        {{ data["postal-town-city"] }}
+        <br />
+        {{ data["postal-postcode"] }}
+        {% endset %}
+      {% elif data["postal-address-select"] %}
+        {% set postalAddress %}
+        {{ data["postal-address-select"] }}
+        <br />
+        {{ data["postal-postcode"] }}
+        {% endset %}
+      {% else %}
+        {% if data["postal-address"] === null %}
+          {% set postalAddress %} Same as home address {% endset %}
+        {% endif %}
+      {% endif %}
+
+      {% if data["md-email"] %}
+        {% set clientEmail %}
+        {{ data['md-email'] }}
+        {% endset %}
+      {% elif data["md-email"] === null and data["default-email"] === null %}
+        {% set clientEmail %} - {% endset %}
+      {% endif %}
+
+      {% if data["md-email"] === null and data["default-email"] === null %}
+        {% set emailActions =  [
+          {
+            href: "my-details-and-circumstances/email/change-email",
+            text: "Change",
+            visuallyHiddenText: "change email"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "remove email",
+            classes: ['visually-hidden']
+          }
+        ]%}
+      {% else %}
+        {% set emailActions =  [
+          {
+            href: "my-details-and-circumstances/email/change-email",
+            text: "Change",
+            visuallyHiddenText: "change email"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "remove email",
+            classes: ['visually-hidden']
+          }
+        ]%}
+      {% endif %}
+
+      {% set smsTextAction =  [
+        {
+          href: "my-details-and-circumstances/mobile-phone/can-we-send-you-sms-text",
+          text: "Change",
+          visuallyHiddenText: "sms text"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "sms text",
+          classes: ['visually-hidden']
+        }
+        ]%}
+
+      {{ 
+        govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Mobile number"
+              },
+              value: {
+                text: textmobilePhone
+              },
+              actions: {
+                items: removeLinkFromMobile
+              }
+            },
+						{
+              key: {
+                text: "Landline telephone"
+              },
+              value: {
+                text:  textLandline
+              },
+              actions: {
+                items: removeLinkFromLandline
+              }
+            },
+						{
+              key: {
+                text: "Work telephone number"
+              },
+              value: {
+                text: textWorkPhone
+              },
+              actions: {
+                items: removeLinkFromWork
+              }
+            },
+            {
+              key: {
+                text: "Home address"
+              },
+              value: {
+                html: homeAddress if homeAddress else data['home-address']
+              },
+              actions: { classes: ['case-details-actions'],
+                items: [
+                  {
+                    href: "my-details-and-circumstances/home-address/where-you-live",
+                    text: "Change",
+                    visuallyHiddenText: "home address"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "home address",
+                    classes: ['visually-hidden']
+                  }
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Postal address"
+              },
+              value: {
+                html: postalAddress if postalAddress else data['postal-address']
+              },
+              actions: { classes: ['case-details-actions'],
+                items: postalAddressActions
+              }
+            },
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                text: clientEmail if clientEmail else data["default-email"]
+              },
+              actions: {
+                items: emailActions
+              }
+            }
+          ]
+        }) 
+      }} #}
+
+      <br>
+
+      <table class="govuk-table govuk-table--small-text-until-tablet">
+        <caption class="govuk-table__caption govuk-table__caption--l">Contact details</caption>
+ 
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Mobile number</th>
+            <td class="govuk-table__cell">07700 900457</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Landline telephone number</th>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Work telephone number</th>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Home address</th>
+            <td class="govuk-table__cell">72 Guild Street <br> London <br> SE23 6FH </td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Postal address</th>
+            <td class="govuk-table__cell">We send your letters to your home address</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Email address</th>
+            <td class="govuk-table__cell">sarah.philips@example.com </td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <br>
+
+      {# <h2 class="govuk-heading-l contact-preferences-heading">Contact preferences</h2>
+      
+      {{ 
+        govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Text messages (SMS)"
+              },
+              value: {
+                text: smsTextDecision
+              },
+              actions: {
+                items: smsTextAction
+              },
+              classes: "hideme" if data['default-phone'] === null and data['md-mobilePhone'] === null
+            },
+            {
+              key: {
+                text: "Email notifications"
+              },
+              value: {
+                text: data['email-notifications'] if data['email-notifications'] else data['default-email-notifications']
+              },
+              actions: {
+                items: [
+                  {
+                    href: "my-details-and-circumstances/email/email-notifications",
+                    text: "Change",
+                    visuallyHiddenText: "change email notification preferences"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "change email notification preferences",
+                    classes: ['visually-hidden']
+                  }
+                  
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Receive letters"
+              },
+              value: {
+                text: data["letter-correspondance"] if data["letter-correspondance"] else data["communication"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "my-details-and-circumstances/receive-letters/how",
+                    text: "Change",
+                    visuallyHiddenText: "change communication preferences"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "change communication preferences",
+                    classes: ['visually-hidden']
+                  }
+                  
+                ]
+              }
+            },
+
+            {
+              key: {
+                text: "Preferred call time"
+              },
+              value: {
+                text: 'Between 2pm and 4pm'
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "my-details-and-circumstances/call-times/call-times",
+                    text: "Change",
+                    visuallyHiddenText: "change communication preferences"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "change communication preferences",
+                    classes: ['visually-hidden']
+                  }
+                  
+                ]
+              }
+            },
+
+            {
+              key: {
+                text: "Can we leave voicemails?"
+              },
+              value: {
+                text: 'Between 2pm and 4pm'
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "my-details-and-circumstances/call-times/call-times",
+                    text: "Change",
+                    visuallyHiddenText: "change communication preferences"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "change communication preferences",
+                    classes: ['visually-hidden']
+                  }
+                  
+                ]
+              }
+            }
+          ]
+        }) 
+      }} #}
+
+      <table class="govuk-table govuk-table--small-text-until-tablet">
+        <caption class="govuk-table__caption govuk-table__caption--l">Contact preferences</caption>
+ 
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Text messages (SMS)</th>
+            <td class="govuk-table__cell">Receiving text messages (SMS)</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/mobile-phone/can-we-send-you-sms-text" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Email notifications</th>
+            <td class="govuk-table__cell">All notifications</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/email/email-notifications" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Receive letters</th>
+            <td class="govuk-table__cell">Onlne only</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/receive-letters/how" class="govuk-link">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Preferred call time <br> <br> Can we leave voicemails?</th>
+            <td class="govuk-table__cell">Between 2pm and 4pm <br> <br> Yes</td>
+            <td class="govuk-table__cell"><a href="my-details-and-circumstances/call-times/call-times" class="govuk-link">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}

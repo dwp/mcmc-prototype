@@ -1,0 +1,117 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Report a change
+{% endblock %}
+
+{% block content %}
+
+  {% if (data['nino'] === "PP123456A") %} 
+  <p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456A") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "PP123456B") %}
+    <p class="govuk-body"><a href="/pages/welcome-pp-multi-collect" class="govuk-back-link govuk-!-margin-bottom-4">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456B") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
+  {% else %}
+  <p class="govuk-body"><a href="/pages/welcome" class="govuk-back-link">Back to Home</a></p>
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Report a change</h1>
+      <p class="govuk-body">You can <a class="govuk-link" href="/pages/track-changes/timeline-v2">track the progress of any changes</a> you report.</p>
+      <br>
+
+    {# <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+        <p class="small govuk-!-margin-bottom-2">Report any missed or voluntary payments. Change your:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>payment service</li>
+            <li>bank or building society details</li>
+          </ul>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Payments',
+            link: '/pages/report-change/payments',
+            html: html
+          })
+        }}
+        </div>
+      </div> #}
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Tell us:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>your new shared care arrangement</li>
+            <li>who has the financial or main day-to-day care of a child</li>
+            <li>about a change to the number of children you or the other parent support</li>
+            <li>a child has been adopted</li>
+            <li>a child has left full time education</li>
+          </ul>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Children',
+            link: '/pages/report-change/children',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Change your:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>name</li>
+            <li>contact details and preferences</li>
+            <li>7 digit PIN</li>
+            <li>representative</li>
+          </ul>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Account details',
+            link: '/pages/my-case-details',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">Report any changes to income and expenses</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Income and expenses',
+            link: '/pages/report-change/income-and-expenses',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      </div>
+
+
+      </div>
+    </div>
+    </div>
+
+  {% endblock %}

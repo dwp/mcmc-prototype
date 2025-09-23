@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      {% if data["postal-address-line-1"] %}
+        {% set postalAddress %}
+        {{ data["postal-address-line-1"] }}
+        <br />
+        {{ data["postal-town-city"] }}
+        <br />
+        {{ data["postal-postcode-manual"] }}
+        {% endset %}
+      {% elif data["postal-address-select"] %}
+        {% set postalAddress %}
+        {{ data["postal-address-select"] }}
+        <br />
+        {{ data["postal-postcode"] }}
+        {% endset %}
+      {% endif %}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Are you sure you want to remove this postal address?</h1>
+
+      {{ govukInsetText({
+        html: postalAddress if postalAddress else data['postal-address']
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/postal-address/remove-address" method="post">
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "remove-postal-address",
+            name: "remove-postal-address",
+            hint: {
+              text: "If you remove this address we will send your letter to your home address."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+              text: "Continue",
+              type: "submit"
+          }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

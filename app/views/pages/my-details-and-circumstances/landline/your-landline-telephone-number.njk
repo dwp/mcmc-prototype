@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">What is your landline telephone number?</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+      <form class="form" action="/pages/my-details-and-circumstances/landline/check-landline-phone-number" method="post">
+
+        {{ govukInput({
+          id: "landlinePhone",
+          name: "md-landlinePhone",
+          classes: "govuk-!-width-one-third",
+					value: data["md-landlinePhone"] if data["md-landlinePhone"] else data["default-landline"]
+        }) }}
+
+        {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

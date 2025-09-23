@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Missed payments</h1>
+
+      <p class="govuk-body">The Child Maintenance Service will take action if child maintenance is not paid.</p>
+      <p class="govuk-body">There may be reasons that have contributed to you not receiving your payment, such as:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+            <li>The other parent has recently gone onto or come off benefits and we are currently recalculating your payments</li>
+            <li>You have recently changed your bank account and we do not have up to date bank details to send your payment to</li>
+            <li>We do not have up to date bank details for the other parent</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/pages/report-change/payments/missed-or-partial-payment/c&p-deduction-from-earnings"
+      }) }}
+    
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

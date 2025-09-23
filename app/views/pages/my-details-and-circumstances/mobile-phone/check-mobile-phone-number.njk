@@ -1,0 +1,75 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check your mobile number</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds custom-details">
+      {% set sendSMSText %}
+      {% if data["can-we-send-you-sms"] === "yes" %}
+             Yes
+        {% else %}
+             No
+        {% endif %}
+      {% endset %}
+      {{ 
+        govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Mobile number"
+              },
+              value: {
+                text: data["md-mobilePhone"] if data["md-mobilePhone"] else data["default-phone"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./your-mobile-telephone-number",
+                    text: "Change",
+                    visuallyHiddenText: "change mobile phone number"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Receive text messages (SMS)"
+              },
+              value: {
+                text: sendSMSText
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./can-we-send-you-sms-text",
+                    text: "Change",
+                    visuallyHiddenText: "Receive text messages"
+                  }
+                ]
+              }
+            }
+            ]
+        }) 
+      }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          href: "../declaration",
+          text: "Continue"
+        }) }}
+      </div>
+    </div>
+
+  {% endblock %}

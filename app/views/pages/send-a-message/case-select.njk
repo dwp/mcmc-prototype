@@ -1,0 +1,53 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Which case is your message about?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">Which case is your message about?</h1>
+
+      <form class="form" action="/pages/send-a-message/case-select" method="post">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {{ govukRadios({
+            idPrefix: "whichCase",
+            name: "whichCase",
+            fieldset: {
+              legend: {
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "C Smith",
+                text: "C Smith"
+              },
+              {
+                value: "M Welch",
+                text: "M Welch"
+              },
+              {
+                value: "No specific case",
+                text: "My message is not about a specific case"
+              }
+            ]
+          }) }}
+
+
+          <button type="submit" class="govuk-button" name="continue">
+          {{ t['common']['continue'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

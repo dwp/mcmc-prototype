@@ -1,0 +1,155 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Check your details
+      </h1>
+      <p class="govuk-body">
+        For security reasons, we need to make sure the details we have for you are correct.
+      </p>
+      <p class="govuk-body">
+        If any of the details are not correct, select change. You will be taken to a new page where you can update your details. These details are private and will not be shared with the other parent.
+      </p>
+      <p class="govuk-body">
+        After you have checked the details are correct, you need to select 'confirm'. If you do not confirm your details, any changed you make will not be saved.
+      </p>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+      {{ 
+        govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                text: data["title"] + ' ' + data["first-name"] + ' ' + data["last-name"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/pages/change-your-details/change-your-name",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Home address"
+              },
+              value: {
+                html: data['home-address']
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/pages/change-your-details/change-your-address",
+                    text: "Change",
+                    visuallyHiddenText: "home address"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Postal address"
+              },
+              value: {
+                html: data['postal-address']
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/pages/change-your-details/change-your-postal-address",
+                    text: "Change",
+                    visuallyHiddenText: "postal address"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Email"
+              },
+              value: {
+                text: data["email"] if data["email"] else data["default-email"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/pages/change-your-details/change-your-email",
+                    text: "Change",
+                    visuallyHiddenText: "email"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Phone number"
+              },
+              value: {
+                text: data["home-phone"] if data["home-phone"] else data["default-phone"]
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/pages/change-your-details/change-your-phone-number",
+                    text: "Change",
+                    visuallyHiddenText: "phone number"
+                  }
+                ]
+              }
+            }
+          ]
+        }) 
+      }}
+
+      <h2 class="govuk-heading-m">Confirm your details</h2>
+
+      <p class="govuk-body">
+        By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form action="/accept-answers" method="post">
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm details"
+        }) }}
+
+      </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% set html %}
+      <p class="govuk-body">
+              We can even set HTML. You have 7 days left to send your application.
+              <a class="govuk-link" href="#">do this</a>.
+          </p>
+      <ul class="govuk-body">
+        <li>step 1</li>
+        <li>step 2</li>
+        <li>step 3</li>
+        <li>step 4</li>
+      </ul>
+      {% endset %}
+      {{ cmgToast({
+          title: "simple string content here",
+          text: "simple text content here",
+          html: html
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

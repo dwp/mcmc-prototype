@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action England or Wales</h1>
+      <p class="govuk-body">If the other parent lives in England or Wales, we can take the following action to recover unpaid child maintenance:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li><b>Bailiff action</b> - the bailiffs will to go to the other parent’s property, seize their belongings, and sell them to get the child maintenance that you are owed. The bailiffs can also add their charges to the debt</li>
+            <li><b>Register of judgements, orders or fines</b> - we can enter a liability (a debt) onto the Register of Judgments, Orders and Fines. This could impact the other parent’s ability to get credit or if they are self-employed, their suppliers may change the way they ask the other parent to pay for supplies</li>
+            <li><b>Charging order</b> – we can tell the Land registry to put a ‘charge’ against a house, land or assets the other parent owns or jointly owns. If they decide to sell an asset, we can claim the child maintenance you are owed from the proceeds of the sale</li>
+            <li><b>Order for sale</b> – once we have a charging order, we can apply to the court to force the sale of the property or asset. We can then claim the child maintenance you are owed from the proceeds of the sale</li>
+            <li><b>Freezing order, third party debt order and set aside disposition order</b> - we can ask the court to freeze the other parent’s money and other assets so that he or she can’t sell or transfer them. We can also ask the courts to get back anything that’s already been sold or transferred.</li>
+            
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "c&p-enforcement-action-5"
+      }) }}
+    
+    
+  </div>
+
+  
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+              {% set newIncome  %}
+              {{ +data['income']++data['bonus-amount']++data['pension-income-amount']++data['benefits-amount']-+data['private-pension-amount']-+data['employer-pension-amount'] }}
+              {% endset %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Yearly gross taxable income we have calculated</h1>
+
+        <h2 class="govuk-heading-m">Income</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-s govuk-!-width-one-half">
+              New employed gross taxable income
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['income'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p6-income">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-s">
+              Income from commission, bonuses or overtime
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['bonus-amount'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p7-bonus">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-s">
+              Taxable benefits
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['benefits-amount'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p8-any-benefits">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-s">
+              Pension income
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['pension-income-amount'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p11-pension-income">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Deductions</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-heading-s">
+              Annual employer pension contribution
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['employer-pension-amount'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p10-pension-contributions">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-s">
+              Annual private pension contribution
+            </dt>
+            <dd class="govuk-summary-list__value" align="right">
+              £{{ data['private-pension-amount'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="p10-pension-contributions">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-heading-m govuk-!-width-one-half">
+              Total income we have calculated
+            </dt>
+            <dd class="govuk-summary-list__value govuk-heading-m" align="right">
+              £{{ newIncome }}
+            </dd>
+            <dd class="govuk-summary-list__actions"></dd>
+          </div>
+        </dl>
+      
+        <form method="post">
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+        </form>
+
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

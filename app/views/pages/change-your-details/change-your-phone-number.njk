@@ -1,0 +1,83 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change your phone number
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ govukBackLink({
+            text: "Back",
+            href: "/pages/check-your-details"
+        }) }}
+
+            <h1 class="govuk-heading-xl">
+            Change your phone number
+        </h1>
+
+            <p class="govuk-body">
+            These details are private and will not be shared with the other parent.
+        </p>
+
+            <form class="form" action="/pages/check-your-details" method="post">
+
+                {{ govukInput({
+                label: {
+                    text: "Home telephone number",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                hint: {
+                    text: "For UK numbers include the area code. For international numbers include any country code."
+                },
+                classes: "govuk-input--width-20",
+                id: "home-phone",
+                name: "home-phone",
+                pattern: "[0-9]*",
+                inputmode: "numeric"
+            }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "UK mobile phone number",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                hint: {
+                    text: "If you have signed up for text alerts you need to enter a mobile number even if you used it for your home number."
+                },
+                classes: "govuk-input--width-20",
+                id: "mobile-phone",
+                name: "mobile-phone",
+                pattern: "[0-9]*",
+                inputmode: "numeric"
+            }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Work phone number",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                hint: {
+                    text: "For UK numbers include the area code. For international numbers include any country code."
+                },
+                classes: "govuk-input--width-20",
+                id: "work-phone",
+                name: "work-phone",
+                pattern: "[0-9]*",
+                inputmode: "numeric"
+            }) }}
+
+                {{ govukButton({
+                text: "Continue",
+                type: "submit"
+            }) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

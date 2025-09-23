@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        Before we can process your request, we need to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>complete any previously reported changes that may impact this request</li>
+        <li>contact the other parent to make sure we have all the correct information</li>
+      </ul>
+
+      <p class="govuk-body">
+        If your child maintenance payment:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>changes, we will send you a new payment plan. It will explain the payment amount and payment date</li>
+        <li>remains the same, we will let you know</li>
+      </ul>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+      <p class="govuk-body">
+       Make sure your <a href="#" class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.
+      </p>
+
+      <p class="govuk-body"><a href="start" class="govuk-link">
+        Return to homepage
+       </p>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Remove voluntary payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Remove voluntary payment</h1>
+      <p class="govuk-body  govuk-!-padding-bottom-3">Confirm you want to remove this voluntary payment:</p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+          {{ govukTable({
+          caption: 'The other parent has reported the following voluntary payment information:',
+          head: [
+            {
+              text: "Date of payment"
+            },
+            {
+              text: "Payment amount"
+            }
+          ],
+          rows: data['remove-voluntary-payment']
+          }) }}
+        </div>
+      </div>
+      <form action="/pages/voluntary-payment/disagree/remove-payment" method="post" novalidate>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+          <p class="govuk-body"><a href="/pages/voluntary-payment/disagree/payments-reported-by-other-parent" class='govuk-link'>Cancel</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

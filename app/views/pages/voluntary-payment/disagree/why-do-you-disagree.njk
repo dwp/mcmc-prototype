@@ -1,0 +1,32 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+ Why do you disagree with the voluntary payment report?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/voluntary-payment/disagree/why-do-you-disagree" method="post" novalidate>
+        <h1 class="govuk-heading-xl">Why do you disagree with the voluntary payment report?</h1>
+        <p class="govuk-body">Give us as much information as possible about each payment. For example, the £30 payment was made on top of my scheduled child maintenance as we agreed the other parent would pay towards a school trip.</p>
+        {{ govukCharacterCount({
+          name: "reason",
+          id: "reason",
+          maxlength: 600,
+          value: data['reason-to-disagree']
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

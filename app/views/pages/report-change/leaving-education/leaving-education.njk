@@ -1,0 +1,32 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ t['leaving-education']['report-a-child'] }}</h1>
+      <p class="govuk-body">{{ t['leaving-education']['if-your-child'] }}</p>
+      <p class="govuk-body">{{ t['leaving-education']['select-other-new'] }}</p>
+      <p class="govuk-body">{{ t['leaving-education']['your-message-should-include'] }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t['leaving-education']['list']['words-request'] }}</li>
+        <li>{{ t['leaving-education']['list']['reason-why'] }}</li>
+      </ul>
+      <p class="govuk-body">{{ t['leaving-education']['you-can-upload'] }}</p>
+    </div>
+  </div>
+
+  <form action='' method='post'>
+    <button class="govuk-button">{{ t['report-change']['send-a-message'] }}</button>
+  </form>
+
+{% endblock %}

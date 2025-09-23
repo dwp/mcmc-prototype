@@ -1,0 +1,223 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createPaymentPlanToast %}
+
+{% block content %}
+<a href="/pages/payments/summary/collect-pay/pp-collect" class="govuk-back-link">Back to Payments</a><br></br>
+  <div class="govuk-grid-row">
+    {#{{ createPaymentPlanToast() }}#}
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Collect and Pay payment plan for Noah and Mia</h1>
+      {{ govukInsetText({
+        text: "Arrears amount you owe including any collection fees or charges: £1,919.05"
+      }) }}
+      <h2 class="govuk-heading-m" id="scheduled-payments">Scheduled payments during current annual review period 12 December 2022 to 12 December 2023</h2>
+      <p class="govuk-body">To view your previous payment plan,
+				<a class="govuk-link" href="/pages/messages">go to messages</a>.
+			</p>
+			{{ govukTable({
+				id: "payment-plan",
+				classes: "payments-history",
+				firstCellIsHeader: true,
+				attributes: { "aria-describedby" : "scheduled-payments" },
+				head: [
+					{
+						text: "Date",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Amount including 20% collection fee and any arrears",
+						format: "numeric",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Payment method",
+						classes: "previous-payments-header previous-payments-cell"
+					}
+				],
+				rows: 
+				[
+					[
+						{
+							text: "21 December 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 January 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 February 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 March 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 April 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 May 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 June 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 July 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 August 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 September 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 October 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "21 November 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£578.64",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "Deduction from earnings order (DEO)",
+              classes: "previous-payments-cell"
+						}
+					]
+				]
+			}) }}
+		</div>
+  </div>
+{% endblock %}

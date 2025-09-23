@@ -1,0 +1,43 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">What is your email address?</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/email/email-notifications" method="post">
+        {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label",
+            isPageHeading: false
+          },
+          hint: {
+              text: "We will use this to send email notifications about your case"
+          },
+          id: "email",
+          name: "md-email",
+          value: data["md-email"] if data["md-email"] else data["default-email"]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          type: "submit"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

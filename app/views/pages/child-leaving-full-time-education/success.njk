@@ -1,0 +1,32 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Success
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your request
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We will review your case and check with the Child Benefit office. Within 4 weeks, we will decide if you are still entitled to receive child maintenance for xxxxx (child’s name) and contact you, it may take longer if your case is complex.</p>
+      <p class="govuk-body">We will let you know if there is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a change to your child maintenance</li>
+        <li>no change to your child maintenance</li>
+      </ul>
+      <p class="govuk-body">If you are not entitled to child maintenance and there is no other child who qualifies for child maintenance on your case, we will close you case.</p>
+      <p class="govuk-body">If you have another child on your case, your child maintenance will be recalculated and we will send you a new expected payment plan. If applicable, we will continue to recover any unpaid child maintenance.</p>
+      <p class="govuk-body">{{ t['leaving-education']['remember-to-check-we-have-your'] }}</p>
+
+    </div>
+  </div>
+
+{% endblock %}

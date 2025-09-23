@@ -1,0 +1,92 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="pp-annual-review" class="govuk-back-link">Back to current arrears statement</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Change annual review period</h1>
+		 <form action="pp-annual-review-historical" method="post" novalidate>
+				<div class="govuk-form-group">
+				<fieldset class="govuk-fieldset">
+					
+					<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+						<label class="govuk-label govuk-radios__label" for="changed-name">
+						12 June 2021 to 11 June 2022
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2020 to 11 June 2021
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2019 to 11 June 2020
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-3" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2018 to 11 June 2019
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-4" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2017 to 11 June 2018
+						</label>
+					</div><div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-5" name="changed-name" type="radio" value="month">
+						<label class="govuk-label govuk-radios__label" for="changed-name">
+						12 June 2016 to 11 June 2017
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-6" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2015 to 11 June 2016
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-7" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2014 to 11 June 2015
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-8" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2013 to 11 June 2014
+						</label>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="changed-name-9" name="changed-name" type="radio" value="year">
+						<label class="govuk-label govuk-radios__label" for="changed-name-2">
+						12 June 2012 to 11 June 2013
+						</label>
+					</div>
+					
+				
+					</div>
+				</fieldset>
+				</div>
+					<hr class="govuk-section-break govuk-!-margin-bottom-2" >
+
+					<button class="govuk-button" data-module="govuk-button">
+					View selected period statement
+					</button>
+				
+			</form>			
+
+
+
+
+
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">{{t.common['check-your-answers'] | safe}}</h1>
+
+      {# <h2 class="govuk-heading-m">Personal details</h2> #}
+      {% if data['wantLetter'] %}
+        {% set letterRequested =
+          {
+             key: {
+              text: t.additional.letter_requested
+            },
+            value: {
+              text: t.common.yes
+            },
+            actions: {
+              items: [
+                {
+                  href: '/pages/additional-income/additional-income-failed-tolerance',
+                  text: "Change",
+                  visuallyHiddenText: t.additional.letter_requested | lower,
+                  classes: 'govuk-link--no-visited-state'
+                }
+              ]
+            }
+          }
+        -%}
+      {% endif %}
+
+      {% if data['additionalIncomeUserType'] === 'PWC' %}
+        {% set otherParentDetails =
+          {
+             key: {
+              text: t.additional.other_parents_name
+            },
+            value: {
+              text: data['other-parent']
+            }
+          }
+        -%}
+      {% endif %}
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          otherParentDetails,
+          {
+            key: {
+              text: "Additional income type"
+            },
+            value: {
+              text: data['type-of-income']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/pages/additional-income/additional-income-how-much-income",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Income from employment"
+            },
+            value: {
+              text: '£' + data['incomeEmployment']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/pages/additional-income/earned-income/additional-income-earned-income-value",
+                  text: "Change",
+                  visuallyHiddenText: "Income from employment"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Income from self employment"
+            },
+            value: {
+              text: '£' + data['incomeSelfEmployment']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/pages/additional-income/earned-income/additional-income-earned-income-value",
+                  text: "Change",
+                  visuallyHiddenText: "Income from self employment"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Income from pension"
+            },
+            value: {
+              text: '£' + data['incomePensionEmployment']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/pages/additional-income/earned-income/additional-income-earned-income-value",
+                  text: "Change",
+                  visuallyHiddenText: "Income from pension"
+                }
+              ]
+            }
+          },
+          letterRequested
+        ]
+      }) }}
+      <form action="/pages/additional-income/additional-income-declaration" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

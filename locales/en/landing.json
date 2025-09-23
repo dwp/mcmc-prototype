@@ -1,0 +1,19 @@
+{
+  "page-title": "Manage your child maintenance case online",
+  "select-a-sign-in-option": "Select a sign in option:",
+  "clients": {
+    "h2": "Parents and guardians",
+    "intro": "Sign in if you have a case with the Child Maintenance Service. You do not need to register to do this.",
+    "northern-ireland": "Northern Ireland",
+    "if-your-case-is-based-in-northern-ireland_": "If you have a case based in <a href='pages/client-login?branding=ni' class='govuk-link'>Northern Ireland, sign in here</a>.",
+    "register-to-manage-your-case-online": "Register to manage your case online",
+    "if-you-already-have-a-case-online-account": "If you already have a child maintenance case, you can manage your case online.",
+    "find-out-how-to-sign-in-to-your-online-account": "<a class='govuk-link' href='${mountUrl}public/login-client-help'>Find out how to sign in</a>.",
+    "if-you-do-not-have-a-case-online-account": "If you do not have a child maintenance case, find more information about the Child Maintenance Service and ",
+    "gov-uk-for-cm-cases": "<a class='govuk-link' href='https://www.gov.uk/making-child-maintenance-arrangement' rel='noopener noreferrer' target='_blank'>making a child maintenance arrangement</a>."
+  },
+  "employers": {
+    "h2": "Employers",
+    "intro": "Sign in if you pay your employees’ child maintenance through their earnings."
+  }
+}

@@ -1,0 +1,48 @@
+
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Which case are you reporting a voluntary payment for?
+{% endblock %}
+
+
+{% block content %}
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['validation-errors'] > [] %}
+        {{ govukErrorSummary({
+              name: 'error',
+              titleText:  t.common['there-is-a-problem'],
+              errorList: data['validation-errors']
+            }) }}
+      {% endif %}
+
+      <form action="/pages/report-change/voluntary-payments/voluntary-payments-which-case" method="post" novalidate>
+
+        {{ govukRadios({
+                id: "f-whichCase",
+                idPrefix: "whichCase",
+                name: "whichCase",
+                fieldset: {
+                    legend: {
+                    text: "Which case are you reporting a voluntary payment for?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: data['dual-cases']
+                }) }}
+
+        {{ govukButton({
+                text: "Continue"
+                }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

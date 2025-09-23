@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your request
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-l">What happens next</h2>
+
+      <p class="govuk-body">We will review your request.  Before we can process your request, we need to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>make sure we have all the correct information</li>
+            <li>complete any previously reported changes that may impact this change</li>
+            <li>contact the other parent</li>
+      </ul>
+      <p class="govuk-body">If the other parent agrees to use the Collect and Pay service, we will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>send you a new expected payment plan. It will explain the payment amount and payment date </li>
+            <li>recover, if applicable, any unpaid child maintenance</li>
+            <li>collect and pass on future payments to you</li>
+      </ul>
+      <p class="govuk-body">If the other parent disagrees, we will contact you.</p>
+      <h3 class="govuk-heading-m">Upload evidence</h2>
+      <p class="govuk-body">You can upload evidence to support your request. For example, a copy of a:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>bank statement</li>
+            <li>written agreement from the other parent agreeing to change to collect and pay</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Upload evidence",
+        href: "/pages/messages/upload-evidence/start"
+      }) }}
+
+      <p class="govuk-body"><a class="govuk-link" href="/pages/track-changes/timeline-v2">Check the progress of the change</a> you have reported (it may take up to 30 seconds for your change to appear).</p>
+      <p class="govuk-body">Make sure your <a class="govuk-link" href="/pages/my-details-and-circumstances">contact details and preferences</a> are up to date in case we need to contact you.</p>
+      
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

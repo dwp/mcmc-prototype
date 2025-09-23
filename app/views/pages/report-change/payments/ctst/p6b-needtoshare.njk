@@ -1,0 +1,37 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">You need to share your bank details with the paying parent</h1>
+      <p class="govuk-body">You need to share your bank or building society details with the paying parent to receive your child maintenance payments using Direct Pay.</p>
+      <p class="govuk-body">You can do this online or you can contact the paying parent directly.</p>
+
+      <h2 class="govuk-heading-l">If you do not want to contact the other parent</h2>
+      <p class="govuk-body">If you do not want the other parent to know where you live, ask your bank to set up an account with a ‘non-geographic’ sort code.</p>
+      <p class="govuk-body">You do not have to contact the paying parent to get your payments. You can share your bank details in your online account.</p>
+
+      <div class="govuk-inset-text">
+        <a href="#" class="govuk-link">Find out how to get help if you’re experiencing domestic abuse.</a>
+      </div>
+
+      <form class="form" action="p7-missedorpart" method="POST">
+      <button type="submit" class="govuk-button">
+        Add bank details
+      </button>
+
+      <p class="govuk-body"><a href="#" class="govuk-link">Return to homepage</a></p>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

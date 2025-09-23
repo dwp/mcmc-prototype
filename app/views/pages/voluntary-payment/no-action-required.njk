@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  No action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Child leaving full-time education",
+        href: "/pages/child-leaving-full-time-education/child-leaving-fte-start"
+      },
+      {
+        text: "No action required",
+        href: "/pages/child-leaving-full-time-education/no-action-required"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">No action required</h1>
+
+      <p class="govuk-body">You have no outstanding actions as you have either completed the required action or the date your action was required by has passed.</p>
+
+      <p class="govuk-body">If you need to provide evidence to support the request, you’ll need to <a href="/pages/messages/upload-evidence/start" class="govuk-link">upload evidence</a>.</p>
+
+      {{ govukButton({
+        text: t['common']['return-to-homepage'],
+        href: '/pages/welcome'
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

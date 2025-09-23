@@ -1,0 +1,90 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check your message
+{% endblock %}
+
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "./write-message"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your nessage</h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Message subject"
+            },
+            value: {
+              text: data.subject
+            },
+            actions: {
+              items: [
+                {
+                  href: "./subject",
+                  text: "Change",
+                  visuallyHiddenText: "messageSubject"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Case"
+            },
+            value: {
+              text: data.case
+            },
+            actions: {
+              items: [
+                {
+                  href: "./which-case",
+                  text: "Change",
+                  visuallyHiddenText: "case"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Message"
+            },
+            value: {
+              text: data.messageContent
+            },
+            actions: {
+              items: [
+                {
+                  href: "./write-message",
+                  text: "Change",
+                  visuallyHiddenText: "messageContent"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/pages/send-a-message/check-message" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Enforcement action Northern Ireland</h1>
+      <p class="govuk-body">If the other parent lives in Northern Ireland, we can take the following action to recover unpaid child maintenance:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li><b>Enforcement of Judgments Office (EJO)</b> - We can use the Enforcement of Judgments Office – a department of the Northern Ireland Courts and Tribunal Service which enforces court judgments that relate to money, goods or property. They can use a range of enforcement actions to enforce the liability order that we have against the other parent.</li>
+            <li><b>Register of Judgments</b> - We can enter a liability order onto the Register of Judgments. Credit reference agencies can use this register to set the other parent’s credit rating, which affects their ability to get finance such as a loan, mortgage or credit card. If they own a business, their suppliers could change the way they ask for payment for goods or services.</li>
+            <li><b>Order Charging Land (OCL)</b> - We can tell Land and Property Services to put a ‘charge’ against land or property the other parent owns or jointly owns. This will make it difficult to sell the land or property until the debt is paid. We can claim the OCL amount from the proceeds of the sale.</li>
+            <li><b>Order for sale</b> Once we have an Order Charging Land, we can apply to the court for an order that allows us to force the sale of a property or asset. Once the sale is completed, we can then claim the child maintenance you are owed from the proceeds of the sale.</li>
+            <li><b>Freezing Order and Set Aside Disposition Order</b> - We can ask the court to freeze the other parent’s money and other assets so that he or she can’t sell or transfer them. We can also ask the courts to get back anything that’s already been sold or transferred.</li>
+            <li><b>Instalment Order</b> - If EJO agree that they will accept payment by instalments over a period of time, they can make an Instalment Order. The other parent must keep to this order by making the payments they agreed in full or on time. If they don’t, we can apply to the court to have them committed to prison or for removal of their driving licence.</li>
+            <li><b>Order of Seizure</b> - We can issue an Order of Seizure, which allows us to seize goods and sell them to raise funds to pay off child maintenance owed.</li>         
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "c&p-enforcement-action-5"
+      }) }}
+    
+    
+  </div>
+
+  
+
+{% endblock %}

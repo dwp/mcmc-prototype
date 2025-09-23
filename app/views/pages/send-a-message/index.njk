@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Send a message
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/messages" class="govuk-back-link">Back to Messages</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">Send a message</h1>
+      <p class="govuk-body">You can send a message to the Child Maintenance Service if you:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>are responding to a request from us</li>
+        <li>need to tell us something that cannot be reported online</li>
+        <li>have a specific query about your case</li>
+      </ul>
+
+      <br/>
+      <p class="govuk-body">It can take up to 7 days to review your message.</p>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Start Now",
+          href: "./subject",
+          classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+          isStartButton: true
+        }) }}
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-button js-webchat-button govuk-!-margin-0">
+          Chat to advisor
+        </a>
+      </p>
+
+      <h2 class="govuk-heading-l">Before you start</h2>
+
+      <p class="govuk-body">For changes to your circumstances, it is usually faster to <a class="govuk-link" href="/pages/report-change">report a change online</a>. This includes <a class="govuk-link" href="/pages/report-change/missing-payment/missing-payment-start">reporting a missed payment</a>.</p>
+      <p calss="govuk-body">If you have a general query, you can find more information about <a class="govuk-link" href="https://www.gov.uk/manage-child-maintenance-case" target="_blank" >managing your case online (opens in a new tab)</a> and <a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" target="_blank" >how we calculate your payments (opens in a new tab)</a>.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Reporting an additional child
+{% endblock %}
+
+{% block content %}
+
+  <a href="/pages/report-change/children" class="govuk-back-link">Back to Report a Change</a><br></br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="" method="POST">
+        <h1 class="govuk-heading-l">Reporting an additional child to your case</h1>
+          <p class="govuk-body">This journey allows you to report an additional child for your case</p>
+          <p class="govuk-body">Click button below to continue journey</p>
+        <button type="submit" class="govuk-button" name="startNow">
+          {{ t['leaving-education']['start-now'] }}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

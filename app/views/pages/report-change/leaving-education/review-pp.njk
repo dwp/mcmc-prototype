@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+    {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+    {% set dateLeaveFte = journeyContext['fte-pp-date-child-leave'].dateLeaveFte.dd + '/' + journeyContext['fte-pp-date-child-leave'].dateLeaveFte.mm + '/' + journeyContext['fte-pp-date-child-leave'].dateLeaveFte.yyyy %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t.common.check_your_answers }}</h1>
+            {% if journeyContext['fte-start'].children.length > 1 %}
+                {% set firstNameItem = [
+                    {
+                        href: '/pages/report-change/leaving-education/fte-pp-which-child-left',
+                        text: t['common']['change'],
+                        visuallyHiddenText: {{ t['leaving-education']['child-first-name'] | lower }},
+                        classes: 'govuk-link--no-visited-state'
+                    }]
+                %}
+            {% endif %}
+            {{ govukSummaryList({
+                rows:[
+                {
+                    key: { text: t['leaving-education']['child-first-name'] },
+                    value: { text: journeyContext['fte-pp-date-child-leave'].childSelected.firstName },
+                    actions: {
+                        items: firstNameItem
+                    }
+                },
+                {
+                    key: { text: t['leaving-education']['child-leave-effective-date'] },
+                    value: { text: dateLeaveFte },
+                    actions: {
+                        items: [
+                            {
+                                href: 'pages/report-change/leaving-education/fte-pp-date-child-leave',
+                                text: t.common.change,
+                                visuallyHiddenText: t['leaving-education']['child-leave-effective-date'],
+                                classes: 'govuk-link--no-visited-state'
+                            }
+                        ]
+                    }
+                }]
+            }) }}
+            <form action="" method="POST">
+                <button type="submit" class="govuk-button">
+                    {{ t['common']['continue'] }}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

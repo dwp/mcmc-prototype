@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Evidence not available
+      </h1>
+     
+   <form action="/pages/caseworker-messaging-mvp/request-no" method="post">
+
+        {{ govukTextarea({
+        name: "noEvidenceMoreDetail",
+        id: "noEvidenceMoreDetail",
+        label: {
+            text: "Please let us know why you're unable to provide this evidence."
+        }
+        }) }}
+
+    <a type="submit" class="govuk-button" href="/pages/caseworker-messaging-mvp/mvp-success-no">
+          Continue
+        </a>
+    </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

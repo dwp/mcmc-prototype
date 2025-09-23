@@ -1,0 +1,66 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Evidence upload
+{% endblock %}
+
+{% block content %}
+
+  {% if (data['nino'] === "PP123456A") %} 
+  <p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456A") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp" class="govuk-back-link">Back to Home</a></p>
+  {% elseif (data['nino'] === "PP123456B") %}
+    <p class="govuk-body"><a href="/pages/welcome-pp-multi-collect" class="govuk-back-link govuk-!-margin-bottom-4">Back to Home</a></p>
+  {% elseif (data['nino'] === "RP123456B") %}
+  <p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
+  {% else %}
+  <p class="govuk-body"><a href="/pages/report-change/index" class="govuk-back-link">Return to homepage</a></p>
+  {% endif %}
+
+     <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Upload evidence</h1>
+    
+    {# <p class="govuk-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> #}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+        <p class="small govuk-!-margin-bottom-2">Upload documents and evidence related to an existing request</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Upload new evidence',
+            link: '/pages/messages/upload-documents',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="accountCard mb-full">
+        {% set html %}
+       <p class="govuk-body">View uploaded evidence from the last 14 months</p>
+
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'View previously uploaded evidence',
+            link: '/pages/track-changes/timeline-v2/evidence',
+            html: html
+          })
+        }}
+        </div>
+      </div>
+      </div>
+
+      </div>
+
+      </div>
+    </div>
+
+  {% endblock %}

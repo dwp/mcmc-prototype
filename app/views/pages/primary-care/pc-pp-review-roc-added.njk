@@ -1,0 +1,103 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="pc-pp-declaration" method="post">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        {{ govukSummaryList({
+          classes: "reviewPrimaryCareRoc",
+          rows: [
+            {
+              key: {
+                text: "Child 2's effective date",
+                classes: "govuk-!-width-one-third"
+              },
+              value: {
+                text: "21/1/2020",
+                classes: "govuk-!-width-one-third"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "name"
+                  }
+                ],
+                classes: "govuk-!-width-one-third"
+              }
+            },
+            {
+              key: {
+                text: "Child 3's effective date"
+              },
+              value: {
+                text: "21/2/2020"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  },
+                  {
+                    href: "pc-pp-remove",
+                    text: "Remove",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Child 1's effective date"
+              },
+              value: {
+                text: "21/2/2020"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <p class="govuk-body">
+          <a href="pc-pp-which-child-or-children-reporting-for-add" class="govuk-link">Add another child who you financially support</a>
+        </p>
+        <p class="govuk-body">
+          <a href="pc-start" class="govuk-link">Back to start</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

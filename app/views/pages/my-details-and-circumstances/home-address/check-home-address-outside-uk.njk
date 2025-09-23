@@ -1,0 +1,77 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check your answers</h1>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/pages/my-details-and-circumstances/home-address/check-home-address-outside-uk" method="post">
+
+        {% set homeAddress %}
+        {% if data["home-address-line-1"] %}
+          {{ data["home-address-line-1"] }}
+          <br />
+          {{ data["home-town-city"] }}
+          <br />
+          {{ data["home-postcode"] }}
+          <br />
+          {{ data["home-country"] }}
+        {% elif data["where-do-you-live"] %}
+          {{ data["where-do-you-live"] }}
+          <br />
+          {{ data["md-postcode"] }}
+        {% else %}
+          {{ data["home-address"] }}
+        {% endif %}
+        {% endset %}
+
+        {% set changeURL %}
+          {% if data['manual-home-address-outside-uk'] %}
+            enter-home-address-manually-outside-uk
+          {% else %}
+            where-you-live
+          {% endif %}
+        {% endset %}
+
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Where do you live?"
+                },
+                value: {
+                  html: homeAddress
+                },
+                actions: { classes: ['case-details-actions'],
+                  items: [
+                    {
+                      href: changeURL,
+                      text: "Change",
+                      visuallyHiddenText: "change home address"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+              text: "Continue",
+              type: "submit"
+          }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createPaymentPlanToast %}
+
+{% block content %}
+<a href="/pages/payments/" class="govuk-back-link">Back to Payments</a><br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Direct Pay payment plan for Noah and 1 more</h1>
+      {{ govukInsetText({
+        text: "Arrears amount owed to you: £1400"
+      }) }}
+      <h2 class="govuk-heading-m" id="scheduled-payments">Scheduled payments during current annual review period 12 March 2022 to 12 March 2023</h2>
+      <p class="govuk-body">To view your previous payment plans,
+				<a class="govuk-link" href="/pages/messages">go to messages</a>.
+			</p>
+      <p class="govuk-body">Check your bank or building society account to confirm you have received a payment. It may take up to 5 days for a payment to reach your account.</p>
+      {{ govukTable({
+				id: "payments-plan",
+				classes: "payments-history",
+				firstCellIsHeader: true,
+				attributes: { "aria-describedby" : "scheduled-payments" },
+				head: [
+					{
+						text: "Date",
+						classes: "previous-payments-header previous-payments-cell"
+					},
+					{
+						text: "Amount including any arrears",
+						format: "numeric",
+						classes: "previous-payments-header previous-payments-cell"
+					}
+				],
+				rows: 
+				[
+					[
+						{
+							text: "17 March 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 April 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 May 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 June 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 July 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 August 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 September 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 October 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 November 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 December 2022",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+
+
+					[
+						{
+							text: "17 January 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					],
+					[
+						{
+							text: "17 February 2023",
+              classes: "previous-payments-cell"
+						},
+						{
+							text: "£30.42",
+							format: "numeric",
+              classes: "previous-payments-cell"
+						}
+					]
+
+
+				]
+			}) }}
+    </div>
+  </div>
+{% endblock %}

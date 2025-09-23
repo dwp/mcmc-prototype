@@ -1,0 +1,108 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Date income changed</h1>
+      <p class="govuk-body">We need to know the date your income officially changed. Usually this will be the start date on your new contract, not the day you get paid. </p>
+      <p class="govuk-body">We can only consider a change of income from the date your case was opened 26 June 2023. </p>
+      <br>
+      
+      <form method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="effective-date-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              When did your income change? 
+            </h2>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, if you started a new job on 12 January 2023 but get paid on 31 January you should  enter 12 1 2023.
+          </div>
+          <div class="govuk-date-input" id="effective-date">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="effective-day">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="effective-day" name="effective-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="effective-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="effective-month" name="effective-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="effective-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="effective-year" name="effective-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Is your change of income likely to last more than 12 weeks?</h2>
+      
+      {% set no12Weeks %}
+      {{ govukCharacterCount({
+          name: "no-12-weeks-reason",
+          id: "no-12-weeks-reason",
+          maxlength: "300",
+          rows: "6",
+          label: {
+            text: "Why is your change of income not likely to last more than 12 weeks?",
+            classes: "govuk-label"
+          }
+        }) }}
+
+      {% endset -%}
+
+      {{ govukRadios({
+            idPrefix: "last12Weeks",
+            name: "last12Weeks",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No",
+                conditional: {
+                  html: no12Weeks
+                }
+              }
+            ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+          Continue
+      </button>
+      </form>
+
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

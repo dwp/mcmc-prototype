@@ -1,0 +1,165 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-calculations-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/payments/" class="govuk-back-link">Back to Payments</a><br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Your payment calculation for Noah and 1 more</h1>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">how the Child Maintenance Service works out child maintenance (opens in a new tab)</a>.
+			</p>
+
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Calculation effective	
+				</dt>
+					<dd class="govuk-summary-list__value">
+						12 March 2022
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Reason for calculation
+				</dt>
+					<dd class="govuk-summary-list__value">
+						Change to shared care
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Total weekly child maintenance
+						<div id="event-name-hint" class="govuk-hint">
+  							Not including any arrears.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						£7
+				</dd>
+				</div>
+			</dl>
+
+			<h2 class="govuk-heading-l govuk-!-padding-top-7">What we used to work out your child maintenance</h2>
+			<p class="govuk-body">In most cases, we follow 6 steps to work out your weekly child maintenance.</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 1 - other parent’s income</h3>
+			<p class='govuk-body'>Our records show the other parent’s income comes from benefits. This figure does not include the other income and assets considered at step 2.</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report a change of income</a>
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 2 - things that affect the other parent’s income</h3>
+			<h4 class="govuk-heading-s">Other income and assets</p>
+			<p class='govuk-body'>No other income and assets have been reported for this case.</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report other parent’s income and assets</a>
+			</p>
+			<h4 class="govuk-heading-s">Expenses</p>
+			<p class='govuk-body'>No expenses have been reported for this case.</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report other parent’s expenses</a>
+			</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out/ask-other-income-expenses-included" rel="noopener noreferrer" target="_blank">more about other income and expenses (opens in a new tab)</a>.
+			</p>
+			
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 3 - child maintenance rate</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Gross weekly income	
+				</dt>
+					<dd class="govuk-summary-list__value">
+						The other parent gets benefits
+				</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-half">
+						Child maintenance rate
+				</dt>
+					<dd class="govuk-summary-list__value">
+						Flat
+				</dd>
+				</div>
+			</dl>
+			<p class="govuk-body">We worked out the gross weekly income after step 2 and applied one of 5 rates. Because the gross weekly income is between £7 and £100, or the other parent gets benefits, we used the flat rate.</p>
+			<p class="govuk-body">Find out more about
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">child maintenance rates (opens in a new tab)</a>.
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 4 - children we take into account</h3>
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters">
+						Children on this case
+					</dt>
+					<dd class="govuk-summary-list__value">
+						Noah<br>Mia
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-three-quarters govuk-!-font-weight-bold">
+						Other children who affect this case
+						<div id="event-name-hint" class="govuk-hint">
+  							This is the number of children the other parent has to pay child maintenance for. This includes any other children living with them and any arrangements that have been made directly for other children.
+  						</div>
+					</dt>
+					<dd class="govuk-summary-list__value">
+						2
+					</dd>
+				</div>
+			</dl>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Add a child with a parent from an existing case</a>
+			</p>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Add a child from a different relationship</a>
+			</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 5 - weekly amount of child maintenance</h3>
+			<p class='govuk-body'>We used the first 4 steps to work out the weekly amount of child maintenance.</p>
+
+			<h3 class="govuk-heading-m govuk-!-padding-top-7">Step 6 - shared care</h3>
+			<p class='govuk-body'>We may make a deduction to the amount of child maintenance based on the number of overnight stays with the paying parent and in local authority care.</p>
+			<h4 class="govuk-heading-s">Overnight stays with the other parent</h4>
+			<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header">Child name</th>
+				<th scope="col" class="govuk-table__header">Average overnight stays</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Noah</th>
+					<td class="govuk-table__cell">No shared care (0 nights)</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Mia</th>
+					<td class="govuk-table__cell">3 nights a week (156 to 174 a year)</td>
+				</tr>
+			</tbody>
+			</table>
+			<h4 class="govuk-heading-s">Local authority care</h4>
+			<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+				<th scope="col" class="govuk-table__header">Child name</th>
+				<th scope="col" class="govuk-table__header">Average overnight stays</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Noah</th>
+					<td class="govuk-table__cell">1 night a week (52 to 103 a year)</td>
+				</tr>
+			</tbody>
+			</table>
+			<p class='govuk-body'>
+				<a class='govuk-link' href='/pages/report-change'>Report a change to shared care</a>
+			</p>
+
+		</div>
+	</div>
+{% endblock %}

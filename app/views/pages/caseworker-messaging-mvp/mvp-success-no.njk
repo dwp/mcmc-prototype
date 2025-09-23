@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Success
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We've received your response
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">We'll contact you by your preferred contact method so make sure
+        <a href="#" class="govuk-link">your contact details</a>
+        are up to date.</p>
+
+        <form action="/pages/welcome-mvp" method="post">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Back to homepage
+        </button>
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

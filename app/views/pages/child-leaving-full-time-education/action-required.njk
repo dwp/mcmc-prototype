@@ -1,0 +1,98 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Action required
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Action Required",
+        href: "/pages/child-leaving-full-time-education/action-required"
+      }
+    ]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Action Required
+      </h1>
+      <p>
+        We have a request that requires your attention, select the request to complete the required actions.
+      </p>
+      <p>
+        Previous requests that required your attention will not be displayed because you have either completed the required actions or the date your action was required by has passed.
+      </p>
+    </div>
+  </div>
+
+  {% if (data['child-leaving-fte-scenario'] === "1" or data['child-leaving-fte-scenario'] === "2") %}
+    {% set rowsToDisplay = [
+      [
+        {
+          text: "Sarah"
+        },
+        {
+          text: "28/06/2020"
+        },
+        {
+          html: "<a href='/pages/child-leaving-full-time-education/child-leaving-fte-start'>Child leaving full-time education</a>"
+        }
+      ]
+      ]
+    %}
+  {% else %}
+    {% set rowsToDisplay = [
+      [
+        {
+          text: "Sarah"
+        },
+        {
+          text: "28/06/2020"
+        },
+        {
+          html: "<a href='/pages/child-leaving-full-time-education/child-leaving-fte-start'>Child leaving full-time education</a>"
+        }
+      ],
+      [
+        {
+          text: "Jimmy"
+        },
+        {
+          text: "30/06/2020"
+        },
+        {
+          html: "<a href='#'>Shared care</a>"
+        }
+      ]
+      ]
+    %}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Other parent name"
+        },
+        {
+          text: "Action required by"
+        },
+        {
+          text: "Type of request"
+        }
+      ],
+      rows: rowsToDisplay
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

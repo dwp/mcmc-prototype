@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+We will send your confirmation letter
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We will send your confirmation letter
+        </h1>
+      </div>
+
+      <p class="govuk-body">You will receive a letter confirming that your payment calculation will not change at the moment. It should arrive in the next 7 days.</p>
+      
+      <p class="govuk-body">Make sure your <a class="govuk-link" href="/pages/my-details-and-circumstances">contact details and preferences</a> are up to date in case we need to contact you.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If you need help with this change
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h4 class="govuk-heading-s">Webchat</h4>
+          <p class="govuk-body">We can only support you to report a change online. If you need to discuss specific details about your case you will need to <a href="https://www.gov.uk/child-maintenance-service/contact">call us (opens in a new tab)</a>.</p>
+      
+          <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p> 
+      
+          <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 6pm (except public holidays).</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+
+{% endblock %}

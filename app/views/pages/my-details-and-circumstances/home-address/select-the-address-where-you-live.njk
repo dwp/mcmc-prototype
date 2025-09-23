@@ -1,0 +1,106 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Select the address where you live</h1>
+      <p class="govuk-body">These details are private and are not shared with the other parent.</p>
+
+      <div class="desktop-change-address-search">
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">House name or number</h2>
+          <div class="govuk-grid-column-one-third govuk-!-padding-left-0">
+            <p class="govuk-body">10</p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/home-address/where-you-live">Change</a>
+          </div>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0 govuk-!-padding-bottom-3">
+          <h2 class="govuk-heading-m">Postcode</h2>
+          <div class="govuk-grid-column-one-third govuk-!-padding-left-0">
+            <p class="govuk-body">AB1 1AB</p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/home-address/where-you-live">Change</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mobile-change-address-search">
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">House name or number</h2>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <p class="govuk-body">
+            <span class="govuk-body mobile-address-search">10</span>
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/home-address/where-you-live">Change</a>
+          </p>
+        </div>  
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <h2 class="govuk-heading-m">Postcode</h2>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-left-0">
+          <p class="govuk-body">
+            <span class="govuk-body mobile-address-search">AB1 1AB</span>
+            <a class="govuk-link govuk-!-font-size-19" href="/pages/my-details-and-circumstances/home-address/where-you-live">Change</a>
+          </p>
+        </div>
+      </div>
+
+      <form class="form" action="/pages/my-details-and-circumstances/home-address/select-the-address-where-you-live" method="post">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend"></legend>
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "where-do-you-live",
+            name: "where-do-you-live",
+            items: [
+            {
+              value: "1 Address, Something Street",
+              text: "1 Address, Something Street",
+              checked: data['where-do-you-live'] === "1 Address, Something Street"
+            },
+            {
+              value: "10 Address, Something Street",
+              text: "10 Address, Something Street",
+              checked: data['where-do-you-live'] === "10 Address, Something Street"
+            },
+            {
+              value: "11 Address, Something Street",
+              text: "11 Address, Something Street",
+              checked: data['where-do-you-live'] === "11 Address, Something Street"
+            },
+            {
+              value: "12 Address, Something Street",
+              text: "12 Address, Something Street",
+              checked: data['where-do-you-live'] === "12 Address, Something Street"
+            }
+            ]
+          }) }}
+        </fieldset>
+
+        {{ govukButton({
+            text: "Continue",
+            type: "submit"
+        }) }}
+        
+        <p class="govuk-body">
+          <a href="/pages/my-details-and-circumstances/home-address/enter-home-address-manually" class="govuk-link">Enter address manually</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Bailiffs are working to recover your money </h1>
+
+				<h2 class="govuk-heading-m">Child maintenance owed to you</h2>
+				<hr class="govuk-section-break govuk-!-margin-bottom-2">
+
+						<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+						Debt with bailiffs
+							</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£2,736.28
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">Remaining amount owed to you</dt>
+							<dd class="govuk-summary-list__value govuk-table__cell--numeric">
+							£256.85
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+							Total arrears balance
+							</dt>
+							<dd class="govuk-summary-list__key govuk-table__cell--numeric govuk-!-font-weight-bold">
+							£2,993.13
+							</dd>
+						</div>
+						</dl>
+
+
+{# 
+
+			<p class="govuk-body">To see what payments you have received, view your <a href="/pages/payments/payment-history/rp-collect-all-payments" class="govuk-link">payment history</a>.</p>
+#}
+
+			<h2 class="govuk-heading-m">What we're doing</h2>
+				<p class="govuk-body">On 27 February 2023, we referred your child maintenance debt to bailiffs (also known as enforcement agents). They will try to recover £2,736.28. This amount might be less than the total amount you’re owed. This is because bailiffs can only recover debt that we have a liability order for.</p>
+
+				<p class="govuk-body">While this is happening, the paying parent must still pay regular maintenance and arrears. If they do not make these payments, more arrears will build up and we will take further action to recover this.</p>
+
+			<h2 class="govuk-heading-m">What happens next</h2>
+				<p class="govuk-body">It takes around 26 weeks to get an update from the bailiffs. If they’re successful, we might: </p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li>send you a lump sum of the money you’re owed</li>
+							<li>put a payment plan in place and arrange a payment method with the other parent</li>
+						</ul>
+
+
+			<p class="govuk-body">We’ll continue to monitor your child maintenance account.</p>
+
+				<p class="govuk-body">If the bailiffs are unsuccessful, we’ll consider another way to recover remaining debt from the liability order. </p>
+
+					<p class="govuk-body">Actions can include:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li>sending a demand for payment</li>
+							<li>freezing the paying parent’s assets</li>
+							<li>sanctions, for example disqualification from having a driving license</li>
+						</ul>
+					<p class="govuk-body">We must take some actions in a certain order. When we decide what to do next, we’ll call or send a letter to update you.</p>
+			
+		</div>
+	</div>
+{% endblock %}

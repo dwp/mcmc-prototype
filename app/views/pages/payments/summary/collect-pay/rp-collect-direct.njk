@@ -1,0 +1,166 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	<a href="/pages/welcome" class="govuk-back-link">Back to Home</a><br></br>
+	<div class="govuk-grid-row">
+		{{ createToast() }}
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payments you receive for Jim and 2 more</h1>
+			<h2 class="govuk-heading-m">Collect and Pay</h2>
+			<p class="govuk-body">We’ve worked out your payments until your next annual review on 12 September 2021.
+				<a class="govuk-link" href="https://www.gov.uk/how-child-maintenance-is-worked-out" rel="noopener noreferrer" target="_blank">Find out how the Child Maintenance Service works out child maintenance (opens in a new tab)</a>.
+			</p>
+			<div class="next-payment">
+				<h2 class="govuk-heading-m">Next expected payment</h2>
+				<p class="govuk-body">Check your bank or building society account to confirm you have received a payment. It may take up to 5 days for a payment to reach your account.</p>
+				<div class="next-payment-table">
+					{% set html %}
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+							Amount
+						</p>
+						<span class="govuk-hint">Regular maintenance after 4% collection fee deduction, not including any arrears due</span>
+					{% endset %}
+					{{ govukSummaryList({
+						rows: 
+						[
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									html: html
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "£150"
+								}
+							},
+							{
+								key: {
+									classes: "next-monthly-payment-key",
+									text: "Collection date"
+								},
+								value: {
+									classes: "next-monthly-payment-value",
+									text: "26 September 2021"
+								}
+							}
+						]
+					}) }}
+					<p class="govuk-body">To view your payment plan,
+						<a class="govuk-link" href="/pages/messages">go to messages</a>.
+					</p>
+				</div>
+			</div>
+			<div class="previous-payments">
+				<div class="previous-payments-table">	
+					{{ govukTable({
+						firstCellIsHeader: true,
+						caption: "Previous payments",
+						captionClasses: "govuk-heading-m",
+						head: [
+							{
+								text: "Date of payment",
+								classes: "previous-payments-header previous-payments-cell"
+							},
+							{
+								text: "Amount after 4% collection fee deduction including any arrears",
+								format: "numeric",
+								classes: "previous-payments-header previous-payments-cell"
+							}
+						],
+						rows: 
+						[
+							[
+								{
+									text: "12 August 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£80",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "12 July 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£105",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								}
+							],
+							[
+								{
+									text: "12 June 2021",
+									classes: "previous-payments-cell"
+								},
+								{
+									text: "£100",
+									format: "numeric",
+									classes: "previous-payments-cell"
+								}
+							]
+						]
+					}) }}
+				</div>
+			</div>
+			<p class="govuk-body">
+				<a class="govuk-link" href="#">View more payments</a>
+			</p>
+			<div class="total-payments">
+				<div class="total-payments-table">
+					{{ govukTable({
+						firstCellIsHeader: false,
+						head: [
+							{
+								classes: "total-amount-header",
+								text: "Collect and Pay"
+							},
+							{
+								classes: "total-amount-header",
+								text: "Direct Pay"
+							}
+						],
+						rows: 
+						[
+							[
+								{
+									classes: "govuk-body total-amount-cell",
+									text: "Total amount you should have received since 12 September 2020, including any arrears"
+								},
+								{
+									classes: "govuk-body total-amount-cell",
+									text: "Total amount you have received since 12 September 2020, including any arrears and after 4% collection fee"
+								}
+							],
+							[
+								{
+									classes: "govuk-body govuk-!-font-weight-bold total-amount-cell total-amount-value",
+									text: "£500"
+								},
+								{
+									classes: "govuk-body govuk-!-font-weight-bold total-amount-cell total-amount-value",
+									text: "£500"
+								}
+							]
+						]
+					}) }}
+				</div>
+			</div>
+			<p class="govuk-body">You do not need to take any action if you have not received a full payment. As you use Collect and Pay, we know if a payment has been missed or partially paid and will begin an investigation.</p>
+			<p class="govuk-body">If you have information that will support our investigation, you can share this by
+				<a class="govuk-link" href="#">reporting a missed payment</a>.
+			</p>
+			<h2 class="govuk-heading-m total-amount-heading">Arrears</h2>
+			<span class="govuk-hint">Amount owed to you before any collection fee deductions</span>
+			<p class="govuk-body govuk-!-font-weight-bold total-amount-value">£500</p>	
+			<p class="govuk-body">We will deduct a 4% collection fee from arrears payments you receive using Collect and Pay. This does not apply to arrears from past child maintenance schemes.</p>
+			<p class="govuk-body">Find out
+				<a class="govuk-link" href="#">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.
+			</p>
+		</div>
+	</div>
+{% endblock %}

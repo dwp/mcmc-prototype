@@ -1,0 +1,91 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form class="form" method="POST" action="declaration">
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Call time preference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Between 2pm and 4pm
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-emp">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Leave voicemails
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-self-emp">Change</a>
+          </dd>
+        </div>        
+
+      {# <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Different formats required
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Relay UK
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-self-emp">Change</a>
+          </dd>
+        </div>    
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Relay UK number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            07977123456
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-self-emp">Change</a>
+          </dd>
+        </div>  
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Any other help
+          </dt>
+          <dd class="govuk-summary-list__value">
+            I need additional XYZ
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-self-emp">Change</a>
+          </dd>
+        </div>       #}
+      </dl>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+      
+
+
+
+    </div>
+    </div>
+
+  {% endblock %}

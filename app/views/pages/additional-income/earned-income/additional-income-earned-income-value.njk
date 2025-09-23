@@ -1,0 +1,130 @@
+{# {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %} #}
+{% extends "layouts/layout.njk" %}
+
+{# {% block pageTitle %}
+  Additional Income
+{% endblock %} #}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Report a change",
+        href: "/pages/welcome"
+      },
+      {
+        text: "Additional Income"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <script src= "/public/javascripts/weekly.js" ></script>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['additionalIncomeUserType'] === 'NRP' %}
+        <h1 class="govuk-heading-xl">{{t.additional.earned_income_value.value_of_earned_income_NRP| safe}}</h1>
+      {% else %}
+        <h1 class="govuk-heading-xl">{{t.additional.earned_income_value.value_of_earned_income_PWC| safe}}</h1>
+      {% endif %}
+      {% if data['validation-errors'] > [] %}
+        {{ govukErrorSummary({
+          name: 'error',
+          titleText: t.common['there-is-a-problem'],
+          errorList: data['validation-errors']
+        }) }}
+      {% endif %}
+      <form action="/pages/additional-income/earned-income/additional-income-earned-income-value" method="post" novalidate>
+        <div class="govuk-form-group">
+          {% call govukFieldset({
+            legend: {
+              classes: "govuk-fieldset__legend--l",
+              isPageHeading: false
+            } 
+            }) %}
+
+          <div class="govuk-grid-row govuk-!-margin-bottom-3">
+            <div class="govuk-grid-column-two-thirds">
+              <label class="govuk-body" for="f-incomeEmployment">
+                {{ t.additional.earned_income_value.income_from_employment | safe }}
+              </label>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {{ govukInput({
+                    id: "f-incomeEmployment",
+                    name: "incomeEmployment",
+                    prefix: {
+                      text: '£'
+                    },
+                    value: data['incomeEmployment']
+                  }) }}
+            </div>
+          </div>
+          <div class="govuk-grid-row govuk-!-margin-bottom-3">
+            <div class="govuk-grid-column-two-thirds">
+              <label class="govuk-body" for="f-incomeSelfEmployment">
+                {{ t.additional.earned_income_value.income_from_employment | safe }}
+              </label>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {{ govukInput({
+                    id: "f-incomeSelfEmployment",
+                    name: "incomeSelfEmployment",
+                    prefix: {
+                      text: '£'
+                    },
+                    value: data['incomeSelfEmployment']
+                  }) }}
+            </div>
+          </div>
+          <div class="govuk-grid-row govuk-!-margin-bottom-3">
+            <div class="govuk-grid-column-two-thirds">
+              <label class="govuk-body" for="f-incomePensionEmployment">
+                {{ t.additional.earned_income_value.income_from_self_employment | safe }}
+              </label>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {{ govukInput({
+                    id: "f-incomePensionEmployment",
+                    name: "incomePensionEmployment",
+                    prefix: {
+                      text: '£'
+                    },
+                    value: data['incomePensionEmployment']
+                  }) }}
+            </div>
+          </div>
+          <div class="govuk-grid-row govuk-!-margin-bottom-3">
+            <div class="govuk-grid-column-two-thirds">
+              <label class="govuk-body" for="f-total">
+                {{ t.additional.earned_income_value.total_earned_income | safe }}
+              </label>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {{ govukInput({
+                    id: "f-total",
+                    name: "total",
+                    prefix: {
+                      text: '£'
+                    }
+                  }) }}
+            </div>
+          </div>
+          {% endcall %}
+        </div>
+        {{ govukButton({
+          id: 'earnedValueButton',
+          text: "Continue",
+          type: 'submit'
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

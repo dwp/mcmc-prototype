@@ -1,0 +1,89 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form class="form" method="POST" action="other-help">
+      {{ govukBackLink({
+					"text": "Back",
+					"href": "javascript: window.history.go(-1)"
+				}) 
+			}}
+
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Relay UK number"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+{{ govukInput({
+  id: "contact-by-text",
+  name: "contactByText",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Textphone number"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "How should we contact you if we need to speak to you?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "We normally contact people by phone, but there are other options for people who are deaf or hard of hearing"
+  },
+  items: [
+    {
+      value: "phone",
+      text: "Standard phone call"
+    },
+    {
+      value: "relay",
+      text: "Relay UK",
+      conditional: {
+        html: phoneHtml
+      }
+    },
+    {
+      value: "textphone",
+      text: "Textphone",
+      conditional: {
+        html: textHtml
+      }
+    },
+     {
+      value: "signing",
+      text: "Signing or lipspeaking"
+    }
+  ]
+}) }}
+    
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+    </div>
+    </div>
+
+  {% endblock %}
