@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
 
 {% set pageName="Home" %}
 
@@ -9,16 +9,26 @@
 
     {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
+    <div class="PrototypeSection">
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
+    <p class="govuk-body">
+      Access the My Child Maintenance Case prototype, featuring various beta and in-design journeys being tested for the main site.
+    </p>
 
-      {{ govukButton({
-          text: "Continue",
+    <br>
+
+        {{ govukButton({
+          text: "Login to Prototype",
           href: "/welcome"
         }) }}
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+      <p class="govuk-body">
+      Version 1.0.2
+    </p>
+  </div>
+
   </div>
 </div>
 
