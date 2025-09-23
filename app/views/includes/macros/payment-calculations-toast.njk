@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% macro createToast() %}
+  {% set directPayList %}
+  <ul class="govuk-body">
+    <li>
+      <a href="/pages/payments/payment-calculations/skeleton-page">RP</a>
+    </li>
+    <li>
+      <a href="/pages/payments/payment-calculations/skeleton-page">PP</a>
+    </li>
+  </ul>
+  {% endset %}
+
+  {% set collectPayList %}
+  <ul class="govuk-body">
+    <li>
+      <a href="/pages/payments/payment-calculations/skeleton-page">RP</a>
+    </li>
+    <li>
+      <a href="/pages/payments/payment-calculations/skeleton-page">PP</a>
+    </li>
+  </ul>
+  {% endset %}
+
+  {% set html %}
+  {{ govukAccordion({
+  items: [
+    {
+      heading: {
+        text: "Direct Pay"
+      },
+      content: {
+        html: directPayList
+      }
+    },
+    {
+      heading: {
+        text: "Collect and Pay"
+      },
+      content: {
+        html: collectPayList
+      }
+    }
+  ]
+}) }}
+  {% endset %}
+
+  {{ cmgToast({
+				title: "Different User Scenarios",
+				text: "simple text content here",
+				buttonText: "Scenarios",
+				html: html
+		}) }}
+{% endmacro %}
+

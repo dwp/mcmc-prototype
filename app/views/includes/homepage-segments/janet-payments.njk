@@ -1,0 +1,36 @@
+<div class="govuk-grid-column-one-third mb-full">
+  {% set html %}
+  <p class="small govuk-!-margin-bottom-2">Payments - Collect and Pay</p>
+  <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
+  <div class="flex space-between">
+    <p class="small">12/02/2021</p>
+    <p class="small">£96.00</p>
+  </div>
+  <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
+  <div class="flex space-between">
+    <p class="small">12/03/2021</p>
+    <p class="small">£96.00</p>
+  </div>
+  <a href="#" class="govuk-link">Report a missed payment</a>
+  {% endset %}
+
+  {{
+  cmgSummaryTable({
+    title: 'Payments for Janet',
+    html: html
+  })
+}}
+
+</div>
+<div class="govuk-grid-column-one-third mb-full mb-payments-hidden">
+  {% set html %}
+  <p class="small govuk-!-margin-bottom-2">Make a secure online payment using your debit or credit card for a Collect and Pay case.</p>
+  <p class="small govuk-!-margin-bottom-2">Do not make a payment for a Direct Pay case. You need to contact the other parent to arrange a payment yourself as the Child Maintenance Service cannot pass on the payment.</p>
+  {% endset %}
+  {{
+    cmgSummaryTable({
+      title: 'Make a payment',
+      html: html
+    })
+  }}
+</div>

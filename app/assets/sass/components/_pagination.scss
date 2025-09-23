@@ -1,0 +1,105 @@
+$breakpoint-mobile: 640px;
+$breakpoint-tablet: 840px;
+
+.cmg-pagination {
+  padding: 10px 0px;
+}
+
+.cmg-pagination__list {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.cmg-pagination__item {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  display: inline-block;
+}
+
+.cmg-pagination__link {
+  font-family: 'GDS Transport', arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: underline;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 45px;
+  min-height: 45px;
+  padding: 10px 18px;
+  color: #1d70b8;
+  font-size: 19px;
+  display: inline-block;
+}
+
+.cmg-pagination__link--active {
+  color: #000000 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cmg-pagination__item--prev .cmg-pagination__link:before {
+  margin-right: 5px;
+  border-width: 3px 0 0 3px;
+}
+.cmg-pagination__item--next .cmg-pagination__link:after {
+  margin-left: 5px;
+  border-width: 0 3px 3px 0;
+}
+
+.cmg-pagination__link--prev {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.cmg-pagination__link--next {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+
+  .cmg-pagination__link {
+    display: inline-block;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 16px;
+  }
+
+  .cmg-pagination__link--prev {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .cmg-pagination__link--next {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+}
+
+@media (min-width: 641px) and (max-width: $breakpoint-tablet) {
+
+  .cmg-pagination__link {
+    display: inline-block;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 19px;
+  }
+
+  .cmg-pagination__link--prev {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .cmg-pagination__link--next {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+}

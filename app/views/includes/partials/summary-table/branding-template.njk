@@ -1,0 +1,28 @@
+{%- if params.actions | length > 1 -%}
+  {% set multiActionClass = 'multiple' %}
+{%- endif -%}
+
+<div class="cmg-summary-table">
+  <div class="cmg-summary-table__header">
+    <h2 class="cmg-summary-table__heading govuk-heading-m govuk-!-margin-bottom-2">
+      {{params.service}} 
+    </h2>
+    <h3 class="cmg-summary-table__heading govuk-heading-s">
+      <a href="{{params.link}}" class="govuk-link">{{params.title}}</a>
+    </h3>
+  </div>
+  <div class="cmg-summary-table__content">
+    {%- if params.html -%}
+      {{ params.html | safe }}
+    {%- elif params.text -%}
+      <p class="govuk-body">{{ params.text }}</p>
+    {%- endif -%}
+  </div>
+  {%- if params.actions -%}
+    <div class="cmg-summary-table__footer{% if multiActionClass %} {{ multiActionClass }} {% endif %}">
+      {% for item in params.actions %}
+        {{ item.html | safe }}
+      {% endfor %}
+    </div>
+  {%- endif -%}
+</div>

@@ -1,0 +1,26 @@
+.track-changes-result-list {
+  .govuk-link {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  &__change-item {
+    border-top: 1px solid $govuk-border-colour;
+    padding-top: 15px;
+    &:last-of-type {
+      border-bottom: 1px solid $govuk-border-colour;
+    }
+  }
+  &__change-details {
+    margin: 15px 0;
+    .submitted {
+      margin-right: 50px;
+    }
+  }
+  &__change-case {
+    font-weight: bold;
+  }
+}
+
+.track-changes-case-reference {
+  color: $govuk-secondary-text-colour;
+}

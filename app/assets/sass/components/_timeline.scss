@@ -1,0 +1,139 @@
+/* ==========================================================================
+   #TIMELINE
+   ========================================================================== */
+
+   $breakpoint-mobile: 640px;
+
+   .cmg-timeline {
+    position: relative;
+
+    &:before {
+      background-color: 	#1d70b8;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 15px;
+      width: 5px;
+    }
+
+  }
+
+  .cmg-timeline-grey {
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      background-color: govuk-colour("mid-grey");
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 15px;
+      width: 5px;
+    }
+
+  }
+
+  .cmg-timeline-grey__item {
+    padding-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+
+    &:before {
+      background-color: govuk-colour("mid-grey");
+      content: "";
+      height: 5px;
+      left: 0;
+      position: absolute;
+      width: 15px;
+      top: 15px;
+    }
+
+  }
+
+  .cmg-timeline--full {
+    margin-bottom: 0;
+    &:before {
+      height: calc(100% - 75px);
+    }
+  }
+
+  .cmg-timeline__item {
+    padding-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+
+    &:before {
+      background-color: #1d70b8;
+      content: "";
+      height: 5px;
+      left: 0;
+      position: absolute;
+      width: 15px;
+      top: 15px;
+    }
+
+  }
+
+  .cmg-timeline__title {
+    display: inline;
+  }
+
+  .cmg-timeline__date {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .govuk-tag {
+    margin-top: 0 !important;
+  }
+
+  .cmg-timeline__description {
+    margin-top: 0px;
+  }
+
+  .cmg-timeline-grey__title {
+    display: inline;
+  }
+
+  .cmg-timeline-grey__date {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .cmg-timeline-grey__description {
+    margin-top: 0px;
+  }
+
+  .cmg-timeline-none {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    overflow: hidden;
+    position: relative;
+
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .cmg-timeline {
+      &:before {
+        top: 7.5px;
+      }
+    }
+    .cmg-timeline-grey {
+      &:before {
+        top: 7.5px;
+      }
+    }
+    .cmg-timeline__item {
+      &:before {
+        top: 7.5px;
+      }
+    }
+    .cmg-timeline-grey__item {
+      &:before {
+        top: 7.5px;
+      }
+    }
+  }

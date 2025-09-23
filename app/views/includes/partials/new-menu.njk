@@ -1,0 +1,121 @@
+    <nav id="secondary-nav" class="new-menu" role="navigation" aria-label="Account">
+      <div class="govuk-grid-row">
+      <div class="govuk-width-container">
+      <ul id="new-menu" class="new-menu__home">
+        <li>
+          <!--Desktop - Home-->
+          {% if (data['nino'] === "PP123456A") %} 
+              <a href="/pages/welcome-pp" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+            {% elseif (data['nino'] === "RP123456A") %}
+              <a href="/pages/welcome-rp" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+            {% elseif (data['nino'] === "PP123456B") %}
+              <a href="/pages/welcome-pp-multi-collect" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+            {% elseif (data['nino'] === "RP123456B") %}
+              <a href="/pages/welcome-rp-B" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+            {% else %}
+              <a href="/pages/welcome-new" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+            {% endif %}
+        </li>
+        <li>
+          <!--Desktop - Notifications-->
+          <a href="/pages/messages" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "messages" }}">Notifications</a>
+        </li>
+        <li>
+          <!--Desktop - Report a change-->
+          {% if (data['nino'] === "RP123456B") or (data['nino'] === "RP123456A") %}
+          <a href="/pages/report-change/rp" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
+          {% else %}
+          <a href="/pages/report-change" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
+          {% endif %}
+        </li>
+        <li>
+          <!--Desktop - Payments-->
+          {% if (data['nino'] === "PP123456A") %} 
+          <a href="/pages/payments/" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+          {% elseif (data['nino'] === "RP123456A") %}
+          <a href="/pages/payments" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+          {% elseif (data['nino'] === "PP123456B") %}
+          <a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+          {% elseif (data['nino'] === "RP123456B") %}
+          <a href="/pages/payments/" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+          {% else %}
+          <a href="/pages/payments" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+          {% endif %}
+        </li>
+        <li>
+          <!--Desktop - Track changes-->
+          <a href="/pages/track-changes/timeline-v2" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "track-changes" }}">{{t.common['track-changes']}}</a>
+        </li>
+        <li>
+          <!--Desktop - Case details-->
+          <a href="/pages/my-case-details" class="govuk-link new-menu__link govuk-link--no-visited-state {{ "new-menu__link--active" if activeLink === "my-case-details" }}">{{t.common['case-details']}}</a>
+        </li>
+      </ul>
+
+      <!--MOBILE MENU-->
+      <div class="new-menu__mobile">
+        <div class="new-menu__header">
+           <!--Mobile - Home-->
+          {% if (data['nino'] === "PP123456A") %} 
+            <a id="accountMenuMobileHome" href="/pages/welcome-pp" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+          {% elseif (data['nino'] === "RP123456A") %}
+            <a id="accountMenuMobileHome" href="/pages/welcome-rp" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+          {% elseif (data['nino'] === "PP123456B") %}
+            <a id="accountMenuMobileHome" href="/pages/welcome-pp-multi-collect" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+          {% elseif (data['nino'] === "RP123456B") %}
+            <a id="accountMenuMobileHome" href="/pages/welcome-rp-B" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+          {% else %}
+            <a id="accountMenuMobileHome" href="/pages/welcome" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "home" }}">{{t.common.home}}</a>
+          {% endif %}
+
+          <button id="accountMenuMobileToggle" class="govuk-link menu-toggle-button" onClick="toggleMenu()">{{t.common.menu}}</button>
+        </div>
+        
+        <ul id="accountMenuHomeMobile" class="new-menu__mob">
+          <li>
+            <!--Mobile - Notifications-->
+            <a href="/pages/messages" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "messages" }}">Notifications</a>
+          </li>
+          <li>
+            <!--Mobile - Report a change-->
+            <a href="/pages/report-change" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "report-change" }}">{{t.common['report-change']}}</a>
+          </li>
+          <li>
+            <!--Mobile - Payments-->
+            {% if (data['nino'] === "PP123456A") %} 
+              <a href="/pages/payments/summary/collect-pay/pp-collect" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+            {% elseif (data['nino'] === "RP123456A") %}
+              <a href="/pages/payments/" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+            {% elseif (data['nino'] === "PP123456B") %}
+              <a href="/pages/payments/summary/collect-pay/pp-multi-collect" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+            {% elseif (data['nino'] === "RP123456B") %}
+              <a href="/pages/payments/" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+            {% else %}
+              <a href="/pages/payments/" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "payments" }}">{{t.common.payments}}</a>
+            {% endif %}
+          </li>
+          <li>
+            <!--Mobile - Track changes-->
+            <a href="/pages/track-changes/timeline-v2" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "track-changes" }}">{{t.common['track-changes']}}</a>
+          </li>
+          <li>
+            <!--Mobile - Case details-->
+            <a href="/pages/my-case-details" class="govuk-link new-menu__mob__link {{ "new-menu__mob__link--active" if activeLink === "my-case-details" }}">{{t.common['case-details']}}</a>
+          </li>
+          <li>
+            <a href="/" class="govuk-link new-menu__mob__link">{{t.common['sign-out']}}</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul id="accountMenuMain" class="new-menu__main">
+
+        <li>
+          <a href="/" class="govuk-link new-menu__link">{{t.common['sign-out']}}</a>
+        </li>
+
+      </ul>
+      <div style="clear: both;"></div>
+        </div>
+</div>
+    </nav>

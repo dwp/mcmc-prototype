@@ -1,0 +1,39 @@
+$breakpoint-mobile: 640px;
+
+.cmg-summary-table {
+  width: 100%;
+  border: 1px solid #b1b4b6;
+  background-color: #f3f2f1;
+  margin-bottom: 30px;
+
+  &__header {
+    background-color: #ffffff;
+    padding: 12px 12px 15px;
+  }
+  &__heading {
+    margin: 0;
+  }
+  &__content {
+    padding: 15px 12px;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px 15px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .cmg-summary-table {
+    margin-bottom: 15px;
+    &__header {
+      padding: 12px 9px;
+    }
+    &__content {
+      padding: 12px 9px;
+    }
+    &__footer {
+      padding: 0 9px 12px;
+    }
+  }
+}

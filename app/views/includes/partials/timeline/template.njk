@@ -1,0 +1,81 @@
+
+{% if params.timeline === 'blue' %}
+  <div class="cmg-timeline">
+    {% for event in params.events %}
+      <div class="cmg-timeline__item">
+        <div class="cmg-timeline__header">
+          <h3 class="govuk-heading-m cmg-timeline__title">
+            {{event.title}}
+          </h3>
+        </div>
+
+        <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">{{event.date}}</p>
+        
+        {%- if event.status.text -%}
+          <p class="govuk-body">
+            <strong class= "{{ event.status.classes }}" >
+              {{event.status.text}}
+            </strong>
+          <p>
+        {%- endif -%}
+
+        {%- if event.statusText -%}
+          <p class="govuk-body cmg-timeline__description govuk-!-margin-top-3">
+            {{event.statusText}}
+          </p>
+        {%- endif -%} 
+
+      </div>
+    {% endfor %}
+  </div>
+{% elif params.timeline === 'grey' %}
+   <div class="cmg-timeline-grey">
+    {% for event in params.events %}
+      <div class="cmg-timeline-grey__item">
+        <div class="cmg-timeline__header">
+          <h3 class="govuk-heading-m cmg-timeline-grey__title">
+            {{event.title}}
+          </h3>
+        </div>
+
+        <p class="govuk-body cmg-timeline-grey__date govuk-!-margin-top-3">{{event.date}}</p>
+
+        {%- if event.status.text -%}
+          <p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-3">
+              {{event.status.text}}
+            </strong>
+          <p>
+        {%- endif -%}
+
+        {%- if event.statusText -%}
+          <p class="govuk-body cmg-timeline-grey__description govuk-!-margin-top-3">
+            {{event.statusText}}
+          </p>
+        {%- endif -%} 
+
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+   <div class="cmg-timeline-none">
+    {% for event in params.events %}
+      <div class="govuk-grid-row">
+        {%- if event.status.text -%}
+          <p class="govuk-body">
+            <strong class="{{ event.status.classes }}">
+              {{event.status.text}}
+            </strong>
+          <p>
+        {%- endif -%}
+        {%- if event.statusText -%}
+          <p class="govuk-body cmg-timeline__description govuk-!-margin-top-3">
+            {{event.statusText}}
+          </p>
+        {%- endif -%} 
+
+      </div>
+    {% endfor %}
+  </div>
+
+{% endif %}

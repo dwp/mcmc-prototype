@@ -1,0 +1,15 @@
+<button class="initiate-help govuk-button govuk-!-margin-bottom-0" onclick="initiateHelp()">{{params.buttonText if params.buttonText else 'Help'}}</button>
+
+<div class="toast">
+    <div class="toast__inner">
+        <h2 class="govuk-heading-m">{{ params.title }}</h2>
+        {%- if params.html -%}
+            {{ params.html | safe }}
+        {%- elif params.text -%}
+            <p class="govuk-body">{{ params.text }}</p>
+        {%- endif -%}
+        <div class="toast__button">
+            <button class="close-help govuk-button" onclick="closeHelp()">Continue</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+.service-reports {
+  margin-top: 30px;
+  margin-bottom: 45px;
+  overflow: hidden;
+  &__report-item {
+    float: left;
+    width: 100%;
+    border-top: 1px solid #b1b4b6;
+    padding: 10px 0;
+
+    .govuk-grid-column-two-thirds {
+      width: 65%;
+      padding: 0;
+    }
+
+    .govuk-grid-column-one-third {
+      width: 35%;
+      padding: 0;
+    }
+
+    .govuk-link {
+      text-decoration: none;
+    }
+
+    .govuk-tag {
+      float: right;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.govuk-summary-list {
+  .govuk-form-group {
+    margin: 0;
+  }
+  .govuk-body {
+    margin-bottom: 10px;
+  }
+  &__actions {
+    vertical-align: bottom;
+    .govuk-link {
+      padding-bottom: 8px;
+    }
+  }
+}
+
+.add-file {
+  display: block;
+}

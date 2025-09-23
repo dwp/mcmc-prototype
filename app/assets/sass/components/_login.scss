@@ -1,0 +1,36 @@
+$breakpoint-mobile: 640px;
+
+.help-apply-for-cm {
+  border-top: 2px solid;
+  border-color: $govuk-link-colour;
+}
+
+.pin-entry-form-group {
+  margin-bottom: 10px;
+}
+
+.pin-entry {
+  margin-bottom: 15px;
+}
+
+.forgotten-pin {
+  margin-bottom: 30px;
+}
+
+.sign-in {
+  margin-bottom: 22px;
+}
+
+.accordion-shortcut {
+  display: none;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .accordion-shortcut {
+    display: block;
+    border-bottom: none !important;
+    .govuk-accordion__controls {
+      display: none;
+    }
+  }
+}

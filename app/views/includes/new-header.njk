@@ -1,0 +1,33 @@
+<header class="new-header" role="banner" data-module="header">
+    <div class="govuk-header__container govuk-width-container ">
+        <div class="govuk-header__logo frame">
+            {% if lang == 'cy' %}
+                <a href="/pages/welcome" class="govuk-header__link govuk-header__link--homepage cmg-logo cy">
+                    <span class="govuk-visually-hidden">Child Maintenance <br>Service</span>
+                </a>
+            {% else %}
+                
+                <a href="/pages/welcome" class="govuk-header__link govuk-header__link--homepage cmg-logo en">
+                    <span class="govuk-visually-hidden">Child Maintenance <br>Service</span>
+                </a>
+
+                    {# <nav class="dwp-language-toggle" aria-label="Language toggle">
+                        <ul class="dwp-language-toggle__list">
+                        <li class="dwp-language-toggle__list-item" aria-current="true">
+                            English
+                        </li>
+                        <li class="dwp-language-toggle__list-item">
+                            <a href="/patterns/toggle-to-welsh/examples/cy"
+                            hreflang="cy"
+                            lang="cy"
+                            rel="alternate"
+                            class="govuk-link"
+                            aria-label="Newid yr iaith ir Gymraeg">Cymraeg</a>
+                        </li>
+                        </ul>
+                    </nav> #}
+
+            {% endif %}
+        </div>
+    </div>
+</header>

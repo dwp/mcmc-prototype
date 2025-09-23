@@ -1,0 +1,130 @@
+{% extends "layout.njk" %}
+
+{% macro createToast() %}
+  {% set directPayList %}
+  <ul class="govuk-body">
+    <li>
+      <a href="/pages/payments/summary/direct-pay/rp-direct">RP</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/direct-pay/rp-direct-collect">RP past Collect and Pay</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/direct-pay/rp-direct-arrears">RP Arrears Only</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/direct-pay/pp-direct">PP</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/direct-pay/pp-direct-collect">PP past Collect and Pay</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/direct-pay/pp-direct-arrears">PP Arrears Only</a>
+    </li>
+  </ul>
+  {% endset %}
+
+  {% set collectPayList %}
+  <ul class="govuk-body">
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect">RP not DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect-deo">RP DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect-direct">RP past Direct Pay</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect-multiple-mopf">RP multiple MOPF</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect-arrears">RP collect arrears not DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/rp-collect-arrears-deo">RP collect arrears DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect">PP not DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-deo">PP DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-multiple-mopf">PP multiple MOPF</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-multi-collect">PP Multi</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-direct">PP past Direct Pay</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-arrears">PP arrears not DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-arrears-deo">PP arrears DEO/DER</a>
+    </li>
+    <li>
+      <a href="/pages/payments/summary/collect-pay/pp-collect-arrears-multi">PP arrears multi</a>
+    </li>
+  </ul>
+  {% endset %}
+
+  {% set html %}
+  {{ govukAccordion({
+  items: [
+    {
+      heading: {
+        text: "Direct Pay"
+      },
+      content: {
+        html: directPayList
+      }
+    },
+    {
+      heading: {
+        text: "Collect and Pay"
+      },
+      content: {
+        html: collectPayList
+      }
+    }
+  ]
+}) }}
+  {% endset %}
+
+  {{ cmgToast({
+				title: "Different User Scenarios",
+				text: "simple text content here",
+				buttonText: "Scenarios",
+				html: html
+		}) }}
+{% endmacro %}
+
+{% macro createPaymentPlanToast() %}
+
+  {% set html %}
+  <ul class="govuk-body">
+    <li>
+      <a href="/pages/payments/payment-plan/pp-collect">PP Calc and Collect single</a>
+    </li>
+    <li>
+      <a href="/pages/payments/payment-plan/pp-direct">PP Direct Pay single</a>
+    </li>
+    <li>
+      <a href="/pages/payments/payment-plan/pp-collect-multi">PP Calc and Collect multi</a>
+    </li>
+    <li>
+      <a href="/pages/payments/payment-plan/rp-direct-single">RP Direct Pay single</a>
+    </li>
+  </ul>
+  {% endset %}
+
+  {{ cmgToast({
+				title: "Different User Scenarios",
+				text: "simple text content here",
+				buttonText: "Scenarios",
+				html: html
+		}) }}
+  {% endmacro%}

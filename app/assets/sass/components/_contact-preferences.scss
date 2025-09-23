@@ -1,0 +1,22 @@
+$breakpoint-mobile: 640px;
+
+.desktop-change-address-search {
+  display: block;
+}
+.mobile-change-address-search {
+  display: none;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .desktop-change-address-search {
+    display: none;
+  }
+  .mobile-change-address-search {
+    display: block;
+  }
+  .mobile-address-search {
+    display: inline-block;
+    width: 25%;
+    margin-bottom: 0;
+  }
+}

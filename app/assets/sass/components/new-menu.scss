@@ -1,0 +1,353 @@
+$grey-1: #4a4a4a;
+$grey-2: #bfc1c3;
+$grey-3: #dee0e2;
+$grey-4: #f8f8f8;
+$light-blue: #2b8cc4;
+$govuk-blue: #005ea5;
+$dark-blue: #00335a;
+$focus-colour: #ffbf47;
+$black: #000;
+$canvas-colour: #f8f8f8;
+
+/* Using SCSS variables to store breakpoints */
+$breakpoint-tablet: 840px;
+
+.hidden,
+.js-enabled .js-hidden,
+.js .js-hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.new-menu {
+  position: relative;
+  display: flow-root;
+  margin-bottom: 0;
+  background-color: #F3F2F1;
+  width: 100%;
+}
+
+.new-menu__main {
+  padding-inline-start: 0;
+  padding: 0;
+  float: right;
+  margin: initial;
+  z-index: 995;
+
+  li {
+    display: inline-block;
+    margin: initial;
+    margin-bottom: 0px;
+  }
+}
+
+.new-menu__home {
+  line-height: 0;
+  float: left;
+  margin: initial;
+  z-index: 995;
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+    margin: initial;
+    margin-bottom: 0px;
+  }
+}
+
+.new-menu__link--home,
+.new-menu__link--about-this-site {
+  float: left;
+  padding: 12px 18px 8px 0;
+}
+
+.new-menu__link {
+  box-sizing: border-box;
+  display: block;
+  margin: 12px 16px 8px 0px;
+  border-bottom: 4px solid transparent;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: none;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    color: $light-blue;
+  }
+
+  &:hover {
+    border-bottom-color: $grey-3;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-bottom-color: $focus-colour;
+    outline: 3px solid $focus-colour;
+    outline-offset: 0;
+  }
+}
+
+.home .new-menu__link--home,
+.about-this-site .new-menu__link--about-this-site,
+.my-payments .new-menu__link--payments,
+.my-messages .new-menu__link--messages,
+.my-case-details .new-menu__link--case-details,
+.my-details-and-circumstances .new-menu__link--details-and-circumstances,
+.report-change .new-menu__link--report-change,
+.my-schedules .new-menu__link--schedules,
+.my-company-details .new-menu__link--company-details,
+.help .new-menu__link--help,
+.new-menu__link--active,
+.new-menu__link--active:visited {
+  border-bottom: 4px solid $govuk-blue;
+  color: $black;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  #accountMenuButton {
+    float: right;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .new-menu {
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: 0;
+    transition: none;
+
+    &.main-nav-menu-is-open {
+      margin-bottom: 5em;
+    }
+
+    li:last-of-type {
+      a:last-of-type {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .new-menu__link {
+    color: $black;
+    padding-left: 10px;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  .new-menu__link--home {
+    float: none;
+    color: $black;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+
+    &:focus {
+      border-bottom-color: $focus-colour;
+      color: $light-blue;
+    }
+
+    &.new-menu__link--active {
+      &:focus {
+        border-bottom-color: $focus-colour;
+        color: $light-blue;
+      }
+    }
+  }
+
+  .new-menu__main {
+    padding: 0;
+    background-color: $canvas-colour;
+    clear: both;
+    float: none;
+
+    li {
+      border-bottom: 1px solid $grey-2;
+      display: block;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .new-menu__link {
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .new-menu__home {
+    padding: 0;
+    background-color: $canvas-colour;
+    clear: both;
+    float: none;
+
+    li {
+      border-bottom: 1px solid $grey-2;
+      display: block;
+    }
+
+    .new-menu__link {
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.govuk-phase-banner,
+.phase-banner {
+  border-bottom: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.new-menu__mob,
+.new-menu__mobile {
+  display: none;
+}
+
+.menu-toggle-button {
+  border-bottom: none;
+  border: none;
+  padding: 12px 16px 8px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  text-decoration: none;
+
+  &:after {
+    @include govuk-shape-arrow($direction: down, $base: 10px, $display: inline-block);
+    content: "";
+    margin-left: govuk-spacing(1);
+  }
+
+  &:focus {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.menu-toggle-button--open {
+  &:after {
+    @include govuk-shape-arrow($direction: up, $base: 10px, $display: inline-block);
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .new-menu__home {
+    display: none;
+  }
+  .new-menu__mobile {
+    display: block;
+  }
+  .new-menu__main {
+    display: none;
+    background-color: transparent;
+  }
+  .new-menu__header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 0;
+  }
+  #accountMenuMobileHome {
+    color: $black;
+
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+  .new-menu__mob {
+    background-color: #f3f2f1;;
+    padding: 12px 16px 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    border-top: 1px solid $grey-2;
+    list-style-type: none;
+
+    li:last-of-type {
+      a:last-of-type {
+        border-bottom: 0;
+      }
+    }
+  }
+  .new-menu__mobile {
+    margin-bottom: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .new-menu__mob.visible {
+    display: block;
+  }
+
+  .new-menu__link {
+    box-sizing: border-box;
+    display: block;
+    padding: 12px 16px 8px;
+    border-bottom: 4px solid transparent;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.25;
+    text-transform: none;
+    text-decoration: none;
+    color: $black;
+  }
+  .new-menu__link--active,
+  .new-menu__link--active:visited {
+    border-bottom: 4px solid $govuk-blue;
+  }
+  .new-menu__mob__link {
+    box-sizing: border-box;
+    display: block;
+    padding: 12px 16px 8px 24px;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid $grey-2;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.25;
+    text-transform: none;
+    text-decoration: none;
+
+    &:focus {
+      border-bottom-style: solid;
+      border-bottom-width: 4px;
+      color: $light-blue;
+      background-color: transparent;
+      border-bottom-color: $focus-colour;
+      outline: 3px solid $focus-colour;
+      outline-offset: 0;
+    }
+  }
+  .new-menu__mob__link--active,
+  .new-menu__mob__link--active:visited {
+    border-left: 4px solid $govuk-blue;
+    color: $black;
+  }
+  .useful-links { 
+    li {
+      display: list-item;
+    }
+  }
+}
+
+.brandingWrap{
+  display: inline-flex;
+}
+
+.brandingLine {
+  margin-right: 8px;
+}

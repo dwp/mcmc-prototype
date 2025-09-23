@@ -1,0 +1,160 @@
+// Handover index
+.card {
+    display: block;
+    margin-right: 0;
+    flex-wrap: wrap;
+  }
+  
+.card-content {
+  display: block;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  border: 1px solid #b1b4b6;
+  border-left: 6px solid #c1e4ec;
+}
+
+// PP Single case statement - P1
+.payment-landing-border {
+  width: 100%;
+  border-bottom: 2px solid;
+  border-color: #b1b4b6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// PP Single case statement - P2
+.changeARPeriod > .govuk-details__summary {
+  padding-left: 0px;
+}
+
+.changeARPeriod > .govuk-details__summary:before {
+  display: none;
+}
+
+.changeARPeriod[open] > .govuk-details__summary:before {
+  display: none
+}
+
+.changeARPeriod > .govuk-details__summary > .govuk-details__summary-text > .changeARFavicon {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid;
+  border-radius: 50%;
+  vertical-align: middle;
+  clip-path: none;
+  margin-bottom: 2px;
+}
+
+.changeARPeriod > .govuk-details__summary > .govuk-details__summary-text > .changeARFavicon:after {
+  content: "";
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 0.3125rem;
+  left: 0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  -webkit-transform: rotate(-225deg);
+  -ms-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+  border-top: 0.125rem solid;
+    border-right: 0.125rem solid;
+}
+
+.changeARPeriod > .govuk-details__summary:hover > .govuk-details__summary-text > .changeARFavicon {
+  color: #0b0c0c;
+    background: #0b0c0c;
+}
+
+.changeARPeriod > .govuk-details__summary:hover > .govuk-details__summary-text > .changeARFavicon:after{
+  color: #f3f2f1;
+}
+
+.changeARPeriod[open] > .govuk-details__summary > .govuk-details__summary-text > .changeARFavicon {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid;
+  border-radius: 50%;
+  vertical-align: middle;
+  clip-path: none;
+  margin-bottom: 2px;
+}
+
+.changeARPeriod[open] > .govuk-details__summary > .govuk-details__summary-text > .changeARFavicon:after {
+  content: "";
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  bottom: 0.3125rem;
+  top: auto;
+    left: 0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border-top: 0.125rem solid;
+  border-right: 0.125rem solid;
+}
+
+.changeARPeriod > .govuk-details__summary > .govuk-details__summary-text{text-decoration: none;}
+
+// PP Child maintenance statement (single case) - P3
+.statement-nowrap {
+  white-space: nowrap;
+}
+
+.handover-next-payment-table {
+  margin-bottom: -10px;
+}
+
+.handover-next-monthly-payment-key {
+  width: 50%;
+  padding-right: 50px;
+}
+
+.handover-next-monthly-payment-value {
+  display: table-cell;
+  width: 50%;
+  padding-top: govuk-spacing(2);
+  padding-right: govuk-spacing(4);
+  padding-bottom: govuk-spacing(2);
+}
+
+.handover-figure-big {
+  font-size: 36px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .handover-figure-big {
+    font-size: 24px;
+  }
+  .handover-next-payment-table {
+    .govuk-summary-list {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      &__row {
+        display: table-row;
+        border-bottom: 1px solid #b1b4b6
+      }
+    }
+  }
+  .handover-next-monthly-payment-key,
+  .handover-next-monthly-payment-value {
+    display: table-cell;
+    width: 50%;
+    padding-top: govuk-spacing(2);
+    padding-right: govuk-spacing(4);
+    padding-bottom: govuk-spacing(2);
+  }
+}

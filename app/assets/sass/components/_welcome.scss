@@ -1,0 +1,116 @@
+/* Using SCSS variables to store breakpoints */
+$breakpoint-tablet: 840px;
+$breakpoint-mobile: 640px;
+
+.homepageCardsDesktop {
+  display: block;
+}
+
+.homepageCardsMobile {
+  display: none;
+}
+
+.notificationWrapper {
+  display: inline-flex;
+}
+
+
+.notificationBadge {
+  width: 20px;
+  height: 20px;
+  background-color: #d4351c;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 15px;
+  margin-left: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.trackChangesCard {
+  .cmg-summary-table {
+    &__content {
+      .govuk-table {
+        &__cell:first-child {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-tablet) {
+
+  .homepageCardsDesktop {
+    display: none;
+  }
+
+  .homepageCardsMobile {
+    display: flex;
+    flex-direction: column;
+    .paymentsCard {
+      .govuk-grid-column-full {
+        padding-left: 0px;
+      }
+      .govuk-grid-column-one-third {
+        padding: 0px;
+      }
+    }
+  }
+
+  .mb-payments-hidden {
+    display: none;
+  }
+
+  .trackChangesCardTabletTable {
+    display: block;
+  }
+  
+  .trackChangesCardMobileTable {
+    display: none;
+  }
+
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .trackChangesCardTabletTable {
+    display: none;
+  }
+
+  .trackChangesCardMobileTable {
+    display: block;
+  }
+
+  .cmg-summary-table {
+    .messagesCard {
+      .cmg-summary-table {
+        &__content {
+          .govuk-table {
+            &__header {
+              padding-top: 0px;
+            }
+          }
+        }
+      }
+    }
+    .trackChangesCard {
+      .cmg-summary-table {
+        &__content {
+          padding-top: 0px;
+          .govuk-table {
+            &__row:first-child {  
+              .govuk-table__cell {
+                padding-top: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .trackChangesType {
+      margin-bottom: 10px;
+    }
+  }
+}

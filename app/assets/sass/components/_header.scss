@@ -1,0 +1,146 @@
+/* Using SCSS variables to store breakpoints */
+$breakpoint-tablet: 840px;
+
+$white: #ffffff;
+$font-color: #0b0c0c;
+
+.cmg-header {
+  background: $white;
+  color: $font-color;
+  line-height: 1.25;
+  
+  .govuk-header__container {
+    border-color: #c1e4ec;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .govuk-header__logo {
+    width: 100%;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    text-decoration: none;
+  }
+  
+  .govuk-header__logo a,
+  .govuk-header__logo a:hover,
+  .govuk-header__logo a:link {
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .govuk-header__link:link, .govuk-header__link:visited {
+    color: $font-color;
+    width: 90%;
+  }
+ 
+  a.govuk-header__link--homepage:hover,
+  a.govuk-header__link--homepage:active {
+    margin-bottom: 0px;
+  }
+
+  .govuk-header__link--homepage {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    box-sizing: content-box;
+  }
+
+  .cmg-logo {
+    padding-left: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    min-height: 65px;
+    padding-left: 90px;
+    background-position: 2% 0%;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .header-links {
+    padding-right: 15px;
+    float: right;
+    vertical-align: top;
+    text-align: right;
+
+    .govuk-list {
+      li {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.25;
+        &:first-child {
+          padding-left: 0;
+          padding-right: 5px;
+          border-right: 1px solid #0b0c0c;
+        }
+      }
+    }
+  }
+
+  .govuk-list.inline > li {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
+  .language-links .govuk-list.inline > li:first-child {
+    padding-right: 5px;
+    border-right: 1px solid #0b0c0c;
+  }
+
+  .language-links {
+    margin-bottom: 5px;
+  }
+
+  .en {
+    background-image: url('../images/cmg-logo-header-en.png');
+  }
+
+  .cy {
+    background-image: url('../images/cmg-logo-header-cy.png');
+  }
+
+  .frame{
+    width: 85.33% !important;
+    padding-right: 15px;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+
+    .govuk-header__container {
+      border-bottom: 5px solid; // adjusts the height of light blue bar at the bottom of the header (on mobile devices)
+      border-color: #c1e4ec;
+    }
+    
+    .govuk-header__link--homepage {
+      min-height: 33.5px; // adjusts the whitespace between the logo and the language toggle (on mobile devices)
+      width: 85.33%; // adjusts the width of the clickable area of the logo (on mobile devices)
+    }
+
+    .language-links {
+      margin-top: 10px; // adjusts the gap between the clickable areas of the logo and the language toggle (on mobile devices)
+    }
+
+    .cy {
+      width: 85.33%; // adjusts the width of the logo when using the welsh version due to extended width (on mobile devices)
+    }
+
+    .govuk-list {
+      margin-bottom: 0; // adjusts the whitespace between the language toggle and the light blue bar at the bottom of the header (on mobile devices)
+    }
+  }
+  @media (min-width: 48.0625em) {
+    .govuk-header__logo {
+        min-width: 370px;
+    }
+  
+    .govuk-header__link--homepage {
+      font-size: 30px;
+    }
+  }
+}
