@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: mcmc.prototype
-  title: MCMC-Prototype
+  title: Mcmc-Prototype
   description: |
     TODO: A prototype for My Child Maintenance Case, used for building user research journeys aswell as purpose built designs for demos and dev handover.
 
