@@ -9,7 +9,7 @@
 
     {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
-    <div class="PrototypeSection">
+    <div class="PrototypeSectionMCMC">
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
@@ -25,9 +25,134 @@
           href: "/welcome"
         }) }}
       <p class="govuk-body">
-      Version 1.0.3
+      Version 1.0.4
     </p>
   </div>
+
+  <br> <br>
+
+
+    <h1 class="govuk-heading-l">
+      Prototyped Journeys
+    </h1>
+
+    <p class="govuk-body">
+      Access individual journeys of prototyped MCMC that were taken to UR.
+    </p>
+
+    <p class="govuk-body">
+      Due to our recent prototype migration, several journeys are facing issues and defects that may impact functionality, fixes are currently underway
+    </p>
+
+    <div class="PrototypeSection">Operational</div>
+    <div class="PrototypeSectionWarning">Accessible but with functional defects</div>
+    <div class="PrototypeSectionFix">Inaccessible</div>
+    
+    <br><br>
+
+    <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+     <a href="/pages/messages/upload-documents-landing" class="govuk-link">Upload Evidence</a>
+    </h1>
+      <p class="govuk-body">
+      19 June 2025
+    </p>
+  </div>
+
+    <br>
+
+  <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+      <a href="/pages/report-change/income-and-expenses/income/pp/p1-start" class="govuk-link">Change of Income</a>
+    </h1>
+      <p class="govuk-body">
+      26 March 2025
+    </p>
+  </div>
+
+  <br>
+
+  <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+      <a href="/pages/caseworker-connect" class="govuk-link">Customer Connect</a>
+    </h1>
+      <p class="govuk-body">
+      29 November 2024
+    </p>
+  </div>
+
+    <br>
+
+  <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+      <a href="/pages/report-change/payments/ctst/p1-start" class="govuk-link">Change to Service Type</a>
+    </h1>
+      <p class="govuk-body">
+      12 September 2024
+    </p>
+  </div>
+
+  <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+      <a href="/pages/report-change/payments/ctst/corroboration/p1-start" class="govuk-link">Change to Service Type Corroboration</a>
+    </h1>
+      <p class="govuk-body">
+      12 September 2024
+    </p>
+  </div>
+
+    <br>
+
+    
+
+  <div class="PrototypeSectionWarning">
+    <h1 class="govuk-heading-m">
+      <a href="/pages/report-change/shared-care/shared-care-start" class="govuk-link">Shared care</a>
+    </h1>
+      <p class="govuk-body">
+      29 July 2024
+    </p>
+  </div>
+
+    <br>
+
+    <div class="PrototypeSectionFix">
+    <h1 class="govuk-heading-m">
+      DP onboarding - Undergoing fix
+    </h1>
+      <p class="govuk-body">
+      23 May 2024
+    </p>
+  </div>
+
+    <br>
+
+  <div class="PrototypeSectionFix">
+    <h1 class="govuk-heading-m">
+      Mobile redesign - Undergoing fix
+    </h1>
+      <p class="govuk-body">
+      19 April 2024?
+    </p>
+  </div>
+
+  {% if (GOVUKPrototypeKit.isDevelopment) %}
+
+  <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+  <h1 class="govuk-heading-xl">
+      Contacts
+    </h1>
+
+  <h1 class="govuk-heading-m">Protoype Owner & Interaction Design </h1> 
+
+  <p class="govuk-body">Kieran McNay (kieran.mcnay1@engineering)</p>
+
+  <h1 class="govuk-heading-m">User researcher </h1> 
+
+  <p class="govuk-body">Oyindamola Asekun (oyindamola.asekun2@engineering)</p>
+
+  {% endif %}
 
   </div>
 </div>
