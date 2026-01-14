@@ -45,31 +45,11 @@
           <li>file types are PDF, JPEG, JPG, GIF, PNG, TIFF or TIF</li>
           <li>any PDFs are not password protected</li>
         </ul>
-{# 
         <div class="govuk-inset-text">
          You can upload up to 7 files at a time.
-        </div> #}
+        </div>
 
-      <div class="govuk-inset-text">
-        You can only upload one file at a time.
-      </div>
-
-      <div  id="uploadComponent">
-      <div class="govuk-label" for="file-upload-1">
-        Upload a file
-      </div>
-      <div class="dottedWrapper" onclick="toggleFile()">
-      <div class="fileSelected" id="fileEmpty"> No file chosen </div>
-      <div class="fileSelected" id="fileSelected" style="display: none"> FormalAgreement.pdf </div>
-      <span style>
-        <button class="govuk-button govuk-button--secondary uploadButton" id="chooseFile" onclick="toggleFile()">Choose file</button>
-      </span>
-      </div>
-    </div>
-
-    <br>
-
-        {# {{ govukFileUpload({
+      {{ govukFileUpload({
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
@@ -78,10 +58,18 @@
           javascript: true
         }) }}
 
-        {{ govukInsetText({
-          text: "You can only add 5 files at a time.",
-          classes: 'hidden max-files-warning'
-        }) }} #}
+        <div class="govuk-form-group">
+  <label class="govuk-label" for="file-upload-1">
+    Upload a file
+  </label>
+  <div
+    class="govuk-drop-zone"
+    data-module="govuk-file-upload">
+    <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+  </div>
+</div>
+
+    <br>
 
         <h2 class="govuk-heading-m">Declaration</h2>
         <p class='govuk-body'>I confirm that these files relate to my case and do not contain offensive material or photographs of any children.</p>
