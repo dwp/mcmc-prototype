@@ -10,14 +10,14 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Which child are you reporting a change for?</h1>
+      <h1 class="govuk-heading-xl">Who has the same parents as the child you are reporting a change for? </h1>
       <p class="govuk-body">Report changes to each child separately. </p>
 
-      <form class="form" action="" method="POST">
+      <form class="form" action="shared-care-P2" method="POST">
 
         {{ govukRadios({
-          idPrefix: "childrentree-whichChild",
-          name: "childrentree-whichChild",
+          idPrefix: "childrentree-whichParent",
+          name: "childrentree-whichParent",
           fieldset: {
             legend: {
               text: "",
@@ -27,11 +27,8 @@
           },
           items: [
             {
-              value: "Bill",
-              text: "Bill",
-              hint: {
-                text: "Born 5 April 2010"
-              }
+              value: "Bill1",
+              text: "Bill, Bob and 1 other"
             },
             {
               value: "Bill",
@@ -41,26 +38,25 @@
               }
             },
             {
-              value: "Bob",
-              text: "Bob"
-            },
-            {
               value: "Alex",
               text: "Alex"
             },
-            {
-              value: "New",
-              text: "Your new child",
-              hint: {
-                text: "Who you do not yet pay or receive child maintenance for"
-              }
+              {
+              divider: "or"
             },
             {
-              value: "Financialsupport",
-              text: "A child the pther parent financially supports outside your child maintenance cases"
+              value: "None of these",
+              text: "None of these",
+              hint: {
+                text: "You do not already have a child maintenance case with their parent"
+              }
             }
           ]
         }) }}
+
+        <div class="govuk-inset-text">
+          You previously [paid/received] child maintenance for Sophie, Jack and 2 others but their case has closed. If your new child has the same parents as them, apply for child maintenance.
+        </div>
 
       <button type="submit" class="govuk-button">
         Continue

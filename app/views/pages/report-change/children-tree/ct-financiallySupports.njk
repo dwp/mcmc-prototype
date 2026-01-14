@@ -1,0 +1,77 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "/pages/report-change/shared-care/shared-care-start"
+}) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">A child another parent financially supports</h1>
+      <p class="govuk-body">We need to know about changes to: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>another child living with a paying parent or their partner</li>
+        <li>a child a paying parent supports outside of the child maintenance service. This is called a family based arrangement</li>
+      </ul>
+      <p class="govuk-body">These changes may affect how much Child Maintenance they pay for your child or children.</p>
+
+      <h2 class="govuk-heading-l">Who has the same parents as the child you are reporting?</h2>
+
+      <form class="form" action="shared-care-P2" method="POST">
+      <p class="govuk-hint">We group your children in cases according to their other parent or carer.</p>
+
+        {{ govukRadios({
+          idPrefix: "childrentree-financiallySupports",
+          name: "childrentree-financiallySupports",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Bill1",
+              text: "Bill, Bob and 1 other"
+            },
+            {
+              value: "Bill",
+              text: "Bill",
+               hint: {
+                text: "Born 6 September 2017"
+              }
+            },
+            {
+              value: "Alex",
+              text: "Alex"
+            },
+              {
+              divider: "or"
+            },
+            {
+              value: "None of these",
+              text: "None of these",
+              hint: {
+                text: "You do not already have a child maintenance case with their parent"
+              }
+            }
+          ]
+        }) }}
+
+          <div class="govuk-inset-text">
+          You previously [paid/received] child maintenance for Sophie, Jack and 2 others. You cannot report changes relating to them since their case is closed.
+        </div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

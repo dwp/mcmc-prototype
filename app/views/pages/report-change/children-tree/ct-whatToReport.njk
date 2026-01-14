@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "/pages/report-change/shared-care/shared-care-start"
+}) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What has changed for {{data['childrentree-whichChild']}} </h1>
+      <p class="govuk-body">If you are reporting more than one change, report each change separately. </p>
+
+      <form class="form" action="" method="POST">
+
+        {{ govukRadios({
+          idPrefix: "childrentree-whatToReport",
+          name: "childrentree-whatToReport",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+ 
+            {
+              value: "HowOften",
+              text: "How often" + ' ' + data['childrentree-whichChild'] + ' ' +"stays overnight with the paying parent/you",
+               hint: {
+                text: "This is known as shared care"
+              }
+            },
+            {
+              value: "Primary",
+              text: "Which parent has most of" + ' ' + data['childrentree-whichChild'] + 's' + ' ' + "day to day care",
+              hint: {
+                text: "This is known as primary care"
+              }
+            }
+          ]
+        }) }}
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}
