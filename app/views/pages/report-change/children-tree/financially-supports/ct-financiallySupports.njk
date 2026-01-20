@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Other children the paying parent supports</h1>
+      <p class="govuk-body">The other parent of {{data['childrentree-financiallySupports']}} also financially supports these children outside of the child maintenance service.  </p>
+
+      <h2 class="govuk-heading-l">Which child are you reporting a change for?</h2>
+
+      <form class="form" action="" method="POST">
+
+        {{ govukRadios({
+          idPrefix: "childrentree-financiallySupports",
+          name: "childrentree-financiallySupports",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Jo",
+              text: "Jo"
+            },
+            {
+              value: "Jill",
+              text: "Jill"
+            },
+            {
+              value: "A new child the paying parent financially supports",
+              text: "A new child the paying parent financially supports"
+            },
+              {
+              divider: "or"
+            },
+            {
+              value: "I dont know their name",
+              text: "I dont know their name"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

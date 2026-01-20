@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        Once we have reviewed your request and received your evidence, we will contact the other parent to confirm the details you've given us.
+      </p>
+
+      <p class="govuk-body">
+       If there is:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>a change to your child maintenance payments, we will send you a new expected payment plan advising how much child maintenance you will receive and by when</li>
+        <li>no change to your chuld maintenance payments we will let you know</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">You need to upload your evidence</h2>
+
+      <p class="govuk-body">
+       Evidence can include, for example a copy of child benefit payments, a legal document or a letter proving they are in full time education.
+      </p>
+
+      <a type="submit" class="govuk-button" href="/pages/messages/upload-evidence/start-alt">
+        Upload evidence
+       </a>
+
+       <p class="govuk-body">
+       If you do not have evidence now, you have 14 days to upload it.
+      </p>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+       <p class="govuk-body">
+       Make sure your <a href="#" class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you
+      </p>
+
+
+	  </div>
+	  </div>
+
+{% endblock %}

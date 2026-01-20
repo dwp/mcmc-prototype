@@ -2,9 +2,9 @@
 
 {% block content %}
 {{ govukBackLink({
-  "text": "Back",
-  "href": "/pages/report-change/shared-care/shared-care-start"
-}) 
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
 }}
 
 	<div class="govuk-grid-row">
@@ -18,53 +18,7 @@
       </ul>
       <p class="govuk-body">These changes may affect how much Child Maintenance they pay for your child or children.</p>
 
-      <h2 class="govuk-heading-l">Who has the same parents as the child you are reporting?</h2>
-
-      <form class="form" action="shared-care-P2" method="POST">
-      <p class="govuk-hint">We group your children in cases according to their other parent or carer.</p>
-
-        {{ govukRadios({
-          idPrefix: "childrentree-financiallySupports",
-          name: "childrentree-financiallySupports",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: no,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "Bill1",
-              text: "Bill, Bob and 1 other"
-            },
-            {
-              value: "Bill",
-              text: "Bill",
-               hint: {
-                text: "Born 6 September 2017"
-              }
-            },
-            {
-              value: "Alex",
-              text: "Alex"
-            },
-              {
-              divider: "or"
-            },
-            {
-              value: "None of these",
-              text: "None of these",
-              hint: {
-                text: "You do not already have a child maintenance case with their parent"
-              }
-            }
-          ]
-        }) }}
-
-          <div class="govuk-inset-text">
-          You previously [paid/received] child maintenance for Sophie, Jack and 2 others. You cannot report changes relating to them since their case is closed.
-        </div>
+      <form class="form" action="ct-financiallySupportsChild" method="POST">
 
       <button type="submit" class="govuk-button">
         Continue

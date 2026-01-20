@@ -10,14 +10,14 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Who has the same parents as the child you are reporting a change for? </h1>
-      <p class="govuk-body">Report changes to each child separately. </p>
+      <h1 class="govuk-heading-l">Who has the same parents as the child you are reporting?</h2>
 
-      <form class="form" action="" method="POST">
+      <form class="form" action="financially-supports/ct-financiallySupports" method="POST">
+      <p class="govuk-hint">We group your children in cases according to their other parent or carer.</p>
 
         {{ govukRadios({
-          idPrefix: "childrentree-whichParent",
-          name: "childrentree-whichParent",
+          idPrefix: "childrentree-financiallySupports",
+          name: "childrentree-financiallySupports",
           fieldset: {
             legend: {
               text: "",
@@ -27,7 +27,7 @@
           },
           items: [
             {
-              value: "Bill1",
+              value: "Bill, Bob and 1 other",
               text: "Bill, Bob and 1 other"
             },
             {
@@ -45,7 +45,7 @@
               divider: "or"
             },
             {
-              value: "None",
+              value: "None of these",
               text: "None of these",
               hint: {
                 text: "You do not already have a child maintenance case with their parent"
@@ -54,8 +54,8 @@
           ]
         }) }}
 
-        <div class="govuk-inset-text">
-          You previously [paid/received] child maintenance for Sophie, Jack and 2 others but their case has closed. If your new child has the same parents as them, apply for child maintenance.
+          <div class="govuk-inset-text">
+          You previously [paid/received] child maintenance for Sophie, Jack and 2 others. You cannot report changes relating to them since their case is closed.
         </div>
 
       <button type="submit" class="govuk-button">

@@ -49,7 +49,7 @@ router.use('/', (req, res, next) => {
   // Add your routes here
 
   router.post(
-  '/pages/report-change/children-tree',
+  '/pages/report-change/children-tree/',
   function (req, res) {
     var ctWhichChild = req.body['childrentree-whichChild']
 
@@ -65,4 +65,20 @@ router.use('/', (req, res, next) => {
         res.redirect('/pages/report-change/children-tree/ct-whatToReport')
     }
   });
+
+    router.post(
+  '/pages/report-change/children-tree/ct-whichParent',
+  function (req, res) {
+    var ctWhichCParent = req.body['childrentree-whichParent']
+
+    if (ctWhichCParent == "None"){
+  
+      res.redirect('/pages/report-change/children-tree/ct-apply')
+      
+    } else {
+        res.redirect('/pages/report-change/children-tree/new-child/ct-childsName')
+    }
+  });
+
+
     
