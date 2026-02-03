@@ -13,7 +13,7 @@
       <h1 class="govuk-heading-l">Who has the same parents as the child you are reporting?</h2>
 
       <form class="form" action="financially-supports/ct-financiallySupports" method="POST">
-      <p class="govuk-hint">We group your children in cases according to their other parent or carer.</p>
+      <p class="govuk-hint">We group your children in cases according to their other parent.</p>
 
         {{ govukRadios({
           idPrefix: "childrentree-financiallySupports",
@@ -40,22 +40,12 @@
             {
               value: "Alex",
               text: "Alex"
-            },
-              {
-              divider: "or"
-            },
-            {
-              value: "None of these",
-              text: "None of these",
-              hint: {
-                text: "You do not already have a child maintenance case with their parent"
-              }
             }
           ]
         }) }}
 
           <div class="govuk-inset-text">
-          You previously [paid/received] child maintenance for Sophie, Jack and 2 others. You cannot report changes relating to them since their case is closed.
+          Your case for Sophie, Jack and 2 others has now closed so you cannot tell us about their paying parent's other children. 
         </div>
 
       <button type="submit" class="govuk-button">
