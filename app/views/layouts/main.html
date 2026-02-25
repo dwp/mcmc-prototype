@@ -4,3 +4,17 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% block header %}
+  {% include "includes/cookie-banner.njk" %}
+  {% include "includes/header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not noAccountMenuOrFooter %}
+    {% include "includes/partials/account-menu.njk" %}
+  {% endif %}
+{% endblock %}

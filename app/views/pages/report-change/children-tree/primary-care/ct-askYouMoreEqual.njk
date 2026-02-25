@@ -1,0 +1,30 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">We need to ask you more about Bill's day-to-day care</h1>
+      <p class="govuk-body">We will now ask you who is responsible for different areas of Bill's care. This is to decide who is Bill's primary carer.</p>
+      <p class="govuk-body">Then, we will ask you for evidence. For example, a letter from Bill's school or GP.</p>
+      <p class="govuk-body">We will ask Bill's other parent the same questions to check if they agree.</p>
+      <p class="govuk-body">We will look at your evidence if the other parent does not agree with your answers.</p>
+
+ 
+      <form class="form" action="ct-7Questions" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

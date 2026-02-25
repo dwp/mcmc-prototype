@@ -41,7 +41,7 @@
 											<h3 class="govuk-heading-m"><a href="/pages/payments/summary/direct-pay/rp-direct-b" class="govuk-link">Payment summary</a></h3>
 											<p class="govuk-body">A summary of the payments you receive.</p>
 											{% else %}
-											<h3 class="govuk-heading-m"><a href="/pages/payments/which-payments" class="govuk-link">Payment summary</a></h3>
+											<h3 class="govuk-heading-m"><a href="/pages/payments/which-payments/vpfsummary.njk" class="govuk-link">Payment summary</a></h3>
 											<p class="govuk-body">View a summary of all your payments.</p>
 											{% endif %}	
 									</div> #}
@@ -64,7 +64,7 @@
 										{{
 										cmgSummaryTable({
 											title: 'Payment Summary',
-											link: '/pages/payments/which-payments',
+											link: '/pages/payments/which-payments/vpfsummary.njk',
 											html: html
 										})
 										}}

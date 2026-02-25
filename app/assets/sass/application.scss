@@ -140,3 +140,323 @@ $govuk-assets-path: '/govuk/assets/';
     border-left: 5px solid #FFCC00;
     padding-left: 24px;
 }
+
+
+//PAYMENTS
+
+$breakpoint-mobile: 640px;
+
+.payments-history {
+  margin: 0px;
+}
+.total-amount-paid {
+  margin: 0px;
+  padding-top: 15px;
+}
+.all-payments-filter {
+  border-bottom: 1px solid #bfc1c3;
+}
+.change-date-period {
+  text-align: right;
+  padding-right: 0;
+}
+.payment-history-key,
+.next-monthly-payment-key {
+  width: 50%;
+  padding-right: 50px;
+}
+.payment-history-key {
+  width: 66.66%;
+}
+.next-payment {
+  margin-bottom: 30px;
+}
+.next-payment-table {
+  margin-bottom: -10px;
+}
+.previous-payments {
+  margin-bottom: 30px;
+}
+.previous-payments-table {
+  margin-bottom: -10px;
+}
+.previous-payments-header {
+  width: 30%;
+}
+.previous-payments-header-amount {
+  width: 40%;
+}
+.previous-payments-cell {
+  padding-right: 20px !important;
+}
+.total-amount-heading {
+  margin-bottom: 0;
+}
+.total-amount-header {
+  border-bottom: none;
+  width: 50%;
+  font-size: 19px;
+  padding: 0px 20px 10px 0;
+}
+.total-amount-cell {
+  border-bottom: none;
+  width: 50%;
+  padding: 10px 20px 10px 0;
+}
+.total-amount-value {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.which-payment-header,
+.which-payment-cell {
+  padding: 10px 20px 10px 0;
+}
+.shared-care-header {
+  width: 35% !important;
+}
+.active-duty-warning {
+  margin-bottom: 0px !important;
+}
+.payment-landing-border {
+  width: 100%;
+  border-bottom: 2px solid;
+  border-color: #B1B4B6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.payment-summary-card-title-box-with-subheading {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #b1b4b6;
+  padding: 0;
+  display: block;
+}
+.payment-summary-card-title-text {
+  float: left;
+  font-size: 30px;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  margin: 20px 0px 14px 22px;
+  width: fit-content;
+}
+.payment-summary-card-title-value {
+  float: right;
+  font-size: 30px;
+  margin: 23px 25px 11px 15px;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+  width: fit-content;
+}
+.payment-summary-card-subheading {
+  width: 75%;
+  margin: 0px 0px 20px 22px;
+  clear: left;
+}
+.payment-summary-card-holder {
+  max-width: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.payment-summary-ticket-panel-duo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(447px, 0fr));
+  gap: 19px;
+  padding: 22px;
+}
+.payment-summary-panel-inner-card {
+  background-color: #ffffff;
+  border: 1px solid #b1b4b6;
+  border-left: 6px solid transparent;
+  border-left-color: #C1E4EC;
+  float: left;
+  margin: 0px;
+  height: fit-content;
+}
+.payment-summary-panel-inner-card-value {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+  font-size: 30px;
+  font-family: arial, sans-serif;
+}
+
+.payment-summary-card-title-box-with-background-white {
+  background-color: #ffffff;
+  padding: 0;
+  display: block;
+}
+
+.changeVPF {
+  padding-left: 20px;
+}
+
+.payment-breakdown-payment-made-box {
+    background-color: #e0dfdf;   /* mid grey */
+    border: none;                /* no border */
+    border-radius: 0;            /* keep edges square */
+}
+
+.vpf-payments-breakdown-key {
+  width: 60%;
+  padding-right: 10px;
+}
+
+.vpf-payments-breakdown-value {
+  width: 40%;
+  padding-right: 10px;
+}
+.vpf-payments-breakdown-last-row-key {
+  width: 60%;
+  padding-right: 10px;
+}
+
+.vpf-payments-breakdown-last-row-value {
+  width: 40%;
+  padding-right: 10px;
+}
+
+.vpf-payment-breakdown-unable-to-show {
+  width: 100%;
+}
+
+.vpf-collection-fees-and-charges-breakdown-key {
+  width: 60%;
+  padding-right: 5px;
+}
+
+.vpf-collection-fees-and-charges-breakdown-value {
+  width: 40%;
+  padding-right: 5px;
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+  .next-payment-table {
+    .govuk-summary-list {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      &__row {
+        display: table-row;
+        border-bottom: 1px solid #b1b4b6
+      }
+    }
+  }
+  .gross-income-table {
+    .govuk-summary-list {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      &__row {
+        display: table-row;
+      }
+    }
+  }
+  .payment-plan-cell,
+  .payment-history-cell,
+  .previous-payments-cell {
+    padding: 10px 20px 10px 0;
+  }
+  .payment-history-key,
+  .payment-history-value,
+  .next-monthly-payment-key,
+  .next-monthly-payment-value {
+    display: table-cell;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+  .payment-history-key {
+    width: 55%;
+  }
+  .total-amount-header {
+    font-size: 16px;
+  }
+  .total-amount-value {
+    font-size: 24px;
+  }
+  .payment-summary-ticket-panel-duo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 19px;
+    padding: 22px;
+  }
+
+  .payment-summary-card-title-text {
+    float: left;
+    font-size: 20px;
+    font-family: arial, sans-serif !important;
+    font-weight: bold;
+    margin: 20px 0px 20px 22px;
+    width: fit-content;
+  }
+  .payment-summary-card-title-value {
+    float: right;
+    font-size: 20px;
+    margin: 23px 25px 11px 15px;
+    font-weight: bold;
+    font-family: arial, sans-serif !important;
+    width: fit-content;
+  }
+
+  .payment-summary-card-subheading {
+  width: 90%;
+  margin: 0px 0px 20px 22px;
+  clear: left;
+  }
+
+  .changeVPF {
+    padding-left: 22px;
+    padding-right: 9px;
+  }
+
+   .vpf-payments-breakdown-key {
+    display: table-cell;
+    width: 60%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bfc1c3;
+  }
+
+  .vpf-payments-breakdown-value {
+    display: table-cell;
+    width: 40%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bfc1c3;
+  }
+
+  .vpf-payments-breakdown-last-row-key {
+    display: table-cell;
+    width: 60%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+
+  .vpf-payments-breakdown-last-row-value {
+    display: table-cell;
+    width: 40%;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+
+  .vpf-collection-fees-and-charges-breakdown-key {
+  width: 60%;
+  padding-right: 10px;
+}
+
+.vpf-collection-fees-and-charges-breakdown-value {
+  width: 40%;
+  padding-right: 10px;
+}
+}

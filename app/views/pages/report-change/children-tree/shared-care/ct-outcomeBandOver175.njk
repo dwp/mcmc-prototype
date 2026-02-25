@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">We need to ask you some more questions</h1>
+      <p class="govuk-body">The regular shared care you have told us about adds up to 176 nights a year. This means we also need to look into whether Bill's other parent has taken on most of their day-to-day care. If so, they will become Bill's primary carer.</p>
+      <p class="govuk-body"><a href="#" class="govuk-link">What is a primary carer and how does it affect payments?</a>.</p>
+      <p class="govuk-body">Next, we will ask you who is responsible for different areas of Bill's care to help us make a decision.</p>
+      <p class="govuk-body">We will then ask the other parent if they agree.</p>
+
+      <h2 class="govuk-heading-l">We will ask for evidence</h2>
+      <p class="govuk-body">You have already told us about any evidence you have for overnight shared care. We will also ask for evidence for day-to-day primary care in case the other parent does not agree. We will let you know later what to give us based on your answers.</p>
+
+      <h2 class="govuk-heading-l">What will happen afterwards</h2>
+      <p class="govuk-body">If we decide:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>you still have most of Bill's day-to-day care, we will only make the change to overnight shared care you told us about</li>
+        <li>the other parent now has most of Bill's day-to-day care, we will make a change to Bill's primary care rather than a change to their shared care</li>
+        <li>you and the other parent equally share Bill's day-to-day care, we will let you know what happens next</li>
+      </ul>
+
+
+      <form class="form" action="" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

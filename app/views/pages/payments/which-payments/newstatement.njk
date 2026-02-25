@@ -1,0 +1,558 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+<div class="govuk-grid-row">
+        
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Your child maintenance statement</h1>
+            <p class="govuk-body-l">Annual review period <strong>11 June 2025</strong> to <strong>10 June 2026</strong></p> 
+
+            
+                
+                <details id="changeAnnualReviewPeriod" class="govuk-details changeARPeriod" aria-live="polite">
+                
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            <div class="changeARFavicon"></div>
+                            Change annual review period
+                        </span>
+                    </summary>
+                    <form action="/online-account/secure/payments/statement/view-child-maintenance-statement" method="POST">
+                        <fieldset class="govuk-fieldset">
+                            
+
+
+
+<div class="govuk-form-group">
+
+  <div class="govuk-radios govuk-radios--small govuk-!-padding-top-3" data-module="govuk-radios">
+    
+    
+      
+  
+    
+    
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="startDate" name="startDate" type="radio" value="06/11/2025" checked="" data-ga-question="Change annual review period" data-ga-answer="&lt;annual review period 1&gt;">
+      <label class="govuk-label govuk-radios__label" for="startDate">
+        June 2025 to June 2026
+      </label>
+      
+    </div>
+    
+  
+    
+      
+  
+    
+    
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="startDate-2" name="startDate" type="radio" value="06/11/2024" data-ga-question="Change annual review period" data-ga-answer="&lt;annual review period 2&gt;">
+      <label class="govuk-label govuk-radios__label" for="startDate-2">
+        June 2024 to June 2025
+      </label>
+      
+    </div>
+    
+  
+    
+    
+  </div>
+
+</div>
+
+                            <button type="submit" class="govuk-button">
+                                Change period
+                            </button>
+                        </fieldset>
+                    </form>
+                </details>
+            
+
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+
+                <table class="govuk-table govuk-!-margin-bottom-2">
+
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    
+      <th scope="col" class="govuk-table__header govuk-table__header">Description</th>
+    
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-table__header govuk-table__header--numeric">Credit (£)</th>
+    
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-table__header govuk-table__header--numeric">Debit (£)</th>
+    
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-table__header govuk-table__header--numeric">Balance (£)</th>
+    
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body">
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 February 2026</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.20</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£531.60</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 February 2026</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£31.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£525.40</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 January 2026</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.20</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£494.40</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 January 2026</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£31.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£488.20</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 December 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£457.20</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 December 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£30.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£451.20</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 November 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.20</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£421.20</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 November 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£31.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£415.00</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 October 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£384.00</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 October 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£30.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£378.00</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 September 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Collect and Pay fee</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£6.20</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£348.00</td>
+      
+    
+    </tr>
+  
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header govuk-table-cell">
+                        <span class="govuk-!-font-weight-bold">10 September 2025</span>
+                        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">Child maintenance due</p>
+                    </th>
+      
+    
+      
+      
+      <td class="govuk-table__cell"></td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">£31.00</td>
+      
+    
+      
+      
+      <td class="govuk-table__cell govuk-table__cell--numeric govuk-table-cell govuk-table__cell--numeric statement-nowrap">−£341.80</td>
+      
+    
+    </tr>
+  
+
+  </tbody>
+</table>
+
+                
+                
+                    
+                        <div class="govuk-!-margin-bottom-6">
+                            
+
+  <div class="cmg-pagination">
+    <ul class="cmg-pagination__list">
+      
+      <li class="cmg-pagination__item">
+        <a href="/online-account/secure/payments/statement/view-child-maintenance-statement?currentPage=1" class="cmg-pagination__link cmg-pagination__link--active" data-page="null">1</a>
+      </li>
+      
+      
+      
+      <li class="cmg-pagination__item">
+        <a href="/online-account/secure/payments/statement/view-child-maintenance-statement?currentPage=2" class="cmg-pagination__link" data-page="2">2</a>
+      </li>
+      
+        <li class="cmg-pagination__item cmg-pagination__item--next">
+          <a href="/online-account/secure/payments/statement/view-child-maintenance-statement?currentPage=2" class="cmg-pagination__link cmg-pagination__link--next">Next &gt;&gt;</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+                        </div>
+                    
+                
+            
+
+            <p class="govuk-body">For Direct Pay, payments are what we expect you to have paid.</p>
+
+            
+	
+			<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is a backdated change?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    
+                <p class="govuk-body">Parents can tell us about any change that affects the child maintenance calculation. This might be:</p>
+        
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>changes to a shared care arrangement</li>
+                    <li>changes to the paying parent's income of at least 25%</li>
+                    <li>information about additional children</li>
+                    <li>several missed payments</li>
+                    <li>paying parent has a new income or expenses</li>
+                    <li>a child has moved out</li>
+                </ul>
+        
+                <p class="govuk-body">When we make the update, your payment calculation for the current review period might change.</p>
+        
+                <p class="govuk-body">It might take us several months to gather evidence and process the change. This means that we might need to backdate the increase or decrease to the payment calculation.</p>
+                
+                <p class="govuk-body">You will get a letter explaining any backdated changes we make. Depending on your <a class="govuk-link" href="/online-account/secure/account-details/contact-details/my-contact-details">contact preferences</a>, this might be a digital copy.</p>
+			
+  </div>
+</details>
+
+
+        </div>
+    </div>
+
+  {% endblock %}

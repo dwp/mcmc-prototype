@@ -1,0 +1,79 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters govuk-!-margin-0">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">What makes up the payment</h1>
+      
+        
+
+  
+
+  
+
+  
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+  
+    <h2 class="govuk-summary-card__title">
+      <span class="govuk-body govuk-!-margin-0 govuk-!-font-size-24"><strong>£62.57</strong> due on 25 March 2026</span>
+    </h2>
+  
+  
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list next-payment-table  govuk-!-padding-top-0 govuk-!-font-weight-regular">
+    
+      
+      <div class="govuk-summary-list__row govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vpf-payments-breakdown-key">
+          Child maintenance
+        </dt>
+        <dd class="govuk-summary-list__value vpf-payments-breakdown-value govuk-!-text-align-right">
+          £52.14
+        </dd>
+        
+      </div>
+      
+    
+      
+      <div class="govuk-summary-list__row govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vpf-payments-breakdown-key">
+          Collection fees and charges
+        </dt>
+        <dd class="govuk-summary-list__value vpf-payments-breakdown-value govuk-!-text-align-right">
+          £10.43
+        </dd>
+        
+      </div>
+      
+    
+      
+      <div class="govuk-summary-list__row govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vpf-payments-breakdown-last-row-key">
+          Arrears
+        </dt>
+        <dd class="govuk-summary-list__value vpf-payments-breakdown-last-row-value govuk-!-text-align-right">
+          £0.00
+        </dd>
+        
+      </div>
+      
+    
+    </dl>
+  </div>
+</div>
+
+
+      
+    </div>
+  </div>
+
+  {% endblock %}

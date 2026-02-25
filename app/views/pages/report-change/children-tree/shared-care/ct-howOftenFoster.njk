@@ -1,0 +1,115 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How often does Bill stay in local authority care</h1>
+      <p class="govuk-body">Including with a foster carer or in a care home.</p>
+
+      <form class="form" method="POST" action="ct-otherChildren">
+       
+        {% set WeeklyHTML %}
+       {{ govukInput({
+        id: "howManyAWeek",
+        name: "howManyAWeek",
+        type: "number",
+        autocomplete: "number",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a week?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set FortnightlyHTML %}
+      {{ govukInput({
+        id: "howManyAFortnight",
+        name: "howManyAFortnight",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a fortnight?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set MonthlyHTML %}
+      {{ govukInput({
+        id: "howManyAMonth",
+        name: "howManyAMonth",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a month?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set OtherHTML %}
+      {{ govukInput({
+        id: "howManyAYear",
+        name: "howManyAYear",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a year"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "howOften",
+        items: [
+          {
+            value: "Weekly",
+            text: "Weekly",
+            conditional: {
+              html: WeeklyHTML
+            }
+          },
+          {
+            value: "Fortnightly",
+            text: "Fortnightly",
+            conditional: {
+              html: FortnightlyHTML
+            }
+          },
+          {
+            value: "Monthly",
+            text: "Monthly",
+            conditional: {
+              html: MonthlyHTML
+            }
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: OtherHTML
+            }
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

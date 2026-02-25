@@ -10,10 +10,10 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Who has the same parents as the child you are reporting? </h1>
-      <p class="govuk-hint">We group your children in cases according to their other parent</p>
+      <h1 class="govuk-heading-xl">You have told us Bill started staying 125 nights a year with the other parent on 2 February. Is this also the case for other children? </h1>
+      <p class="govuk-hint">Select all children that apply</p>
 
-      <form class="form" action="" method="POST">
+      <form class="form" action="ct-shCheckAnswersFirst" method="POST">
 
         {{ govukRadios({
           idPrefix: "childrentree-whichParent",
@@ -27,35 +27,25 @@
           },
           items: [
             {
-              value: "Bill1",
-              text: "Bill, Bob and 1 other"
+              value: "Bob",
+              text: "Bob"
             },
             {
-              value: "Bill",
-              text: "Bill",
-               hint: {
-                text: "Born 6 September 2017"
-              }
-            },
-            {
-              value: "Alex",
-              text: "Alex"
+              value: "Ben",
+              text: "Ben"
             },
             {
               divider: "or"
             },
             {
               value: "None",
-              text: "None of these",
-              hint: {
-                text: "You do not already have a child maintenance case with their parent"
-              }
+              text: "No, only Bill's started staying 125 nights on 2 February"
             }
           ]
         }) }}
 
         <div class="govuk-inset-text">
-          Your case with Sophie, Jack and 2 others has now closed. If your new child has the same parents, <a href="#" class="govuk-link">start a new application</a>"
+          If other children's arrangements have changed to something else, report them separately.
         </div>
 
       <button type="submit" class="govuk-button">

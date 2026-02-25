@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Bill's overnight stays with the other parent</h1>
+      <p class="govuk-body">Tell us when this changed: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>The date must be today or in the past. Only report it on or after the date the change happens.</li>
+        <li>If you cannot remember the exact date, tell us an approximate date</li>
+        <li>If you have a written agreement in place, it should tell you the date the number of nights changed or started</li>
+      </ul>
+
+      <form class="form" action="ct-howOftenOvernight" method="POST">
+
+      {{ govukDateInput({
+        id: "passport-issued",
+        namePrefix: "ct-numOfNights",
+        fieldset: {
+          legend: {
+            text: "When did the number of nights change?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2024"
+        }
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,272 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
+      <p class="govuk-body hidden" id="language">en</p>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+        
+          Payments you make for Rojgqcfirstname
+        
+      </h1>
+
+      
+        <h2 class="govuk-heading-l govuk-!-margin-top-7">Collect and Pay</h2>
+      
+
+      
+      
+
+      <!-- Start - Next payment section -->
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper payment-summary-card-title-box-with-subheading">
+         
+            <h2 class="payment-summary-card-title-text">
+              Next payment
+            </h2>
+          
+          <span class="govuk-caption-m payment-summary-card-subheading">Includes 20% collection fee and any arrears.</span>
+        </div>
+        <div class="payment-summary-card-holder">
+          <article class="payment-summary-ticket-panel-duo" aria-label="Next payment section">
+            <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Next payment amount">
+              
+                <h2 class="govuk-heading-xl govuk-!-margin-bottom-0 govuk-!-padding-left-3 govuk-!-padding-top-5 payment-summary-panel-inner-card-value">£62.57</h2>
+                
+                  <p class="govuk-body govuk-!-padding-left-3">on<strong>  25 Mar 2026</strong></p>
+                
+                
+                  <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-padding-left-3"><a class="govuk-link--no-visited-state" href="/pages/payments/which-payments/wmutp.njk">View what makes up this payment.</a> </p>
+                
+                
+                  <div class="govuk-grid-column-full">
+                    <table class="govuk-table">
+
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    
+      <th scope="col" class="govuk-table__header"></th>
+    
+      <th scope="col" class="govuk-table__header"></th>
+    
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body">
+
+  
+    <tr class="govuk-table__row">
+    
+      
+      
+      <th scope="row" class="govuk-table__header">Payment method</th>
+      
+    
+      
+      
+      <td class="govuk-table__cell">Benefit Agency</td>
+      
+    
+    </tr>
+  
+
+  </tbody>
+</table>
+
+                  </div>
+                
+              
+            </section>
+            
+              <section>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Future payments</h2>
+                <p class="govuk-body">To view all upcoming payments you can <a class="govuk-link--no-visited-state" href="/pages/payments/which-payments/newplan.njk">view your payment plan.</a></p>
+                <p class="govuk-body">If you cannot make a payment you need to <a class="govuk-link--no-visited-state" href="/online-account/secure/contact-us">contact us</a>.</p>
+                <p class="govuk-body">Find out <a class="govuk-link--no-visited-state" href="/online-account/secure/payments/enforcement/enforcement-action-legal-powers">what the Child Maintenance Service can do to enforce unpaid child maintenance</a>.</p>
+              </section>
+            
+          </article>
+        </div>
+      </div>
+
+      <!-- End - Next payment section -->
+
+      <!-- Start - Total expected section -->
+
+
+      <div class="govuk-summary-card">
+        <div class="gross-income-table">
+          <div class="govuk-summary-card__title-wrapper payment-summary-card-title-box-with-subheading">
+            <h2 class="payment-summary-card-title-text">
+              Total
+            </h2>
+            <h2 class="payment-summary-card-title-value">
+              £531.60
+            </h2>
+            <span class="govuk-caption-m payment-summary-card-subheading">Includes payments made, arrears and amount written off.</span>
+          </div>
+        </div>
+        <div class="payment-summary-card-holder">
+          <article class="payment-summary-ticket-panel-duo" aria-label="Total expected section">
+            <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Child maintenance total amount">
+              <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-5 govuk-!-margin-bottom-1">Child maintenance</p>
+
+              
+               <h2 class="govuk-heading-m govuk-!-margin-bottom-8 govuk-!-padding-left-5 payment-summary-panel-inner-card-value">£443</h2>
+              
+
+            </section>
+            <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Collection fees and charges total amount">
+              <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-5 govuk-!-margin-bottom-1">Collection fees and charges</p>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-left-5 payment-summary-panel-inner-card-value">£88.60</h2>
+              
+                <details id="showOrHideExpectedCharges" class="govuk-details changeARPeriod govuk-!-padding-left-4 govuk-!-margin-bottom-2" aria-live="polite">
+                  <summary class="govuk-details__summary" id="showOrHideBreakdown">
+                    <span class="govuk-details__summary-text">
+                        <b class="changeARFavicon"></b>
+                        Show breakdown
+                    </span>
+                  </summary>
+                  <table class="govuk-table govuk-!-margin-top-1">
+                    
+                      <tbody class="govuk-table__body">
+                        <tr>
+                          <td class="vpf-collection-fees-and-charges-breakdown-key">Collection fees</td>
+                          <td class="vpf-collection-fees-and-charges-breakdown-value govuk-!-padding-right-3 govuk-!-text-align-right">£88.60</td>
+                        </tr>
+                      </tbody>
+                    
+                  </table>
+                </details>
+              
+
+            </section>
+          </article>
+        </div>
+        <div class="govuk-!-padding-right-4">
+          <p class="govuk-body govuk-!-text-align-right changeVPF"><a class="govuk-link--no-visited-state" href="/pages/payments/which-payments/newstatement.njk">View your statement</a></p>
+        </div>
+
+        <!-- End - Total expected section -->
+
+        <hr class="govuk-!-margin-left-4 govuk-!-margin-right-4 govuk-!-margin-bottom-0 govuk-!-margin-top-0 govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+
+        <!-- Start - Payments made  section -->
+
+        <div class="gross-income-table">
+          <div class="govuk-summary-card__title-wrapper payment-summary-card-title-box-with-background-white">
+            <h2 class="payment-summary-card-title-text">
+              Payments made
+            </h2>
+            <h2 class="payment-summary-card-title-value">
+              £0.00
+            </h2>
+            <span class="govuk-caption-m payment-summary-card-subheading ">Includes pending payments and overpayments. For Direct Pay, payments are what we expect you to have paid.</span>
+          </div>
+        </div>
+
+        <details id="showOrHideArrears" class="govuk-details changeARPeriod changeVPF govuk-!-margin-bottom-2 " aria-live="polite">
+            <summary class="govuk-details__summary" id="showOrHideArrearsBreakdown">
+              <span class="govuk-details__summary-text">
+                  <b class="changeARFavicon"></b>
+                  Show
+              </span>
+            </summary>
+            <div class="payment-summary-card-holder">
+              <article class="payment-summary-ticket-panel-duo govuk-!-padding-left-0 govuk-!-padding-bottom-0" aria-label="Arrears section">
+                <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Arrears for Child maintenance amount">
+                  <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-4 govuk-!-margin-bottom-0">Child maintenance</p>
+                  
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2 govuk-!-padding-left-4 payment-summary-panel-inner-card-value">£443</h2>
+                </section>
+                <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Arrears for Collection fees and charges amount">
+                  <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-4 govuk-!-margin-bottom-0">Collection fees and charges</p>
+                  
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2 govuk-!-padding-left-4 payment-summary-panel-inner-card-value">£88.60</h2>
+                </section>
+              </article>
+            </div>
+          </details>
+        
+
+        <!-- End - Payments made  section -->
+
+        <hr class="govuk-!-margin-left-4 govuk-!-margin-right-4 govuk-!-margin-bottom-0 govuk-!-margin-top-0 govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+
+        <!-- Start - Amount written off  section -->
+
+        <div class="gross-income-table">
+          <div class="govuk-summary-card__title-wrapper payment-summary-card-title-box-with-background-white govuk-">
+            <h2 class="payment-summary-card-title-text">
+              Amount written off
+            </h2>
+            <h2 class="payment-summary-card-title-value">
+              £0.00
+            </h2>
+            <span class="govuk-caption-m payment-summary-card-subheading"></span>
+          </div>
+        </div>
+
+        <!-- End - Amount written off  section -->
+
+        <hr class="govuk-!-margin-left-4 govuk-!-margin-right-4 govuk-!-margin-bottom-0 govuk-!-margin-top-0 govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+
+        <!-- Start - Arrears  section -->
+
+        <div class="gross-income-table">
+          <div class="govuk-summary-card__title-wrapper payment-summary-card-title-box-with-background-white">
+            <h2 class="payment-summary-card-title-text">
+              Arrears
+            </h2>
+            <h2 class="payment-summary-card-title-value">
+              £531.60
+            </h2>
+            
+              <span class="govuk-caption-m payment-summary-card-subheading">Money owed.</span>
+            
+          </div>
+        </div>
+
+        
+
+          <details id="showOrHideArrears" class="govuk-details changeARPeriod changeVPF govuk-!-margin-bottom-2 " aria-live="polite">
+            <summary class="govuk-details__summary" id="showOrHideArrearsBreakdown">
+              <span class="govuk-details__summary-text">
+                  <b class="changeARFavicon"></b>
+                  Show
+              </span>
+            </summary>
+            <div class="payment-summary-card-holder">
+              <article class="payment-summary-ticket-panel-duo govuk-!-padding-left-0 govuk-!-padding-bottom-0" aria-label="Arrears section">
+                <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Arrears for Child maintenance amount">
+                  <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-4 govuk-!-margin-bottom-0">Child maintenance</p>
+                  
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2 govuk-!-padding-left-4 payment-summary-panel-inner-card-value">£443</h2>
+                </section>
+                <section class="moj-ticket-panel__content  payment-summary-panel-inner-card" aria-label="Arrears for Collection fees and charges amount">
+                  <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-left-4 govuk-!-margin-bottom-0">Collection fees and charges</p>
+                  
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2 govuk-!-padding-left-4 payment-summary-panel-inner-card-value">£88.60</h2>
+                </section>
+              </article>
+            </div>
+          </details>
+
+        
+
+        <!-- End - Arrears  section -->
+
+      </div>
+
+    </div>
+  </div>
+
+  {% endblock %}

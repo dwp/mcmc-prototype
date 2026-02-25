@@ -1,0 +1,32 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Overnight shared care</h1>
+      <p class="govuk-body">Our records show Bill stays with the other parent 52 - 103 nights a year (average of 1 night per week). This means there is a 1/7th reduction to your payments </p>
+      <p class="govuk-body">You only need to tell us about a change if the new number of nights is below or above this <a href="#" class="govuk-link">shared care band</a>. </p>
+      <p class="govuk-body">See how other children a paying parent supports can affect payments.</p>
+
+      <div class="govuk-inset-text">
+        <a href="#" class="govuk-link">See what counts as shared care and how this affects payments</a>
+      </div>
+
+      <form class="form" action="ct-scEvidence" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

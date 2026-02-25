@@ -1,0 +1,54 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">How has Bill's care changed?</h1>
+      
+      <form class="form" action="" method="POST">
+         {{ govukRadios({
+          idPrefix: "childrentree-primaryOrEqual",
+          name: "childrentree-primaryOrEqual",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+ 
+            {
+              value: "primary",
+              text: "The other parent now has most of Bills day-to-day",
+              hint: {
+                text: "They have become the primary carer"
+              }
+            },
+                  {
+              value: "equal",
+              text: "The other parent and i have started equally sharing Bill's day-to-day care"
+            }
+          ]
+        }) }}
+
+      <div class="govuk-inset-text">
+        <a href="#" class="govuk-link">What counts as primary care and equal day-to-day care</a>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

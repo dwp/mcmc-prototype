@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Evidence for Bill's Overnight shared care</h1>
+      <p class="govuk-body">We will ask the other parent if they agree with the change yhou report. We will look at your evidence if they do not agree with what you tell us. </p>
+      <p class="govuk-body">We only accept: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>A current court order</li>
+        <li>A formal agreement, for example drawn by a solicitor</li>
+        <li>Another official document, for example reports from Chuldren and Family Court Advisory and support service (CAFCASS) or social services</li>
+      </ul>
+
+      <form class="form" action="ct-scEvidenceType" method="POST">
+
+
+        {{ govukRadios({
+          idPrefix: "childrentree-whatToReport",
+          name: "childrentree-whatToReport",
+          fieldset: {
+            legend: {
+              text: "Do you have one of these types of evidence",
+              isPageHeading: yes,
+              classes: "govuk-fieldset__legend--l"
+            }
+          }, 
+          hint: {
+            text: "If you do not have any of these types of evidence you can still report the change. But if you and the other parent do not agree, we may not be able to accept the change."
+          },
+          items: [
+ 
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+                  {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

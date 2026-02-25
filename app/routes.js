@@ -80,5 +80,37 @@ router.use('/', (req, res, next) => {
     }
   });
 
+   router.post(
+  '/pages/report-change/children-tree/ct-whatToReport',
+  function (req, res) {
+    var ctWhichReport = req.body['childrentree-whatToReport']
+
+    if (ctWhichReport == "SharedCare"){
+  
+      res.redirect('/pages/report-change/children-tree/shared-care/index')
+      
+    } else if (ctWhichReport == "Primary") {
+        res.redirect('/pages/report-change/children-tree/primary-care/index')
+    } else {
+        res.redirect('/pages/report-change/children-tree/new-child/ct-whatToReport')
+    }
+  });
+
+    router.post(
+  '/pages/report-change/children-tree/primary-care/index',
+  function (req, res) {
+    var ctPrimOrEqual = req.body['childrentree-primaryOrEqual']
+
+    if (ctPrimOrEqual == "primary"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance')
+      
+    } else if (ctPrimOrEqual == "equal") {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-equalCareEntrance')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/index')
+    }
+  });
+
 
     

@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Does Bill ever stay overnight with a foster carer or in a care home?
+      </h1>
+      <p class="govuk-body">This is known as a local authority care.</p>
+
+      <form class="form" method="POST" action="ct-howOftenFoster">
+       
+        {{ govukRadios({
+          idPrefix: "childrentree-fosterCare",
+          name: "childrentree-fosterCare",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+ 
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+                  {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

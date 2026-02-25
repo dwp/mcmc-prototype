@@ -1,0 +1,28 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">This change may affect your payments</h1>
+      <p class="govuk-body">The shared care you have told us about adds up to 125 nights a year (average of 2 nights a week).</p>
+      <p class="govuk-body">This falls into the shared care band of 104 to 155 nights and is different from your previous band.</p>
+      <p class="govuk-body"><a href="#" class="govuk-link">See how shared care bands affect payments</a>.</p>
+
+      <form class="form" action="ct-declaration" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

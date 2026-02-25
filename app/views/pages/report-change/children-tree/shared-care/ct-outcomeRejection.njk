@@ -1,0 +1,27 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">You do not need to report a change</h1>
+      <p class="govuk-body">The shared care you have told us about adds up to 66 nights a year.</p>
+      <p class="govuk-body">We only need to know about changes to Bill's care arrangements if they stay with the other parent less than 52 or more than 103 nights per year. (average of 1 night a week).</p>
+
+      <form class="form" action="" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Return to homepage
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}
