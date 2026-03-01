@@ -34,7 +34,7 @@
         Welcome Sarah
       </h1>
       <h2 class="govuk-heading-l govuk-!-margin-bottom-6">
-        You are on Direct Pay
+        You are on Collect and Pay
       </h2>
     </div>
 
@@ -204,24 +204,24 @@
       {% else %}
         <div class="govuk-grid-column-one-third">
           {% set html %}
-          <p class="small govuk-!-margin-bottom-2">Expected payments</p>
+          <p class="small govuk-!-margin-bottom-2">Scheduled payments</p>
           <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
           <div class="flex space-between">
-            <p class="small">12/05/2024</p>
-            <p class="small">£96.00</p>
+            <p class="small">25/02/2026</p>
+            <p class="small">£62.57</p>
           </div>
           <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
           <div class="flex space-between">
-            <p class="small">12/06/2024</p>
-            <p class="small">£96.00</p>
+            <p class="small">25/03/2026</p>
+            <p class="small">£62.57</p>
           </div>
-          <a href="/pages/payments/options" class="govuk-link">Report a missed payment</a>
+          {# <a href="/pages/payments/options" class="govuk-link">Report a missed payment</a> #}
           {% endset %}
           {{
             cmgBrandingSummaryTable({
-			        service: 'Direct Pay',	
-              title: 'Payments for John and 1 more',
-              link: '/pages/payments/summary/direct-pay/pp-direct',
+			        service: 'Collect and pay',	
+              title: 'Payments you make for Jack',
+              link: '/pages/payments/which-payments/vpfsummary',
               html: html
             })
           }}
@@ -481,21 +481,21 @@
         <p class="small govuk-!-margin-bottom-2">Expected payments</p>
         <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Previous</h4>
         <div class="flex space-between">
-          <p class="small">12/05/2024</p>
-          <p class="small">£96.00</p>
+          <p class="small">25/02/2026</p>
+          <p class="small">£62.57</p>
         </div>
         <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Next</h4>
         <div class="flex space-between">
-          <p class="small">12/06/2024</p>
-          <p class="small">£96.00</p>
+          <p class="small">25/02/2026</p>
+          <p class="small">£62.57</p>
         </div>
-        <a href="/pages/payments/options" class="govuk-link">Report a missed payment</a>
+        {# <a href="/pages/payments/options" class="govuk-link">Report a missed payment</a> #}
         {% endset %}
         {{
           cmgBrandingSummaryTable({
-			      service: 'Direct Pay',
-            title: 'Payments for John and 1 more',
-            link: '/pages/payments/summary/direct-pay/pp-direct',
+			      service: 'Collect and Pay',
+            title: 'Payments you make for John',
+            link: '/pages/payments/which-payments/vpfsummary',
             html: html
           })
         }}
