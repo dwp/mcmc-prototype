@@ -10,7 +10,7 @@ metadata:
     gitlab.com/project-slug: dwp/user-centred-design/mcmc-prototype
 
   labels:
-    dwp.gov.uk/version: 1.2.2
+    dwp.gov.uk/version: 1.2.3
     dwp.gov.uk/license: unknown
 
     dwp.gov.uk/last-verified.by: Kieran McNay
