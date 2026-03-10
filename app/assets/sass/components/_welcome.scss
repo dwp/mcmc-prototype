@@ -10,6 +10,10 @@ $breakpoint-mobile: 640px;
   display: none;
 }
 
+.mobileViewDividers {
+  display: none;
+}
+
 .notificationWrapper {
   display: inline-flex;
 }
@@ -58,6 +62,10 @@ $breakpoint-mobile: 640px;
         padding: 0px;
       }
     }
+  }
+
+   .mobileViewDividers {
+    display: block;
   }
 
   .mb-payments-hidden {

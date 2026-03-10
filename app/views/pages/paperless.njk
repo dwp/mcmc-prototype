@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% set noAccountMenuOrFooter = true %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">We are going paperless</h1>
+      <p class="govuk-body">We already securely store your letters online so you can:   </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>view and download your letters whenever you need </li>
+        <li>keep everything in one place</li>
+        <li>get your letters as soon as we send them</li>
+        <li>save paper and help protect the environment</li>
+      </ul>
+
+      <form class="form" action="paperlessAnswer" method="POST">
+
+
+        {{ govukRadios({
+          idPrefix: "paperless",
+          name: "paperless",
+          fieldset: {
+            legend: {
+              text: "Do you need postal copies of your letters?",
+              isPageHeading: yes,
+              classes: "govuk-fieldset__legend--l"
+            }
+          }, 
+          items: [
+ 
+            {
+              value: "No",
+              text: "No",
+              hint: {
+                text: "We will now only send you postal letters when it is essential  "
+            }
+            },
+                  {
+              value: "Yes",
+              text: "Yes"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

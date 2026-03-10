@@ -460,3 +460,17 @@ $breakpoint-mobile: 640px;
   padding-right: 10px;
 }
 }
+
+.blueDivider {
+  height: 4px;
+    background: #BFE4EC;
+    margin-bottom: 30px;
+}
+
+.fullWidthGreyBar {
+  width: 100vw;
+    background: #F3F2F1;
+    height: 44px;
+    position: absolute;
+    left: 0;
+}

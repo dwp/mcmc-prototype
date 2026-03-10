@@ -1,0 +1,44 @@
+{% extends "layouts/layout.njk" %}
+
+{% set noAccountMenuOrFooter = true %}
+
+{% set paperlessAnswer = data['paperless'] %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     {{ govukPanel({
+        titleText: "We have saved your letter preference",
+        html: ""
+      }) }}
+
+      <br>
+
+      {% if paperlessAnswer == 'Yes' %}
+      <p class="govuk-body">
+        We will continue to send all your letters in the post.  
+      </p>
+      {% endif %}
+
+      {% if paperlessAnswer == 'No' %}
+      <p class="govuk-body">
+        We will only send you letters in the post when it is essential. 
+      </p>
+      {% endif %}
+
+      <br>
+      
+      <form class="form" action="welcome" method="POST">
+
+      <button type="submit" class="govuk-button">
+       Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

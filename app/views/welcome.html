@@ -151,7 +151,7 @@
           rows: [
             [
               {
-                text: "Change phone number"
+                text: "Change to shared care"
               },
               {
                 html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
@@ -159,18 +159,18 @@
             ],
             [
               {
-                text: "Change address"
+                text: "Change of income"
               },
               {
-                html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+                html: "<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>"
               }
             ],
             [
               {
-                text: "Change to Direct Pay or Collect and Pay"
+                text: "Change to service type"
               },
               {
-                html: "<strong class='govuk-tag govuk-tag--yellow'>In Progress</strong>"
+                html: "<strong class='govuk-tag govuk-tag--purple'>Evidence required</strong>"
               }
             ]
           ]
@@ -180,11 +180,11 @@
           {{
             cmgSummaryTable({
               title: 'Track changes',
-              link: '/pages/track-changes/timeline-v2',
+              link: '/pages/track-changes/timeline-v3',
               html: html,
               actions: [
                 {
-                  html: '<a href="/pages/track-changes/timeline-v2" class="govuk-link">View all</a>'
+                  html: '<a href="/pages/track-changes/timeline-v3" class="govuk-link">View all</a>'
                 }
               ]
             })
@@ -375,30 +375,32 @@
           {% set html %}
             {{ govukTable({
             rows: [
-              [
-                { 
-                  text: "Change phone number"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
-                }
-              ],
-              [
-                {
-                  text: "Change address"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
-                }
-              ],
-              [
-                {
-                  text: "Change to Direct Pay or Collect and Pay"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--yellow'>In Progress</strong>"
-                }
-              ]
+               rows: [
+            [
+              {
+                text: "Change to shared care"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+              }
+            ],
+            [
+              {
+                text: "Change of income"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>"
+              }
+            ],
+            [
+              {
+                text: "Change to service type"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--purple'>Evidence required</strong>"
+              }
+            ]
+          ]
             ]
             }) }}
           {% endset %}
@@ -452,7 +454,7 @@
           {{
           cmgSummaryTable({
             title: 'Messages',
-            link: '/pages/track-changes/timeline-v2',
+            link: '/pages/track-changes/timeline-v3',
             html: html,
             actions: [
               {
@@ -508,42 +510,42 @@
         <div class="trackChangesCardTabletTable">
           {% set html %}
             {{ govukTable({
-            rows: [
-              [
-                { 
-                  text: "Change phone number"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
-                }
-              ],
-              [
-                {
-                  text: "Change address"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
-                }
-              ],
-              [
-                {
-                  text: "Change to Direct Pay or Collect and Pay"
-                },
-                {
-                  html: "<strong class='govuk-tag govuk-tag--yellow'>In Progress</strong>"
-                }
-              ]
+              rows: [
+            [
+              {
+                text: "Change to shared care"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--blue'>Received</strong>"
+              }
+            ],
+            [
+              {
+                text: "Change of income"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>"
+              }
+            ],
+            [
+              {
+                text: "Change to service type"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--purple'>Evidence required</strong>"
+              }
             ]
+          ]
             }) }}
           {% endset %}
           {{
           cmgSummaryTable({
             title: 'Track changes',
-            link: '/pages/track-changes/timeline-v2',
+            link: '/pages/track-changes/timeline-v3',
             html: html,
             actions: [
               {
-                html: '<a href="/pages/track-changes/timeline-v2" class="govuk-link">View all</a>'
+                html: '<a href="/pages/track-changes/timeline-v3" class="govuk-link">View all</a>'
               }
             ]
           })
@@ -551,16 +553,16 @@
         </div>
         <div class="trackChangesCardMobileTable">
           {% set firstRowHtml %}
-            <div class='trackChangesType'>Change phone number</div>
+            <div class='trackChangesType'>Change to shared care</div>
             <strong class='govuk-tag govuk-tag--blue'>Received</strong>
           {% endset %}
           {% set secondRowHtml %}
-            <div class='trackChangesType'>Change address</div>
-            <strong class='govuk-tag govuk-tag--blue'>Received</strong>
+            <div class='trackChangesType'>Change of income</div>
+            <strong class='govuk-tag govuk-tag--yellow'>In progress</strong>
           {% endset %}
           {% set thirdRowHtml %}
-            <div class='trackChangesType'>Change to Direct Pay or Collect and Pay</div>
-            <strong class='govuk-tag govuk-tag--yellow'>In Progress</strong>
+            <div class='trackChangesType'>Change to service type</div>
+            <strong class='govuk-tag govuk-tag--purple'>Evidence required</strong>
           {% endset %}
           {% set html %}
             {{ govukTable({
@@ -586,11 +588,11 @@
           {{
           cmgSummaryTable({
             title: 'Track changes',
-            link: '/pages/track-changes/timeline-v2',
+            link: '/pages/track-changes/timeline-v3',
             html: html,
             actions: [
               {
-                html: '<a href="/pages/track-changes/timeline-v2" class="govuk-link">View all</a>'
+                html: '<a href="/pages/track-changes/timeline-v3" class="govuk-link">View all</a>'
               }
             ]
           })

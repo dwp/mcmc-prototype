@@ -22,7 +22,6 @@ $breakpoint-tablet: 840px;
 .account-menu {
   position: relative;
   display: flow-root;
-  border-bottom: 1px solid $grey-2;
   margin-bottom: 0;
   background: #F3F2F1;
 }
@@ -115,7 +114,6 @@ $breakpoint-tablet: 840px;
   }
 
   .account-menu {
-    border-bottom: 1px solid $grey-2;
     margin-bottom: 0;
     transition: none;
 
@@ -263,7 +261,7 @@ $breakpoint-tablet: 840px;
     margin-bottom: 0;
   }
   #accountMenuMobileHome {
-    color: $black;
+    color: #1D70B8;
 
     &:hover {
       color: $dark-blue;
@@ -313,9 +311,7 @@ $breakpoint-tablet: 840px;
   .account-menu__mob__link {
     box-sizing: border-box;
     display: block;
-    padding: 12px 16px 8px 24px;
-    border-left: 4px solid transparent;
-    border-bottom: 1px solid $grey-2;
+    padding: 12px 16px 8px 8px;
     font-size: 16px;
     font-weight: 300;
     line-height: 1.25;

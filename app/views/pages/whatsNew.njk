@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What’s new</h1>
+
+      <p class="govuk-body">Features we've improved or added to your online account.</p>
+
+      <h2 class="govuk-heading-l">March 2026</h2>
+      <p class="govuk-body">You can now:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="pages/report-change/children-tree" class="govuk-link">Report a change</a> to your child's care arrangements without having to know which type of change to select </li>
+        <li><a href="/pages/payments/which-payments/vpfsummary" class="govuk-link">View what makes up your payments</a> with a breakdown of charges</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">February 2026</h2>
+      <p class="govuk-body">You can now:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>We are going paperless - <a href="#" class="govuk-link">tell us how you want us to write to you</a></li>
+        <li>You can now <a href="#" class="govuk-link">view previously uploaded files</a></li>
+      </ul>
+
+         <h2 class="govuk-heading-l">January 2026</h2>
+      <p class="govuk-body">You can now:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#" class="govuk-link">Tell us your preferred call time</a> </li>
+      </ul>
+
+      </br>
+	{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#",
+      current: true
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+	  </div>
+	  </div>
+
+{% endblock %}
