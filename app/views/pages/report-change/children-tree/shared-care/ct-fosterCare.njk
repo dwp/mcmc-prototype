@@ -15,30 +15,98 @@
       </h1>
       <p class="govuk-body">This is known as a local authority care.</p>
 
-      <form class="form" method="POST" action="ct-howOftenFoster">
+      <form class="form" method="POST" action="ct-scEvidenceType">
        
-        {{ govukRadios({
-          idPrefix: "childrentree-fosterCare",
-          name: "childrentree-fosterCare",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: no,
-              classes: "govuk-fieldset__legend--l"
+          {% set WeeklyHTML %}
+       {{ govukInput({
+        id: "howManyAWeek",
+        name: "howManyAWeek",
+        type: "number",
+        autocomplete: "number",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a week?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set FortnightlyHTML %}
+      {{ govukInput({
+        id: "howManyAFortnight",
+        name: "howManyAFortnight",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a fortnight?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set MonthlyHTML %}
+      {{ govukInput({
+        id: "howManyAMonth",
+        name: "howManyAMonth",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a month?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set OtherHTML %}
+      {{ govukInput({
+        id: "howManyAYear",
+        name: "howManyAYear",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a year"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "howOften",
+        items: [
+          {
+            value: "Never",
+            text: "Never"
+          },
+          {
+            value: "Weekly",
+            text: "Weekly",
+            conditional: {
+              html: WeeklyHTML
             }
           },
-          items: [
- 
-            {
-              value: "Yes",
-              text: "Yes"
-            },
-                  {
-              value: "No",
-              text: "No"
+          {
+            value: "Fortnightly",
+            text: "Fortnightly",
+            conditional: {
+              html: FortnightlyHTML
             }
-          ]
-        }) }}
+          },
+          {
+            value: "Monthly",
+            text: "Monthly",
+            conditional: {
+              html: MonthlyHTML
+            }
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: OtherHTML
+            }
+          }
+        ]
+      }) }}
 
       <button type="submit" class="govuk-button">
         Continue

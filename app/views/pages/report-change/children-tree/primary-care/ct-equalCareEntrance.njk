@@ -10,34 +10,27 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">The other parent now has most of Bill's day-to-day care</h1>
-      <p class="govuk-body">Tell us when this changed:</p>
+      <h1 class="govuk-heading-xl">Reporting a change to overnight shared care</h1>
+      <h1 class="govuk-heading-l">We will ask for evidence</h1>
+      <p class="govuk-body">We will look at your evidence if the other parent does not agree with what you report.</p>
+      <p class="govuk-body">We only accept:</p>
        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>The date must be today or in the past. Only report it on or after the date the change happens</li>
-        <li>If you cannot remember the exact date tell us an approximate date</li>
-        <li>If you have a written agreement in place, it should tell you the date Bill's other parent started having most of their day-to-day care</li>
-        <li>Send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and effects on your payments</li>
+        <li>A current court order</li>
+        <li>A formal agreement<br><p class="govuk-hint">for example drawn up by a solicitor<p></li>
+        <li>Another official document <br><p class="govuk-hint">for example reports from Children and Family Court Advisory and Support Service (CAFCASS) or social services<p></li>
       </ul>
 
+      <p class="govuk-body">You can still report the change if you do not have any of these types of evidence. But we may not be able to accept the change if the other parent does not agree.</p>
+
+      <h2 class="govuk-heading-l">Your payments may change</h2>
+
+      <p class="govuk-body">We use shared care to work out your payments. If we approve the change, you may end up needing to pay a different amount for Bill.</p>
+
+      <p class="govuk-body"><a href="#" class="govuk-link">How shared care affects child maintenance payments</a></p>
+
       <br>
-
-      <form class="form" action="ct-equalOtherChildren" method="POST">
-
-      {{ govukDateInput({
-        id: "passport-issued",
-        namePrefix: "passport-issued",
-        fieldset: {
-          legend: {
-            text: "When did Bill's day-to-day care change?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "For example, 27 3 2026"
-        }
-      }) }}
-
+      
+      <form class="form" action="../shared-care/ct-overnightStays" method="POST">
 
       <button type="submit" class="govuk-button">
         Continue
