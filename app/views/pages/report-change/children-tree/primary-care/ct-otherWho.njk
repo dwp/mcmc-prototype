@@ -1,0 +1,47 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Who has most of Bill's day-to-day care now?</h1>
+          {{ govukInput({
+            label: {
+              text: "First name",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            classes: "govuk-!-width-one-half",
+            id: "other-firstName",
+            name: "other-firstName"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            classes: "govuk-!-width-one-half",
+            id: "other-lastName",
+            name: "other-lastName"
+          }) }}
+
+ 
+      <form class="form" action="ct-otherCares" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

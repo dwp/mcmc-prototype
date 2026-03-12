@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     {{ govukPanel({
+        titleText: "You have reported your day-to-day primary care change",
+        html: ""
+      }) }}
+
+      <p class="govuk-body">
+        You have told us that Brenda has most of Bill's day-to-day care.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+       We will:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>Look at the information you have given us</li>
+        <li>Tell you the progress we have made on our decision in  <a href="#" class="govuk-link">track changes</a></li>
+        <li>Send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and the effect on your payments</li>
+       
+      </ul>
+
+        <p class="govuk-body">
+       If we decide Bill's primary carer has changed:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>We will close your case after notifying you</li>
+        <li>Brenda will need to <a href="#" class="govuk-link"> apply for a new case</a> as a receiving parent, or you will need to apply as a paying parent track changes</li>
+        <li>Send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and the effect on your payments</li>
+       
+      </ul>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">View your change in track changes.</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+       <p class="govuk-body">
+       If you need help, <a href="#" class="govuk-link">contact us</a>.
+      </p>
+
+
+	  </div>
+	  </div>
+
+{% endblock %}

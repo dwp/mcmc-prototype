@@ -83,32 +83,33 @@ router.use('/', (req, res, next) => {
    router.post(
   '/pages/report-change/children-tree/ct-whatToReport',
   function (req, res) {
-    var ctWhichReport = req.body['childrentree-whatToReport']
+    var ctWhichReport = req.body['childrentree-primaryOrEqual']
 
-    if (ctWhichReport == "SharedCare"){
+    if (ctWhichReport == "equal"){
   
-      res.redirect('/pages/report-change/children-tree/shared-care/index')
+      res.redirect('/pages/report-change/children-tree/primary-care/ct-equalCareEntrance')
       
-    } else if (ctWhichReport == "Primary") {
-        res.redirect('/pages/report-change/children-tree/primary-care/index')
+    } else if (ctWhichReport == "primary") {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance')
     } else {
         res.redirect('/pages/report-change/children-tree/new-child/ct-whatToReport')
     }
   });
 
-    router.post(
-  '/pages/report-change/children-tree/primary-care/index',
-  function (req, res) {
-    var ctPrimOrEqual = req.body['childrentree-primaryOrEqual']
 
-    if (ctPrimOrEqual == "primary"){
+    router.post(
+  '/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance',
+  function (req, res) {
+    var ctPrimOrEqual = req.body['childrentree-whoCares']
+
+    if (ctPrimOrEqual == "me"){
   
-      res.redirect('/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance')
+      res.redirect('/pages/report-change/children-tree/primary-care/ct-userCares')
       
-    } else if (ctPrimOrEqual == "equal") {
-        res.redirect('/pages/report-change/children-tree/primary-care/ct-equalCareEntrance')
+    } else if (ctPrimOrEqual == "other") {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherWho')
     } else {
-        res.redirect('/pages/report-change/children-tree/primary-care/index')
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance')
     }
   });
 

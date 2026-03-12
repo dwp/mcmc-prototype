@@ -10,7 +10,7 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">How has Bill's care changed?</h1>
+      <h1 class="govuk-heading-xl">What has changed?</h1>
       
       <form class="form" action="" method="POST">
          {{ govukRadios({
@@ -26,22 +26,30 @@
           items: [
  
             {
-              value: "primary",
-              text: "The other parent now has most of Bills day-to-day",
+              value: "equal",
+              text: "How often Bill stays overnight with you",
               hint: {
-                text: "They have become the primary carer"
+                text: "This is known as shared care"
               }
             },
                   {
-              value: "equal",
-              text: "The other parent and i have started equally sharing Bill's day-to-day care"
+              value: "primary",
+              text: "The other parent no longer has most of Bill's day-to-day care",
+              hint: {
+                text: "This is known as primary care"
+              }
+            },
+             {
+              value: "adoption",
+              text: "Bill has been adopted"
+            },
+             {
+              value: "fte",
+              text: "Bill has left full time education"
+
             }
           ]
         }) }}
-
-      <div class="govuk-inset-text">
-        <a href="#" class="govuk-link">What counts as primary care and equal day-to-day care</a>
-      </div>
 
       <button type="submit" class="govuk-button">
         Continue

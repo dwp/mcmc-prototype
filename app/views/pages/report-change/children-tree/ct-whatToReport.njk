@@ -11,12 +11,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">What has changed?</h1>
-
+      
       <form class="form" action="" method="POST">
-
-        {{ govukRadios({
-          idPrefix: "childrentree-whatToReport",
-          name: "childrentree-whatToReport",
+         {{ govukRadios({
+          idPrefix: "childrentree-primaryOrEqual",
+          name: "childrentree-primaryOrEqual",
           fieldset: {
             legend: {
               text: "",
@@ -27,30 +26,30 @@
           items: [
  
             {
-              value: "SharedCare",
-              text: "How often" + ' ' + data['childrentree-whichChild'] + ' ' +"stays overnight with the other parent",
-               hint: {
+              value: "equal",
+              text: "How often Bill stays overnight with you",
+              hint: {
                 text: "This is known as shared care"
               }
             },
-            {
-              value: "Primary",
-              text: "I no longer have most of" + ' ' + data['childrentree-whichChild'] + 's' + ' ' + "day-to-day care",
+                  {
+              value: "primary",
+              text: "The other parent no longer has most of Bill's day-to-day care",
               hint: {
                 text: "This is known as primary care"
               }
             },
-            {
-              value: "Adoption",
-              text: data['childrentree-whichChild']+ ' ' + "has been adopted"
+             {
+              value: "adoption",
+              text: "Bill has been adopted"
             },
-                  {
-              value: "FTE",
-              text: data['childrentree-whichChild']+ ' ' + "has left full time education"
+             {
+              value: "fte",
+              text: "Bill has left full time education"
+
             }
           ]
         }) }}
-
 
       <button type="submit" class="govuk-button">
         Continue

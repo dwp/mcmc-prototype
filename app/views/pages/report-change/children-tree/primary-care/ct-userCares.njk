@@ -1,0 +1,33 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Your payments may change </h1>
+      <p class="govuk-body">You are telling us that you have taken on most of Bill's day-to-day care.</p>
+      <p class="govuk-body">If we approve this change:</p>
+       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>You will only need to send the other parent regular payments for Bob and Betty, and any money you owe in arrears</li>
+        <li>You will need to apply for a new child maintenance case later to receive payments for Bill from the other parent</li>
+        <li>We may be able to balance what you owe each other by adjusting your future payments</li>
+      </ul>
+
+ 
+      <form class="form" action="ct-userDaytoDayDate" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

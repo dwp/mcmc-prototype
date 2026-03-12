@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Other children witn the same change to day-to-day</h1>
+        
+      <p class="govuk-body">If we approve the change to any children you select, the other parent will have to pay you for them as well as Bill.</p>
+
+
+      <form class="form" action="ct-otherDeclaration" method="POST">
+      {{ govukCheckboxes({
+        name: "otherChildrenWho",
+        fieldset: {
+          legend: {
+            text: "Which children does this also apply to?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Bob",
+            text: "Bob"
+          },
+          {
+            value: "Ben",
+            text: "Ben"
+          },
+          {
+            value: "none",
+            text: "None of the above"
+          }
+        ]
+      }) }}
+                
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

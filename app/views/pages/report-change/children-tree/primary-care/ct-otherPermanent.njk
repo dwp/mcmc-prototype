@@ -10,13 +10,13 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Who has taken on most of Bill's day-to-day care?</h1>
-      <p class="govuk-body">Known as primary care</p>
+      <h1 class="govuk-heading-xl">Is this change permanent?</h1>
+      <p class="govuk-hint">Brenda plans to have Bill's day-to-day care for the foreseeable future.</p>
 
-       <form class="form" action="" method="POST">
+       <form class="form" action="ct-otherPermanentEnd" method="POST">
             {{ govukRadios({
-          idPrefix: "childrentree-whoCares",
-          name: "childrentree-whoCares",
+          idPrefix: "childrentree-otherPermanent",
+          name: "childrentree-otherPermanent",
           fieldset: {
             legend: {
               text: "",
@@ -27,20 +27,15 @@
           items: [
  
             {
-              value: "me",
-              text: "I have"
+              value: "Yes",
+              text: "Yes"
             },
                   {
-              value: "other",
-              text: "Someone else"
+              value: "No",
+              text: "No"
             }
           ]
         }) }}
-
-      <div class="govuk-inset-text">
-        <a href="#" class="govuk-link">What counts as primary care and equal day-to-day care</a>
-      </div>
-
 
       <button type="submit" class="govuk-button">
         Continue
