@@ -1,3 +1,17 @@
+  <script>
+const visibleClass = 'visible';
+function toggleMenu() {
+  const mobMenu = document.getElementById('accountMenuHomeMobile');
+  if (mobMenu.classList.contains(visibleClass)) {
+    mobMenu.classList.remove(visibleClass);
+  } else {
+    mobMenu.classList.add(visibleClass);
+  }
+  const mobMenuToggle = document.getElementById('accountMenuMobileToggle');
+  mobMenuToggle.classList.toggle('menu-toggle-button--open');
+}
+  </script>
+
 <div class="fullWidthGreyBar">
 </div>
 <div class="govuk-grid-row">
