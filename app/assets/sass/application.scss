@@ -473,4 +473,31 @@ $breakpoint-mobile: 640px;
     height: 44px;
     position: absolute;
     left: 0;
+    box-shadow: 0 4px 0 #BFE4EC
 }
+.fullWidthBlueBar {
+  width: 100vw;
+    background: #BFE4EC;
+    height: 44px;
+    position: absolute;
+    left: 0;
+}
+
+.whatsNew-menu {
+  position: relative;
+  display: flow-root;
+  margin-bottom: 0;
+  background: #BFE4EC;
+}
+
+.whatsNewLink {
+  color: #0C2D4A !important;
+  text-decoration: underline !important;
+}
+
+.whatsNewClose {
+  color: #0C2D4A !important;
+  text-decoration: none !important;
+}
+
+
