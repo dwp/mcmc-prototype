@@ -10,18 +10,17 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Other children with exactly the same change to overnight shared care</h1>
+      <h1 class="govuk-heading-l">Other children with exactly the same change to day-to-day</h1>
         
-      <p class="govuk-body">We work out your payments by looking at each child's overnight arrangement individually.</p>
-      <p class="govuk-body">If we approve the change for other children, how much you need to pay may go further up or down.</p>
+      <p class="govuk-body">If we approve the change for other children, how much you pay could go further up or down.</p>
 
 
-      <form class="form" action="ct-outcomeBandOver175" method="POST">
+      <form class="form" action="ct-scEvidence" method="POST">
       {{ govukCheckboxes({
         name: "otherChildrenWho",
         fieldset: {
           legend: {
-            text: "Which children does this change also apply to?",
+            text: "Which children does this also apply to?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -40,7 +39,7 @@
           },
           {
             value: "none",
-            text: "No others, just Bill"
+            text: "None of the above"
           }
         ]
       }) }}
