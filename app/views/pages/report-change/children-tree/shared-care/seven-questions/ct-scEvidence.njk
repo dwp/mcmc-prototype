@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Evidence for Bill's day-to-day care</h1>
+      <p class="govuk-body">You should upload evidence for the areas of Bill's day-to-day care you told us you were responsible for. <br> <br>
+      We will look at your evidence if the other parent says they are responsible for that area of care instead. <br>  <br>
+      Make a note of this list to help you remember which documents to find. You can upload them on the next page or at another time before 14 February. <br>  <br>
+      For each area:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>only upload one type</li>
+        <li>hoose the most recent piece of evidence you have</li>
+      </ul>
+
+          <p class="govuk-body">What we do not accept:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>photos of your children</li>
+        <li>text messages with the other parent</li>
+        <li>screenshots of social media</li>
+        <li>calendar entries</li>
+      </ul>
+
+       <p class="govuk-body"><a href="#" class="govuk-link">View the list of evidence to upload</a>  </p>
+
+      <form class="form" action="ct-confirmation" method="POST">
+
+
+        {{ govukCheckboxes({
+        name: "waste",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "approval",
+            text: "I have noted which evidence to upload"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-inset-text">
+  You can still report the change if you do not have any of these types of evidence. But we may not be able to accept the change if the other parent does not agree.
+</div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}
