@@ -10,61 +10,21 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-     {{ govukPanel({
-        titleText: "You need to give us the evidence you have",
-        html: ""
-      }) }}
+      <h1 class="govuk-heading-xl">Your payments may change </h1>
+      <p class="govuk-body">You are telling us you are Bill's main day-to-day carer.</p>
+      <p class="govuk-body">If we approve this change:</p>
+       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>You will only need to make regular payments to the other parent for Bob and Betty, plus any money you owe in arrears</li>
+        <li>You will need to apply for a new child maintenance case later to receive payments for Bill from the other parent</li>
+      </ul>
 
-      <p class="govuk-body">
-        We have received your report that you now have most of Bill's day-to-day care.
-      </p>
-
-      <h2 class="govuk-heading-m">What you need to do</h2>
-
-      <p class="govuk-body">
-        Upload the evidence by 14 February.
-      </p>
-
-      <div class="govuk-inset-text">
-       If you do not upload evidence by this date, we may not be able to make the change.
-      </div>
-
-      <form class="form" action="ct-confirmation" method="POST">
+ 
+      <form class="form" action="ct-userDayToDayDate" method="POST">
 
       <button type="submit" class="govuk-button">
-       Upload evidence
+        Continue
       </button>
 	 </form>
-
-
-      <h2 class="govuk-heading-m">What happens next</h2>
-
-      <p class="govuk-body">
-       We will:
-      </p>
-      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>Ask the other parent the same questions</li>
-        <li>Look at the information we have from you both</li>
-        <li>Tell you the progress we have made on our decision in <a href="#" class="govuk-link">track changes</a></li>
-        <li>Send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and the effect on your payments</li>
-      </ul>
-
-      <p class="govuk-body">
-       If we decide Bill's main day-to-day carer has changed:
-      </p>
-      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>We will remove Bill from your case as a paying parent</li>
-        <li>Once they are removed, you will need to<a href="#" class="govuk-link">apply for a new case</a> as a receiving parent.</li>
-      </ul>
-
-      <p class="govuk-body">
-       <a href="#" class="govuk-link">View your change in track changes.</a> (it may take up to 30 seconds for your change to appear)
-      </p>
-
-       <p class="govuk-body">
-       If you need help, <a href="#" class="govuk-link">contact us</a>.
-      </p>
-
 
 	  </div>
 	  </div>
