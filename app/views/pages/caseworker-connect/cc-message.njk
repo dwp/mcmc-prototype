@@ -1,4 +1,4 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/main.njk" %}
 
 {% block content %}
 {{ govukBackLink({
@@ -24,7 +24,7 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Hello, please could you confirm that the date of the first missed payment was 3 Nov 2024</td>
+            <td class="govuk-table__cell">Hello, please could you confirm that the date of the first missed payment was 3 Nov 2025</td>
             <td scope="row" class="govuk-table__cell">9:03am <br> Today
             </td>
           </tr>
@@ -36,13 +36,14 @@
         {{ govukCharacterCount({
             name: "connectMessage",
             id: "connectMessage",
-            maxlength: 400,
+            maxlength: 200,
             label: {
                 text: "Write a message",
                 classes: "govuk-label--l",
                 isPageHeading: true
             }
             }) }}
+            
 
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -85,7 +86,7 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">9:03am <br> 3 Dec 2024</td>
+            <td scope="row" class="govuk-table__cell">9:03am <br> 3 Dec 2025</td>
             <td class="govuk-table__cell">Hello, please could you confirm that the date of the first missed payment was 3 Nov 2024</td>
             <td class="govuk-table__cell">CMS</td>
           </tr>

@@ -10,6 +10,31 @@
 
 {% block content %}
 
+<script>
+function toggleLoading() {
+
+
+    var y = document.getElementById("uploadButton");
+    y.style.opacity = ".5";
+
+    var z = document.getElementById("loadingBar");
+    z.style.display = "block";
+
+    setTimeout(function () {
+      window.location.href = "/pages/messages/upload-evidence/success"; //will redirect to your blog page (an ex: blog.html)
+   }, 4000); //will call the function after 10 secs.
+}
+
+
+function toggleFile() {
+    var x = document.getElementById("fileEmpty");
+    x.style.display = "none";
+
+    var y = document.getElementById("fileSelected");
+    y.style.display = "block";
+}
+</script>
+
   {{ govukBackLink({
     text: "Back",
     href: "/pages/messages/upload-documents"
@@ -49,14 +74,6 @@
          You can upload up to 7 files at a time.
         </div>
 
-      {{ govukFileUpload({
-          id: "file-upload-1",
-          name: "fileUpload1",
-          label: {
-            text: "Upload a file"
-          },
-          javascript: true
-        }) }}
 
         <div class="govuk-form-group">
   <label class="govuk-label" for="file-upload-1">

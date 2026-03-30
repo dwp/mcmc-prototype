@@ -1,4 +1,4 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/main.njk" %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
@@ -7,6 +7,33 @@
 {% endblock %}
 
 {% block content %}
+
+<script>
+function toggleLoading() {
+
+    var y = document.getElementById("uploadComponentCC");
+    y.style.opacity = ".5";
+
+    var y = document.getElementById("uploadButton");
+    y.style.opacity = ".5";
+
+    var z = document.getElementById("loadingBar");
+    z.style.display = "block";
+
+    setTimeout(function () {
+      window.location.href = "./cc-evidence-sent"; //will redirect to your blog page (an ex: blog.html)
+   }, 7000); //will call the function after 10 secs.
+}
+
+
+function toggleFile() {
+    var x = document.getElementById("fileEmpty");
+    x.style.display = "none";
+
+    var y = document.getElementById("fileSelected");
+    y.style.display = "block";
+}
+</script>
 
   {{ govukBackLink({
     text: "Back",
@@ -34,7 +61,7 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Please can you provide evidence of the partial payment for 3 Nov 2024 through Upload Evidence before 29 Jan 2025?</td>
-            <td scope="row" class="govuk-table__cell">9:03am <br> 24 Nov</td>
+            <td scope="row" cl ass="govuk-table__cell">9:03am <br> 24 Nov</td>
           </tr>
       </table>
 
@@ -59,7 +86,7 @@
 
       <h2 class="govuk-heading-s">Add a file</h2>
 
-      <form action="cc-evidence-sent" method="POST">
+              <div id="uploadComponentCC">
         {{ govukSummaryList({
           rows: [
             {
@@ -146,10 +173,21 @@
           classes: "govuk-button--secondary add-file"
         }) }}
 
+
         {{ govukInsetText({
           text: "You can only add 5 files at a time.",
           classes: 'hidden max-files-warning'
         }) }}
+
+        </div>
+
+        <div class="demo-container" id="loadingBar" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-bar-value"></div>
+          </div>
+          <p class="progress-body govuk-!-font-weight-bold">Uploading...</p>
+          <p class="progress-body">We are uploading your file. Stay on this page until your file has finished uploading</p>
+        </div>
 
         <h2 class="govuk-heading-m">Declaration</h2>
         <p class='govuk-body'>I confirm that these files relate to my case and do not contain offensive material or photographs of any children.</p>
@@ -165,12 +203,8 @@
           }
         }) }} #}
 
-        {{ govukButton({
-          text: "Upload files",
-          classes: "govuk-button"
-        }) }}
+        <button class="govuk-button" id="uploadButton" onclick="toggleLoading()">Upload file</button>
 
-      </form>
 
     </div>
   </div>
