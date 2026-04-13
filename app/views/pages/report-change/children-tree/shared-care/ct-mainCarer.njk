@@ -10,12 +10,12 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Do you expect Brenda to be Bill's main day-to-day carer for six weeks or more?</h1>
+      <h1 class="govuk-heading-xl">Have you taken on Bill's main day-to-day care?</h1>
 
        <form class="form" action="" method="POST">
             {{ govukRadios({
-          idPrefix: "childrentree-otherPermanent",
-          name: "childrentree-otherPermanent",
+          idPrefix: "childrentree-whoCares",
+          name: "childrentree-whoCares",
           fieldset: {
             legend: {
               text: "",
@@ -35,6 +35,7 @@
             }
           ]
         }) }}
+
 
       <button type="submit" class="govuk-button">
         Continue

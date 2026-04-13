@@ -1,4 +1,4 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/main.njk" %}
 
 {% block content %}
 {{ govukBackLink({
@@ -10,16 +10,59 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Your payments may change </h1>
-      <p class="govuk-body">You are telling us Brenda is now Bill's main day-to-day carer.</p>
-      <p class="govuk-body">If we approve this change:</p>
-       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>You will only need to make regular payments to the other parent for Bob and Betty, plus any money you owe in arrears</li>
-        <li>If Brenda applies for Bill's child maintenance, you may need to start making regular payments to them</li>
-      </ul>
-
+      <h1 class="govuk-heading-xl">What is {{data['other-firstName']}}'s relationship to {{data['childrentree-whichChild']}} </h1>
+      
  
       <form class="form" action="ct-otherDayToDayDate" method="POST">
+
+    {% set textHtml %}
+    {{ govukInput({
+      id: "otherRelationship-ft",
+      name: "otherRelationship-ft",
+      type: "tel",
+      autocomplete: "tel",
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "What is their relationship"
+      }
+    }) }}
+    {% endset -%}
+
+    {{ govukRadios({
+      name: "otherRelationship",
+      id: "otherRelationship",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select one option"
+      },
+      items: [
+        {
+          value: "Grandparent",
+          text: "Grandparent"
+        },
+        {
+          value: "Auntie",
+          text: "Auntie"
+        },
+        {
+          value: "Uncle",
+          text: "Uncle"
+        },
+        {
+          value: "Another relationship",
+          text: "Another relationship",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
 
       <button type="submit" class="govuk-button">
         Continue

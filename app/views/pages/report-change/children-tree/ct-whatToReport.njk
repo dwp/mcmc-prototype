@@ -27,25 +27,25 @@
  
             {
               value: "equal",
-              text: "How often Bill stays overnight with you",
+              text: "How often" + ' ' + data['childrentree-whichChild'] + ' ' + "stays overnight with you",
               hint: {
                 text: "This is known as shared care"
               }
             },
                   {
               value: "primary",
-              text: "The other parent no longer has Bill's main day-to-day care",
+              text: "The other parent no longer has" + ' ' + data['childrentree-whichChild'] + ' ' + "main day-to-day care",
               hint: {
                 text: "This is known as primary care"
               }
             },
              {
               value: "adoption",
-              text: "Bill has been adopted"
+              text: data['childrentree-whichChild'] + ' ' + "has been adopted"
             },
              {
               value: "fte",
-              text: "Bill has left full time education"
+              text: data['childrentree-whichChild'] + ' ' + "has left full time education"
 
             }
           ]

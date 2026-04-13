@@ -1,0 +1,141 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+      <h2 class="govuk-heading-m">Change to Bill's main day to day care</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Child's name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['childrentree-whichChild']}}, born 5 April 2010
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main carer
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['other-firstName']}} {{data['other-lastName']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main carer's relationship
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['otherRelationship']}} <br>
+               {{data['otherRelationship-ft']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date main carer changed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['otherDate-day']}} {{data['otherDate-month']}} {{data['otherDate-year']}} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reason main carer changed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['otherWhy']}} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Expect to be main carer for 6 weeks or more
+            </dt>
+            <dd class="govuk-summary-list__value">
+              no
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date you expect main carer to change back
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['other-date-end-day']}} {{data['other-date-end-month']}} {{data['other-date-end-year']}} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Child Benefit</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              If you expect new carer to receive Child Benefit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['otherBenefit']}} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+        </dl>
+        
+        {# {{ govukRadios({
+          name: "otherChildren",
+          fieldset: {
+            legend: {
+              text: "Do you want to report exactly the same change for any of your other children?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }} #}
+
+      <form class="form" action="ct-otherEvidence" method="POST">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

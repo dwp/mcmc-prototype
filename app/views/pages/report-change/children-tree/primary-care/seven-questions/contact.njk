@@ -11,18 +11,21 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Contact person
+        Emergency contact
       </h1>
-    
+
+      <h2 class="govuk-caption-l">
+        Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        Who is the emergency contact for Bill's school??
+        been {{data['childrentree-whichChild']}}'s emergency contact?
       </h2>
 
+
     
 
-      <form class="form" method="POST" action="medical">
+      <form class="form" method="POST" action="dayTime">
       
-             {% set OtherArrangementMeals %}
+             {# {% set OtherArrangementMeals %}
             {{ govukCharacterCount({
         name: "costMeals",
         id: "costMeals",
@@ -33,15 +36,56 @@
             isPageHeading: false
         },
         hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+            text: "For example, for school or a childminder"
         }
         }) }}
-      {% endset -%}
+      {% endset -%} #}
+       <p class="govuk-body">
+       For example, for school or a childminder 
+      </p>
 
-      {% set OtherArrangement %}
+      {{ govukRadios({
+        name: "ct-contact",
+        items: [
+          {
+            value: "Always",
+            text: "Always"
+          },
+          {
+            value: "Most",
+            text: "Most of the time"
+
+          },
+          {
+            value: "Half",
+            text: "Half of the time"
+
+          },
+          {
+            value: "Less",
+            text: "Less than half of the time"
+
+          },
+          {
+            value: "Never",
+            text: "Never"
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-l">
+        Do you need to explain in more detail?
+      </h2>
+
+        <p class="govuk-body">
+       For example, because one parent works from home so is more available to take calls
+      </p>
+
+       {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "costClothes",
-        id: "costClothes",
+        name: "ct-contact-ft",
+        id: "ct-contact-ft",
         maxlength: 200,
         label: {
             text: "",
@@ -49,80 +93,27 @@
             isPageHeading: false
         },
         hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+            text: "Explain in more detail"
         }
         }) }}
       {% endset -%}
 
       {{ govukRadios({
-        name: "clothes",
+        name: "howOften",
         items: [
           {
-            value: "Me",
-            text: "I am"
+            value: "No",
+            text: "No"
           },
           {
-            value: "Other",
-            text: "The other parent is"
-
-          },
-          {
-            value: "equally",
-            text: "They would call either of us"
-
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Other",
-            text: "We have another arrangement",
+            value: "Yes",
+            text: "Yes",
             conditional: {
               html: OtherArrangement
             }
           }
         ]
       }) }}
-
-      <h2 class="govuk-heading-l">
-        Who usually contacts Bill's childminder, if they have one?
-      </h2>
-     
-
-      {{ govukRadios({
-        name: "meals",
-        items: [
-          {
-            value: "Me",
-            text: "I do"
-          },
-          {
-            value: "OtherParent",
-            text: "The other parent does"
-
-          },
-          {
-            value: "equally",
-            text: "We equally share this"
-          },
-          {
-            value: "None",
-            text: "Bill's does not have a childminder"
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "arrangement",
-            text: "We have another arrangement",
-            conditional: {
-              html: OtherArrangementMeals
-            }
-          }
-        ]
-      }) }}
-
-    
 
       <button type="submit" class="govuk-button">
         Continue

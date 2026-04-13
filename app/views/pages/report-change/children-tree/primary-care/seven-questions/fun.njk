@@ -11,150 +11,145 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Activities for fun
+        Regular activities
       </h1>
-    
+
+      <h2 class="govuk-caption-l">
+        Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        Who is most involved in Bill's hobbies and activities for fun?
+        arranged and taken {{data['childrentree-whichChild']}} to regular hobbies or clubs?
       </h2>
 
-    
 
-      <form class="form" method="POST" action="financial">
-      
-             {% set OtherArrangementMeals %}
-            {{ govukCharacterCount({
-        name: "costMeals",
-        id: "costMeals",
-        maxlength: 200,
-        label: {
-            text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
-        },
-        hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
-        }
-        }) }}
-      {% endset -%}
+      <form class="form" method="POST" action="benefit">
+ 
 
-      {% set OtherArrangement %}
-            {{ govukCharacterCount({
-        name: "costClothes",
-        id: "costClothes",
-        maxlength: 200,
-        label: {
-            text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
-        },
-        hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
-        }
-        }) }}
-      {% endset -%}
-
+      <p class="govuk-body">
+       For example, sports or music lessons
+      </p>
+  
       {{ govukRadios({
-        name: "clothes",
+        name: "ct-fun",
         items: [
           {
-            value: "Me",
-            text: "I am"
+            value: "Always",
+            text: "Always"
           },
           {
-            value: "Other",
-            text: "The other parent is"
+            value: "Most",
+            text: "Most of the time"
 
           },
           {
-            value: "equally",
-            text: "We are equally involved"
+            value: "Half",
+            text: "Half of the time"
 
+          },
+          {
+            value: "Less",
+            text: "Less than half of the time"
+
+          },
+  
+          {
+            value: "Never",
+            text: "Never"
           },
            {
             divider: "or"
             },
           {
-            value: "Other",
-            text: "We have another arrangement",
+            value: "Not needed childcare",
+            text: "Bill has not taken part in any hobbies or clubs since" + ' ' + data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']
+          }
+
+        ]
+      }) }}
+
+            <h2 class="govuk-caption-l">
+        Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
+      <h2 class="govuk-heading-l">
+        paid for {{data['childrentree-whichChild']}}'s hobbies or clubs?
+      </h2>
+
+
+      <form class="form" method="POST" action="items">
+      
+          <p class="govuk-body">
+       For example, a childminder or after-school club that has to be paid for
+      </p>
+  
+      {{ govukRadios({
+        name: "ct-fun-paid",
+        items: [
+          {
+            value: "Always",
+            text: "Always"
+          },
+          {
+            value: "Most",
+            text: "Most of the time"
+
+          },
+          {
+            value: "Half",
+            text: "Half of the time"
+
+          },
+          {
+            value: "Less",
+            text: "Less than half of the time"
+
+          },
+          {
+            value: "Never",
+            text: "Never"
+          }
+        ]
+      }) }}
+
+
+
+      <h2 class="govuk-heading-l">
+        Do you need to explain in more detail?
+      </h2>
+
+        <p class="govuk-body">
+       For example, because one parent works shifts so is unable to have them at home
+      </p>
+
+       {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "ct-fun-ft",
+        id: "ct-fun-ft",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Explain in more detail"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "howOften",
+        items: [
+          {
+            value: "No",
+            text: "No"
+          },
+          {
+            value: "Yes",
+            text: "Yes",
             conditional: {
               html: OtherArrangement
             }
           }
         ]
       }) }}
-
-           <h2 class="govuk-heading-l">
-        Who pays for these activities?
-      </h2>
-
-    
-
-      
-             {% set OtherArrangementMeals %}
-            {{ govukCharacterCount({
-        name: "costMeals",
-        id: "costMeals",
-        maxlength: 200,
-        label: {
-            text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
-        },
-        hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
-        }
-        }) }}
-      {% endset -%}
-
-      {% set OtherArrangement %}
-            {{ govukCharacterCount({
-        name: "costClothes",
-        id: "costClothes",
-        maxlength: 200,
-        label: {
-            text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
-        },
-        hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
-        }
-        }) }}
-      {% endset -%}
-
-      {{ govukRadios({
-        name: "clothes",
-        items: [
-          {
-            value: "Me",
-            text: "I do"
-          },
-          {
-            value: "Other",
-            text: "The other parent does"
-
-          },
-          {
-            value: "equally",
-            text: "They each spend the same amount"
-
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Other",
-            text: "We have another arrangement",
-            conditional: {
-              html: OtherArrangement
-            }
-          }
-        ]
-      }) }}
-
-
-    
 
       <button type="submit" class="govuk-button">
         Continue

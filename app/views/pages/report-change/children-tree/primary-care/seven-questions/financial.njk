@@ -11,12 +11,17 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Financial benefits
+        Government financial support
       </h1>
     
       <h2 class="govuk-heading-l">
-        Who receives government financial help for Bill?
+        Do you receive any other government financial support for {{data['childrentree-whichChild']}}?
       </h2>
+
+
+       <p class="govuk-body">
+       For example, Disability Living Allowance (DLA) for children or an extra amount of Universal Credit
+      </p>
 
     
 
@@ -24,8 +29,8 @@
       
              {% set OtherArrangementMeals %}
             {{ govukCharacterCount({
-        name: "costMeals",
-        id: "costMeals",
+        name: "ct-financial-amount",
+        id: "ct-financial-amount",
         maxlength: 200,
         label: {
             text: "",
@@ -38,10 +43,36 @@
         }) }}
       {% endset -%}
 
-      {% set OtherArrangement %}
+      {{ govukRadios({
+        name: "clothes",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            conditional: {
+              html: OtherArrangementMeals
+            }
+
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">
+        Do you need to explain in more detail?
+      </h2>
+
+        <p class="govuk-body">
+       For example, because you have agreed the parent with the lower income can receive the financial support
+      </p>
+
+       {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "costClothes",
-        id: "costClothes",
+        name: "ct-financial-ft",
+        id: "ct-financial-ft",
         maxlength: 200,
         label: {
             text: "",
@@ -49,37 +80,21 @@
             isPageHeading: false
         },
         hint: {
-            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+            text: "Explain in more detail"
         }
         }) }}
       {% endset -%}
 
       {{ govukRadios({
-        name: "clothes",
+        name: "howOften",
         items: [
           {
-            value: "Me",
-            text: "I do"
+            value: "No",
+            text: "No"
           },
           {
-            value: "Other",
-            text: "The other parent does"
-
-          },
-          {
-            value: "equally",
-            text: "We both receive government financial help for Bill",
-            conditional: {
-              html: OtherArrangementMeals
-            }
-
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Other",
-            text: "We have another arrangement",
+            value: "Yes",
+            text: "Yes",
             conditional: {
               html: OtherArrangement
             }

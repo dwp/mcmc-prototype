@@ -10,7 +10,7 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Who has Bill's main day-to-day care now?</h1>
+      <h1 class="govuk-heading-xl">Who has become {{data['childrentree-whichChild']}}'s main day-to-day carer?</h1>
 
        <form class="form" action="" method="POST">
             {{ govukRadios({
@@ -36,9 +36,9 @@
           ]
         }) }}
 
-      <div class="govuk-inset-text">
+      {# <div class="govuk-inset-text">
         <a href="#" class="govuk-link">What counts as the main day-to-day carer</a>
-      </div>
+      </div> #}
 
 
       <button type="submit" class="govuk-button">

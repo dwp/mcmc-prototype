@@ -11,60 +11,32 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Medical care 
+        Child benefit
       </h1>
 
-      <h2 class="govuk-caption-l">
-        Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        arranged and taken {{data['childrentree-whichChild']}} to any medical appointments?
+        Do you receive Child Benefit for {{data['childrentree-whichChild']}}
       </h2>
 
 
-      <form class="form" method="POST" action="fun">
- 
+      <form class="form" method="POST" action="financial">
 
-          <p class="govuk-body">
-       For example, GP or dentist
-      </p>
   
       {{ govukRadios({
-        name: "ct-medical",
+        name: "ct-benefit",
         items: [
           {
-            value: "Always",
-            text: "Always"
+            value: "Yes",
+            text: "Yes"
           },
           {
-            value: "Most",
-            text: "Most of the time"
+            value: "No",
+            text: "No"
 
-          },
-          {
-            value: "Half",
-            text: "Half of the time"
-
-          },
-          {
-            value: "Less",
-            text: "Less than half of the time"
-
-          },
-  
-          {
-            value: "Never",
-            text: "Never"
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Not needed childcare",
-            text: "Bill has not needed any medical appointments since" + ' ' + data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']
           }
-
         ]
       }) }}
+
 
 
       <h2 class="govuk-heading-l">
@@ -72,13 +44,13 @@
       </h2>
 
         <p class="govuk-body">
-       For example, because one parent lives closer to Bill's doctor's surgery
+       For example, because one parent works shifts so is unable to have them at home
       </p>
 
        {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "ct-medical-ft",
-        id: "ct-medical-ft",
+        name: "ct-benefit-ft",
+        id: "ct-benefit-ft",
         maxlength: 200,
         label: {
             text: "",

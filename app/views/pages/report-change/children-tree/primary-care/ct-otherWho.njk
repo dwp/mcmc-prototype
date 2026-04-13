@@ -10,8 +10,11 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Who is Bill's main day-to-day carer now?</h1>
-          {{ govukInput({
+      <h1 class="govuk-heading-xl">Who is {{data['childrentree-whichChild']}}'s main day-to-day carer now?</h1>
+
+ 
+      <form class="form" action="ct-otherCares" method="POST">
+        {{ govukInput({
             label: {
               text: "First name",
               classes: "govuk-label--m",
@@ -32,9 +35,6 @@
             id: "other-lastName",
             name: "other-lastName"
           }) }}
-
- 
-      <form class="form" action="ct-otherCares" method="POST">
 
       <button type="submit" class="govuk-button">
         Continue

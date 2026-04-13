@@ -11,25 +11,38 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Medical care 
+        Day time responsibility 
       </h1>
 
       <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        arranged and taken {{data['childrentree-whichChild']}} to any medical appointments?
+        been responsible for {{data['childrentree-whichChild']}} during the day outside of nursery, school or college hours?
       </h2>
 
 
-      <form class="form" method="POST" action="fun">
- 
+    
 
-          <p class="govuk-body">
-       For example, GP or dentist
-      </p>
+      <form class="form" method="POST" action="childcare">
+      
+             {# {% set OtherArrangementMeals %}
+            {{ govukCharacterCount({
+        name: "costMeals",
+        id: "costMeals",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "For example, for school or a childminder"
+        }
+        }) }}
+      {% endset -%} #}
   
       {{ govukRadios({
-        name: "ct-medical",
+        name: "ct-dayTime",
         items: [
           {
             value: "Always",
@@ -50,19 +63,10 @@
             text: "Less than half of the time"
 
           },
-  
           {
             value: "Never",
             text: "Never"
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Not needed childcare",
-            text: "Bill has not needed any medical appointments since" + ' ' + data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']
           }
-
         ]
       }) }}
 
@@ -72,13 +76,13 @@
       </h2>
 
         <p class="govuk-body">
-       For example, because one parent lives closer to Bill's doctor's surgery
+       For example, because one parent has a higher income so pays for more items
       </p>
 
        {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "ct-medical-ft",
-        id: "ct-medical-ft",
+        name: "ct-dayTime-ft",
+        id: "ct-dayTime-ft",
         maxlength: 200,
         label: {
             text: "",

@@ -107,9 +107,41 @@ router.use('/', (req, res, next) => {
       res.redirect('/pages/report-change/children-tree/primary-care/ct-userCares')
       
     } else if (ctPrimOrEqual == "other") {
-        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherWho')
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherBYS')
     } else {
         res.redirect('/pages/report-change/children-tree/primary-care/ct-primaryCareEntrance')
+    }
+  });
+
+    router.post(
+  '/pages/report-change/children-tree/primary-care/ct-userPermanent',
+  function (req, res) {
+    var ctPerm = req.body['childrentree-otherPermanent']
+
+    if (ctPerm == "Yes"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/contact')
+      
+    } else if (ctPerm == "No") {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-userPermanentEnd')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-userPermanent')
+    }
+  });
+
+   router.post(
+  '/pages/report-change/children-tree/primary-care/ct-otherPermanent',
+  function (req, res) {
+    var ctPerm = req.body['childrentree-otherPermanent']
+
+    if (ctPerm == "Yes"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/ct-otherChildBenefit')
+      
+    } else if (ctPerm == "No") {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanentEnd')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanentEnd')
     }
   });
 

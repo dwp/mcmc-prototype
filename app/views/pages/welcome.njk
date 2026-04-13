@@ -30,7 +30,7 @@
         {% set html %}
         <p class="govuk-notification-banner__heading bannerNoMaxWidth">
           We have a request that needs your attention.
-          <a href="/pages/caseworker-messaging-mvp/action-required">View requests.</a>
+          <a href="/pages/caseworker-messaging-mvp/action-required" class="govuk-link--no-visited-state">View requests.</a>
         </p>
         {% endset %}
         {{ 
@@ -703,6 +703,19 @@
         {{
           cmgSummaryTable({
             title: 'Upload evidence',
+            link: '/pages/messages/upload-documents-landing',
+            html: html
+          })
+        }}
+      </div>
+
+      <div class="uploadCard mb-full">
+        {% set html %}
+        <p class="small govuk-!-margin-bottom-2">As part of our ongoing improvements to the online service, we’ve added features to help you manage your child maintenance.</p>
+        {% endset %}
+        {{
+          cmgSummaryTable({
+            title: 'Latest features',
             link: '/pages/messages/upload-documents-landing',
             html: html
           })

@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Why has {{data['other-firstName']}} become {{data['childrentree-whichChild']}}'s main day-to-day carer?</h1>
+
+       <form class="form" action="ct-otherPermanent" method="POST">
+          {{ govukCharacterCount({
+            name: "otherWhy",
+            id: "otherWhy",
+            maxlength: 200,
+            label: {
+              text: "",
+              classes: "govuk-label--m",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Do not include personal or financial information like your National Insurance number or credit card details"
+            }
+          }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

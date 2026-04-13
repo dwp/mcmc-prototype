@@ -10,10 +10,9 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Is this change permanent?</h1>
-      <p class="govuk-hint">Brenda plans to have Bill's day-to-day care for the foreseeable future.</p>
+      <h1 class="govuk-heading-xl">Do you expect to be {{data['childrentree-whichChild']}}'s main day-to-day carer for six weeks or more?</h1>
 
-       <form class="form" action="ct-userPermanentEnd" method="POST">
+       <form class="form" action="" method="POST">
             {{ govukRadios({
           idPrefix: "childrentree-otherPermanent",
           name: "childrentree-otherPermanent",

@@ -11,19 +11,19 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">Before you start</h1>
-      <p class="govuk-body">You will need:</p>
+      <p class="govuk-body">If you know it, have ready:</p>
        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>The date you became {{data['childrentree-whichChild']}}'s main carer</li>
-        <li>How long you expect to be {{data['childrentree-whichChild']}}'s main carer, if you know</li>
+        <li>The name of {{data['childrentree-whichChild']}}'s new main carer</li>
+        <li>The date {{data['childrentree-whichChild']}}'s main carer changed</li>
         <li>Details of why {{data['childrentree-whichChild']}}'s day-to-day care has changed</li>
-        <li>Details of who is responsible for areas of {{data['childrentree-whichChild']}}'s care</li>
+        <li>How long you expect the change to last</li>
       </ul>
 
       <h2 class="govuk-heading-l">Asking the other parent</h2>
       <p class="govuk-body">We will ask the other parent the same questions and compare your answers to make a decision.</p>
 
       <h2 class="govuk-heading-l">Sending evidence</h2>
-      <p class="govuk-body">If you have evidence for being {{data['childrentree-whichChild']}}'s main carer, we will ask you to send it to us after reporting the change. </p>
+      <p class="govuk-body">If you have evidence for the change to {{data['childrentree-whichChild']}}'s main carer, we will ask you to send it to us after reporting the change. </p>
 
       <h2 class="govuk-heading-l">Your payments may change</h2>
       <p class="govuk-body">The change you report may affect your child maintenance payments. </p>
@@ -33,7 +33,7 @@
       </div> 
 
  
-      <form class="form" action="ct-userDayToDayDate" method="POST">
+      <form class="form" action="ct-otherWho" method="POST">
 
       <button type="submit" class="govuk-button">
         Continue

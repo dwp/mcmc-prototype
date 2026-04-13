@@ -11,14 +11,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">Check your answers</h1>
-      <h2 class="govuk-heading-m">Change to {{data['childrentree-whichChild']}}'s main day to day care</h1>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+      <h2 class="govuk-heading-m">Main day-to-day care</h2>
+
+       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Child's name
+              Taken on day-to-day carer
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['childrentree-whichChild']}}, born 5 April 2010
+              Yes
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -26,70 +28,47 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Main carer
+              Why have you become Bill's main day-to-day carer?
             </dt>
             <dd class="govuk-summary-list__value">
-              Me
+              XYZ
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date main carer changed
+              Permanent change
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}
+              No
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Reason main carer changed
+              When do you expect the other parent to become Bill's main carer again? 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['whyCare']}}
+              2 May 2026
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              If you expect to be main carer for 6 weeks or more
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['childrentree-userPermanent']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date you expect main carer to change back
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['childrentree-userPermanentEnd']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
         </dl>
-
-        <h2 class="govuk-heading-m">Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often you have...</h1>
+    
+        <h2 class="govuk-heading-m">Who is responsible for areas of Bill's child care?</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              been the emergency contact
+              Spare time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-contact']}} <br>
-              {{data['ct-contact-ft']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -97,11 +76,10 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              been responsible during the day
+              Meals
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-dayTime']}} <br>
-              {{data['ct-dayTime-ft']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
@@ -109,11 +87,10 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              arranged childcare
+              Clothes
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-childcare']}} <br>
-              {{data['ct-childcare-ft']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
@@ -121,10 +98,10 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              paid for childcare
+              Arranges childcare
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-childcare-paid']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -132,11 +109,10 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              provided basic essentials
+              Pays for childcare
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-items']}} <br>
-              {{data['ct-items-ft']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -144,11 +120,10 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              arranged medical appointments
+              School contact
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-medical']}} <br>
-              {{data['ct-medical-ft']}}
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -156,67 +131,72 @@
           </div>
                      <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              been involved in regular activities
+              Arranges childminder
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['ct-fun']}} <br>
-              {{data['ct-fun-ft']}}
+              ANSWER
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+
+                     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Takes to dentist
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANSWER
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+                     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Takes to doctor
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANSWER
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+                     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Involved in activities for fun
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANSWER
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+                     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Pays for activities for fun
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANSWER
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+                     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Government financial benefits
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANSWER
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
             </dd>
           </div>
         </dl>
-
-        <h2 class="govuk-heading-m">Financial support for {{data['childrentree-whichChild']}}</h1>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Receive Child Benefit
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['ct-benefit']}} <br>
-              {{data['ct-benefit-ft']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Other financial government support
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['ct-financial']}} <br>
-              {{data['ct-financial-amount']}} <br>
-              {{data['ct-financial-ft']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
-            </dd>
-          </div>
-        </dl>
-        
-        {# {{ govukRadios({
-          name: "otherChildren",
-          fieldset: {
-            legend: {
-              text: "Do you want to report exactly the same change for any of your other children?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes"
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-        }) }} #}
 
       <form class="form" action="ct-scEvidence" method="POST">
       <button type="submit" class="govuk-button">

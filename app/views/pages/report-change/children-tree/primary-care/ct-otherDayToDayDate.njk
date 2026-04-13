@@ -10,25 +10,24 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Date of change</h1>
-     <p class="govuk-body">Tell us when this changed:</p>
+      <h1 class="govuk-heading-xl">When did {{data['other-firstName']}} become {{data['childrentree-whichChild']}}'s main day-to-day carer?</h1>
        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-        <li>If you cannot remember the exact date tell us an approximate date</li>
-        <li>If you have a written agreement in place, it should tell you the date the number of nights changed or started</li>
+        <li>If you cannot remember the exact date tell us an approximate date.</li>
+        <li>If you have a legal document as evidence, tell us the date it says day-to-day or primary care changed</li>
       </ul>
 
       <br>
 
-      <form class="form" action="ct-otherPermanent" method="POST">
+      <form class="form" action="ct-otherWhy" method="POST">
 
       {{ govukDateInput({
-        id: "passport-issued",
-        namePrefix: "passport-issued",
+        id: "otherDate",
+        namePrefix: "otherDate",
         fieldset: {
           legend: {
-            text: "When did Brenda take on Bill's day-to-day care?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
           }
         },
         hint: {

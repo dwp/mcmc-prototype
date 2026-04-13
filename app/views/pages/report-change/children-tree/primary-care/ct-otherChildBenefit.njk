@@ -1,0 +1,50 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Does {{data['other-firstName']}} receive Child benefit for {{data['childrentree-whichChild']}}?
+      </h1>
+
+
+      <form class="form" method="POST" action="ct-otherCheckAnswers">
+
+  
+      {{ govukRadios({
+        name: "ct-contact",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+
+          }
+        ]
+      }) }}
+
+      <p class="govuk-body">
+      <a href="#" class="govuk-link">I do not know</a>.
+      </p>
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

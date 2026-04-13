@@ -11,25 +11,25 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Medical care 
+        Essential items
       </h1>
 
       <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        arranged and taken {{data['childrentree-whichChild']}} to any medical appointments?
+        provided {{data['childrentree-whichChild']}}'s basic essentials
       </h2>
 
 
-      <form class="form" method="POST" action="fun">
+      <form class="form" method="POST" action="medical">
  
 
-          <p class="govuk-body">
-       For example, GP or dentist
+      <p class="govuk-body">
+       For example, meals, toiletries, school uniform or everyday clothes
       </p>
   
       {{ govukRadios({
-        name: "ct-medical",
+        name: "ct-items",
         items: [
           {
             value: "Always",
@@ -54,31 +54,23 @@
           {
             value: "Never",
             text: "Never"
-          },
-           {
-            divider: "or"
-            },
-          {
-            value: "Not needed childcare",
-            text: "Bill has not needed any medical appointments since" + ' ' + data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']
           }
 
         ]
       }) }}
-
 
       <h2 class="govuk-heading-l">
         Do you need to explain in more detail?
       </h2>
 
         <p class="govuk-body">
-       For example, because one parent lives closer to Bill's doctor's surgery
+       For example, because one parent works shifts so is unable to have them at home
       </p>
 
        {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "ct-medical-ft",
-        id: "ct-medical-ft",
+        name: "ct-items-ft",
+        id: "ct-items-ft",
         maxlength: 200,
         label: {
             text: "",
