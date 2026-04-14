@@ -116,7 +116,7 @@ router.use('/', (req, res, next) => {
     router.post(
   '/pages/report-change/children-tree/primary-care/ct-userPermanent',
   function (req, res) {
-    var ctPerm = req.body['childrentree-otherPermanent']
+    var ctPerm = req.body['childrentree-userPermanent']
 
     if (ctPerm == "Yes"){
   
