@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Add a new child to your existing child maintenance case</h1>
+      <p class="govuk-body">If you have a new child, with a parent you already have a child maintenance case with, you'll need to let us know as it will affect the amount of maintenance you receive.</p>
+
+      <p class="govuk-body">You'll need to provide evidence you're supporting another child, for example a copy of benefit payments, a legal document or a letter proving they are in full time education.</p>
+
+      <p class="govuk-body">The change is effective from the date you report it. </p>
+
+ 
+      <form class="form" action="" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Start now
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -32,17 +32,17 @@
         name: "ct-fun",
         items: [
             {
-            value: "Most",
+            value: "More than half the time",
             text: "More than half the time"
 
           },
           {
-            value: "Half",
-            text: "Half of the time"
+            value: "Half the time",
+            text: "Half the time"
 
           },
           {
-            value: "Less",
+            value: "Less than half the time",
             text: "Less than half the time"
 
           },
@@ -60,31 +60,27 @@
             <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
-        paid for {{data['childrentree-whichChild']}}'s hobbies or clubs?
+        paid for {{data['childrentree-whichChild']}}'s regular hobbies or clubs?
       </h2>
 
 
       <form class="form" method="POST" action="items">
       
-          <p class="govuk-body">
-       For example, because one parent is already involved in Bill's hobby
-      </p>
-  
       {{ govukRadios({
         name: "ct-fun-paid",
         items: [
             {
-            value: "Most",
+            value: "More than half the time",
             text: "More than half the time"
 
           },
           {
-            value: "Half",
-            text: "Half of the time"
+            value: "Half the time",
+            text: "Half the time"
 
           },
           {
-            value: "Less",
+            value: "Less than half the time",
             text: "Less than half the time"
 
           }
@@ -98,7 +94,7 @@
       </h2>
 
         <p class="govuk-body">
-       For example, because one parent works shifts so is unable to have them at home
+        For example, because one parent is already involved in Bill's hobby
       </p>
 
        {% set OtherArrangement %}

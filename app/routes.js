@@ -69,11 +69,11 @@ router.use('/', (req, res, next) => {
     router.post(
   '/pages/report-change/children-tree/ct-whichParent',
   function (req, res) {
-    var ctWhichCParent = req.body['childrentree-whichParent']
+    var ctWhichChild = req.body['childrentree-newChild']
 
-    if (ctWhichCParent == "None"){
+    if (ctWhichChild == "Yes"){
   
-      res.redirect('/pages/report-change/children-tree/ct-apply')
+      res.redirect('/pages/report-change/children-tree/ct-whoPays')
       
     } else {
         res.redirect('/pages/report-change/children-tree/new-child/ct-childsName')

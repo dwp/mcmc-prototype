@@ -10,9 +10,9 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Are they a new child you need to receive child maintenance for? </h1>
+      <h1 class="govuk-heading-xl">Who will be making payments for this child? </h1>
 
-      <form class="form" action="ct-whoPays" method="POST">
+      <form class="form" action="ct-addNewChild" method="POST">
 
         {{ govukRadios({
           idPrefix: "childrentree-newChild",
@@ -26,19 +26,19 @@
           },
           items: [
             {
-              value: "Yes",
-              text: "Yes"
+              value: "BrianParent",
+              text: "The other parent of Brian, Ben and 2 others"
             },
             {
-              value: "No",
-              text: "No"
+              value: "Alexparent",
+              text: "The other parent of Alex"
             }
           ]
         }) }}
 
-        {# <div class="govuk-inset-text">
-          Your case with Sophie, Jack and 2 others has now closed. If your new child has the same parents, <a href="#" class="govuk-link">start a new application</a>"
-        </div> #}
+        <div class="govuk-inset-text">
+          You cannot make changes relating to John's Children <br><br> <a href="#" class="govuk-link">Why is this?</a>
+        </div>
 
       <button type="submit" class="govuk-button">
         Continue

@@ -19,8 +19,8 @@
        
           {% set WeeklyHTML %}
        {{ govukInput({
-        id: "howManyAWeek",
-        name: "howManyAWeek",
+        id: "howManyAWeekFoster",
+        name: "howManyAWeekFoster",
         type: "number",
         autocomplete: "number",
         spellcheck: false,
@@ -33,8 +33,8 @@
 
       {% set FortnightlyHTML %}
       {{ govukInput({
-        id: "howManyAFortnight",
-        name: "howManyAFortnight",
+        id: "howManyAFortnightFoster",
+        name: "howManyAFortnightFoster",
         type: "number",
         autocomplete: "number",
         classes: "govuk-!-width-one-third",
@@ -46,8 +46,8 @@
 
       {% set MonthlyHTML %}
       {{ govukInput({
-        id: "howManyAMonth",
-        name: "howManyAMonth",
+        id: "howManyAMonthFoster",
+        name: "howManyAMonthFoster",
         type: "number",
         autocomplete: "number",
         classes: "govuk-!-width-one-third",
@@ -59,8 +59,8 @@
 
       {% set OtherHTML %}
       {{ govukInput({
-        id: "howManyAYear",
-        name: "howManyAYear",
+        id: "howManyAYearFoster",
+        name: "howManyAYearFoster",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third",
@@ -71,7 +71,7 @@
       {% endset -%}
 
       {{ govukRadios({
-        name: "howOften",
+        name: "howOftenFoster",
         items: [
           {
             value: "Never",

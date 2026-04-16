@@ -1,4 +1,5 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/main.njk" %}
+
 
 {% block content %}
 {{ govukBackLink({
@@ -6,6 +7,10 @@
       "href": "javascript: window.history.go(-1)"
     }) 
 }}
+
+
+
+              
 
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -17,7 +22,7 @@
               Child's name
             </dt>
             <dd class="govuk-summary-list__value">
-              Bill, born 5 April 2010
+              {{data['childrentree-whichChild']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -28,7 +33,7 @@
               Date of change
             </dt>
             <dd class="govuk-summary-list__value">
-              03 01 2026
+              {{data['sc-dateOfChange-day']}}{{data['sc-dateOfChange-month']}}{{data['sc-dateOfChange-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
@@ -39,7 +44,23 @@
               Number of regular overnight stays
             </dt>
             <dd class="govuk-summary-list__value">
-              175
+               
+               {% if data['howManyAWeek'] * 52 != 0 %}
+               {{data['howManyAWeek'] * 52}} 
+               {% endif %}
+               
+               {% if data['howManyAFortnight'] * 26 != 0 %}
+               {{data['howManyAFortnight'] * 26}} 
+               {% endif %}
+
+               {% if data['howManyAMonth'] * 12 != 0 %}
+               {{data['howManyAMonth'] * 12}} 
+               {% endif %}
+
+               {% if data['howManyAYear'] * 26 != 0 %}
+               {{data['howManyAFortnight'] * 26}} 
+               {% endif %}
+               
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
