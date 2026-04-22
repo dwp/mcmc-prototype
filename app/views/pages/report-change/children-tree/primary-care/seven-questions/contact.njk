@@ -7,30 +7,32 @@
     }) 
 }}
 
-{% if (data['careDate-month'] === "1" or "01" ) %} 
+{% if (data['careDate-month'] === "1" or data['careDate-month'] === "01" ) %} 
 {% set month = "Jan" %}
-{% elif (data['careDate-month'] === "2" or "02" ) %} 
+{% elif (data['careDate-month'] === "2" or data['careDate-month'] === "02"  ) %} 
 {% set month = "Feb" %}
-{% elif (data['careDate-month'] === "3" or "03" ) %} 
+{% elif (data['careDate-month'] === "3" or data['careDate-month'] === "03" ) %} 
 {% set month = "Mar" %}
-{% elif (data['careDate-month'] === "4" or "04" ) %} 
+{% elif (data['careDate-month'] === "4" or data['careDate-month'] === "04") %} 
 {% set month = "Apr" %}
-{% elif (data['careDate-month'] === "5" or "05" ) %} 
+{% elif (data['careDate-month'] === "5" or data['careDate-month'] === "05") %} 
 {% set month = "May" %}
-{% elif (data['careDate-month'] === "6" or "06" ) %} 
+{% elif (data['careDate-month'] === "6" or data['careDate-month'] === "06") %} 
 {% set month = "Jun" %}
-{% elif (data['careDate-month'] === "7" or "07" ) %} 
+{% elif (data['careDate-month'] === "7" or data['careDate-month'] === "07" ) %} 
 {% set month = "Jul" %}
-{% elif (data['careDate-month'] === "8" or "08" ) %} 
+{% elif (data['careDate-month'] === "8" or data['careDate-month'] === "08" ) %} 
 {% set month = "Aug" %}
-{% elif (data['careDate-month'] === "9" or "09" ) %} 
+{% elif (data['careDate-month'] === "9" or data['careDate-month'] === "09" ) %} 
 {% set month = "Sep" %}
-{% elif (data['careDate-month'] === "10" or "010" ) %} 
+{% elif (data['careDate-month'] === "10" or data['careDate-month'] === "010" ) %} 
 {% set month = "Oct" %}
-{% elif (data['careDate-month'] === "11" or "011" ) %} 
+{% elif (data['careDate-month'] === "11" or data['careDate-month'] === "011" ) %} 
 {% set month = "Nov" %}
-{% elif (data['careDate-month'] === "12" or "012" ) %} 
+{% elif (data['careDate-month'] === "12" or data['careDate-month'] === "012") %} 
 {% set month = "Dec" %}
+{% else %}
+{% set month = "Month" %}
 {% endif %}
 
 	<div class="govuk-grid-row">
@@ -41,9 +43,9 @@
       </h1>
 
       <h2 class="govuk-caption-l">
-        Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}, how often have you
+        Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
       <h2 class="govuk-heading-l">
-        been {{data['childrentree-whichChild']}}'s emergency contact?
+        How often have you been {{data['childrentree-whichChild']}}'s emergency contact?
       </h2>
 
 
