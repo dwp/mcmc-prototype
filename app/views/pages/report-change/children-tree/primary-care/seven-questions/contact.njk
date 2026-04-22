@@ -7,6 +7,32 @@
     }) 
 }}
 
+{% if (data['careDate-month'] === "1" or "01" ) %} 
+{% set month = "Jan" %}
+{% elif (data['careDate-month'] === "2" or "02" ) %} 
+{% set month = "Feb" %}
+{% elif (data['careDate-month'] === "3" or "03" ) %} 
+{% set month = "Mar" %}
+{% elif (data['careDate-month'] === "4" or "04" ) %} 
+{% set month = "Apr" %}
+{% elif (data['careDate-month'] === "5" or "05" ) %} 
+{% set month = "May" %}
+{% elif (data['careDate-month'] === "6" or "06" ) %} 
+{% set month = "Jun" %}
+{% elif (data['careDate-month'] === "7" or "07" ) %} 
+{% set month = "Jul" %}
+{% elif (data['careDate-month'] === "8" or "08" ) %} 
+{% set month = "Aug" %}
+{% elif (data['careDate-month'] === "9" or "09" ) %} 
+{% set month = "Sep" %}
+{% elif (data['careDate-month'] === "10" or "010" ) %} 
+{% set month = "Oct" %}
+{% elif (data['careDate-month'] === "11" or "011" ) %} 
+{% set month = "Nov" %}
+{% elif (data['careDate-month'] === "12" or "012" ) %} 
+{% set month = "Dec" %}
+{% endif %}
+
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -15,7 +41,7 @@
       </h1>
 
       <h2 class="govuk-caption-l">
-        Since {{data['careDate-day'] + ' ' + data['careDate-month'] + ' ' + data['careDate-year']}}, how often have you
+        Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}, how often have you
       <h2 class="govuk-heading-l">
         been {{data['childrentree-whichChild']}}'s emergency contact?
       </h2>
@@ -48,17 +74,17 @@
         name: "ct-contact",
         items: [
           {
-            value: "Most",
+            value: "More than half the time",
             text: "More than half the time"
 
           },
           {
-            value: "Half",
-            text: "Half of the time"
+            value: "Half the time",
+            text: "Half the time"
 
           },
           {
-            value: "Less",
+            value: "Less than half the time",
             text: "Less than half the time"
 
           }
