@@ -35,85 +35,42 @@
 {% set month = "Month" %}
 {% endif %}
 
+
+
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">
-        Essential items
+      <h1 class="govuk-heading-xl">
+        Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}, has  {{data['childrentree-whichChild']}} had any medical appointments?
       </h1>
 
-      <h2 class="govuk-caption-l">
-         Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
-      <h2 class="govuk-heading-l">
-        How often have you provided {{data['childrentree-whichChild']}}'s basic essentials?
-      </h2>
 
-
-      <form class="form" method="POST" action="needMedical">
+      <form class="form" method="POST" action="">
  
 
       <p class="govuk-body">
-       For example, meals, toiletries, school uniform or everyday clothes
+       For example, GP or dentist
       </p>
   
+
       {{ govukRadios({
-        name: "ct-items",
-        items: [
-            {
-            value: "More than half the time",
-            text: "More than half the time"
-
-          },
-          {
-            value: "Half the time",
-            text: "Half the time"
-
-          },
-          {
-            value: "Less",
-            text: "Less than half the time"
-
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-l">
-        Do you need to explain in more detail?
-      </h2>
-
-        <p class="govuk-body">
-       For example, because one parent has a higher income so pays for more items
-      </p>
-
-       {% set OtherArrangement %}
-            {{ govukCharacterCount({
-        name: "ct-items-ft",
-        id: "ct-items-ft",
-        maxlength: 200,
-        label: {
+        name: "needMedical",
+        id: "needMedical",
+        fieldset: {
+          legend: {
             text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        hint: {
-            text: "Explain in more detail"
-        }
-        }) }}
-      {% endset -%}
-
-      {{ govukRadios({
-        name: "howOften",
         items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
           {
             value: "No",
             text: "No"
-          },
-          {
-            value: "Yes",
-            text: "Yes",
-            conditional: {
-              html: OtherArrangement
-            }
           }
         ]
       }) }}

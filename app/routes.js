@@ -119,9 +119,7 @@ router.use('/', (req, res, next) => {
     var ctPerm = req.body['childrentree-userPermanent']
 
     if (ctPerm == "Yes"){
-  
       res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/contact')
-      
     } else if (ctPerm == "No") {
         res.redirect('/pages/report-change/children-tree/primary-care/ct-userPermanentEnd')
     } else {
@@ -144,6 +142,55 @@ router.use('/', (req, res, next) => {
         res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanentEnd')
     }
   });
+
+     router.post(
+  '/pages/report-change/children-tree/primary-care/seven-questions/needChildcare',
+  function (req, res) {
+    var ctPerm = req.body['needChildcare']
+
+    if (ctPerm == "Yes"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/childcare')
+      
+    } else if (ctPerm == "No") {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/items')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/needChildcare')
+    }
+  });
+
+       router.post(
+  '/pages/report-change/children-tree/primary-care/seven-questions/needMedical',
+  function (req, res) {
+    var ctPerm = req.body['needMedical']
+
+    if (ctPerm == "Yes"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/medical')
+      
+    } else if (ctPerm == "No") {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/futureMedical')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/needMedical')
+    }
+  });
+
+      router.post(
+  '/pages/report-change/children-tree/primary-care/seven-questions/needFun',
+  function (req, res) {
+    var ctPerm = req.body['needFun']
+
+    if (ctPerm == "Yes"){
+  
+      res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/fun')
+      
+    } else if (ctPerm == "No") {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/benefit')
+    } else {
+        res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/needFun')
+    }
+  });
+
 
 
     

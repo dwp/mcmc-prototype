@@ -39,42 +39,23 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Emergency contact
+        Medical care 
       </h1>
 
       <h2 class="govuk-caption-l">
-        Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
+        How often do you expect to
       <h2 class="govuk-heading-l">
-        How often have you been {{data['childrentree-whichChild']}}'s emergency contact?
+        arrange and take {{data['childrentree-whichChild']}} to any medical appointments?
       </h2>
 
 
-    
-      <form class="form" method="POST" action="../.dayTime">
-      
-             {# {% set OtherArrangementMeals %}
-            {{ govukCharacterCount({
-        name: "costMeals",
-        id: "costMeals",
-        maxlength: 200,
-        label: {
-            text: "",
-            classes: "govuk-label--l",
-            isPageHeading: false
-        },
-        hint: {
-            text: "For example, for school or a childminder"
-        }
-        }) }}
-      {% endset -%} #}
-       <p class="govuk-body">
-       For example, for school or a childminder 
-      </p>
-
+      <form class="form" method="POST" action="needFun">
+ 
+  
       {{ govukRadios({
-        name: "ct-contact",
+        name: "ct-medical",
         items: [
-          {
+           {
             value: "More than half the time",
             text: "More than half the time"
 
@@ -89,6 +70,7 @@
             text: "Less than half the time"
 
           }
+
         ]
       }) }}
 
@@ -98,13 +80,13 @@
       </h2>
 
         <p class="govuk-body">
-       For example, because one parent works from home so is more available to take calls
+       For example, because one parent lives closer to {{data['childrentree-whichChild']}}'s GP surgery
       </p>
 
        {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "ct-contact-ft",
-        id: "ct-contact-ft",
+        name: "ct-medical-ft",
+        id: "ct-medical-ft",
         maxlength: 200,
         label: {
             text: "",

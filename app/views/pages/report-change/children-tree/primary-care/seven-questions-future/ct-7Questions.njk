@@ -11,46 +11,21 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-        Child benefit
+        Day-to-day responsibility
       </h1>
-
+    
       <h2 class="govuk-heading-l">
-        Do you receive Child Benefit for {{data['childrentree-whichChild']}}?
+        Who is most often responsible for Bill's day-to-day care when they are not at school?
       </h2>
 
+      <form class="form" method="POST" action="regularCosts">
+      
+   
 
-      <form class="form" method="POST" action="financial">
-
-  
-      {{ govukRadios({
-        name: "ct-benefit",
-        items: [
-          {
-            value: "No",
-            text: "No"
-          },
-          {
-            value: "Yes",
-            text: "Yes"
-
-          }
-        ]
-      }) }}
-
-
-
-      <h2 class="govuk-heading-l">
-        Do you need to explain in more detail?
-      </h2>
-
-        <p class="govuk-body">
-       For example, because one parent is not eligible
-      </p>
-
-       {% set OtherArrangement %}
+      {% set OtherArrangement %}
             {{ govukCharacterCount({
-        name: "ct-benefit-ft",
-        id: "ct-benefit-ft",
+        name: "withHint",
+        id: "with-hint",
         maxlength: 200,
         label: {
             text: "",
@@ -58,7 +33,7 @@
             isPageHeading: false
         },
         hint: {
-            text: "Explain in more detail"
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
         }
         }) }}
       {% endset -%}
@@ -67,12 +42,25 @@
         name: "howOften",
         items: [
           {
-            value: "No",
-            text: "No"
+            value: "Me",
+            text: "I am"
           },
           {
-            value: "Yes",
-            text: "Yes",
+            value: "Other",
+            text: "The other parent is"
+
+          },
+          {
+            value: "equally",
+            text: "We are equally responsible for Bill during the day when not at school"
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
             conditional: {
               html: OtherArrangement
             }
