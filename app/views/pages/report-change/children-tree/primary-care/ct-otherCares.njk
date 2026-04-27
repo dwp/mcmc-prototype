@@ -16,14 +16,18 @@
       <form class="form" action="ct-otherDayToDayDate" method="POST">
 
     {% set textHtml %}
-    {{ govukInput({
-      id: "otherRelationship-ft",
-      name: "otherRelationship-ft",
-      type: "tel",
-      autocomplete: "tel",
-      classes: "govuk-!-width-one-third",
+
+      {{ govukCharacterCount({
+      name: "withHint",
+      id: "with-hint",
+      maxlength: 30,
       label: {
-        text: "What is their relationship"
+        text: "What is their relationship?",
+        classes: "govuk-label--l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "For example, family friend"
       }
     }) }}
     {% endset -%}

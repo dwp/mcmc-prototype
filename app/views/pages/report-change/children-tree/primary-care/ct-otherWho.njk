@@ -14,27 +14,15 @@
 
  
       <form class="form" action="ct-otherCares" method="POST">
-        {{ govukInput({
-            label: {
-              text: "First name",
-              classes: "govuk-label--m",
-              isPageHeading: false
-            },
-            classes: "govuk-!-width-one-half",
-            id: "other-firstName",
-            name: "other-firstName"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Last name",
-              classes: "govuk-label--m",
-              isPageHeading: false
-            },
-            classes: "govuk-!-width-one-half",
-            id: "other-lastName",
-            name: "other-lastName"
-          }) }}
+       {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        id: "other-firstName",
+        name: "other-firstName",
+        autocomplete: "name",
+        spellcheck: false
+      }) }}
 
       <button type="submit" class="govuk-button">
         Continue

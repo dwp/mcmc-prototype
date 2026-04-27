@@ -139,7 +139,7 @@ router.use('/', (req, res, next) => {
     } else if (ctPerm == "No") {
         res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanentEnd')
     } else {
-        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanentEnd')
+        res.redirect('/pages/report-change/children-tree/primary-care/ct-otherPermanent')
     }
   });
 
