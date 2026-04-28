@@ -42,14 +42,19 @@
         Essential items
       </h1>
 
-      <h2 class="govuk-caption-l">
+           {% if (month === "May" or month === "Apr" ) %} 
+      <h2 class="govuk-heading-l">
+       How often do you expect to provide {{data['childrentree-whichChild']}}'s basic essentials?
+      </h2>
+      <form class="form" method="POST" action="medical">
+      {% else %}
+        <h2 class="govuk-caption-l">
          Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
       <h2 class="govuk-heading-l">
         How often have you provided {{data['childrentree-whichChild']}}'s basic essentials?
       </h2>
-
-
       <form class="form" method="POST" action="needMedical">
+      {% endif %}
  
 
       <p class="govuk-body">

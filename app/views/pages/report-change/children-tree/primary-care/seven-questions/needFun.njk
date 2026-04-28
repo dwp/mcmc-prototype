@@ -40,9 +40,16 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+
+      {% if (month === "May" or month === "Apr" ) %} 
       <h1 class="govuk-heading-xl">
+       Does {{data['childrentree-whichChild']}} do any regular hobbies or clubs?
+      </h2>
+      {% else %}
+     <h1 class="govuk-heading-xl">
         Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}, has {{data['childrentree-whichChild']}} done any regular hobbies or clubs?
       </h1>
+      {% endif %}
 
 
       <form class="form" method="POST" action="">

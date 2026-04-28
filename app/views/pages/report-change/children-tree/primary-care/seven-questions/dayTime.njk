@@ -42,11 +42,17 @@
         Day time responsibility 
       </h1>
 
-      <h2 class="govuk-caption-l">
+       {% if (month === "May" or month === "Apr" ) %} 
+      <h2 class="govuk-heading-l">
+       How often do you expect to be responsible for {{data['childrentree-whichChild']}} during the day outside of nursery, school or college hours?
+      </h2>
+      {% else %}
+     <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
       <h2 class="govuk-heading-l">
         How often have you been responsible for {{data['childrentree-whichChild']}} during the day outside of nursery, school or college hours?
       </h2>
+      {% endif %}
 
 
     

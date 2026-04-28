@@ -42,11 +42,18 @@
         Emergency contact
       </h1>
 
+      {% if (month === "May" or month === "Apr" ) %} 
+      <h2 class="govuk-heading-l">
+       How often do you expect to be {{data['childrentree-whichChild']}}'s emergency contact?
+      </h2>
+      {% else %}
       <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
       <h2 class="govuk-heading-l">
         How often have you been {{data['childrentree-whichChild']}}'s emergency contact?
       </h2>
+      {% endif %}
+
 
 
   

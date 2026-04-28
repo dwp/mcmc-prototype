@@ -42,11 +42,18 @@
         Medical care 
       </h1>
 
-      <h2 class="govuk-caption-l">
+    
+       {% if (month === "May" or month === "Apr" ) %} 
+      <h2 class="govuk-heading-l">
+       How often do you expect to be arrange and take {{data['childrentree-whichChild']}} to any medical appointments?
+      </h2>
+      {% else %}
+     <h2 class="govuk-caption-l">
         Since {{data['careDate-day'] + ' '}} {{ month }} {{' ' + data['careDate-year']}}
       <h2 class="govuk-heading-l">
         How often have you arranged and taken {{data['childrentree-whichChild']}} to any medical appointments?
       </h2>
+      {% endif %}
 
 
       <form class="form" method="POST" action="needFun">
