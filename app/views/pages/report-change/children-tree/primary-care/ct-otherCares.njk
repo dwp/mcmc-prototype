@@ -10,7 +10,7 @@
 	<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">What is {{data['other-firstName']}}'s relationship to {{data['childrentree-whichChild']}} </h1>
+      <h1 class="govuk-heading-xl">What is {{data['other-firstName']}}'s relationship to {{data['childrentree-whichChild']}}? </h1>
       
  
       <form class="form" action="ct-otherDayToDayDate" method="POST">
@@ -18,8 +18,8 @@
     {% set textHtml %}
 
       {{ govukCharacterCount({
-      name: "withHint",
-      id: "with-hint",
+      name: "otherRelationship-ft",
+      id: "otherRelationship-ft",
       maxlength: 30,
       label: {
         text: "What is their relationship?",
@@ -41,10 +41,7 @@
           isPageHeading: false,
           classes: "govuk-fieldset__legend--l"
         }
-      },
-      hint: {
-        text: "Select one option"
-      },
+      }
       items: [
         {
           value: "Grandparent",
