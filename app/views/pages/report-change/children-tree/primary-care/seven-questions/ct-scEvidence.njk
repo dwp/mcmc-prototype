@@ -47,6 +47,8 @@
         <li>calendar entries</li>
       </ul>
 
+      <form class="form" action="ct-declaration" method="POST">
+
         {{ govukCheckboxes({
         name: "consent",
         fieldset: {
@@ -64,9 +66,11 @@
         ]
       }) }}
 
-      <button type="submit" class="govuk-button" onclick="myFunction()">
+      <button type="submit" class="govuk-button">
         Continue
       </button>
+
+      </form>
 
 	  </div>
 	  </div>
