@@ -1,0 +1,37 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  You have decided not to ask us to look at our decision again
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            You have decided not to ask us to look at our decision again
+          </h1>
+
+          <ul class="govuk-list">
+            <li>
+              <a class="govuk-link" href="track-your-change-requests">Return to track changes</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="../../welcome">Return to home</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Ask us to start looking at the decision again
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Ask us to start looking at the decision again
+          </h1>
+
+          <p class="govuk-body">
+            We give you 7 days to upload any evidence after you ask us to look at a decision again.
+          </p>
+
+          <p class="govuk-body">
+            If you are sure you have no more evidence to upload, you can ask us to start looking at the decision again before the 7 days have passed.
+          </p>          
+
+          <form action="mr-straight-away-answer" method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    Are you ready for us to start looking at the decision again?
+                  </h2>
+                </legend>
+                
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-straight-away" name="mr-straight-away" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="mr-straight-away">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-straight-away-2" name="mr-straight-away" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="mr-straight-away-2">
+                      No, I still have evidence to upload
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

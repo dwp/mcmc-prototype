@@ -1,0 +1,43 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  You need to report a new change
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            You need to report a new change
+          </h1>
+
+          <p class="govuk-body">
+            If the circumstances have changed again, we need you to report a new change.
+          </p>
+
+          <p class="govuk-body">
+            This is different from asking us to look at a decision again.
+          </p>
+
+          <form action="#" method="post">
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

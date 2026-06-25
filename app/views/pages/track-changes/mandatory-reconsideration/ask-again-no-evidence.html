@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Ask us to look at the decision again without new information or evidence
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Ask us to look at the decision again without new information or evidence
+          </h1>
+
+          <p class="govuk-body">
+            You have told us the information and evidence we used to make the decision is correct.
+          </p>
+
+          <p class="govuk-body">
+            We can still look at the change again, but we may not make a different decision.
+          </p>          
+
+          <form action="mr-no-evidence-answer" method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    Do you still want us to look at our decision again?
+                  </h2>
+                </legend>
+                
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-no-evidence" name="mr-no-evidence" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="mr-no-evidence">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-no-evidence-2" name="mr-no-evidence" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="mr-no-evidence-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

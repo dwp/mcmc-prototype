@@ -1,0 +1,72 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check the information we used to make our decision
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Check the information we used to make our decision
+          </h1>
+
+          <p class="govuk-body">
+            We sent you a letter on 2 June telling you our decision about the change. 
+          </p>
+
+          <p class="govuk-body">
+            The letter explains why we made this decision using the information we had.
+          </p>
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">View letter (opens in new tab)</a>
+          </p>          
+
+          <form action="mr-correct-information-answer" method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-heading-m govuk-!-margin-top-6">
+                    Was the information we used to make our decision correct?
+                  </h2>
+                </legend>
+                
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-correct-information" name="mr-correct-information" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="mr-correct-information">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="mr-correct-information-2" name="mr-correct-information" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="mr-correct-information-2">
+                      No, I need to update the information
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

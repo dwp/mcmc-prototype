@@ -1,0 +1,108 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income in your case for Bobby and 1 more
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../../welcome">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="track-your-change-requests">Track changes</a>
+        </li>        
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Change details</li>
+      </ol>
+    </div>
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          
+          <h1 class="govuk-heading-xl">
+            Change of income in your case for Bobby and 1 more
+          </h1>
+
+          {{govukTag({
+            text: "Rejected",
+            classes: "govuk-tag--red govuk-!-margin-bottom-6"
+          })}}
+
+          <p class="govuk-body">
+            You can ask us to <a href="have-your-circumstances-changed" class="govuk-link">look at this decision again</a> until 20 July 2026.
+          </p>
+
+          <h2 class="govuk-heading-l govuk-!-margin-top-8">
+            Progress
+          </h2>      
+
+        </div>
+      </div>
+
+      <div class="cmg-timeline">
+        <div class="cmg-timeline__item">
+          <div class="cmg-timeline__header">
+            <h3 class="govuk-heading-m cmg-timeline__title">
+              Change happened on
+            </h3>
+          </div>
+          <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">2 May 2026</p>
+        </div>
+
+        <div class="cmg-timeline__item">
+          <div class="cmg-timeline__header">
+            <h3 class="govuk-heading-m cmg-timeline__title">
+              Reported on
+            </h3>
+          </div>
+          <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">2 June 2026</p>
+        </div>
+
+        <div class="cmg-timeline__item">
+          <div class="cmg-timeline__header">
+            <h3 class="govuk-heading-m cmg-timeline__title">
+              Decision made on
+            </h3>
+          </div>
+          <p class="govuk-body cmg-timeline__date govuk-!-margin-top-3">6 July 2026</p>
+          <p class="govuk-body">
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">View letter (opens in new tab)</a>
+          </p>
+        </div>
+        
+      </div>
+
+      <br><br><br>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Uploaded evidence
+          </h1>
+
+          <p class="govuk-body">We put all of the evidence you upload at a time into one file and change the name.</p>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">File </th>
+                <th scope="col" class="govuk-table__header">File upload date</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="#" class="govuk-link">File 1</a></th>
+                <td class="govuk-table__cell">2 June 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

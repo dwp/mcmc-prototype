@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Update the information for this change
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Update the information for this change
+          </h1>
+
+          <p class="govuk-body">Use the following questions to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>correct information you think was wrong</li>
+            <li>confirm information you think was right</li>
+          </ul>
+
+          <p class="govuk-body">
+            We will use this updated information when we look at the decision again.
+          </p>
+
+          <form action="confirmation-new-information" method="post">
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

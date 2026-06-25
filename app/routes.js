@@ -189,7 +189,74 @@ router.use('/', (req, res, next) => {
     } else {
         res.redirect('/pages/report-change/children-tree/primary-care/seven-questions/needFun')
     }
-  });
+});
+
+
+
+
+///// NEW ROUTES SINCE 25.06.26 /////
+
+// MANDATORY RECONSIDERATION JOURNEY
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-change-circs-answer', function(request, response) {
+
+    var changeCircs = request.session.data['mr-change-circs']
+    if (changeCircs == "no"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/ask-us-to-look-again")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/report-new-change")
+    }
+})
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-look-again-answer', function(request, response) {
+
+    var lookAgain = request.session.data['mr-look-again']
+    if (lookAgain == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/check-information")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
+    }
+})
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-correct-information-answer', function(request, response) {
+
+    var correctInfo = request.session.data['mr-correct-information']
+    if (correctInfo == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/check-evidence")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/update-information")
+    }
+})
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-new-evidence-answer', function(request, response) {
+
+    var newEvidence = request.session.data['mr-new-evidence']
+    if (newEvidence == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/confirmation-new-evidence")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/ask-again-no-evidence")
+    }
+})
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-no-evidence-answer', function(request, response) {
+
+    var noEvidence = request.session.data['mr-no-evidence']
+    if (noEvidence == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/confirmation-no-evidence")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
+    }
+})
+
+router.post('/pages/track-changes/mandatory-reconsideration/mr-straight-away-answer', function(request, response) {
+
+    var straightAway = request.session.data['mr-straight-away']
+    if (straightAway == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/confirmation-straight-away")
+    } else {
+        response.redirect("/pages/messages/upload-documents")
+    }
+})
 
 
 

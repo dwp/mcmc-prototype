@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  We have received your evidence
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            We have received your evidence
+          </h1>
+        </div>
+
+        <p class="govuk-body">
+          You gave us this evidence because you asked us to look at this decision again: <strong>Child adopted</strong> which happened on <strong>4 February 2026</strong>.
+        </p>
+
+        <h2 class="govuk-heading-m">What you need to do</h2>
+
+        <p class="govuk-body">
+          If you have more evidence about this change, <a href="#" class="govuk-link">upload it</a> by 13 July 2026. It may take up to 20 minutes for the change to appear.
+        </p>
+        <p class="govuk-body">
+          If you are sure you will not have any more evidence to upload, you can <a href="ask-again-straight-away" class="govuk-link">ask us to start looking at the decision straight away</a>.
+        </p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">We will:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>look at the decision again as a mandatory reconsideration - this will take x days</li>
+          <li>tell you the progress we have made on our decision in <a href="#" class="govuk-link">track changes</a> - the change may take up to 20 minutes to update</li>
+          <li>send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and the effect on your payments</li>
+        </ul>
+
+        <p class="govuk-body">
+          <a href="../../welcome" class="govuk-link">Return to home</a>
+        </p>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
