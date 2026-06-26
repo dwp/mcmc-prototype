@@ -15,11 +15,17 @@
   {% elseif (data['nino'] === "RP123456B") %}
   <p class="govuk-body"><a href="/pages/welcome-rp-B" class="govuk-back-link">Back to Home</a></p>
   {% else %}
-  <p class="govuk-body"><a href="/pages/welcome" class="govuk-back-link">Back to Home</a></p>
-  {% endif %}
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../../welcome">Home</a>
+        </li>    
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Track changes</li>
+      </ol>
+    </div>  {% endif %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">Track Changes</h1>
       <p class="govuk-body">Track the progress of a change you have reported. Your report will be dealt with as soon as possible, usually within 4 weeks. It may take longer, for example, if we need to contact the other parent or evidence is required.</p>
       <p class="govuk-body">You will not be able to view the progress of any enforcement action we are taking to recover unpaid child maintenance.</p>
@@ -101,16 +107,37 @@
               value: "report-rejected",
               text: "Rejected",
               checked: data.rejected
-            }
+            },
+            {
+              value: "report-disputed",
+              text: "Disputed",
+              checked: data.disputed
+            }             
           ]
         }) }}
 
-        <a class="govuk-link block govuk-!-margin-bottom-6" href="">Clear all filters</a>
+        {{ govukCheckboxes({
+          idPrefix: "report-evidence-status",
+          name: "report-evidence-status",
+          fieldset: {
+            legend: {
+              text: "Evidence",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "report-evidence-uploaded",
+              text: "Evidence uploaded",
+              checked: data.evidence-uploaded
+            }         
+          ]
+        }) }}        
 
         {{ govukButton({
           text: "Apply filter",
           element: "input",
-          classes: "govuk-button--secondary"
+          classes: "govuk-button"
         }) }}
 
       </form>
@@ -118,6 +145,17 @@
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-m">5 Changes</h2>
       <ul class="track-changes-result-list govuk-list">
+        <li class="track-changes-result-list__change-item">
+          {{ govukTag({
+            text: "Rejected",
+            classes: "govuk-tag--red right"
+          }) }}
+          <a href="/pages/track-changes/mandatory-reconsideration/change-details" class="govuk-body govuk-link bold">Change of income in your case for Bobby and 1 more</a>
+          <p class="govuk-body track-changes-result-list__change-details">
+            <span class="submitted">Submitted: 2 June 2026</span>
+            <span class="updated">Updated: 6 July 2026</span>
+          </p>
+        </li>
         <li class="track-changes-result-list__change-item">
           {{ govukTag({
             text: "Received",
@@ -167,17 +205,6 @@
           <p class="govuk-body track-changes-result-list__change-details">
             <span class="submitted">Submitted: 31 March 2025</span>
             <span class="updated">Updated: 4 April 2025</span>
-          </p>
-        </li>
-        <li class="track-changes-result-list__change-item">
-          {{ govukTag({
-            text: "Rejected",
-            classes: "govuk-tag--red right"
-          }) }}
-          <a href="/pages/track-changes/timeline-v3/change-rejected" class="govuk-body govuk-link bold">Additional Income for Chris</a>
-          <p class="govuk-body track-changes-result-list__change-details">
-            <span class="submitted">Submitted: 10 March 2025</span>
-            <span class="updated">Updated: 2 April 2025</span>
           </p>
         </li>
       </ul>
