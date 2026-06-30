@@ -1,0 +1,71 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Which of these do you have?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript:history.back()"
+      }) 
+    }}
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form action="triage-answer" method="post">
+            <div class="govuk-form-group {% if error %} govuk-form-group--error{% endif %}">
+              <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    Which of these do you have?
+                  </h1>
+                </legend>
+
+                {% if error %}
+                  <p id="countries-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span>
+                    Select either one or both options below, or select 'Neither of these'
+                  </p>
+                {% endif %}
+
+                <div id="triage-hint" class="govuk-hint">
+                  Select all that apply
+                </div>
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="triage-option" name="triage-option" type="checkbox" value="information">
+                    <label class="govuk-label govuk-checkboxes__label" for="triage-option">
+                      New or updated information to report
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="triage-option-2" name="triage-option" type="checkbox" value="evidence">
+                    <label class="govuk-label govuk-checkboxes__label" for="triage-option-2">
+                      New evidence to upload
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__divider">or</div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="triage-option-3" name="triage-option" type="checkbox" value="none" data-behaviour="exclusive">
+                    <label class="govuk-label govuk-checkboxes__label" for="triage-option-3">
+                      Neither of these
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </form>          
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

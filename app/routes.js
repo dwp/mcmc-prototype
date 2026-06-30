@@ -212,7 +212,7 @@ router.post('/pages/track-changes/mandatory-reconsideration/mr-look-again-answer
 
     var lookAgain = request.session.data['mr-look-again']
     if (lookAgain == "yes"){
-        response.redirect("/pages/track-changes/mandatory-reconsideration/check-information")
+        response.redirect("/pages/track-changes/mandatory-reconsideration/triage")
     } else {
         response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
     }
@@ -257,6 +257,58 @@ router.post('/pages/track-changes/mandatory-reconsideration/mr-straight-away-ans
         response.redirect("/pages/messages/upload-documents")
     }
 })
+
+router.post('/pages/track-changes/mandatory-reconsideration/report-change-answer', function(request, response) {
+
+    var reportChange = request.session.data['stillWantReport']
+    if (reportChange == "yes"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/confirmation-new-information")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
+    }
+})
+
+// TRIAGE PAGE ROUTING
+
+router.post('/pages/track-changes/mandatory-reconsideration/triage-answer', function (request, response) {
+
+  const options = request.session.data['triage-option'] || []
+
+  const hasNone = options.includes('none')
+  const hasOtherOption =
+    options.includes('information') ||
+    options.includes('evidence')
+
+  // Invalid combination
+  if (hasNone && hasOtherOption) {
+    return response.render(
+      'pages/track-changes/mandatory-reconsideration/triage',
+      {
+        error: true
+      }
+    )
+  }
+
+  if (hasNone) {
+    return response.redirect('/pages/track-changes/mandatory-reconsideration/ask-again-no-evidence')
+  }
+
+  if (options.includes('information')) {
+    return response.redirect('/pages/track-changes/mandatory-reconsideration/update-information')
+  }
+
+  if (options.includes('evidence')) {
+    return response.redirect('/pages/track-changes/mandatory-reconsideration/upload-new-evidence')
+  }
+
+  response.render(
+    'pages/track-changes/mandatory-reconsideration/triage',
+    {
+      error: true
+    }
+  )
+})
+
 
 
 
