@@ -84,14 +84,9 @@
           },
           items: [
             {
-              value: "report-completed",
-              text: "Completed",
-              checked: data.completed
-            },
-            {
-              value: "report-evidence-requested",
-              text: "Evidence Requested",
-              checked: data.evidence_requested
+              value: "report-received",
+              text: "Received",
+              checked: data.received
             },
             {
               value: "report-in-progress",
@@ -99,9 +94,14 @@
               checked: data.in_progress
             },
             {
-              value: "report-received",
-              text: "Received",
-              checked: data.received
+              value: "report-evidence-requested",
+              text: "Evidence Requested",
+              checked: data.evidence_requested
+            },
+            {
+              value: "report-accepted",
+              text: "Accepted",
+              checked: data.accepted
             },
             {
               value: "report-rejected",
@@ -112,6 +112,16 @@
               value: "report-challenged",
               text: "Challenged",
               checked: data.challenged
+            },
+            {
+              value: "report-updated-decision",
+              text: "Updated Decision",
+              checked: data.updated_decision
+            },
+            {
+              value: "report-cancelled",
+              text: "Cancelled",
+              checked: data.cancelled
             }             
           ]
         }) }}

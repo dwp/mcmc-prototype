@@ -208,13 +208,24 @@ router.post('/pages/track-changes/mandatory-reconsideration/mr-change-circs-answ
     }
 })
 
+
+router.post('/pages/track-changes/mandatory-reconsideration/ask-us-to-look-again', function(request, response) {
+
+    var askLookAgain = request.session.data['ask-look-again']
+    if (askLookAgain == "no"){
+        response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
+    } else {
+        response.redirect("/pages/track-changes/mandatory-reconsideration/decision-by-automated-system")
+    }
+})
+
 router.post('/pages/track-changes/mandatory-reconsideration/mr-look-again-answer', function(request, response) {
 
     var lookAgain = request.session.data['mr-look-again']
     if (lookAgain == "yes"){
         response.redirect("/pages/track-changes/mandatory-reconsideration/triage")
     } else {
-        response.redirect("/pages/track-changes/mandatory-reconsideration/decided-not-to-ask")
+        response.redirect("/pages/track-changes/mandatory-reconsideration/triage")
     }
 })
 
