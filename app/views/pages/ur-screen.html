@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/partials/account-menu.njk" %}
+     {% include "includes/partials/whatsNew-menu.njk" %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <h1 class="govuk-heading-xl">
+ For user research only
+</h1>
+        <form action="/pay-or-receive-answer" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you pay or receive child maintenance?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="PayorReceive" name="PayorReceive" type="radio" value="pay">
+                  <label class="govuk-label govuk-radios__label" for="PayorReceive">
+                    Pay
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="PayorReceive-2" name="PayorReceive" type="radio" value="receive">
+                  <label class="govuk-label govuk-radios__label" for="PayorReceive-2">
+                    Receive
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
