@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/pages/report-change/children-tree/rp/roc-cifba/children-on-record" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Who financially supports the child?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="moreFinancial" name="moreFinancial" type="radio" value="bill">
+        <label class="govuk-label govuk-radios__label" for="moreFinancial">
+          The parent who pays for Bill, Ben and 2 others
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="moreFinancial-2" name="moreFinancial" type="radio" value="alex">
+        <label class="govuk-label govuk-radios__label" for="moreFinancial-2">
+          The parent who pays for Alex
+        </label>
+      </div>
+    </div>
+  </fieldset>                                                                                                                                                                                          
+</div>
+<div>
+  <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      You cannot make changes relating to any other parent's children 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+  <p class="govuk-body">You cannot report changes to a child if:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>we are still processing your child maintenance application</li>
+    <li>they are no longer eligible for child maintenance</li>
+    <li>the case they are in is closed</li>
+  </ul>   
+  </div>
+</details>
+</div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

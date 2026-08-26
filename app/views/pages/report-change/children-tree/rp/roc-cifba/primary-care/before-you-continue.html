@@ -1,0 +1,97 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/welcome-rp">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/index-rp">Report a change</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/children-tree/index-rp">Children</a>
+    </li>
+        <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Primary care</a>
+    </li>
+  </ol>
+</nav>
+
+
+<h1 class="govuk-heading-xl">Before you continue</h1>
+
+<div>
+  <p class="govuk-body">You are telling us the other parent of Bob and 2 others has stopped financially supporting a child.
+  </p>
+<div>
+<p class="govuk-body">This could be because the other parent or their partner has either stopped:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>being the main carer for a child</li>
+  <li>making payments privately to another main carer outside the Child Maintenance Service</li>
+</ul>
+</div>
+<div>
+<h1 class="govuk-heading-m">Asking the other parent</h1>
+</div>
+<p class="govuk-body">We will ask the other parent about Bill's day-to-day care and make our decision using the information we have from both of you.
+</p>
+<div>
+<h1 class="govuk-heading-m">Sending evidence</h1>
+</div>
+<div>
+<p class="govuk-body">
+  You should send evidence if you can. This will support your change in case you and the other parent disagree. We will ask you to upload it to your account within 7 days of reporting the change.
+<br>
+</br>
+  If you do not have evidence, you can still report the change and we will make a decision using the information we have.
+<br>
+</br>
+  If you and the other parent agree on the change, we do not need to look at your evidence.
+</p>
+</div>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What we can accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Examples of what we can accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>legal documents - for example, a court order</li>
+  <li>communication showing your day-to-day responsibility - for example, letter from your child's GP</li>
+  <li>records of money you have spent on your child's care - for example, receipts</li>
+</ul>
+    <p class="govuk-body">We cannot accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>communication that is only between you and the other parent</li>
+  <li>photos of your child</li>
+  <li>screenshots of social media</li>
+  <li>calendar entries</li>
+</ul>
+  </div>
+</details>
+<div>
+<h1 class="govuk-heading-m">Your payments may change</h1>
+</div>
+<div>
+<p class="govuk-body">RThe change you report may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

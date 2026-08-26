@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<div>
+<h1 class="govuk-heading-xl">Your child maintenance payments will change</h1>
+</div>
+
+<div>
+<p class="govuk-body">
+You are telling us you have stopped being the main day-to-day carer for Bill- born 6 Sep 2017, Bob and Ben.
+</p>
+</div>
+
+<div>
+<p class="govuk-body">If you continue:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the other parent will no longer have to make regular payments for these children, but will have to pay any money they owe you in arrears</li>
+  <li>The children's new main day-to-day carer can apply to receive child maintenance and you may have to make regular payments instead</li>
+</ul>
+</div>
+
+<div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

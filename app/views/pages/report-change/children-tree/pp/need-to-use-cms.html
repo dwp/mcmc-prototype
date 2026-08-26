@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/need-to-use-cms-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Do you financially support the child outside of the Child Maintenance Service?
+      </h1>
+    </legend>
+    <div>
+      <p class="govuk-body">
+      This could be by:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+       <li>living with them</li>
+       <li>making payments to their main carer in a private arrangement</li>
+      </ul>
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="useCms" name="useCms" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="useCms">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="useCms-2" name="useCms" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="useCms-2">
+          No, I need to use the Child Maintenance Service
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<div>
+<h1 class="govuk-heading-xl">Your child maintenance payments may change</h1>
+</div>
+
+<div>
+<p class="govuk-body">
+You are telling us you have has stopped financially supporting Bill, Betty and Ben.
+</p>
+</div>
+
+<div>
+<p class="govuk-body">This could be because you or your partner have either stopped:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>being the main carer for these children</li>
+  <li>making payments privately to another main carer outside the Child Maintenance Service</li>
+</ul>
+</div>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    If you continue, the child or children you have stopped financially supporting will not be included in your payment calculation.
+  </strong>
+</div>
+
+<div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

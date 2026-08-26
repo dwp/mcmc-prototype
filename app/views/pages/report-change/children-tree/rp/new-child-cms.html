@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+  <a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/pay-outside-cms-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Are they a new child you need to receive child maintenance payments for?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="outsideCms" name="outsideCms" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="outsideCms">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="outsideCms-2" name="outsideCms" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="outsideCms-2">
+          No, the paying parent financially supports them outside the Child Maintenance Service
+        </label>
+    </div>
+    <br>
+    <div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+  </div>
+  </fieldset>                                                                                                                                                                                 
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

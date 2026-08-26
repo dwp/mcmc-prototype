@@ -1,0 +1,28 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+ <h1 class="govuk-heading-xl">You cannot make changes relating to any other parent's children
+ </h1> 
+<div>
+  <p class="govuk-body">You cannot report changes to a child if:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>we are still processing your child maintenance application</li>
+    <li>they are no longer eligible for child maintenance</li>
+    <li>the case they are in is closed</li>
+  </ul>                                                                                                                                                                          
+</div>
+</div>
+
+{% endblock %}

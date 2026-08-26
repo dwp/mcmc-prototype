@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<div>
+<h1 class="govuk-heading-xl">You need to make a new application</h1>
+</div>
+
+<p class="govuk-body">
+  You can only add a new child to your online account if you already use it to receive payments from their other parent.
+<br>
+</br>
+  To start receiving payments from a different parent or carer, <a href="#" class="govuk-link">get help arranging child maintenance.<a>
+</p>
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Return to homepage
+</button>
+
+{% endblock %}

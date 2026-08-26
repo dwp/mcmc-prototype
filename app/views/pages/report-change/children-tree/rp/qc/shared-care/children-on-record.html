@@ -1,0 +1,74 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/pages/report-change/children-tree/rp/qc/shared-care/before-you-continue" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        What we currently have on record
+      </h1>
+    </legend>
+    <div id="waste-hint" class="govuk-hint">
+  <p class="govuk-body">
+    We have on record that Bill stays with the other parent between 104 and 155 nights a year. This is an average of 2 nights a week.
+   <br>
+  </br>
+   We only need to know if Bill starts staying with the other parent:
+</p>
+    <div>
+    <ul class="govuk-list govuk-list--bullet">
+     <li>less than 104 nights a year (average of 1 night a week)</li>
+     <li>more than 155 nights a year (average of 3 nights a week)</li>
+    </ul>
+  </div>
+  <div>
+    <a href="#" class="govuk-link">See how changes to overnight shared care affect your payments (opens in new tab).
+    </a>
+  </div>
+</div>
+  <div>
+  <h2 class="govuk-heading-m">Do you need to change what we have on record?
+  </h2>
+</div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="childOnRecord" name="childOnRecord" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="childOnRecord">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="childOnRecord-2" name="childOnRecord" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="childOnRecord-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>                                                                                                                                                                                          
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

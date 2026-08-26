@@ -1,0 +1,57 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/who-gets-payments-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Who will be receiving payments for this child?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whoReceives" name="whoReceives" type="radio" value="multi">
+        <label class="govuk-label govuk-radios__label" for="whoReceives">
+          The other parent of Bill, Bob and 2 others 
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whoReceives-2" name="whoReceives" type="radio" value="two">
+        <label class="govuk-label govuk-radios__label" for="whoReceives-2">
+          The other parent of Alex and Alice
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whoReceives-3" name="whoReceives" type="radio" value="someone">
+        <label class="govuk-label govuk-radios__label" for="whoReceives-3">
+          Someone else
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

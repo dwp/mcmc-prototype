@@ -1,0 +1,88 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/welcome-pp">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/index-pp">Report a change</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/children-tree/index-pp">Children</a>
+    </li>
+        <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Education</a>
+    </li>
+  </ol>
+</nav>
+
+<div>
+ <h1 class="govuk-heading-xl">When do Child Maintenance payments end?</h1> 
+</div>
+<div>
+  <p class="govuk-body">
+  Regular ongoing child maintenance payments end when the child leaves approved education or training, and the eligibility for Child Benefit stops.
+  <br>
+  </br>
+  For children leaving education in summer, Child Benefit usually stops at the end of August.
+  <br>
+  </br>
+For more information, visit <a href="#" class="govuk-link">when does Child Maintenance stop (opens in a new tab).</a>
+  </p>                                                                                                                                                                        
+</div>
+
+<div>
+<h2 class="govuk-heading-m">
+When your child leaves education
+</h2>
+</div>
+<div>
+<p class="govuk-body">
+You do not need to contact the Child Maintenance Service.
+<br>
+</br>
+HMRC will tell us when the eligibility for a child benefit ends, this is normally when a child leaves approved education or training.
+<br>
+</br>
+We will then contact you and either:
+<ul class="govuk-list govuk-list--bullet">
+ <li>recalculate your child maintenance if there are other qualifying children on your case, or there is unpaid child maintenance (arrears)</li>
+ <li>close your case if your child is the last and only qualifying child on your case</li>
+ </ul>
+</p>
+<div>
+<p class="govuk-body">
+You can report changes to your child's circumstances by visiting <a href="#" class="govuk-link">report changes to child benefit (opens in a new tab).</a>
+</p>
+</div>
+
+<div>
+<h2 class="govuk-heading-m">
+If you do not know the situation or Child Benefit is not being paid
+</h2> 
+</div>
+<div>
+<p class="govuk-body">
+  You can tell us when a child <a href="#" class="govuk-link">leaves approved education or training (opens in a new tab).</a>
+</p>
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</div>
+
+{% endblock %}

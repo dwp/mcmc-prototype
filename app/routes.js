@@ -320,7 +320,227 @@ router.post('/pages/track-changes/mandatory-reconsideration/triage-answer', func
   )
 })
 
+// 2026 UR screen routing - change to children entry points
 
+router.post('/pay-or-receive-answer', function(request, response) {
+
+    var country = request.session.data['PayorReceive']
+    if (country == "pay"){
+        response.redirect("/pages/welcome-pp")
+    } else {
+        response.redirect("/pages/welcome-rp")
+    }
+})
+
+router.post('/which-child-answer-pp', function (req, res) {
+    var ctWhichChild = req.body['childrentree-whichChild']
+
+    if (ctWhichChild == "New"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/which-other-child')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/pp/qc/what-has-changed')
+    }
+  });
+
+  router.post('/which-other-child-answer', function (req, res) {
+    var whichOtherChild = req.body['whichOtherChild']
+
+    if (whichOtherChild == "new"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/need-to-use-cms')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/pp/roc-cifba/what-has-changed')
+    }
+  });
+
+router.post('/need-to-use-cms-answer', function (req, res) {
+    var useCms = req.body['useCms']
+
+    if (useCms == "yes"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/roc-cifba/supporting-another-child')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/pp/qc/who-will-receive-payments')
+    }
+  });
+
+router.post('/who-gets-payments-answer', function (req, res) {
+    var whoReceives = req.body['whoReceives']
+
+    if (whoReceives == "someone"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/qc/new-application')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/pp/qc/before-you-continue')
+    }
+  });
+
+router.post('/what-changed-pp-answer',function (req, res) {
+    var whatChanged = req.body['whatChanged']
+
+    if (whatChanged == "finance"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/roc-cifba/primary-care/change-multi-children')
+      
+    } else if (whatChanged == "adoption") {
+      
+      res.redirect('/pages/report-change/children-tree/adoption')
+   
+    } else {
+        res.redirect('/pages/report-change/children-tree/fte')
+    }
+  });
+
+router.post('/what-changed-qc-pp-answer',function (req, res) {
+    var whatChangedQCPP = req.body['whatChangedQCPP']
+
+    if (whatChangedQCPP == "overnight"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/qc/shared-care/change-multi-children')
+
+    } else if (whatChangedQCPP == "main") {
+      
+      res.redirect('/pages/report-change/children-tree/pp/qc/primary-care/change-multi-children')
+         
+    } else if (whatChangedQCPP == "adopted") {
+      
+      res.redirect('/pages/report-change/children-tree/adoption')
+   
+    } else {
+        res.redirect('/pages/report-change/children-tree/fte')
+    }
+  });
+
+router.post('/which-child-answer-rp', function (req, res) {
+    var ctWhichChild2 = req.body['childrentree-whichChild2']
+
+    if (ctWhichChild2 == "New"){
+  
+      res.redirect('/pages/report-change/children-tree/rp/new-child-cms')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/rp/qc/what-has-changed')
+    }
+  });
+
+ router.post('/what-changed-qc-rp-answer',function (req, res) {
+    var whatChangedQCRP = req.body['whatChangedQCRP']
+
+    if (whatChangedQCRP == "overnight"){
+  
+      res.redirect('/pages/report-change/children-tree/rp/qc/shared-care/change-multi-children')
+
+    } else if (whatChangedQCRP == "carer") {
+      
+      res.redirect('/pages/report-change/children-tree/rp/qc/primary-care/change-multi-children')
+         
+    } else if (whatChangedQCRP == "adoption") {
+      
+      res.redirect('/pages/report-change/children-tree/adoption')
+   
+    } else {
+        res.redirect('/pages/report-change/children-tree/fte')
+    }
+  });
+
+router.post('/pay-outside-cms-answer', function (req, res) {
+    var outsideCms = req.body['outsideCms']
+
+    if (outsideCms == "yes"){
+  
+      res.redirect('/pages/report-change/children-tree/rp/qc/who-will-make-payments')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/rp/roc-cifba/who-financially-supports')
+    }
+  });
+
+
+router.post('/who-pays-answer', function (req, res) {
+  var whoPays = req.body['whoPays']
+
+  if (whoPays == "someone"){
+  
+    res.redirect('/pages/report-change/children-tree/rp/qc/new-application')
+         
+  } else {
+        res.redirect('/pages/report-change/children-tree/rp/qc/before-you-continue')
+   }
+  });
+
+router.post('/child-on-record-answer', function (req, res) {
+  var childOnRecord = req.body['childOnRecord']
+
+  if (childOnRecord == "yes"){
+  
+    res.redirect('/pages/report-change/children-tree/rp/roc-cifba/what-has-changed')
+         
+  } else {
+        res.redirect('/pages/report-change/children-tree/rp/roc-cifba/supporting-another-child')
+   }
+  });
+
+router.post('/change-other-children-answer', function (req, res) {
+  var changeOtherChild = req.body['changeOtherChild']
+
+  if (changeOtherChild == "yes"){
+  
+    res.redirect('/pages/report-change/children-tree/rp/roc-cifba/what-has-changed')
+         
+    } else {
+        res.redirect('/pages/report-change/children-tree/supporting-another-child')
+   }
+  });
+
+  router.post('/what-changed-rp-answer',function (req, res) {
+    var whatChangedRP = req.body['whatChangedRP']
+
+    if (whatChangedRP == "finance"){
+  
+      res.redirect('/pages/report-change/children-tree/rp/roc-cifba/primary-care/before-you-continue')
+      
+    } else if (whatChangedRP== "adoption") {
+      
+      res.redirect('/pages/report-change/children-tree/adoption')
+   
+    } else {
+        res.redirect('/pages/report-change/children-tree/fte')
+    }
+  });
+
+  router.post('/what-changed-qc-rp-answer',function (req, res) {
+    var whatChanged = req.body['whatChanged']
+
+    if (whatChanged == "finance"){
+  
+      res.redirect('/pages/report-change/children-tree/change-multi-children')
+      
+    } else if (whatChanged == "adoption") {
+      
+      res.redirect('/pages/report-change/children-tree/adoption')
+   
+    } else {
+        res.redirect('/pages/report-change/children-tree/fte')
+    }
+  });
+
+  router.post('/main-carer-answer',function (req, res) {
+    var mainCarer = req.body['mainCarer']
+
+    if (mainCarer == "me"){
+  
+      res.redirect('/pages/report-change/children-tree/pp/qc/primary-care/before-you-continue')
+      
+    } else {
+      
+      res.redirect('#')
+    }
+  });
 
 
 

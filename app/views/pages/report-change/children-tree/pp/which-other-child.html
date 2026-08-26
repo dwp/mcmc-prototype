@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/which-other-child-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Which of these other children are you telling us about?
+      </h1>
+    </legend>
+    <div id="contact-hint" class="govuk-hint">
+      Report changes to each child separately
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichOtherChild" name="whichOtherChild" type="radio" value="brian">
+        <label class="govuk-label govuk-radios__label" for="whichOtherChild">
+          Brian
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichOtherChild-2" name="whichOtherChild" type="radio" value="brenda">
+        <label class="govuk-label govuk-radios__label" for="whichOtherChild-2">
+          Brenda
+        </label>
+      </div>
+      <div class="govuk-radios__divider">or</div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whichOtherChild-3" name="whichOtherChild" type="radio" value="new">
+        <label class="govuk-label govuk-radios__label" for="whichOtherChild-3">
+          A new child
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

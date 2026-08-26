@@ -1,0 +1,68 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/what-changed-qc-pp-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        What has changed?
+      </h1>
+    </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whatChangedQCPP" name="whatChangedQCPP" type="radio" value="overnight">
+        <label class="govuk-label govuk-radios__label" for="whatChangedQCPP">
+         How many nights Bill stays overnight with you
+        </label>
+          <div id="signIn-hint" class="govuk-hint govuk-radios__hint">
+           This is known as shared care
+          </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whatChangedQCPP-2" name="whatChangedQCPP" type="radio" value="main">
+        <label class="govuk-label govuk-radios__label" for="whatChangedQCPP-2">
+         The other parent has stopped being Bill's main day-to-day carer
+        </label>
+          <div id="signIn-hint" class="govuk-hint govuk-radios__hint">
+           This is known as primary care
+          </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whatChangedQCPP-3" name="whatChangedQCPP" type="radio" value="adopted">
+        <label class="govuk-label govuk-radios__label" for="whatChangedQCPP-3">
+          Bill has been adopted
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whatChangedQCPP-4" name="whatChangedQCPP" type="radio" value="education">
+        <label class="govuk-label govuk-radios__label" for="whatChangedQCPP-4">
+          Bill has left full time education
+        </label>
+      </div>
+    </div>
+  </fieldset>                                                                                                                                                                                          
+</div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

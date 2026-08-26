@@ -1,0 +1,83 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<div>
+<h1 class="govuk-heading-xl">Before you continue</h1>
+</div>
+<div>
+<p class="govuk-body">You are telling us you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>have a new child you need to receive payments for</li>
+  <li>you already have Brian and 2 others with their other parent</li>
+</ul>
+</div>
+<div>
+<p class="govuk-body">You will need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>your child's full name</li>
+  <li>the date your child was born</li>
+</ul>
+</div>
+<div>
+<h1 class="govuk-heading-m">Asking the other parent</h1>
+</div>
+<p class="govuk-body">We will ask the other parent about your new child and make our decision using the information we have from both of you.
+</p>
+<div>
+<h1 class="govuk-heading-m">Sending evidence</h1>
+</div>
+<p class="govuk-body">You should send evidence to show you are eligible to receive child maintenance. Evidence will also support your answers in case the other parent disagrees.
+  <br>
+</br>
+We will ask you to upload the evidence to your account within 14 days of reporting the new child.
+<br>
+</br>
+If you do not have evidence, you can still report the child and we will make a decision using the information we have.
+</p>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What we can accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">We can only accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>evidence of Child Benefit payments, for example bank statements</li>
+  <li>evidence the child is in full time education, for example a legal document or letter</li>
+</ul>
+    <p class="govuk-body">We cannot accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>communication that is only between you and the other parent</li>
+  <li>photos of your child</li>
+  <li>screenshots of social media</li>
+  <li>calendar entries</li>
+</ul>
+  </div>
+</details>
+<div>
+<h1 class="govuk-heading-m">Your payments may change</h1>
+</div>
+<div>
+<p class="govuk-body">Reporting a new child may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

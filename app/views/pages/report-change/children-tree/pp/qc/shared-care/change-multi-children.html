@@ -1,0 +1,54 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/pages/report-change/children-tree/pp/qc/shared-care/children-on-record" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Do you need to report the same change for all these children?
+      </h1>
+    </legend>
+  <div>
+    <ul class="govuk-list govuk-list--bullet">
+     <li>Bill - Born 6 Sep 2017</li>
+     <li>Bob</li>
+     <li>Alex</li>
+    </ul>
+  </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="allChildren" name="allChildren" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="allChildren">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="allChildren-2" name="allChildren" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="allChildren-2">
+          No, only Bill - born 5 Apr 2010
+        </label>
+      </div>
+    </div>
+  </fieldset>                                                                                                                                                                                          
+</div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

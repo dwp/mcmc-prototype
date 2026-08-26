@@ -1,0 +1,57 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+        <form class="form" action="/child-on-record-answer" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Children we already have on record
+      </h1>
+    </legend>
+    <div id="waste-hint" class="govuk-hint">
+  <p class="govuk-body">We already know this parent financially supports 2 other children outside of the Child Maintenance Service
+  </p>
+  <h2 class="govuk-heading-l">Are you telling us about a change to one of these other children?
+  </h2>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="childOnRecord" name="childOnRecord" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="childOnRecord">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="childOnRecord-2" name="childOnRecord" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="childOnRecord-2">
+          No, the parent is financially supporting a new child
+        </label>
+      </div>
+    </div>
+  </fieldset>                                                                                                                                                                                          
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
