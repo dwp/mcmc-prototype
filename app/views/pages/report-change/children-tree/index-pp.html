@@ -1,5 +1,9 @@
 {% extends "layouts/layout.njk" %}
 
+{% block beforeContent %}
+    {% include "includes/partials/account-menu-rp.njk" %}
+{% endblock %}
+
 {% block content %}
 {{ govukBackLink({
       "text": "Back",
