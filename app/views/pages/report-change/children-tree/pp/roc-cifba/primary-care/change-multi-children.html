@@ -5,6 +5,9 @@
   {% include "includes/header.njk" %}
   {% endblock %}
 
+{% block beforeContent %}
+    {% include "includes/partials/account-menu-pp.njk" %}
+{% endblock %}
 
 {% block content %}
 
@@ -23,7 +26,6 @@
     <ul class="govuk-list govuk-list--bullet">
      <li>Jade</li>
      <li>Joe</li>
-     <li>Jasmine</li>
     </ul>
   </div>
     <div class="govuk-radios" data-module="govuk-radios">

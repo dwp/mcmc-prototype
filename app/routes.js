@@ -320,7 +320,7 @@ router.post('/pages/track-changes/mandatory-reconsideration/triage-answer', func
   )
 })
 
-// 2026 UR screen routing - change to children entry points
+// 2026 ENTRY POINTS - change to children entry points
 
 router.post('/pay-or-receive-answer', function(request, response) {
 
