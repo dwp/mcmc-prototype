@@ -13,11 +13,11 @@
       <h1 class="govuk-heading-xl">Which child do you need to tell us about?</h1>
       <p class="govuk-body">Report changes to each child separately</p>
 
-      <form class="form" action="/which-child-answer-rp" method="POST">
+      <form class="form" action="/which-child-answer-pp" method="POST">
 
         {{ govukRadios({
-          idPrefix: "childrentree-whichChild2",
-          name: "childrentree-whichChild2",
+          idPrefix: "childrentree-whichChild",
+          name: "childrentree-whichChild",
           fieldset: {
             legend: {
               text: "",
@@ -25,32 +25,32 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
- items: [
-    {
-      value: "Bill",
-      text: "Bill - Born 5 Apr 2010"
-    },
-    {
-      value: "Bill",
-      text: "Bill - Born 6 Sep 2017"
-    },
-    {
-      value: "Bob",
-      text: "Bob"
-    },
-    {
-      value: "Alex",
-      text: "Alex"
-    },
-    {
-      divider: "or"
-    },
-    {
-      value: "New",
-      text: "Another child"
-    }
-  ]
-}) }}
+          items: [
+          {
+            value: "George",
+            text: "George - Born 5 Apr 2010"
+          },
+          {
+            value: "George",
+            text: "George - Born 6 Sep 2017"
+          },
+          {
+            value: "Olivia",
+            text: "Olivia"
+          },
+          {
+            value: "Alex",
+            text: "Alex"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "New",
+            text: "Another child"
+          }
+        ]
+      }) }}
 
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 

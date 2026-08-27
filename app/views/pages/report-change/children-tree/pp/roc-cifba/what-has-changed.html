@@ -26,19 +26,19 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whatChanged" name="whatChanged" type="radio" value="finance">
         <label class="govuk-label govuk-radios__label" for="whatChanged">
-         I have stopped financially supporting Bill
+         I have stopped financially supporting {{ data['whichOtherChild'] }}
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whatChanged-2" name="whatChanged" type="radio" value="adoption">
         <label class="govuk-label govuk-radios__label" for="whatChanged-2">
-          Bill has been adopted
+          {{ data['whichOtherChild'] }} has been adopted
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whatChanged-3" name="whatChanged" type="radio" value="education">
         <label class="govuk-label govuk-radios__label" for="whatChanged-3">
-          Bill has left full time education
+          {{ data['whichOtherChild'] }} has left full time education
         </label>
       </div>
     </div>
