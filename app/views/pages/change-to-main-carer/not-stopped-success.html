@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            We have received your response 
+          </h1>
+        </div>
+        <p class="govuk-body">You have told us you have not stopped financially supporting any children.</p>
+        <h2 class="govuk-heading-m">What you need to do</h2>
+        <p class="govuk-body">
+         If you have evidence, <a class="govuk-link" href="#">upload it</a> by 14 February.
+        </p>
+        <p class="govuk-body">
+         If you do not have evidence, you do not need to do anything else for now.
+        </p>
+        
+        <h2 class="govuk-heading-m">What happens next</h2>
+         <p class="govuk-body">We will:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>look at the information we have</li>
+            <li>tell you the progress we have made on our decision in <a class="govuk-link" href="#">track changes</a></li>
+            <li>send you a letter in <a class="govuk-link" href="#">notifications</a> to let you know about any changes and the effect on your payments</li>
+          </ul>
+
+        <p class="govuk-body">You should continue with your regular payment amount unless we tell you otherwise.</p>
+
+        <p class="govuk-body">If you need help, <a class="govuk-link" href="#">contact us.</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+  <form action="declaration" method="post">
+
+<div>
+ <h1 class="govuk-heading-xl">We need to ask you for evidence</h1> 
+</div>
+
+<div>
+<p class="govuk-body">Sending us evidence will support your response.</p>
+</div>
+
+<div>
+<p class="govuk-body">Your evidence should show that you financially support the following children:</p>
+<ul class="govuk-list govuk-list--bullet">
+ <li>Jade</li>
+ <li>Jasmine- born 8 April 2010</li>
+ <li>Jasmine- born 6 Sep 2017</li>
+</ul>
+</div>
+
+<div>
+<p class="govuk-body">You will have until 5 November 2026 to upload evidence through your online account.</p>
+</div>
+
+<div>
+<h2 class="govuk-heading-l">If you do not have evidence</h2>
+<p class="govuk-body">You can still continue to respond and we will make our decision using the information we have already.</p>
+</div>
+
+<div>
+<h2 class="govuk-heading-l">Evidence you can send</h2>
+</div>
+
+<div>
+<h3 class="govuk-heading-m">For a child or children who live with you or your partner</h3>
+</div>
+
+<div>
+<p class="govuk-body">If you or your partner receive Child Benefit for the child or children, we can accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+ <li>‘proof of entitlement’ from HM Revenue and Customs</li> 
+ <li>a Child Benefit award notice</li>
+ <li>bank statements showing your Child Benefit payments</li>
+</ul>
+</div>
+
+<div>
+<p class="govuk-body">If you or you partner have chosen not to receive Child Benefit, for example because of your income, we can accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>‘proof of entitlement’ from HM Revenue and Customs</li>
+  <li>payslips</li>
+</ul>
+</div>
+
+<div>
+<h3 class="govuk-heading-m">For a child or children you support in a private arrangement</h3>
+</div>
+
+<div>
+<h4 class="govuk-heading-s">Evidence of regular payments</h4>
+</div>
+
+<div>
+<p class="govuk-body">You should send evidence showing regular payments made to support the child, for example bank statements.</p>
+</div>
+
+<div>
+<h4 class="govuk-heading-s">Evidence of your private arrangement</h4>
+<ul class="govuk-list govuk-list--bullet">
+ <li>You should also send evidence that you have a private arrangement. We can accept any of the following:</li>
+ <li>a UK court order</li>
+ <li>a written maintenance agreement drawn up by a solicitor</li>
+ <li>an informal written agreement signed by you and the parent receiving your private payments</li>
+</ul>
+</div>
+
+<div>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If the child lives abroad
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We can accept any of the following:
+    <ul class="govuk-list govuk-list--bullet">
+     <li>a foreign court order</li>
+     <li>a liability order set under a foreign state's child support scheme</li>
+  </div>
+</details>
+</div>
+
+<div>
+<h3 class="govuk-heading-m">We cannot accept</h3>
+<ul class="govuk-list govuk-list--bullet">
+ <li>photos of your child</li>
+ <li>screenshots of social media</li>
+ <li>calendar entries</li>
+</ul>
+</div>
+
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="accept" name="accept" type="checkbox" value="accept">
+    <label class="govuk-label govuk-checkboxes__label" for="accept">
+       I have noted which evidence you can accept
+  </label>
+</div>
+<br>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</div>
+
+{% endblock %}

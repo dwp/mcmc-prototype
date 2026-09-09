@@ -1,0 +1,43 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+<form action="have-you-stopped" method="post">
+<div>
+ <h1 class="govuk-heading-xl">Respond to a change to financially supporting a child</h1> 
+</div>
+<div>
+  <p class="govuk-body">We have been told you have stopped financially supporting a child.</p>
+</div>
+<div>
+  <p class="govuk-body">This could be because you or your partner have either stopped:</p>
+  <ul class="govuk-list govuk-list--bullet">
+ <li>being the main carer for a child</li>
+ <li>making payments privately to another main carer outside the Child Maintenance Service</li>
+  </ul>
+</div>
+<div>
+  <p>You need to tell us if you agree by 14 Feb 2026.</p>
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</div>
+
+{% endblock %}

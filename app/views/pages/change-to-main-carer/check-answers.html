@@ -1,0 +1,190 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+  {% set monthNames = {
+  "1": "January",
+  "2": "February",
+  "3": "March",
+  "4": "April",
+  "5": "May",
+  "6": "June",
+  "7": "July",
+  "8": "August",
+  "9": "September",
+  "10": "October",
+  "11": "November",
+  "12": "December"
+} %}
+
+{% block content %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+      <form action="declaration" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            
+            <!--IF DATE IS SAME FOR ALL CHILDREN-->
+
+            {% if data['sameStop'] == "yes" %}
+            <dt class="govuk-summary-list__key">
+              Children's name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['rocName'][0] }} <br>
+              {{ data['rocName'][1] }} <br>
+              {{ data['rocName'][2] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="which-child">Change<span class="govuk-visually-hidden"> child's name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of change
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['child-all-day'] }}
+              {{ monthNames[data['child-all-month']] }}  
+              {{ data['child-all-year'] }}              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="when-did-you-stop-same">Change<span class="govuk-visually-hidden"> date of change</span></a>
+            </dd>
+          </div>
+            {% else %}
+
+            <!--IF ONLY 1 CHILD SELECTED AND DATE IS DIFFERENT-->
+
+              {% if data['rocName'] is string %}
+            <dt class="govuk-summary-list__key">
+              Child's name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['rocName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="which-child">Change<span class="govuk-visually-hidden"> child's name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of change
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['child1-day'] }}
+              {{ monthNames[data['child1-month']] }}  
+              {{ data['child1-year'] }}              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="when-did-you-stop">Change<span class="govuk-visually-hidden"> date of change</span></a>
+            </dd>
+          </div>
+              {% else %}
+
+            <!--IF MULTIPLE CHILDREN SELECTED AND DIFFERENT STOP DATES-->
+              
+            <dt class="govuk-summary-list__key">
+              Children's name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {% if data['rocName'] is string %}
+              {{ data['rocName'] }}
+            {% elseif data['rocName'].length == 2 %}
+              {{ data['rocName'][0] }}<br>{{ data['rocName'][1] }}
+            {% elseif data['rocName'].length == 3 %}
+              {{ data['rocName'][0] }}<br>{{ data['rocName'][1] }}<br>{{ data['rocName'][2] }}
+            {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="which-child">Change<span class="govuk-visually-hidden"> child's name</span></a>
+            </dd>
+          </div>
+            {% endif %}
+
+            <!--ONLY SHOW THESE IF MULTIPLE DATES OF CHANGES-->
+              {% if not data['rocName'] is string %}
+                {% if data['child1-day'] %} 
+
+            <!--FIRST CHILD-->
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['rocName'][0] }}'s date of change
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['child1-day'] }}
+                    {{ monthNames[data['child1-month']] }}  
+                    {{ data['child1-year'] }}              
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="when-did-you-stop">Change<span class="govuk-visually-hidden"> {{ data['rocName'][0] }}'s date of change</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
+              <!--SECOND CHILD-->
+
+                {% if data['child2-day'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['rocName'][1] }}'s date of change
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['child2-day'] }}
+                    {{ monthNames[data['child2-month']] }}  
+                    {{ data['child2-year'] }}              
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="when-did-you-stop-2">Change<span class="govuk-visually-hidden"> {{ data['rocName'][1] }}'s date of change</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
+              <!--THIRD CHILD-->
+
+                {% if data['child3-day'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['rocName'][2] }}'s date of change
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['child3-day'] }}
+                    {{ monthNames[data['child3-month']] }}  
+                    {{ data['child3-year'] }}              
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="when-did-you-stop-3">Change<span class="govuk-visually-hidden"> {{ data['rocName'][2] }}'s date of change</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+                {% endif %}
+
+              {% endif %}
+
+        </dl>
+        <form action="/form-handler" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+
+{% endblock %}

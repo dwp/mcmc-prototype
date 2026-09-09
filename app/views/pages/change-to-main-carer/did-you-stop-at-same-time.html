@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+<div class="govuk-form-group">
+   <form action="/same-stop-answer" method="post">
+  <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Did you stop financially supporting all of these children on the same date?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sameStop" name="sameStop" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="sameStop">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sameStop-2" name="sameStop" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="sameStop-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+</div>
+
+{% endblock %}

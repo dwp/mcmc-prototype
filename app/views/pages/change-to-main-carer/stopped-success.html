@@ -1,0 +1,53 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            We have received your response 
+          </h1>
+        </div>
+        <p class="govuk-body">You have told us you have stopped financially supporting 
+          
+            {% if data['rocName'] is string %}
+              {{ data['rocName'] }}.
+            {% elseif data['rocName'].length == 2 %}
+              {{ data['rocName'][0] }} and {{ data['rocName'][1] }}.
+            {% elseif data['rocName'].length == 3 %}
+              {{ data['rocName'][0] }}, {{ data['rocName'][1] }} and {{ data['rocName'][2] }}.
+            {% endif %}
+ 
+        </p>
+
+        <h2 class="govuk-heading-m">What you need to do</h2>
+         <p class="govuk-body">We will:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>process the change- it may take at least a few minutes for it to update in track changes</li>
+            <li>send you a letter in <a class="govuk-link" href="#">notifications</a> to confirm and let you know the effect on your payments</li>
+          </ul>
+
+        <p class="govuk-body">You should continue with your regular payment amount until we have confirmed any changes.</p>
+
+        <p class="govuk-body">If you need help, <a class="govuk-link" href="#">contact us.</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
