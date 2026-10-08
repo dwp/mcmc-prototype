@@ -1,0 +1,46 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Before you continue</h1>
+      <p class="govuk-body">If you know it, have ready:</p>
+       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>the name of {{data['childrentree-whichChild']}}'s new main carer</li>
+        <li>the date {{data['childrentree-whichChild']}}'s main carer changed</li>
+        <li>details of why {{data['childrentree-whichChild']}}'s day-to-day care has changed</li>
+        <li>how long you expect the change to last</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Asking the other parent</h2>
+      <p class="govuk-body">We will ask the other parent the same questions and compare your answers to make a decision.</p>
+
+      <h2 class="govuk-heading-l">Sending evidence</h2>
+      <p class="govuk-body">If you have evidence for the change to {{data['childrentree-whichChild']}}'s main carer, we will ask you to send it to us after reporting the change. </p>
+
+      <h2 class="govuk-heading-l">Your payments may change</h2>
+      <p class="govuk-body">The change you report may affect your child maintenance payments. </p>
+
+      {# <div class="govuk-inset-text">
+        <a href="#" class="govuk-link">How main day-to-day care affects payments</a>
+      </div>  #}
+
+ 
+      <form class="form" action="ct-otherWho" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

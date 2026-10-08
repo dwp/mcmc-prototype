@@ -1,0 +1,28 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Declaration</h1>
+
+      <p class="govuk-body">Before sending this request you confirm that:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the information is correct and complete as far as you know</li>
+        <li>you'll report any changes that might affect how much child maintenance you pay or receive</li>
+      </ul>
+      
+      <a href="rp-income-confirmation" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Confirm and send
+      </a>
+{% endblock %}

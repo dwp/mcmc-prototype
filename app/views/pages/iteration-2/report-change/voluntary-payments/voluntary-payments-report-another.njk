@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Do you want to report another voluntary payment for the same case?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/report-change/voluntary-payments/voluntary-payments-report-another" method="post" novalidate>
+          <h1 class="govuk-heading-xl">Do you want to report another voluntary payment for the same case?</h1> 
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "f-addAnother",
+            name: "addAnotherYesNo",
+            items: [
+              {
+                value: "Yes",
+                text: t.common.yes | safe,
+                checked: checked("addAnotherYesNo", "Yes")
+              },
+              {
+                value: "No",
+                text: t.common.no | safe,
+                checked: checked("addAnotherYesNo", "No")
+              }
+            ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

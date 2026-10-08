@@ -1,0 +1,91 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Pensions</span>
+      <h1 class="govuk-heading-xl">Have you been paid your pension yet?</h1>
+     
+      <form method="post">
+        <div>
+      {% set pensionNo %}
+      {{ govukDateInput({
+                id: "pensionYes",
+                namePrefix: "pensionNo",
+              fieldset: {
+                  legend: {
+                    text: "When will you first be paid your pension?"
+                  }
+                },
+                hint: {
+                    text: "For example, 27 3 2007"
+                }
+                }) }}
+
+      {% endset -%}
+
+       {% set pensionYes %}
+      {{ govukDateInput({
+                id: "pensionYes",
+                namePrefix: "pensionYes",
+              fieldset: {
+                  legend: {
+                    text: "When were you first paid your pension?"
+                  }
+                },
+                hint: {
+                    text: "For example, 27 3 2007"
+                }
+                }) }}
+
+      {% endset -%}
+
+      {{ govukRadios({
+            idPrefix: "pensionReceived",
+            name: "pensionReceived",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: pensionYes
+                }
+              },
+              {
+                value: "No",
+                text: "No",
+                conditional: {
+                  html: pensionNo
+                }
+              }
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

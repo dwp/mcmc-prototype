@@ -1,0 +1,158 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      <h2 class="govuk-heading-m">Case: Chloe and 1 more</h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can you speak to the other parent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['speakOtherParent'] }} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp4-can-you-speak-to-other-parent">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you want to continue to report a missed or partial payment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['continueToReport'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp5-date-of-payment">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Since 21 December 2021 have you received the full amount of expected child maintenance
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fullAmount'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp6-full-amount">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of first missed or partial payment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['firstMissedPaymentDay'] }}/{{ data['first-missed-payment-month'] }}/{{ data['first-missed-payment-year'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp7-date-of-first-missed">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Have you received any child maintenance since {{ data['first-missed-payment-day'] }}/{{ data['first-missed-payment-month'] }}/{{ data['first-missed-payment-year'] }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['receivedAny'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp8-have-you-received-any">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you still want to change to collect and pay
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['stillCTST'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp9-recovering-maintenance">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Bank account name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['name-on-account'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp11-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Bank sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['sort-code'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp11-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['account-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp11-bank-account">
+              Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Building society roll number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['roll-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp11-bank-account">
+              Change</a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/pages/report-change/payments/missed-or-partial-payment/mp14-declaration"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

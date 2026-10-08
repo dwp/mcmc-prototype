@@ -1,0 +1,72 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/partials/account-menu.njk" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/welcome-rp">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/index-rp">Report a change</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/children-tree/index-rp">Children</a>
+    </li>
+        <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Primary care</a>
+    </li>
+  </ol>
+</nav>
+
+<dev>
+ <strong class="govuk-tag govuk-tag--yellow">
+    Content TBC
+ </strong>
+</dev>
+<br>
+</br>
+
+<h1 class="govuk-heading-xl">Before you continue</h1>
+
+<div>
+  <p class="govuk-body">You are telling us the other parent of {{ data['whoPays'] }} has stopped financially supporting a child.
+  </p>
+<div>
+<p class="govuk-body">This could be because the other parent or their partner has either stopped:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>being the main carer for a child</li>
+  <li>making payments privately to another main carer outside the Child Maintenance Service</li>
+</ul>
+</div>
+<div>
+<h2 class="govuk-heading-l">Asking the other parent</h2>
+</div>
+<p class="govuk-body">We will ask the other parent if they have stopped financially supporting a child and make our decision using the information we have from both of you.
+</p>
+<div>
+<h2 class="govuk-heading-l">Your payments may change</h2>
+</div>
+<div>
+<p class="govuk-body">The change you report may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

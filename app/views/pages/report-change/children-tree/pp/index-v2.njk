@@ -21,7 +21,8 @@
       Report changes to each child separately
     </div>
     <div>
-    <h2 class="govuk-heading-l">Children you pay Child Maintenance for</h2>
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Children you pay child maintenance for
+    </legend>
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
@@ -42,11 +43,10 @@
           Alex
         </label>
       </div>
-       <div class="govuk-radios__divider">or</div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="cmsChild-3" name="cmsChild" type="radio" value="abroad">
         <label class="govuk-label govuk-radios__label" for="cmsChild-3">
-          A child you need to add to Child Maintenance
+          A new child you need to pay Child Maintenance for
         </label>
       </div>
     </div>
@@ -54,7 +54,8 @@
 </div>
 
     <div>
-    <h2 class="govuk-heading-l">Other children you financially support</h2>
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Other children you financially support
+    </legend>
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
@@ -75,15 +76,33 @@
           Jasmine
         </label>
       </div>
-       <div class="govuk-radios__divider">or</div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="cmsChild-7" name="cmsChild" type="radio" value="a new child you financially support">
         <label class="govuk-label govuk-radios__label" for="cmsChild-7">
           A new child you financially support
         </label>
+      <div id="cms-child-hint" class="govuk-hint govuk-radios__hint">
+          By living with them or in a private arrangement
+        </div>
       </div>
   </fieldset>
   <br>
+
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% call govukDetails({
+  summaryText: "When you cannot report changes to a child"
+}) %}
+<div>
+  <p class="govuk-body">You cannot report changes to a child if:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>we are still processing your child maintenance application</li>
+    <li>they are no longer eligible for child maintenance</li>
+    <li>the case they are in is closed</li>
+  </ul>   
+  </div>
+  {% endcall %}
+  
 <div>
       <button type="submit" class="govuk-button">
         Continue

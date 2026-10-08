@@ -1,0 +1,43 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Reporting a change to overnight shared care</h1>
+      <h1 class="govuk-heading-l">We will ask for evidence</h1>
+      <p class="govuk-body">After you have finished reporting, we will ask the other parent about the change. If the other parent does not agree with what you report, we will look at your evidence.</p>
+      <p class="govuk-body">We only accept:</p>
+       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>A current court order</li>
+        <li>A formal agreement<br><p class="govuk-hint">for example drawn up by a solicitor<p></li>
+        <li>Another official document <br><p class="govuk-hint">for example reports from Children and Family Court Advisory and Support Service (CAFCASS) or social services<p></li>
+      </ul>
+
+      <p class="govuk-body">You can still report the change if you do not have any of these types of evidence. But we may not be able to accept the change if the other parent does not agree.</p>
+
+      <h2 class="govuk-heading-l">Your payments may change</h2>
+
+      <p class="govuk-body">We use shared care to work out your payments. If we approve the change, you may end up needing to pay a different amount for Bill.</p>
+
+      <p class="govuk-body"><a href="#" class="govuk-link">How shared care affects child maintenance payments</a></p>
+
+      <br>
+      
+      <form class="form" action="../shared-care/ct-overnightStays" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

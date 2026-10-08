@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          We have received your request
+        </h1>
+      </div>
+
+      <h2 class="govuk-heading-l">What happens next</h2>
+
+      <p class="govuk-body">We'll review your request.  Before we can process your request, we need to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>contact the other parent to make sure we have all the right information</li>
+            <li>complete any previously reported changes that may impact this change</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">If the other parent agrees to use Collect and Pay</h2>
+      <p class="govuk-body">We’ll send you a new expected payment plan, explaining the payment amount and date. Payments will be collected by us and passed on.</p>
+      <p class="govuk-body">If you've reported missed or part payments, we'll work to recover the unpaid child maintenance.</p>
+
+      <h2 class="govuk-heading-m">If the other parent does not want to use Collect and Pay</h2>
+      <p class="govuk-body">You do not need the agreement of the paying parent to change your case to Collect and Pay. We’ll contact you to discuss your options.</p>
+      <br>
+
+      <p class="govuk-body"><a class="govuk-link" href="/pages/track-changes/timeline-v2">Check the progress of your reported change</a>. It may take up to 30 seconds for your change to appear.</p>
+      <p class="govuk-body">Make sure your <a class="govuk-link" href="/pages/my-details-and-circumstances">contact details</a> are up to date in case we need to contact you.</p>
+      
+  </div>
+
+{% endblock %}

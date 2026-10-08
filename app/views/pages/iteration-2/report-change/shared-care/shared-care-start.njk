@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Shared care</h1>
+      <p class="govuk-body">Let us know if theres any changes to the number of nights your child stays overnight with the other parent.</p>
+      <p class="govuk-body">We call this shared care and it may affect the amount of child maintenance you pay or receive</p>
+      <p class="govuk-body">Changes can include:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>an increase or decrease in your overnight arrangement including occasional nights</li>
+        <li>when you no longer have a shared care arrangement</li>
+      </ul>
+      <p class="govuk-body">The date your shared care arrangement starts must be today or in the past. If you're changing your arrangement in the future, report it on or after the date the change happens.</p>
+
+      <br>
+      <h1 class="govuk-heading-xl">Main carer</h1>
+      <p class="govuk-body">If your child stays with a parent for 183 nights or more per year we may consider them the main day-to-day carer. Report a change to 'Caring for a child' if the main day-to-day carer has changed.</p>
+
+      <p class="govuk-body">
+        <a class="govuk-link--no-visited-state" target="_blank" rel="noopener noreferrer" href="/onlinerevive/secure/shared-care-info/what-is-shared-care">Find out how shared care works and how it can impact your payments (opens in new tab).</a>
+      </p>
+
+      <br>
+   <form class="form" action="shared-care-P1" method="POST">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

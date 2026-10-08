@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Continue to use the Direct Pay service</h1>
+
+      <p class="govuk-body">As you do not want to use Collect and Pay service, we are unable to take any further action to recover the missed payment.<br><br>You will continue to use the Direct Pay service.</p>
+
+      {{ govukButton({
+        text: "Return to homepage",
+        href: "/pages/welcome"
+      }) }}
+      
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

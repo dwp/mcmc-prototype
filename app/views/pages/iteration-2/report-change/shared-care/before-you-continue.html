@@ -1,0 +1,107 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/partials/account-menu.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<br>
+  </br>
+<dev>
+ <strong class="govuk-tag govuk-tag--yellow">
+    Content TBC
+ </strong>
+</dev>
+<br>
+</br>
+
+<h1 class="govuk-heading-xl">Before you continue</h1>
+
+{% if data['scenario'].startsWith('pp') %}
+<div>
+<p class="govuk-body">You will need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the date {{ data['whichChild'] }}'s nights with you changed</li>
+  <li>how many nights {{ data['whichChild'] }} stays with you now</li>
+  <li>if {{ data['whichChild'] }} stays overnight with a foster carer or in a care home</li>
+  <li>details of any documents you have as evidence</li>
+</ul>
+</div>
+
+{% elif data['scenario'] == 'rp' %}
+<div>
+<p class="govuk-body">You will need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the date {{ data['whichChild'] }}'s nights with the other parent changed</li>
+  <li>how many nights {{ data['whichChild'] }} stays with the other parent now</li>
+  <li>if {{ data['whichChild'] }} stays overnight with a foster carer or in a care home</li>
+  <li>details of any documents you have as evidence</li>
+</ul>
+</div>
+
+{% endif %}
+
+<div>
+<h1 class="govuk-heading-m">Asking the other parent</h1>
+</div>
+<p class="govuk-body">We will ask the other parent about {{ data['whichChild'] }}'s nights with you and make our decision using the information we have from both of you.
+</p>
+<div>
+<h1 class="govuk-heading-m">Sending evidence</h1>
+</div>
+<div>
+<p class="govuk-body">
+  You should send evidence if you can. This will support your answers in case you and the other parent disagree. We will ask you to upload it to your account within X days.
+<br>
+</br>
+  If you do not have evidence, you can still report the change and we will make a decision using the information we have.
+<br>
+</br>
+  If you and the other parent agree, we do not need to look at your evidence.
+</p>
+</div>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What we can accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">We can only accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>a current court order</li>
+  <li>a formal agreement - for example, drawn up by a solicitor</li>
+  <li>another official document - for example, reports from Children and Family Court Advisory and Support Service (CAFCASS) or social services</li>
+</ul>
+    <p class="govuk-body">We cannot accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>communication that is only between you and the other parent</li>
+  <li>photos of your child</li>
+  <li>screenshots of social media</li>
+  <li>calendar entries</li>
+</ul>
+  </div>
+</details>
+<div>
+<h2 class="govuk-heading-l">Your payments may change</h2>
+</div>
+<div>
+<p class="govuk-body">Reporting a new child may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+{% endblock %}

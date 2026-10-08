@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "/pages/report-change/shared-care/shared-care-P6"
+}) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Does Clare spend any nights in local authority care?
+      </h1>
+      <div id="f-nightsInLocalAuthority-hint" class="govuk-hint">
+        This is where your child or children are the subject of a care order and they stay overnight elsewhere, for example with a foster parent or in a care home.
+      </div>
+
+      <form class="form" method="POST" action="shared-care-P8">
+
+      {{ govukRadios({
+        name: "localCare",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

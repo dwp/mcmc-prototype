@@ -1,0 +1,121 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/partials/account-menu.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+<br>
+<dev>
+ <strong class="govuk-tag govuk-tag--yellow">
+    Content TBC
+ </strong>
+</dev>
+<br>
+</br>
+
+<div>
+<h1 class="govuk-heading-xl">Before you continue</h1>
+</div>
+
+{% if data['scenario'].startsWith('pp') %}
+<div>
+<p class="govuk-body">You are telling us you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>have a new child you need to make payments for</li>
+  <li>you already have George and 2 others with your new child's other parent</li>
+</ul>
+</div>
+
+{% elif data['scenario'] == 'rp' %}
+<div>
+<p class="govuk-body">You are telling us you:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>have a new child you need to receive payments for</li>
+  <li>you already have George and 2 others with your new child's other parent</li>
+</ul>
+</div>
+{% endif %}
+
+<div>
+<p class="govuk-body">You will need your new child's:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>full name</li>
+  <li>date of birth</li>
+</ul>
+</div>
+<div>
+<h2 class="govuk-heading-l">Asking the other parent</h2>
+</div>
+<p class="govuk-body">We will ask the other parent about your new child and make our decision using the information we have from both of you.
+</p>
+<div>
+<h2 class="govuk-heading-l">Sending evidence</h2>
+</div>
+
+    {% if data['scenario'].startsWith('pp') %}
+<p class="govuk-body">You should send evidence to show you are eligible to pay child maintenance. Evidence will also support your answers in case the other parent disagrees.
+  <br>
+</br>
+We will ask you to upload the evidence to your account within 14 days of reporting the new child.
+<br>
+</br>
+If you do not have evidence, you can still report the child and we will make a decision using the information we have.
+</p>
+
+    {% elif data['scenario'] == 'rp' %}
+<p class="govuk-body">You should send evidence to show you are eligible to receive child maintenance. Evidence will also support your answers in case the other parent disagrees.
+  <br>
+</br>
+We will ask you to upload the evidence to your account within 14 days of reporting the new child.
+<br>
+</br>
+If you do not have evidence, you can still report the child and we will make a decision using the information we have.
+</p>
+{% endif %}
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What we can accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">We can only accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>evidence of Child Benefit payments, for example bank statements</li>
+  <li>evidence the child is in full time education, for example a legal document or letter</li>
+</ul>
+    <p class="govuk-body">We cannot accept:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>communication that is only between you and the other parent</li>
+  <li>photos of your child</li>
+  <li>screenshots of social media</li>
+  <li>calendar entries</li>
+</ul>
+  </div>
+</details>
+<div>
+<h2 class="govuk-heading-l">Your payments may change</h2>
+</div>
+<div>
+<p class="govuk-body">Reporting a new child may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

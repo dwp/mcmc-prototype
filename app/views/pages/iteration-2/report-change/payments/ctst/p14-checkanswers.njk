@@ -1,0 +1,143 @@
+{% extends "layouts/layout.njk" %}
+
+{% if data['partPayment'] == 'No' %}
+{% set partpayment = 0 %}
+{% endif %}
+
+{% if data['partPayment'] != 'No' and data['howMuch'] != '' %}
+{% set partpayment = data['howMuch']%}
+{% endif %}
+
+{% if data['partPayment'] == 'Yes, full payment but at least 3 working days late' %}
+{% set partpayment = 200 %}
+{% endif %}
+
+{% if data['otherPaymentAmount'] == null %}
+{% set otherPayments = 'No' %}
+{% else %}
+{% set otherPayments = 'Yes' %}
+{% endif %}
+
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <form class="form" method="POST">
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Robin
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Change to Collect and Pay
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Expected date of first missed payment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['dueDate']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Bank details shared
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Received payments since {{data['dueDate']}}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Collect and Pay bank details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['bank-name']}}
+              {{data['sort-code']}}
+              {{data['account-number']}}
+              {{data['building-society']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h1 class="govuk-heading-l">Payments received on or after {{data['dueDate']}}</h1>
+         <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Payment date</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Amount received</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Change</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% if otherPayments == 'Yes' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric govuk-!-width-one-half">{{data['otherPaymentDate-day'] + ' ' +  data['otherPaymentDate-month'] + ' ' + data['otherPaymentDate-year']}}</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£{{data['otherPaymentAmount']}}</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="/pages/report-change/payments/ctst/p13-payment-details-1">Change</a> </td>
+          </tr>
+        {% endif %}
+        </tbody>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric govuk-!-width-one-half">{{data['dueDate']}}</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£{{partpayment}}</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="/pages/report-change/payments/ctst/p13-payment-details-1">Change</a> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a type="submit" class="govuk-button" href="p15-declaration">
+          Continue
+       </a>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

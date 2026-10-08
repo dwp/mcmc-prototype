@@ -1,0 +1,62 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What has changed?</h1>
+      
+      <form class="form" action="" method="POST">
+         {{ govukRadios({
+          idPrefix: "childrentree-primaryOrEqual",
+          name: "childrentree-primaryOrEqual",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+ 
+            {
+              value: "equal",
+              text: "How often" + ' ' + data['childrentree-whichChild'] + ' ' + "stays overnight with you",
+              hint: {
+                text: "This is known as shared care"
+              }
+            },
+                  {
+              value: "primary",
+              text: "The other parent no longer has" + ' ' + data['childrentree-whichChild'] + "'s " + "main day-to-day care",
+              hint: {
+                text: "This is known as primary care"
+              }
+            },
+             {
+              value: "adoption",
+              text: data['childrentree-whichChild'] + ' ' + "has been adopted"
+            },
+             {
+              value: "fte",
+              text: data['childrentree-whichChild'] + ' ' + "has left full time education"
+
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

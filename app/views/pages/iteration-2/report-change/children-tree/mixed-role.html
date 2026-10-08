@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <form class="form" method="POST">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Does the child relate to payments you make or receive?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="mixedRole" name="mixedRole" type="radio" value="paying-parent">
+        <label class="govuk-label govuk-radios__label" for="mixedRole">
+          Payments I make
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="mixedRole-1" name="mixedRole" type="radio" value="receiving-parent">
+        <label class="govuk-label govuk-radios__label" for="mixedRole-1">
+          Payments I receive
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  </div>
+  </fieldset>
+</div>
+
+  {% from "govuk/components/details/macro.njk" import govukDetails %}
+  
+<div>
+  <button type="submit" class="govuk-button">
+   Continue
+  </button>
+</div>
+</div>
+	 </form>
+	  </div>
+
+{% endblock %}

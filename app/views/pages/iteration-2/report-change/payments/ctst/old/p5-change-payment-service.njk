@@ -1,0 +1,79 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Change payment service</h1>
+      
+      <p class="govuk-body">You use Direct Pay which is free.</p>
+      <p class="govuk-body">If you change to use Collect and Pay:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>we’ll collect and pass on payments</li>
+            <li>we can take action to recover unpaid child maintenance</li>
+            <li>we’ll record any unpaid child maintenance as arrears</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Collect and Pay fees</h3>
+      <p class="govuk-body">Both parents pay a fee to use the Collect and Pay service. The fee is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>20% for paying parents, added to every payment</li>
+            <li>4% for receiving parents, taken off every payment</li>
+       </ul>
+
+
+      <h2 class="govuk-heading-l">Do you want to change to Collect and Pay?</h2>
+      <p class="govuk-body">We’ll contact the other parent to tell them you have asked to change to Collect and Pay.</p>
+      
+      <form method="post">
+      {{ govukRadios({
+            idPrefix: "changeService",
+            name: "changeService",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes, I agree to pay Collect and Pay fees"
+              },
+              {
+                value: "No",
+                text: "No, I’ll keep using Direct Pay"
+              }
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          If you need help with this change
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

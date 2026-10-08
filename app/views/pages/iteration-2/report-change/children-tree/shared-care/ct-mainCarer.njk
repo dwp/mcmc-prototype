@@ -1,0 +1,48 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Have you taken on Bill's main day-to-day care?</h1>
+
+       <form class="form" action="" method="POST">
+            {{ govukRadios({
+          idPrefix: "childrentree-whoCares",
+          name: "childrentree-whoCares",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+ 
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+                  {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

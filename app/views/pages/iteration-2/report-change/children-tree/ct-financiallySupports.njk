@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">A child the other parent financially supports</h1>
+      <p class="govuk-body">We need to know about changes to: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>another child living with a paying parent or their partner</li>
+        <li>a child a paying parent supports in <a href="#" class="govuk-link">a private or family based arrangement</a></li>
+      </ul>
+      <p class="govuk-body"><a href="#" class="govuk-link">See how other children a paying parent supports can affect payments</a>.</p>
+
+      <form class="form" action="ct-financiallySupportsChild" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

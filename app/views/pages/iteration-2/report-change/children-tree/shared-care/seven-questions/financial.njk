@@ -1,0 +1,101 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Financial benefits
+      </h1>
+    
+      <h2 class="govuk-heading-l">
+        Who receives government financial help for Bill?
+      </h2>
+
+    
+
+      <form class="form" method="POST" action="ct-CheckAnswersFirst">
+      
+             {% set OtherArrangementMeals %}
+            {{ govukCharacterCount({
+        name: "costMeals",
+        id: "costMeals",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us what each of you receive"
+        }
+        }) }}
+      {% endset -%}
+
+      {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "costClothes",
+        id: "costClothes",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "clothes",
+        items: [
+          {
+            value: "Me",
+            text: "I do"
+          },
+          {
+            value: "Other",
+            text: "The other parent does"
+
+          },
+          {
+            value: "equally",
+            text: "We both receive government financial help for Bill",
+            conditional: {
+              html: OtherArrangementMeals
+            }
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangement
+            }
+          }
+        ]
+      }) }}
+
+    
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

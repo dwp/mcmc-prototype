@@ -1,0 +1,50 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Did you receive any of the payment due on {{data['dueDate']}}?</h1>
+
+      <form class="form" action="" method="POST">
+        {{ govukRadios({
+          idPrefix: "partPayment",
+          name: "partPayment",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "No",
+              text: "No"
+            },
+            {
+              value: "Yes, part payment",
+              text: "Yes, part payment"
+            },
+            {
+              value: "Yes, full payment but at least 3 working days late",
+              text: "Yes, full payment but at least 3 working days late"
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

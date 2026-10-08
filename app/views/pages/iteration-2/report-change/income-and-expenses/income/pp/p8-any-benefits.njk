@@ -1,0 +1,77 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  {% set yesBenefits %}
+      {{ govukInput({
+        id: "benefits-amount",
+        name: "benefits-amount",
+        label: {
+          text: "What is the cash value of all of the taxable company benefits you receive?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from employment</span> 
+     
+      <form method="post">
+        <div>
+        <h1 class="govuk-heading-xl">Taxable company benefits</h1>
+        <p class="govuk-body">You need to tell us about any taxable company benefits (benefits in kind) that you receive. For example, a company car, private health insurance or cycle-to-work scheme.</p>
+        <p class="govuk-body">Find out more about <a href="https://www.gov.uk/tax-company-benefits" class="govuk-link" rel="noopener noreferrer" target="_blank">taxable company benefits (opens in a new tab)</a>.</p>
+      
+        <h1 class="govuk-heading-m">Do you receive any taxable company benefits (benefits in kind)?</h1>
+        {{ govukRadios({
+            idPrefix: "benefits",
+            name: "benefits",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: yesBenefits
+                }
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+        }) }}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from employment</span> 
+      <h1 class="govuk-heading-l">What company benefits do you receive?</h1>
+
+      {% set yesCompanyCar %}
+      {{ govukInput({
+        id: "company-car-amount",
+        name: "company-car-amount",
+        label: {
+          text: "What is the value of the company car taxable benefit?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+      {% set yesHealthInsurance %}
+      {{ govukInput({
+        id: "health-insurance-amount",
+        name: "health-insurance-amount",
+        label: {
+          text: "What is the value of the private health insurance taxable benefit?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+      {% set yesCycleScheme %}
+      {{ govukInput({
+        id: "cycle-scheme-amount",
+        name: "cycle-scheme-amount",
+        label: {
+          text: "What is the value of the cycle-to-work scheme taxable benefit?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+      {% set yesInterestFree %}
+      {{ govukInput({
+        id: "interest-free-amount",
+        name: "interest-free-amount",
+        label: {
+          text: "What is the value of the interest free loans taxable benefit?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+
+      {% set yesOther %}
+      {{ govukInput({
+        id: "other-amount",
+        name: "other-amount",
+        label: {
+          text: "What is the value of the taxable benefit?",
+          classes: "govuk-label"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5"
+      }) }}
+      {% endset -%}
+     
+      <form method="post">
+        <div>
+
+      {{ govukCheckboxes({
+        name: "company-benefits",
+        items: [
+          {
+            value: "Company car",
+            text: "Company car",
+                conditional: {
+                  html: yesCompanyCar
+                }
+          },
+          { 
+            value: "Private health insurance",
+            text: "Private health insurance",
+                conditional: {
+                  html: yesHealthInsurance
+                }
+          },
+          {
+            value: "Cycle-to-work scheme",
+            text: "Cycle-to-work scheme",
+                conditional: {
+                  html: yesCycleScheme
+                }
+          },
+          {
+            value: "Interest free loans",
+            text: "Interest free loans – for example a travel season ticket loan",
+                conditional: {
+                  html: yesInterestFree
+                }
+          },
+          {
+            value: "Other",
+            text: "Other – for example, vouchers exchangeable for cash, goods or services",
+                conditional: {
+                  html: yesOther
+                }
+          }
+        ]
+      }) }}
+
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

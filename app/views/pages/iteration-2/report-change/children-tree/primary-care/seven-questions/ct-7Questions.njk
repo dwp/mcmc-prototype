@@ -1,0 +1,80 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Day-to-day responsibility
+      </h1>
+    
+      <h2 class="govuk-heading-l">
+        Who is most often responsible for Bill's day-to-day care when they are not at school?
+      </h2>
+
+      <form class="form" method="POST" action="regularCosts">
+      
+   
+
+      {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "withHint",
+        id: "with-hint",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "howOften",
+        items: [
+          {
+            value: "Me",
+            text: "I am"
+          },
+          {
+            value: "Other",
+            text: "The other parent is"
+
+          },
+          {
+            value: "equally",
+            text: "We are equally responsible for Bill during the day when not at school"
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangement
+            }
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

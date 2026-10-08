@@ -1,0 +1,136 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Contact person
+      </h1>
+    
+      <h2 class="govuk-heading-l">
+        Who is the emergency contact for Bill's school??
+      </h2>
+
+    
+
+      <form class="form" method="POST" action="medical">
+      
+             {% set OtherArrangementMeals %}
+            {{ govukCharacterCount({
+        name: "costMeals",
+        id: "costMeals",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "costClothes",
+        id: "costClothes",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "clothes",
+        items: [
+          {
+            value: "Me",
+            text: "I am"
+          },
+          {
+            value: "Other",
+            text: "The other parent is"
+
+          },
+          {
+            value: "equally",
+            text: "They would call either of us"
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangement
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">
+        Who usually contacts Bill's childminder, if they have one?
+      </h2>
+     
+
+      {{ govukRadios({
+        name: "meals",
+        items: [
+          {
+            value: "Me",
+            text: "I do"
+          },
+          {
+            value: "OtherParent",
+            text: "The other parent does"
+
+          },
+          {
+            value: "equally",
+            text: "We equally share this"
+          },
+          {
+            value: "None",
+            text: "Bill's does not have a childminder"
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "arrangement",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangementMeals
+            }
+          }
+        ]
+      }) }}
+
+    
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

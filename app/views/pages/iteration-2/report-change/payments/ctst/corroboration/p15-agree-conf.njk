@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        We will review your case, taking into consideration:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>the information provided by both parties</li>
+        <li>what has already happened in your case. For example, evidence of a previous missed payment or a recent report of a change of circumstance</li>
+      </ul>
+      
+      <p class="govuk-body">
+        If we require further information, we will contact you. It may take up to 4 weeks to
+        complete the review, but could take longer if your case is more complex.
+      </p>
+
+      </br>
+
+      <h3 class="govuk-heading-s">If we approve the other parent's request</h3>
+      <p class="govuk-body">
+       We will change your case to use the Collect and Pay service and recover unpaid child maintenance.
+       <br></br>
+       We will contact you to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>confirm a 20% collection fee will be added to your payment amount</li>
+        <li>tell you the payment amounts and date</li>
+        <li>organise the method of payment - it can be Direct Debit or a deduction from your salary or benefits depending on your circumstance</li>
+      </ul>
+
+      </br>
+
+      <h3 class="govuk-heading-s">If we reject the other parent's request</h3>
+      <p class="govuk-body">
+        You will continue to use the Direct Pay service.
+      </p>
+
+      <h3 class="govuk-heading-s">Upload evidence</h3>
+      <p class="govuk-body">
+        Upload any evidence that may support why you did not pay the full amount of child maintenance or did not pay it on time.
+      </p>
+
+       <a type="submit" href="/pages/messages/upload-evidence/start-alt" class="govuk-button govuk-button--secondary">
+        Upload evidence
+       </a>
+
+      <p class="govuk-body">
+       Make sure your <a href="#" class="govuk-link">contact details</a> are up to date in case we need to contact you.
+      </p>
+
+	  </div>
+	  </div>
+
+{% endblock %}

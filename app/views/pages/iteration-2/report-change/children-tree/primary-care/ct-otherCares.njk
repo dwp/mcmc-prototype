@@ -1,0 +1,80 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is {{data['other-firstName']}}'s relationship to {{data['childrentree-whichChild']}}? </h1>
+      
+ 
+      <form class="form" action="ct-otherDayToDayDate" method="POST">
+
+    {% set textHtml %}
+
+      {{ govukCharacterCount({
+      name: "otherRelationship-ft",
+      id: "otherRelationship-ft",
+      maxlength: 30,
+      label: {
+        text: "What is their relationship?",
+        classes: "govuk-label--l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "For example, family friend"
+      }
+    }) }}
+    {% endset -%}
+
+    {{ govukRadios({
+      name: "otherRelationship",
+      id: "otherRelationship",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "Grandparent",
+          text: "Grandparent"
+        },
+        {
+          value: "Aunt",
+          text: "Aunt"
+        },
+        {
+          value: "Uncle",
+          text: "Uncle"
+        },
+        {
+          value: "Another relationship",
+          text: "Another relationship",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        I do not know
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "layouts/layout.njk" %}
+
+{% if data['howManyAWeek'] != '' %}
+{% set nights = data['howManyAWeek'] * 52 %}
+{% endif %}
+
+{% if data['howManyAFortnight'] != '' %}
+{% set nights = data['howManyAFortnight'] * 26 %}
+{% endif %}
+
+{% if data['howManyAMonth'] != '' %}
+{% set nights = data['howManyAMonth'] * 12 %}
+{% endif %}
+
+{% if data['howManyAYear'] != '' %}
+{% set nights = data['howManyAYear'] * 1 %}
+{% endif %}
+
+{% if data['additionalNights'] == 'No' %}
+{% set totalNights = nights %}
+{% set extranights = 0 %}
+{% else %}
+{% set extranights = data['howManyExtra'] %}
+{% set totalNights = nights | float + data['howManyExtra'] | float %}
+{% endif %}
+
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <form class="form" method="POST">
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Child name(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['whichChild']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['whatDate-day'] + ' ' +  data['whatDate-month'] + ' ' + data['whatDate-year']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of arrangement
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['arrangementType']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of overnight stays
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{nights}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of extra nights
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{extranights}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Local authority care
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['localCare']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Written agreement
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['writtenAgreement']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Total number of overnight stays per year with the paying parent
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{totalNights}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+        </dl>
+
+      <a type="submit" class="govuk-button" href="/pages/report-change/shared-care/shared-care-declaration">
+          Continue
+       </a>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

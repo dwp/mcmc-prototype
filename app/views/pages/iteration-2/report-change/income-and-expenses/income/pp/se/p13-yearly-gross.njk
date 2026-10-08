@@ -1,0 +1,86 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Yearly gross taxable income we have calculated</h1>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Income</caption>
+        <thead class="govuk-table__head">
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Yearly self-employed profit</th>
+            <td class="govuk-table__cell cell-right"> £{{ +data['income']-+data['expenses']}}</td>
+            <td class="govuk-table__cell change-right"><a class="govuk-link" href="p4-effective-date">
+              Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Pension Income</th>
+            <td class="govuk-table__cell cell-right">£{{data['privatePensionIncome']}}</td>
+            <td class="govuk-table__cell change-right"><a class="govuk-link" href="p4-effective-date">
+              Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <thead class="govuk-table__head">
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Annual private pension contribution</th>
+            <td class="govuk-table__cell cell-right">£{{ data['privatePensionPay'] }}</td>
+            <td class="govuk-table__cell change-right"><a class="govuk-link" href="p4-effective-date">
+              Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half table-heading no-border">Total income we have calculated</th>
+            <td class="govuk-table__cell cell-right table-heading no-border">£{{ +data['income']-+data['expenses']++data['privatePensionIncome']-+data['privatePensionPay']}}</td>
+            <td class="govuk-table__cell change-right no-border"><a class="govuk-link" href="p4-effective-date"></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      
+
+      <form method="post">
+      <button class="govuk-button">
+          Continue
+      </button>
+      </form>
+
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

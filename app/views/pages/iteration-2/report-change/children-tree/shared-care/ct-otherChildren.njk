@@ -1,0 +1,57 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Other children with exactly the same change to overnight shared care</h1>
+        
+      <p class="govuk-body">We work out your payments by looking at each child's overnight arrangement individually.</p>
+      <p class="govuk-body">If we approve the change for other children, how much you need to pay may go further up or down.</p>
+
+
+      <form class="form" action="ct-outcomeBandOver175" method="POST">
+      {{ govukCheckboxes({
+        name: "otherChildrenWho",
+        fieldset: {
+          legend: {
+            text: "Which children does this change also apply to?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Bob",
+            text: "Bob"
+          },
+          {
+            value: "Ben",
+            text: "Ben"
+          },
+          {
+            value: "none",
+            text: "No others, just Bill"
+          }
+        ]
+      }) }}
+                
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

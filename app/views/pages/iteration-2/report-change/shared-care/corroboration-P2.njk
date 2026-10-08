@@ -1,0 +1,62 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What type of overnight arrangement do you have?</h1>
+      <div id="f-typeOfArrangement-hint" class="govuk-hint">
+        <a class="govuk-link--no-visited-state" target="_blank" rel="noopener noreferrer" href="/onlinerevive/secure/shared-care-info/what-is-shared-care">Find out how shared care works and how it can impact your payments (opens in new tab).</a>
+      </div>
+
+      <form class="form" method="POST" action="corroboration-P3">
+
+       {{ govukRadios({
+          name: "arrangementType",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Shared Care",
+              text: "Shared Care",
+              hint: {
+                text: "A child sometimes stays overnight with the paying parent"
+              }
+            },
+            {
+              value: "Equal Shared Care",
+              text: "Equal Shared Care",
+              hint: {
+                text: "You and the other parent share the care of your child equally. For example, your child stays with the other parent 7 nights out of 14 nights. This means the other parent has your child overnight for 26 weeks of the year"
+              }
+            },
+            {
+              value: "No Shared Care",
+              text: "No Shared Care",
+              hint: {
+                text: "A child does not stay overnight with the paying parent"
+              }
+            }
+          ]
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

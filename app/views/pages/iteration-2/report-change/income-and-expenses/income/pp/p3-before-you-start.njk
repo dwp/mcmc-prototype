@@ -1,0 +1,49 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Before you start</h1>
+     
+      <p class="govuk-body">The information you need should be on your payslip or employment contract. Find out more information about <a href="https://www.moneyhelper.org.uk/en/work/employment/employment-contracts-and-your-employee-rights-explained" class="govuk-link" rel="noopener noreferrer" target="_blank">understanding your payslip or employment contract (opens in a new tab)</a>.</p>
+      
+      <p class="govuk-body">You must tell us:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>the date your income officially changed - this needs to be today or in the past</li>
+            <li>the total amount of your new yearly gross income from all your jobs</li>
+            <li>your pension contributions</li>
+            <li>any bonus or commission from your current employer in the last 12 months</li>
+      </ul>
+      <p class="govuk-body">We check the information you give us with HM Revenue and Customs. If we cannot confirm your income, you'll need to provide evidence of your new income within 14 days.</p>
+      <p class="govuk-body">If your income is changing in the future, complete this report on or after the date it changes.</p>
+      
+      {{ govukButton({
+        text: "Continue",
+        href: "p4-effective-date"
+      }) }}
+
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

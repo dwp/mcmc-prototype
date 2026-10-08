@@ -1,0 +1,106 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Tell us details of child maintenance payments you’ve received since {{ data['firstMissedDay'] }}/{{ data['firstMissedMonth'] }}/{{ data['firstMissedYear'] }}</h1>
+
+      <form method="post">
+
+        <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="cost">
+              Date received
+            </label>
+        </h2>
+
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, 21 1 2022
+        </div>
+
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="payment-day-1">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="payment-day-1" name="payment-day-1" value="{{ data['payment-day-1'] }}" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="payment-month-1" name="payment-month-1" value="{{ data['payment-month-1'] }}" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="payment-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="payment-year-1" name="payment-year-1" value="{{ data['payment-year-1'] }}" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="cost">
+              Amount received
+            </label>
+          </h2>
+
+          <div id="passport-issued-hint" class="govuk-hint">
+          For example £35.12 or £0
+        </div>
+
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5" id="payment-amount-1" name="payment-amount-1" value="{{ data['payment-amount-1'] }}" type="text" spellcheck="false">
+        </div>
+
+
+        </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+
+          <button type="submit" class="govuk-button govuk-button--secondary">
+            Add another payment
+          </button>
+
+    </form>
+
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          If you need help with this change
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Your child maintenance payments will not change</h1>
+
+      {% if data['whichChild'] == 'All' %}
+      <p class="govuk-body">Your current calculation is based on your children staying overnight with the paying parent between 52 and 103 nights a year.</p>
+      {% elif data['whichChild'] == 'Clare' %}
+      <p class="govuk-body">Your current calculation is based on Clare staying overnight with the paying parent between 52 and 103 nights a year.</p>
+      {% elif data['whichChild'] == 'Jordan' %}
+      <p class="govuk-body">Your current calculation is based on Jordan staying overnight with the paying parent between 52 and 103 nights a year.</p>
+      {% endif %}
+
+      <p class="govuk-body">The new number of nights you have reported is still between 52 and 103 nights a year. Your child maintenance payments will not change.
+      <br></br>
+      We reduce child maintenance payments depending on the number of nights a child stays overnight with the paying </p>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Shared care</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Number of nights of shared care each year</th>
+            <th scope="col" class="govuk-table__header">Reduction to child maintenance (for each child with shared care)</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">52 to 103 nights</td>
+            <td class="govuk-table__cell">1/7th</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">104 to 155 nights</td>
+            <td class="govuk-table__cell">2/7th</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">150 to 174 nights</td>
+            <td class="govuk-table__cell">3/7th</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">174 nights or more</td>
+            <td class="govuk-table__cell">1/2 (50%) plus an extra £7 a week reduction for each child in this band</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="#" class="govuk-link">Find out how shared care bands work.</a>
+
+      <p class="govuk-body">We will write to you to confirm your child maintenance payments will not change.</p>
+
+      <a type="submit" class="govuk-button" href="/pages/welcome">
+          Return to homepage
+       </a>
+
+      
+	  </div>
+	  </div>
+
+{% endblock %}

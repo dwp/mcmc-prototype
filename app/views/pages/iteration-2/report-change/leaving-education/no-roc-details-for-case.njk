@@ -1,0 +1,25 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  {{ t['leaving-education']['education'] }}
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}<br></br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">{{ t['leaving-education']['relevant-other-child'] }}</h2>
+      <p class="govuk-body">{{ t['leaving-education']['no-roc-details-retrieved'] }}</p>
+      <form action="" method="POST">
+        <a href="/pages/welcome" type="submit" class="govuk-button">
+          {{ t['leaving-education']['return-to-homepage'] }}
+        </a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

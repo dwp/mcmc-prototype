@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Are they a new child you need to receive child maintenance for? </h1>
+
+      <form class="form" action="ct-whoPays" method="POST">
+
+        {{ govukRadios({
+          idPrefix: "childrentree-newChild",
+          name: "childrentree-newChild",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {# <div class="govuk-inset-text">
+          Your case with Sophie, Jack and 2 others has now closed. If your new child has the same parents, <a href="#" class="govuk-link">start a new application</a>"
+        </div> #}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

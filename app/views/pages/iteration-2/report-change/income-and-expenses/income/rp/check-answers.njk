@@ -1,0 +1,72 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <form action="/pages/report-change/income-and-expenses/income/rp/confirm-less-25" method="post">
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Income from employment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['income-emp'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-emp">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Income from self-employment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['income-self-emp'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions" style="vertical-align: top;">
+            <a class="govuk-link" href="income-self-emp">Change</a>
+          </dd>
+        </div>        
+      </dl>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you need help with this change
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <h4 class="govuk-heading-s">Webchat</h4>
+        <p class="govuk-body">We can only support you to report a change online. If you need to discuss specific details about your case you will need to <a href="https://www.gov.uk/child-maintenance-service/contact">call us (opens in a new tab)</a>.</p>
+    
+        <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p> 
+    
+        <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 6pm (except public holidays).</p>
+      </div>
+    </details>
+
+    </div>
+  </div>
+
+{% endblock %}

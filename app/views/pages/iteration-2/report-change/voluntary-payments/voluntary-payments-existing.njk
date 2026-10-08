@@ -1,0 +1,25 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Existing voluntary payment report
+{% endblock %}
+
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">Existing voluntary payment report</h1>
+      <p class="govuk-body">We are already dealing with a report of a voluntary payment for {{ data['voluntary-payment-case'] }}.</p>
+      <p class="govuk-body">To support your original report, you can <a href="/pages/messages/upload-evidence/start" class="govuk-link">upload evidence</a>. We will contact you once we have processed your report.</p>
+      <p class="govuk-body"><a href="/pages/track-changes"  class="govuk-link">Check the progress of the change</a> you have reported (it may take up to 30 seconds for your change to appear).</p>
+
+      <p class="govuk-body">Make sure your <a href="/pages/my-details-and-circumstances"  class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+    </div>
+  </div>
+{% endblock %}

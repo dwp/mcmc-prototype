@@ -1,0 +1,62 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What month was the payment due?</h1>
+
+      <form class="form" action="p5-weekdate" method="POST">
+      <br>
+        {{ govukRadios({
+          idPrefix: "monthDate",
+          name: "monthDate",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "August",
+              text: "August 2024"
+            },
+            {
+              value: "July",
+              text: "July 2024"
+            },
+            {
+              value: "June",
+              text: "June 2024"
+            },
+            {
+              value: "May",
+              text: "May 2024"
+            },
+            {
+              value: "April",
+              text: "April 2024"
+            }
+            ]
+        }) }}
+
+        <p class="govuk-body">These dates are the most recent scheduled payment dates in your current  <a href="#" class="govuk-link">payment plan (opens in a new tab)</a>.</p>
+
+      <br>
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

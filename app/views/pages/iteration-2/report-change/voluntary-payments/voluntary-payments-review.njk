@@ -1,0 +1,102 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <p class='govuk-body'>Payment made for {{ data['voluntary-payment-case'] }} </p>
+      
+      {% set rowsToDisplay = [
+        [
+          {
+            text: "-"
+          },
+          {
+            text: "-"
+          }
+        ]
+      ]
+      %}
+      {% if data['voluntary-payment-reported'] | length > 0%}
+
+          {{ govukTable({
+          head: [
+            {
+              text: "Date of payment"
+            },
+            {
+              text: "Payment amount"
+            },
+            {
+              text: "Change"
+            },
+            {
+              text: "Remove"
+            }
+          ],
+          rows: data['voluntary-payment-reported']
+          }) }}
+      {% else %}
+          {{ govukTable({
+            head: [
+              {
+                text: "Date of payment"
+              },
+              {
+                text: "Payment amount"
+              }
+            ],
+          rows: rowsToDisplay
+          }) }}
+      {% endif %}
+
+      {{ govukButton({
+        text: "Add another voluntary payment",
+        href: "/pages/report-change/voluntary-payments/voluntary-payments-add",
+        classes: "govuk-button--secondary"
+      }) }}
+
+        {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Evidence available"
+            },
+            value: {
+              text: data['evidenceYesNo']
+            },
+            actions: { classes: ['case-details-actions'],
+              items: [
+                {
+                  href: "/pages/report-change/voluntary-payments/voluntary-payments-evidence",
+                  text: "Change",
+                  visuallyHiddenText: "evidence"
+                }
+              ]
+            }
+          }
+        ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/pages/report-change/voluntary-payments/voluntary-payments-declaration"
+        }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

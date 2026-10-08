@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      <p class="govuk-body">We will only take further action on payments that are more than 5 days late and you have received less than 90% if the payment amount.</p>
+
+      <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Case: Chloe and 1 more</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date payment received</th>
+      <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Amount received</th>
+      <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Change</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">{{ data['payment-day-1'] }}/{{ data['payment-month-1'] }}/{{ data['payment-year-1'] }}</td>
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£{{ data['payment-amount-1'] }}</td>
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="#">Change</a> </td>
+    </tr>
+  </tbody>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">{{ data['payment-day-2'] }}/{{ data['payment-month-2'] }}/{{ data['payment-year-2'] }}</td>
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£{{ data['payment-amount-2'] }}</td>
+      <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="/pages/report-change/payments/missed-or-partial-payment/mp10-payment-details-2">Change</a> </td>
+    </tr>
+  </tbody>
+</table>
+    
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/pages/report-change/payments/missed-or-partial-payment/mp9-recovering-maintenance"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

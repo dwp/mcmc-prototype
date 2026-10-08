@@ -1,0 +1,62 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<div>
+ <h1 class="govuk-heading-xl">Select a role</h1> 
+</div>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Prototype purposes only - this screen will not appear in live</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Role and scenario</th>
+      <th scope="col" class="govuk-table__header"></th>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Paying parent with multiple QCs and ROC/CIFBAs</th>
+      <td class="govuk-table__cell ps-cell">
+        <a class="profile-button govuk-button" href="/set-scenario/pp-multi">Choose</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Paying parent with 2 QCs and 2 ROC/CIFBAs</th>
+      <td class="govuk-table__cell ps-cell">
+        <a class="profile-button govuk-button" href="/set-scenario/pp-qc-roc">Choose</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Paying parent with 1 QC only</th>
+      <td class="govuk-table__cell ps-cell">
+        <a class="profile-button govuk-button" href="/set-scenario/pp-single-qc">Choose</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Receiving parent</th>
+      <td class="govuk-table__cell ps-cell">
+        <a class="profile-button govuk-button" href="/set-scenario/rp">Choose</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Mixed roles</th>
+      <td class="govuk-table__cell ps-cell">
+        <a class="profile-button govuk-button" href="/pages/iteration-2/report-change/children-tree/mixed-role.html">Choose</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{% endblock %}

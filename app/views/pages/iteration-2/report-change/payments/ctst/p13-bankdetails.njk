@@ -1,0 +1,72 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Which bank account do you want the Collect and Pay payments sent to?</h1>
+      <h1 class="govuk-heading-m">Bank or building society account details</p>
+
+      <form class="form" action="p14-checkanswers" method="POST">
+      {{ govukInput({
+        label: {
+          text: "Name on the account"
+        },
+        id: "bank-name",
+        classes: "govuk-input--width-20",
+        name: "bank-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Sort code"
+        },
+        hint: {
+          text: "Must be 6 digits long"
+        },
+        id: "sort-code",
+        classes: "govuk-input--width-5",
+        
+        name: "sort-code"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Account Number"
+        },
+        hint: {
+          text: "Must be 8 digits long"
+        },
+        id: "account-number",
+        classes: "govuk-input--width-10",
+        name: "account-number"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Building society roll number (if you have one)"
+        },
+        hint: {
+          text: "You can find it on your card, statement or passbook"
+        },
+        id: "building-society",
+        classes: "govuk-input--width-10",
+        name: "building-society"
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

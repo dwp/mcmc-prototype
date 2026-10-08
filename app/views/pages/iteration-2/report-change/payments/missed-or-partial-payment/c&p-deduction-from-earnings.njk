@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Deduction of earnings order</h1>
+
+      <p class="govuk-body">On 12 December 2021 we sent a deduction from earnings order (DEO) to the other parent's employer. A DEO is a way of collecting child maintenance directly from the other parent's earnings or pension.</p>
+      <p class="govuk-body">Their employer must deduct the amount of child maintenance stated on the DEO from the other parent's net earnings or their pension and pay it to the Child Maintenance Service. This will include any arrears repayments that are due.</p>
+      <p class="govuk-body">If the other parent has left their employer, we will try to secure payment by either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>contacting their new employer. It may take up to 12 weeks to secure a payment or</li>
+            <li>taking legal enforcement action. It may take up to 12 weeks for the enforcement team to receive your case - you will not receive your payments within 12 weeks</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/pages/report-change/payments/missed-or-partial-payment/c&p-further-information-1"
+      }) }}
+
+      <div>
+        <a class="govuk-body" href="/pages/report-change/payments/missed-or-partial-payment/c&p-deduction-from-earnings-exit">Link</a><br><br>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          Chat to an adviser
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+  </div>
+
+  
+
+{% endblock %}

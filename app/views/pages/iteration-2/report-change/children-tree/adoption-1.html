@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/welcome-pp">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/index-pp">Report a change</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/pages/report-change/children-tree/index-pp">Children</a>
+    </li>
+        <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Report an adoption</a>
+    </li>
+  </ol>
+</nav>
+
+<dev>
+ <strong class="govuk-tag govuk-tag--yellow">
+    Content TBC
+ </strong>
+</dev>
+<br>
+</br>
+
+<div>
+ <h1 class="govuk-heading-xl">Before you continue</h1> 
+</div>
+<div>
+  <p class="govuk-body">You are telling us George/a child the parent of George financially supports has/have been adopted.
+  </p>                                                                                                                                                                        
+</div>
+
+<div>
+<h2 class="govuk-heading-l">Asking the other parent</h2>
+</div>
+<p class="govuk-body">We will ask the other parent and make our decision using the information we have from both of you.
+</p>
+<div>
+<h2 class="govuk-heading-l">Your payments may change</h2>
+</div>
+<div>
+<p class="govuk-body">The change you are reporting may affect your child maintenance payments.
+</p>
+</div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

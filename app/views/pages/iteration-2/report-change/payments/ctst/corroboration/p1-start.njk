@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Change to Service type</h1>
+      <p class="govuk-body">You should have paid £300 for child maintenance for Robin between 1 Jan 2024 and 30 June 2024.</p>
+      <p class="govuk-body">The other parent has told us they did not receive their scheduled payments. This
+        could mean they did not receive the full amount, or received it at least three days
+        after it was due.</p>
+      <p class="govuk-body">They have asked to use the Collect and Pay service. If we approve their request, we will:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>arrange to collect and pass on payments based on when you are paid your wages, pension or benefits</li>
+        <li>take action to recover the amount of unpaid child maintenance</li>
+      </ul>
+      <br>
+
+      <h2 class="govuk-heading-l">Collect and pay fees</h2>
+      <p class="govuk-body">You have to pay a fee each time you make or receive a child maintenance payment
+        through the Child Maintenance Service. The fee is:</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>20% for paying parents, added to every payment</li>
+        <li>4% for receiving parents, taken off every payment</li>
+      </ul>
+      <br>
+
+      <h3 class="govuk-heading-l">Action required by 1 October 2024 </h3>
+      <p class="govuk-body">You can either confirm the information the other parent has given us or provide
+        details of payments you believe are correct. We will then decide if we approve their
+        request to use the Collect and Pay service.</p>
+
+        <p class="govuk-body">You may need to refer to bank statements or have them at hand during this process.</p>
+
+        <p class="govuk-body">You must submit your response, and any evidence, by 1 October 2024 or
+        your case may change to Collect and Pay automatically.</p>
+
+
+   <form class="form" action="p2-paymentsreported" method="POST">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

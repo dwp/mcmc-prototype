@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        You need to upload your evidence by 1 October 2024.
+      </p>
+      <p class="govuk-body">
+        We can only accept a bank or building society statement as evidence you have made
+        your child maintenance payments.
+      </p>
+      <p class="govuk-body">
+        We will accept the other parent's information if we have not received your evidence
+        by 1 October 2024.
+      </p>
+
+
+      </br>
+
+      <h3 class="govuk-heading-s">Case review</h3>
+      <p class="govuk-body">
+       Once we have received your evidence, we will review all the information provided.
+       <br></br>
+       We normally complete the review within 4 weeks, but it may take longer if your case
+       is more complex. We will contact you when we have completed the review.
+      </p>
+
+      </br>
+
+       <a type="submit" href="/pages/messages/upload-evidence/start-alt" class="govuk-button govuk-button--secondary">
+        Upload evidence
+       </a>
+
+      <p class="govuk-body">
+       Make sure your <a href="#" class="govuk-link">contact details</a> are up to date in case we need to contact you.
+      </p>
+
+	  </div>
+	  </div>
+
+{% endblock %}

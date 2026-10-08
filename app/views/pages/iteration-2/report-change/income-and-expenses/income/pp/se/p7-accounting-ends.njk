@@ -1,0 +1,73 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from self-employment</span>
+      <h1 class="govuk-heading-xl">Does your accounting period end 5 April?</h1>
+      <p class="govuk-body">Your accounting period is the time covered by your<a href="https://www.moneyhelper.org.uk/en/work/employment/employment-contracts-and-your-employee-rights-explained" class="govuk-link" rel="noopener noreferrer" target="_blank"> Company Tax Return (opens in a new tab)</a>.</p>
+     
+      <form method="post">
+        <div>
+      {% set whenDoesEnd %}
+      {{ govukDateInput({
+                id: "when-does-end",
+                namePrefix: "when-does-end",
+              fieldset: {
+                  legend: {
+                    text: "When does your accounting period end?"
+                  }
+                },
+                hint: {
+                    text: "For example, 27 3 2007"
+                }
+                }) }}
+
+      {% endset -%}
+
+      {{ govukRadios({
+            idPrefix: "endApril",
+            name: "endApril",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No",
+                conditional: {
+                  html: whenDoesEnd
+                }
+              }
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

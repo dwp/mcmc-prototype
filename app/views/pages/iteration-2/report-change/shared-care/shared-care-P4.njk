@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+  "text": "Back",
+  "href": "/pages/report-change/shared-care/shared-care-P3"
+}) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What date did the overnight arrangement start or change?</h1>
+      <p class="govuk-body">If you cannot remember the exact date, enter an approximate date. We will check the date with the other parent.</p>
+      <p class="govuk-body">The date must be today or in the past. If you’re changing your arrangement in the future, report it on or after the date the change happens.</p>
+
+      <form class="form" method="POST" action="shared-care-P5">
+
+        {{ govukDateInput({
+          id: "whatDate",
+          namePrefix: "whatDate",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

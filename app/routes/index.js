@@ -17,6 +17,7 @@ const statements = require('./statements');
 const caseworker_messaging_mvp = require('./caseworker-messaging-mvp');
 const shared_care = require('./shared-care');
 const changeservice = require('./ctst');
+const report_change = require('./report-change');
 
 // handover routes
 const handoverCR2614 = require('./handover/handoverCR2614');
@@ -323,6 +324,6 @@ router.use('/', handoverCR2614);
 router.use('/', caseworker_messaging_mvp);
 router.use('/', shared_care);
 router.use('/', changeservice);
-
+router.use('/', report-change);
 
 module.exports = router;

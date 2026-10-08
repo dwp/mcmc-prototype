@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Other parent's gross taxable income</h1>
+      <p class="govuk-body">We calculated your child maintenance payment using the current income figure we hold for the other parent (£21278.40).</p>
+      <form action="rp-income-other-parent-income" method="post">
+        {{ govukRadios({
+          idPrefix: "parent-income",
+          name: "parent-income",
+          fieldset: {
+            legend: {
+              text: "Do you know both the amount of the other parent's new gross taxable income amount and the date they started receiving it?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              checked: checked("parent-income", "Yes"),
+              text: "Yes"
+            },
+            {
+              value: "No",
+              checked: checked("parent-income", "No"),
+              text: "No"
+            }
+          ]
+        }) }}
+      
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Chat to an adviser
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h4 class="govuk-heading-s">Webchat</h4>
+          <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+          <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+{% endblock %}

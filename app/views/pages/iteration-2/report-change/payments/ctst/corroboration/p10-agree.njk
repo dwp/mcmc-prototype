@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Payment details</h1>
+      <p class="govuk-body">You have not changed any of the payment details.</p>
+
+      <br>
+
+      <form class="form" action="" method="POST">
+
+      {{ govukRadios({
+          idPrefix: "agreeParent",
+          name: "agreeParent",
+          fieldset: {
+            legend: {
+              text: "Do you agree with the information the other parent provided?",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

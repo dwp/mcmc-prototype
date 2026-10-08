@@ -1,0 +1,63 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from self-employment</span>
+      <h1 class="govuk-heading-l">What date did you start self-employment?</h1>
+     
+      <form method="post">
+        <div>
+                <div class="govuk-date-input" id="employment-day">
+                  <div id="event-name-hint" class="govuk-hint">
+                    For example, 27 3 2007
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="employment-day">Day</label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="employment-day" name="employment-day" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="employment-month">Month</label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="employment-month" name="employment-month" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="employment-year">Year</label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="employment-year" name="employment-year" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

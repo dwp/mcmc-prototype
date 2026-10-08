@@ -1,0 +1,95 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Payment details reported by the other parent</h1>
+      <p class="govuk-body">Date of first missed payment: {{data['dueDate']}}</p>
+      
+      {{ govukTable({
+          caption: "Dates and amounts",
+          captionClasses: "govuk-table__caption--m",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Date received"
+            },
+            {
+              text: "Amount received"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "3 Feb 2024"
+              },
+              {
+                text: "£70.15"
+              }
+            ],
+            [
+              {
+                text: "27 March 2024"
+              },
+              {
+                text: "£20.00"
+              }
+            ],
+            [
+              {
+                text: "17 July 2024"
+              },
+              {
+                text: "£0.00"
+              }
+            ]
+          ]
+        }) }}
+
+      <p class="govuk-body">Total amount due: £300</p>
+      <p class="govuk-body">Amount received: £90.15</p>
+      <p class="govuk-body">Outstanding amount: £209.85</p>
+
+      <br>
+
+      <form class="form" action="" method="POST">
+
+      {{ govukRadios({
+          idPrefix: "corroborateAgree",
+          name: "corroborateAgree",
+          fieldset: {
+            legend: {
+              text: "Do you agree with the information the other parent has given the Child Maintenance service?",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

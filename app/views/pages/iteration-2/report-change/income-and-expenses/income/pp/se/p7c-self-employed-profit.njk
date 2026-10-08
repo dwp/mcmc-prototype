@@ -1,0 +1,54 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from self-employment</span>
+      <h1 class="govuk-heading-l">What is your self-employed profit before tax and National Insurance?</h1>
+      <br>
+
+      <form method="post">
+        <div>
+        <p class="govuk-body">To work out your profit deduct your business expenses from your total business income for your accounting period (opens in a new tab). </p>
+        <p class="govuk-body">If you have not submitted a Self Assessment tax return you will need to enter your expected profit for your accounting period. </p>
+        <p class="govuk-body">What is your self-employed profit before tax and National Insurance? </p>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "income",
+          name: "income",
+          prefix: {
+            text: "£"
+          },
+          classes: "govuk-input--width-5"
+        }) }}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How often does Robin stay overnight with the other parent?
+      </h1>
+      <p class="govuk-body"><a class="govuk-link--no-visited-state" target="_blank" rel="noopener noreferrer" href="/onlinerevive/secure/shared-care-info/what-is-shared-care">How to work out your overnight arrangement (opens in a new tab).</a></p>
+
+      <form class="form" method="POST" action="corroboration-P4">
+      
+      {% set WeeklyHTML %}
+       {{ govukInput({
+        id: "howManyAWeek",
+        name: "howManyAWeek",
+        type: "number",
+        autocomplete: "number",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a week?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set FortnightlyHTML %}
+      {{ govukInput({
+        id: "howManyAFortnight",
+        name: "howManyAFortnight",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a fortnight?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set MonthlyHTML %}
+      {{ govukInput({
+        id: "howManyAMonth",
+        name: "howManyAMonth",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a month?"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set OtherHTML %}
+      {{ govukInput({
+        id: "howManyAYear",
+        name: "howManyAYear",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many overnight stays in a year"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "howOften",
+        items: [
+          {
+            value: "Weekly",
+            text: "Weekly",
+            conditional: {
+              html: WeeklyHTML
+            }
+          },
+          {
+            value: "Fortnightly",
+            text: "Fortnightly",
+            conditional: {
+              html: FortnightlyHTML
+            }
+          },
+          {
+            value: "Monthly",
+            text: "Monthly",
+            conditional: {
+              html: MonthlyHTML
+            }
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: OtherHTML
+            }
+          }
+        ]
+      }) }}
+
+      <legend class="govuk-heading-xl">
+        Does Robin spend any additional nights with the other parent that you have not already told us about?
+      </legend>
+      <div id="f-areThereExtraNights-hint" class="govuk-hint">
+        For example, a birthday or occasional nights during the school holidays.
+      </div>
+
+      {% set AdditionalHTML %}
+      {{ govukInput({
+        id: "howManyExtra",
+        name: "howManyExtra",
+        type: "number",
+        autocomplete: "number",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "How many nights?"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "additionalNights",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            conditional: {
+              html: AdditionalHTML
+            }
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

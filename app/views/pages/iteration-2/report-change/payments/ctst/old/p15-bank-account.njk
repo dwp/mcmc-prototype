@@ -1,0 +1,112 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}  
+  Payment service
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Which bank account do you want the Collect and Pay payments sent to?</h1>
+
+      <form method="post">
+      <div class="govuk-form-group">
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% call govukFieldset({
+  legend: {
+    text: "Bank or building society account details",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: true
+  }
+}) %}
+
+
+  {{ govukInput({
+    label: {
+      text: 'Name on the account'
+    },
+    id: "name-on-account",
+    name: "name-on-account",
+    value: data['name-on-account'] 
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: 'Sort code'
+    },
+    id: "sort-code",
+    name: "sort-code",
+    value: data['sort-code'],
+    hint: {
+    text: "Must be 6 digits long"
+  }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Account number"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "account-number",
+    name: "account-number",
+    value: data['account-number'],
+    hint: {
+    text: "Must be 8 digits long"
+  }
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Building society roll number (if you have one)"
+    },
+    classes: "govuk-input--width-10",
+    id: "roll-number",
+    name: "roll-number",
+    value: data['roll-number'],
+    hint: {
+    text: "You can find it on your card, statement or passbook"
+  }
+  }) }}
+
+{% endcall %}
+</div>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form>
+
+
+      <div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          If you need help with this change
+          </span>
+          </summary>
+
+          <div class="govuk-details__text">
+              <h4 class="govuk-heading-s">Webchat</h4>
+              <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+              <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  
+
+{% endblock %}

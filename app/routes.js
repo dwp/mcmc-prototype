@@ -616,3 +616,393 @@ router.post('/change-other-children-answer', function (req, res) {
     });   
 
     
+/// test- iteration 2 change to children ///
+
+router.get('/set-scenario/:scenario', function (req, res) {
+
+  req.session.data['scenario'] = req.params.scenario;
+
+  res.redirect('/pages/iteration-2/report-change/children-tree/which-child');
+
+});
+
+router.post('/pages/iteration-2/report-change/children-tree/mixed-role', function (req, res) {
+
+  if (req.session.data['mixedRole'] === 'paying-parent') {
+    req.session.data['scenario'] = 'pp-multi';
+  } else if (req.session.data['mixedRole'] === 'receiving-parent') {
+    req.session.data['scenario'] = 'rp';
+  }
+
+  res.redirect('/pages/iteration-2/report-change/children-tree/which-child');
+
+});
+
+router.post('/pages/iteration-2/report-change/children-tree/which-child', function (req, res) {
+
+  const scenario = req.session.data['scenario'];
+  const child = req.session.data['whichChild'];
+
+ // QC children
+if (
+  child === 'George' ||
+  child === 'Olivia' ||
+  child === 'Alex'
+) {
+
+  req.session.data['childType'] = 'QC';
+
+  return res.redirect('/pages/iteration-2/report-change/children-tree/what-has-changed');
+}
+
+// ROC children
+if (
+  child === 'Jade' ||
+  child === 'Joe' ||
+  child === 'Jasmine' 
+) {
+
+  req.session.data['childType'] = 'ROC';
+
+  return res.redirect('/pages/iteration-2/report-change/children-tree/what-has-changed');
+}
+
+  // New child to pay maintenance for
+  if (child === 'new-paying-child') {
+
+    if (scenario === 'pp-multi') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/who-will-receive-payments');
+    }
+
+    return res.redirect('/pages/iteration-2/report-change/children-tree/new-qc-before-you-continue');
+  }
+
+  // New child financially supported
+  if (child === 'new-supported-child') {
+    return res.redirect('/pages/iteration-2/report-change/children-tree/new-roc-before-you-continue');
+  }
+
+  // New child to receive maintenance for
+  if (child === 'new-receiving-child') {
+    return res.redirect('/pages/iteration-2/report-change/children-tree/who-will-make-payments');
+  }
+
+  // Another child a paying parent financially supports
+  if (child === 'another-supported-child') {
+    return res.redirect('/pages/iteration-2/report-change/children-tree/who-financially-supports');
+  }
+
+});
+
+router.post('/who-receives', function (req, res) {
+    var whoReceives = req.body['whoReceives']
+
+    if (whoReceives == "someone"){
+  
+      res.redirect('/pages/iteration-2/report-change/children-tree/new-qc-application')
+         
+    } else {
+        res.redirect('/pages/iteration-2/report-change/children-tree/new-qc-before-you-continue')
+    }
+  });
+
+router.post('/other-child-on-record-answer', function (req, res) {
+  var childRecord = req.body['childRecord']
+
+  if (childRecord == "yes"){
+  
+    req.session.data['childType'] = 'ROC'
+    res.redirect('/pages/iteration-2/report-change/children-tree/what-has-changed')
+         
+  } else {
+        res.redirect('/pages/iteration-2/report-change/children-tree/supporting-another-child')
+   }
+  });
+
+// What has changed 
+
+router.post('/pages/iteration-2/report-change/children-tree/what-has-changed', function (req, res) {
+
+  const scenario = req.session.data.scenario
+  const childType = req.session.data.childType
+  const whatChanged = req.body.whatChanged
+
+  // QC changes for multi cases
+ if (
+childType === 'QC' &&
+(
+whatChanged === 'shared-care' ||
+whatChanged === 'main-care' 
+)
+) {
+
+    if (scenario === 'pp-multi' || scenario === 'rp') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/report-more-than-2')
+    }
+
+    if (scenario === 'pp-qc-roc') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/report-2')
+    }
+  };  
+
+  // QC changes for adoption and FTE
+if (
+childType === 'QC' &&
+(
+whatChanged === 'adoption'
+)
+) {
+
+if (scenario === 'pp-multi' || scenario === 'pp-qc-roc' || scenario === 'pp-single-qc') {
+return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-1')
+}
+}
+
+if (
+childType === 'QC' &&
+(
+whatChanged === 'adoption'
+)
+) {
+
+if (scenario === 'rp') {
+    return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-2')
+    }
+  }
+
+if (
+childType === 'QC' &&
+(
+whatChanged === 'fte'
+)
+) {
+if (scenario === 'pp-multi' || scenario === 'pp-qc-roc' || scenario === 'pp-single-qc' || scenario === 'rp') {
+return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+}
+}
+
+   // QC changes for 1 child
+  if (
+    childType === 'QC' &&
+    scenario === 'pp-single-qc'
+  ) {
+
+  if (whatChanged === 'shared-care') {
+      return res.redirect('/pages/iteration-2/report-change/shared-care/children-on-record')
+    } 
+
+  if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/who-is-main-carer')
+    } 
+}
+
+  // ROC changes where PP has stopped financially supporting the child
+  if (
+    childType === 'ROC' &&
+     scenario === 'pp-qc-roc'
+  ) {
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/report-2')
+    }
+  }
+
+  if (
+    childType === 'ROC' &&
+     scenario === 'pp-multi'
+  ) {
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/report-more-than-2')
+    }
+  }
+
+
+  // ROC changes for RP
+  if (
+    childType === 'ROC' &&
+    scenario === 'rp'
+  ) {
+
+  if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/main-carer-roc')
+    } 
+
+  if (whatChanged === 'adoption') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-1')
+    }
+
+  if (whatChanged === 'fte') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+    }
+  }
+
+
+// ROC changes for all other PP scenarios
+if (
+childType === 'ROC' &&
+(
+scenario === 'pp-qc-roc' ||
+scenario === 'pp-multi'
+)
+) {
+ 
+if (whatChanged === 'adoption') {
+return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-2')
+}
+ 
+if (whatChanged === 'fte') {
+return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+}
+}
+});
+
+// PP and RP confirming whether changes apply to all children - more than 2 children in a case
+
+router.post('/pages/iteration-2/report-change/children-tree/report-more-than-2', function (req, res) {
+
+  const scenario = req.session.data.scenario
+  const childType = req.session.data.childType
+  const whatChanged = req.session.data.whatChanged
+
+  // QC - Paying Parent
+  if (
+    childType === 'QC' &&
+    (scenario === 'pp-multi' || scenario === 'pp-qc-roc')
+  ) {
+
+    if (whatChanged === 'shared-care') {
+      return res.redirect('/pages/iteration-2/report-change/shared-care/children-on-record')
+    }
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/who-is-main-carer')
+    }
+  }
+
+  // QC - Receiving Parent
+  if (
+    childType === 'QC' &&
+    scenario === 'rp'
+  ) {
+
+    if (whatChanged === 'shared-care') {
+      return res.redirect('/pages/iteration-2/report-change/shared-care/children-on-record')
+    }
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/payments-will-change')
+    }
+
+    if (whatChanged === 'adoption') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-2')
+    }
+
+    if (whatChanged === 'fte') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+    }
+  }
+
+  // ROC - Paying Parent
+  if (
+    childType === 'ROC' &&
+    (scenario === 'pp-multi')
+  ) {
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/payments-may-change')
+    }
+
+    if (whatChanged === 'adoption') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-2')
+    }
+
+    if (whatChanged === 'fte') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+    }
+  }
+
+})
+
+// PP and RP confirming whether changes apply to all children - 2 children in case
+
+router.post('/pages/iteration-2/report-change/children-tree/report-2', function (req, res) {
+
+  const scenario = req.session.data.scenario
+  const childType = req.session.data.childType
+  const whatChanged = req.session.data.whatChanged
+
+if (
+childType === 'QC' &&
+(scenario === 'pp-qc-roc'
+)
+) {
+
+    if (whatChanged === 'shared-care') {
+      return res.redirect('/pages/iteration-2/report-change/shared-care/children-on-record')
+    }
+
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/who-is-main-carer')
+    }
+    }
+
+  // ROC - Paying Parent
+  if (
+    childType === 'ROC' &&
+    (scenario === 'pp-qc-roc')
+  ) {
+
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/payments-may-change')
+    }
+
+    if (whatChanged === 'adoption') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/adoption-2')
+    }
+
+    if (whatChanged === 'fte') {
+      return res.redirect('/pages/iteration-2/report-change/children-tree/fte')
+    }
+  }
+
+  
+if (childType === 'QC' &&
+  scenario === 'rp'
+  ){
+
+    if (whatChanged === 'shared-care') {
+      return res.redirect('/pages/iteration-2/report-change/shared-care/children-on-record')
+    }
+
+  
+    if (whatChanged === 'main-care') {
+      return res.redirect('/pages/iteration-2/report-change/primary-care/payments-will-change')
+}
+}
+});
+
+  router.post('//main-carer-answer', function (req, res) {
+    var mainCarer = req.body['mainCarer']
+ 
+    if (mainCarer == "me"){
+    
+      res.redirect('/pages/iteration-2/report-change/primary-care/before-you-continue')
+          
+    } else {
+          res.redirect('pages/change-to-main-carer/evidence')
+    }
+    });  
+
+router.post('/who-pays', function (req, res) {
+  var whoPays = req.body['whoPays']
+
+  if (whoPays == "someone"){
+  
+    res.redirect('/pages/iteration-2/report-change/children-tree/new-qc-application')
+         
+  } else {
+        res.redirect('/pages/iteration-2/report-change/children-tree/new-qc-before-you-continue')
+   }
+  });

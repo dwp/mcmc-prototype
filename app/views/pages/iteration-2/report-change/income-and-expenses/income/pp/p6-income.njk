@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl govuk-!-padding-bottom-2">Income from employment</span>
+      <h1 class="govuk-heading-xl">Gross basic employment pay</h1>
+      <p class="govuk-body">Your gross basic employment pay is your yearly income from employment before tax and National Insurance. If you have more than 1 job it is the total amount of all your pay. </p>
+      <p class="govuk-body">Gross basic employment pay does not include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>Overtime</li>
+            <li>Performance related bonus or incentive</li>
+            <li>Commission</li>
+            <li>Cash value of taxable company benefits in kind</li>
+            <li>Pension contributions</li>
+      </ul>
+      <br>
+
+      <form method="post">
+        <div>
+        <h2 class="govuk-heading-m">What is your yearly gross basic employment pay before tax and national insurance?</h2>
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "income",
+          name: "income",
+          prefix: {
+            text: "£"
+          },
+          classes: "govuk-input--width-5"
+        }) }}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

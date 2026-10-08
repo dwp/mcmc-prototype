@@ -1,0 +1,166 @@
+{% extends "layouts/main.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Medical care
+      </h1>
+    
+      <h2 class="govuk-heading-l">
+        Who arranges dentist appointments and goes with Bill?
+      </h2>
+
+    
+
+      <form class="form" method="POST" action="fun">
+      
+             {% set OtherArrangementMeals %}
+            {{ govukCharacterCount({
+        name: "costMeals",
+        id: "costMeals",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "costClothes",
+        id: "costClothes",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "clothes",
+        items: [
+          {
+            value: "Me",
+            text: "I do"
+          },
+          {
+            value: "Other",
+            text: "The other parent does"
+
+          },
+          {
+            value: "equally",
+            text: "They equally do this"
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangement
+            }
+          }
+        ]
+      }) }}
+
+           <h2 class="govuk-heading-l">
+        Who arranges doctors appointments and goes with Bill?
+      </h2>
+
+      
+             {% set OtherArrangementMeals %}
+            {{ govukCharacterCount({
+        name: "costMeals",
+        id: "costMeals",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {% set OtherArrangement %}
+            {{ govukCharacterCount({
+        name: "costClothes",
+        id: "costClothes",
+        maxlength: 200,
+        label: {
+            text: "",
+            classes: "govuk-label--l",
+            isPageHeading: false
+        },
+        hint: {
+            text: "Tell us more about your other arrangement if you need to. It may take longer to get a decision on your change if you give us extra details"
+        }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "clothes",
+        items: [
+          {
+            value: "Me",
+            text: "I do"
+          },
+          {
+            value: "Other",
+            text: "The other parent does"
+
+          },
+          {
+            value: "equally",
+            text: "They equally do this"
+
+          },
+           {
+            divider: "or"
+            },
+          {
+            value: "Other",
+            text: "We have another arrangement",
+            conditional: {
+              html: OtherArrangement
+            }
+          }
+        ]
+      }) }}
+
+
+    
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

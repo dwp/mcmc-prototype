@@ -1,0 +1,89 @@
+{% extends "layouts/layout.njk" %}
+
+{% block header %}
+  {# {% include "includes/header_handover.njk" %} #}
+  {% include "includes/header.njk" %}
+  {% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/partials/account-menu.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+<br>
+  </br>
+  <dev>
+ <strong class="govuk-tag govuk-tag--yellow">
+    Content TBC
+ </strong>
+</dev>
+<br>
+</br>
+
+<div>
+<h1 class="govuk-heading-xl">Before you continue</h1>
+</div>
+<div>
+<p class="govuk-body">You will need the new child's:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>full name</li>
+  <li>date of birth</li>
+  <li>National Insurance or Child Benefit number, if they have one</li>
+</ul>
+</div>
+
+<div>
+<p class="govuk-body">If you have a private arrangement, you will also need how much you pay and how often.</p>
+</div>
+
+<div>
+<h2 class="govuk-heading-l">Sending evidence</h2>
+</div>
+<p class="govuk-body">You should send evidence if you can. We will ask you to upload it to your account within X days.
+  <br>
+</br>
+If you do not have evidence, you can still report and we will make a decision using the information we have.
+</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What we can accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Evidence can include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>proof of entitlement to Child Benefit</li>  
+      <li>a Child Benefit award notice</li>
+      <li>bank statements showing your Child Benefit payments</li> 
+      <li>payslips, where you do not claim Child Benefit</li>
+      <li>a UK court order</li>
+      <li>>a written maintenance agreement drawn up by a solicitor</li> 
+      <li>an informal written agreement signed by you and the parent receiving your private payments</li>
+      <li>a foreign court order</li>
+      <li>a liability order set under a foreign state's child support scheme</li>
+    </ul>
+  </div>
+</details>
+
+<div>
+<h2 class="govuk-heading-l">Your payments may change</h2>
+</div>
+<div>
+<p class="govuk-body">The child you report may affect your child maintenance payments.</p>
+</div>
+<div>
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+</div>
+</div>
+
+{% endblock %}

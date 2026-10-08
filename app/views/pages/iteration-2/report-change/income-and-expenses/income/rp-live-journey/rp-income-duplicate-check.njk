@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Change of income</h1>
+
+      <p class="govuk-body">We are already dealing with a request for a change of income. This request needs to be completed before another change of income can be reported.</p>
+
+      <p class="govuk-body">We will contact you once everything is complete.</p>
+
+      <p class="govuk-body">You can upload evidence to support your previous request.</p>
+
+      <p class="govuk-body"><a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear).</p>
+
+      <p class="govuk-body">Make sure your <a href="#" class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+      
+      <a href="rp-income-which-case" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Return to homepage
+      </a>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Chat to an adviser
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

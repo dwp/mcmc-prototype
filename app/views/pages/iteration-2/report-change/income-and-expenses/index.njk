@@ -1,0 +1,45 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Income and expenses
+{% endblock %}
+
+{% block content %}
+  <p class="govuk-body"><a href="/pages/welcome-pp" class="govuk-back-link">Back to Report a Change</a></p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Income and expenses</h1>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+
+          {% if (data['nino'] === "PP123456A") %} 
+          <h3 class="govuk-heading-m"><a href="/pages/report-change/income-and-expenses/income/pp/p1-start" class="govuk-link">Income</a></h3>
+          {% elseif (data['nino'] === "PP123456B") %}
+          <h3 class="govuk-heading-m"><a href="/pages/report-change/income-and-expenses/income/pp/p1-start" class="govuk-link">Income</a></h3>
+          {% else %}
+          <h3 class="govuk-heading-m"><a href="/pages/report-change/income-and-expenses/income/pp/p1-start">Income</a></h3>
+          {% endif %}
+
+          <p class="govuk-body">Let us know if the gross taxable income we used to calculate your child maintenance has increased or decreased.</p>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m">
+            <a class="govuk-link"  href="#">Additional income</a>
+          </h3>
+          <p class="govuk-body">Ask us to look at certain types of taxable income that have not been considered for your child maintenance calculation.</p>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m">
+            <a class="govuk-link"  href="#">Special expenses</a>
+          </h3>
+          <p class="govuk-body">Let us know about any special expenses you want us to consider when your child maintenance is calculated.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  {% endblock %}

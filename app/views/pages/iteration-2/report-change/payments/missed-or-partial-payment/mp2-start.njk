@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Missed or partial payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <br>
+      <h1 class="govuk-heading-xl">Missed or partial payment</h1>
+
+      <p class="govuk-body">A payment is missed when the receiving parent has:</p>
+      <ul class="govuk-list govuk-list--bullet">
+            <li>not received any payment 5 days after the date detailed on the payment plan. It can take up to 5 days for a payment to reach the receiving parent’s account</li>
+            <li>received less than 90% of the amount detailed on the payment plan</li>
+      </ul>
+      <p class="govuk-body">Find out <a class="govuk-link" href="#">what we can do to enforce the collection of unpaid child maintenance (opens in a new tab)</a>.</p>
+
+      <h2 class="govuk-heading-l">Collect and Pay service</h2>
+      <p class="govuk-body">We know when a payment is missed or not paid in full. We will take the appropriate action to recover the payment.</p>
+
+      <h2 class="govuk-heading-l">Direct Pay service</h2>
+      <p class="govuk-body">Contact the other parent if a payment is missed or not paid in full, it's the quickest way to sort it out. If this is not possible, the receiving parent needs to ask us to take action.<br><br>This could result in you having to use our Collect and Pay service and pay collection fees.</p>
+      <br>
+
+      <a href="/pages/report-change/payments/missed-or-partial-payment/mp4-can-you-speak-to-other-parent" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+  Start now
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg></a>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Chat to an adviser
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

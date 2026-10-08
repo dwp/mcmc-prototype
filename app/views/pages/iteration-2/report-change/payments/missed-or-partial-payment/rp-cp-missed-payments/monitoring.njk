@@ -1,0 +1,66 @@
+{% extends "layouts/layout.njk" %}
+{% from "includes/macros/payment-toast.njk" import createToast %}
+
+{% block content %}
+	{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+	<br></br>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-7">We’re aware of unpaid child maintenance on your case</h1>
+			
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-width-one-third">
+					Case status
+					</dt>
+					<dd class="govuk-summary-list__value">
+					<strong class="govuk-tag govuk-tag--yellow">monitoring</strong>
+					<p class="govuk-body govuk-!-padding-top-2">We’ll try to take the most recent payment again and keep recording missed payments.</p>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key ">
+					Unpaid child maintenance this annual review period
+					</dt>
+					<dd class="govuk-summary-list__value govuk-heading-m govuk-!-padding-top-3">
+					£382.91
+					<p class="govuk-hint govuk-!-padding-top-2">This is the amount unpaid since 12 March 2022</p>
+					</dd>		
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key ">
+					Previous unpaid child maintenance
+					</dt>
+					<dd class="govuk-summary-list__value govuk-heading-m govuk-!-padding-top-3">
+					£4,831.50
+					</dd>		
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					Total unpaid child maintenance
+					</dt>
+					<dd class="govuk-summary-list__value govuk-heading-l govuk-!-padding-top-3">
+					£5,214.41
+					</dd>
+				</div>
+			</dl>
+			<p class="govuk-body">If the other parent continues not to pay we can enforce the payment of child maintenance.</p>
+			<p class="govuk-body">Find out<a href="/pages/report-change/payments/missed-or-partial-payment/c&p-enforcement-action-1" class="govuk-link"> how the Child Maintenance Service can enforce the payment of child maintenance</a>.</p>
+			<details class="govuk-details" data-module="govuk-details">
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">
+					How you can help us recover unpaid child maintenance
+					</span>
+				</summary>
+				<div class="govuk-details__text">
+					Providing information about the other parent might help us recover money owed to you.<br><br>
+					<a href="extra-information" class="govuk-link">Provide extra information</a>
+				</div>
+			</details>
+		</div>
+	</div>
+{% endblock %}

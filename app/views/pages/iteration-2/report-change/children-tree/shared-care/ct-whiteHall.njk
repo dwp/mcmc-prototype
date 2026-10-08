@@ -1,0 +1,31 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Whitehall Guide</h1>
+      <p class="govuk-body">This link will take you to a guide on gov.uk It will explain children's living arrangements and how they affect payment amounts including:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>overnight shared care</li>
+        <li>day-to-day primary care</li>
+        <li>other children the paying parent supports</li>
+      </ul>
+
+      <form class="form" action="ct-outcomeBandOver175" method="POST">
+
+      <button type="submit" class="govuk-button">
+        Go back
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

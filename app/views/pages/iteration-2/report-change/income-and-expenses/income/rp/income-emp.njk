@@ -1,0 +1,67 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Does the paying parent earn any income from employment?
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/pages/report-change/income-and-expenses/income/rp/income-self-emp" method="post">
+        {{ govukRadios({
+          idPrefix: "income-emp",
+          name: "income-emp",
+          fieldset: {
+            legend: {
+              text: "Does the paying parent earn any income from employment?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legen govuk-!-margin-bottom-9 govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              checked: checked("income-emp", "Yes"),
+              text: "Yes"
+            },
+            {
+              value: "No",
+              checked: checked("income-emp", "No"),
+              text: "No"
+            }
+          ]
+        }) }}
+      
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If you need help with this change
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h4 class="govuk-heading-s">Webchat</h4>
+          <p class="govuk-body">We can only support you to report a change online. If you need to discuss specific details about your case you will need to <a href="https://www.gov.uk/child-maintenance-service/contact">call us (opens in a new tab)</a>.</p>
+      
+          <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p> 
+      
+          <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 6pm (except public holidays).</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

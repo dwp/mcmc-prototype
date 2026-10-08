@@ -1,0 +1,82 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     {{ govukPanel({
+        titleText: "You need to give us the evidence you have",
+        html: ""
+      }) }}
+
+      <p class="govuk-body">
+        We have received your report about the change to Bill's overnight shared care. 
+      </p>
+
+      <p class="govuk-body">
+        We are also looking into a change to Bill's primary care because of the number of shared care nights you reported.
+      </p>
+
+      <h2 class="govuk-heading-m">What you need to do</h2>
+
+      <p class="govuk-body">
+        Upload the evidence by 14 February: 
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>You told us you have a court order as evidence of shared care</li>
+        <li>We gave you a list of evidence for primary care</li>
+      </ul>
+
+      <div class="govuk-inset-text">
+       If you do not upload evidence by this date, we may not be able to make the change.
+      </div>
+            
+      <form class="form" action="ct-confirmation" method="POST">
+
+      <button type="submit" class="govuk-button">
+       Upload evidence
+      </button>
+	 </form>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+       We will:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>Ask the other parent the same questions</li>
+        <li>Look at the information we have from you both</li>
+        <li>Tell you the progress we have made on our decision in <a href="#" class="govuk-link">track changes</a></li>
+        <li>Send you a letter in <a href="#" class="govuk-link">notifications</a> to let you know about any changes and the effect on your payments</li>
+      </ul>
+
+      <p class="govuk-body">
+       If we decide Bill's primary carer has changed:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>We will close your case where you pay for Bill after notifying you</li>
+        <li>You will need to <a href="#" class="govuk-link">apply for a new case</a> as a receiving parent.</li>
+        <li>We will let you know when to apply for a new case</li>
+      </ul>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">View your change in track changes.</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+       <p class="govuk-body">
+       If you need help, <a href="#" class="govuk-link">contact us</a>.
+      </p>
+
+
+	  </div>
+	  </div>
+
+{% endblock %}

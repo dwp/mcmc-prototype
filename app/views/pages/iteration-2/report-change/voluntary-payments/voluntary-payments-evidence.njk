@@ -1,0 +1,60 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Evidence of a voluntary payment
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/pages/report-change/voluntary-payments/voluntary-payments-evidence" method="post" novalidate>
+        <h1 class="govuk-heading-xl">Evidence of a voluntary payment</h1>
+        <p class="govuk-body">Evidence can include, for example, a copy of your bank statement.</p>
+        <p class="govuk-body">We can only consider the impact of the payments on child maintenance if (one of the following):</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>you provide evidence</li>
+          <li>the other parent confirms the payment is for child maintenance</li>
+        </ul>
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "f-evidence",
+            name: "evidenceYesNo",
+            fieldset: {
+              legend: {
+                text: "Do you have evidence to support your voluntary payment?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: t.common.yes | safe,
+                hint: {
+                  text: "You can upload your evidence once you have completed your report."
+                },
+                checked: checked("evidenceYesNo", "Yes")
+              },
+              {
+                value: "No",
+                text: t.common.no | safe,
+                hint: {
+                  text: "You need to upload any available evidence within 14 days."
+                },
+                checked: checked("evidenceYesNo", "No")
+              }
+            ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

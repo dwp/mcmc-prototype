@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Written agreement
+      </h1>
+      <p class="govuk-body"> If the other parent disagrees with this change we will make a decision using the information we have from both of you. <br></br>
+        If you have a written agreement in place you can upload it as evidence to show your overnight arrangement has changed. <br></br>
+        We can only accept these types of written agreements as evidence: 
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>a current court order</li>
+        <li>a formal agreement, for example drawn up by a solicitor</li>
+        <li>another official document, for example Children and Family Court Advisory and Support Service (CAFCASS) or Social Services reports</li>
+      </ul>
+
+      <form class="form" method="POST" action="corroboration-P6">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

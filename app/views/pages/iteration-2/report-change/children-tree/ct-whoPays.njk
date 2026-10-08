@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Who will be making payments for this child? </h1>
+
+      <form class="form" action="ct-addNewChild" method="POST">
+
+        {{ govukRadios({
+          idPrefix: "childrentree-newChild",
+          name: "childrentree-newChild",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "BrianParent",
+              text: "The other parent of Brian, Ben and 2 others"
+            },
+            {
+              value: "Alexparent",
+              text: "The other parent of Alex"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-inset-text">
+          You cannot make changes relating to John's Children <br><br> <a href="#" class="govuk-link">Why is this?</a>
+        </div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

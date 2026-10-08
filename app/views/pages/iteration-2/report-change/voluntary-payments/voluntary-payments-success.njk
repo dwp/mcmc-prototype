@@ -1,0 +1,43 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+  Voluntary payments success
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      
+      {{ govukPanel({
+        titleText: "We have received your report"
+      }) }}
+      <h2 class="govuk-heading-l">What happens next?</h2>
+      {% if data['voluntary-payments-userType'] === 'NRP' %}
+        <p class="govuk-body">We will review your report and contact the other parent within 30 days.</p>
+        <p class="govuk-body">If there is:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> a change to your child maintenance payment, we will send you a new payment plan. It will explain the payment amounts and date</li>
+          <li>no change or a need for more information, we will contact you</li>
+        </ul>
+        <h3 class="govuk-heading-m">Upload evidence</h3>
+        <p class="govuk-body">Upload any evidence you have to support your voluntary payment.</p>
+        <p class="govuk-body"><a href="/pages/messages/upload-evidence/start" class="govuk-button">Upload evidence</a></p>
+        <p class="govuk-body">If you do not have evidence now, you have 14 days to upload it. If we do not receive it within 14 days, we will cancel your report.</p>
+        <p class="govuk-body"><a href="/pages/track-changes"  class="govuk-link">Check the progress of any changes you have reported</a>  (it may take up to 30 seconds for your change to appear).</p>
+
+        <p class="govuk-body">Make sure your <a href="/pages/my-details-and-circumstances"  class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+      {% else %}
+        <p class="govuk-body">We will review your report within 15 days.</p>
+        <p class="govuk-body">If there is:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> a change to your child maintenance payment, we will send you a new payment plan. It will explain the payment amounts and date</li>
+          <li>no change or a need for more information, we will contact you</li>
+        </ul>
+        <p class="govuk-body"><a href="/pages/track-changes"  class="govuk-link">Check the progress of any changes you have reported</a>  (it may take up to 30 seconds for your change to appear).</p>
+
+        <p class="govuk-body">Make sure your <a href="/pages/my-details-and-circumstances"  class="govuk-link">contact details and preferences</a> are up to date in case we need to contact you.</p>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

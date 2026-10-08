@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "We have received your request",
+        html: ""
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        We’ll review your request. Before we can process it we need to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>contact the other parent to make sure we have all the correct information</li>
+        <li>complete any previously reported changes that may impact this request</li>
+      </ul>
+
+      <div class="govuk-inset-text">
+        We do not need the agreement of the paying parent to change your case to Collect and Pay.
+      </div>
+      
+      </br>
+
+      <h3 class="govuk-heading-s">If we approve your request to change to Collect and Pay</h3>
+      <p class="govuk-body">
+       We’ll send you a new expected payment plan, explaining the payment amount and dates. Payments will be collected by us and passed on.
+       <br></br>
+       We will let you know when we have made our decision and any changes to your payment plan.
+      </p>
+
+      <h3 class="govuk-heading-s">If we cannot approve your request to change to Collect and Pay</h3>
+      <p class="govuk-body">
+       We will contact you to let you know. If we need more information before deciding, we will contact you to discuss your case.
+      </p>
+
+      </br>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Check the progress of the change you have reported</a> (it may take up to 30 seconds for your change to appear)
+      </p>
+
+      <p class="govuk-body">
+       Make sure your <a href="#" class="govuk-link">contact details</a> are up to date in case we need to contact you.
+      </p>
+
+       <a type="submit" href="/pages/welcome" class="govuk-button govuk-button--secondary">
+        Return to homepage
+       </a>
+
+	  </div>
+	  </div>
+
+{% endblock %}

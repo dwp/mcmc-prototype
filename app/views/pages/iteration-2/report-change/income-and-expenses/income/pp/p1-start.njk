@@ -1,0 +1,82 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Change of income
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">When an income change affects your calculation</h1>
+
+      <p class="govuk-body">If your income is changing in the future, complete this report on or after the date it changes.</p>
+      <p class="govuk-body">An income change will only affect your current calculation if your income has changed by 25% or more. If your income has changed by less than 25% your calculation will stay the same until your annual review on 26 June 2025.</p>
+
+      <h2 class="govuk-heading-m">Information we currently base your calculation on</h2>
+      <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+                Gross annual income after pension contributions have been deducted
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £24,369.01
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+                Where we got your income amount
+              </dt>
+              <dd class="govuk-summary-list__value">
+                HM Revenue and Customs
+              </dd>
+            </div>
+        </dl>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body">If your gross annual income has changed by £6092.25, your calculation will be affected. This is 25% of the income we currently hold for you.</p>
+      </div>
+
+      <h2 class="govuk-heading-m">Do you still want to report a change of income?</h2>
+     
+      <form method="post">
+        <div>
+
+      {{ govukRadios({
+            idPrefix: "stillWantReport",
+            name: "stillWantReport",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+        }) }}
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help with this change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h4 class="govuk-heading-s">Webchat</h4>
+    <p class="govuk-body">We do not accept any behaviour that is abusive or threatening to our staff. We will end the webchat if your behaviour is unacceptable.</p>
+    <p class="govuk-body"><a class="govuk-link" href="#">Start webchat</a><br>Monday to Friday, 8am to 7:30pm (except public holidays) <br> Saturday, 9am to 1pm.</p>
+  </div>
+</details>
+
+{% endblock %}

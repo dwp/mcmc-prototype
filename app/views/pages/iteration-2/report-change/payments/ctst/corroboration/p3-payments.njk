@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Payment details</h1>
+      <p class="govuk-body">The other parent has told us you have missed payments.</p>
+      <p class="govuk-body">You have disagreed with this.</p>
+      <p class="govuk-body">You must now tell us about any payments you have made since 3 May 2024.</p>
+      <p class="govuk-body">You can either add a payment or select change. If you select change, you will be able to change the date or the amount the other parent has reported, or remove the payment completely.</p>
+      <p class="govuk-body">The date the other parent received the payment may be a few days after you made the payment.</p>
+      
+      <h1 class="govuk-heading-l">Payments you have made</h1>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date received</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Amount received</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-left govuk-table__header--numeric">Change</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric govuk-!-width-one-half">3 May 2023</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£70.15</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="">Change</a> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric govuk-!-width-one-half">22 June 2024</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£20.00</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="">Change</a> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric govuk-!-width-one-half">17 July 2024</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-table__cell--numeric">£0</td>
+            <td class="govuk-table__cell govuk-!-text-align-left govuk-link"> <a class="govuk-link" href="/pages/report-change/payments/ctst/corroboration/p3d-changepayment">Change</a> </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+  
+  <p class="govuk-body"><a href="/pages/report-change/payments/ctst/corroboration/p3b-addpayment" class="govuk-link">Add another payment</a></p>
+
+   <form class="form" action="p10-agree" method="POST">
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

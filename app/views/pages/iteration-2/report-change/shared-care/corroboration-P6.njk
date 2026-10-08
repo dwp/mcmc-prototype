@@ -1,0 +1,56 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What type of written agreement is in place?</h1>
+      <div id="f-nightsInLocalAuthority-hint" class="govuk-hint"> If you have more than one type of written agreement you only need to select one option.</div>
+
+      <form class="form" method="POST" action="corroboration-CA">
+
+       {{ govukRadios({
+        name: "writtenAgreement",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "A current court order",
+            text: "A current court order"
+          },
+          {
+            value: "A formal agreement, for example drawn up by a solicitor",
+            text: "A formal agreement, for example drawn up by a solicitor"
+          },
+          {
+            value: "Another official document, for example Children and Family Court Advisory and Support Service (CAFCASS) or Social Services reports",
+            text: "Another official document, for example Children and Family Court Advisory and Support Service (CAFCASS) or Social Services reports"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "None",
+            text: "I do not have a written agreement",
+            hint: {
+                text: "You can still report a change to shared care without a written agreement. If the other parent disagrees we will need a written agreement as evidence shared care has changed."
+              }
+          }
+        ]
+      }) }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}

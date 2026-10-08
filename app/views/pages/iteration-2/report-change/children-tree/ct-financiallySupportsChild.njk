@@ -1,0 +1,59 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+}}
+
+	<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Who has the same parents as the child you are reporting?</h2>
+
+      <form class="form" action="financially-supports/ct-financiallySupports" method="POST">
+      <p class="govuk-hint">We group your children in cases according to their other parent.</p>
+
+        {{ govukRadios({
+          idPrefix: "childrentree-financiallySupports",
+          name: "childrentree-financiallySupports",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: no,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Bill, Bob and 1 other",
+              text: "Bill, Bob and 1 other"
+            },
+            {
+              value: "Bill",
+              text: "Bill",
+               hint: {
+                text: "Born 6 September 2017"
+              }
+            },
+            {
+              value: "Alex",
+              text: "Alex"
+            }
+          ]
+        }) }}
+
+          <div class="govuk-inset-text">
+          Your case for Sophie, Jack and 2 others has now closed so you cannot tell us about their paying parent's other children. 
+        </div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+	 </form>
+
+	  </div>
+	  </div>
+
+{% endblock %}
