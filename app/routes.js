@@ -983,7 +983,7 @@ if (childType === 'QC' &&
 }
 });
 
-  router.post('//main-carer-answer', function (req, res) {
+  router.post('/primary-carer-answer', function (req, res) {
     var mainCarer = req.body['mainCarer']
  
     if (mainCarer == "me"){
